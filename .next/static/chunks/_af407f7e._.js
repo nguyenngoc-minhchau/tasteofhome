@@ -1,18 +1,21 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_af407f7e._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push([typeof document === "object" ? document.currentScript : undefined, {
 
 "[project]/lib/utils.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "cn": (()=>cn)
+    "cn": ()=>cn
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
 ;
 ;
-function cn(...inputs) {
+function cn() {
+    for(var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++){
+        inputs[_key] = arguments[_key];
+    }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -22,11 +25,11 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/button.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Button": (()=>Button),
-    "buttonVariants": (()=>buttonVariants)
+    "Button": ()=>Button,
+    "buttonVariants": ()=>buttonVariants
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
@@ -58,7 +61,8 @@ const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         size: "default"
     }
 });
-function Button({ className, variant, size, asChild = false, ...props }) {
+function Button(param) {
+    let { className, variant, size, asChild = false, ...props } = param;
     const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "button";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "button",
@@ -85,22 +89,23 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/card.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Card": (()=>Card),
-    "CardAction": (()=>CardAction),
-    "CardContent": (()=>CardContent),
-    "CardDescription": (()=>CardDescription),
-    "CardFooter": (()=>CardFooter),
-    "CardHeader": (()=>CardHeader),
-    "CardTitle": (()=>CardTitle)
+    "Card": ()=>Card,
+    "CardAction": ()=>CardAction,
+    "CardContent": ()=>CardContent,
+    "CardDescription": ()=>CardDescription,
+    "CardFooter": ()=>CardFooter,
+    "CardHeader": ()=>CardHeader,
+    "CardTitle": ()=>CardTitle
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
-function Card({ className, ...props }) {
+function Card(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm", className),
@@ -112,7 +117,8 @@ function Card({ className, ...props }) {
     }, this);
 }
 _c = Card;
-function CardHeader({ className, ...props }) {
+function CardHeader(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-header",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6", className),
@@ -124,7 +130,8 @@ function CardHeader({ className, ...props }) {
     }, this);
 }
 _c1 = CardHeader;
-function CardTitle({ className, ...props }) {
+function CardTitle(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-title",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("leading-none font-semibold", className),
@@ -136,7 +143,8 @@ function CardTitle({ className, ...props }) {
     }, this);
 }
 _c2 = CardTitle;
-function CardDescription({ className, ...props }) {
+function CardDescription(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-description",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-muted-foreground text-sm", className),
@@ -148,7 +156,8 @@ function CardDescription({ className, ...props }) {
     }, this);
 }
 _c3 = CardDescription;
-function CardAction({ className, ...props }) {
+function CardAction(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-action",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className),
@@ -160,7 +169,8 @@ function CardAction({ className, ...props }) {
     }, this);
 }
 _c4 = CardAction;
-function CardContent({ className, ...props }) {
+function CardContent(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-content",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("px-6", className),
@@ -172,7 +182,8 @@ function CardContent({ className, ...props }) {
     }, this);
 }
 _c5 = CardContent;
-function CardFooter({ className, ...props }) {
+function CardFooter(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-footer",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center px-6 [.border-t]:pt-6", className),
@@ -200,16 +211,17 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/input.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Input": (()=>Input)
+    "Input": ()=>Input
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
-function Input({ className, type, ...props }) {
+function Input(param) {
+    let { className, type, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
         type: type,
         "data-slot": "input",
@@ -232,10 +244,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/label.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Label": (()=>Label)
+    "Label": ()=>Label
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-label/dist/index.mjs [app-client] (ecmascript)");
@@ -244,7 +256,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Label({ className, ...props }) {
+function Label(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "label",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50", className),
@@ -266,11 +279,11 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/badge.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Badge": (()=>Badge),
-    "badgeVariants": (()=>badgeVariants)
+    "Badge": ()=>Badge,
+    "badgeVariants": ()=>badgeVariants
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
@@ -293,7 +306,8 @@ const badgeVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_m
         variant: "default"
     }
 });
-function Badge({ className, variant, asChild = false, ...props }) {
+function Badge(param) {
+    let { className, variant, asChild = false, ...props } = param;
     const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "span";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "badge",
@@ -318,12 +332,12 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/avatar.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Avatar": (()=>Avatar),
-    "AvatarFallback": (()=>AvatarFallback),
-    "AvatarImage": (()=>AvatarImage)
+    "Avatar": ()=>Avatar,
+    "AvatarFallback": ()=>AvatarFallback,
+    "AvatarImage": ()=>AvatarImage
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-avatar/dist/index.mjs [app-client] (ecmascript)");
@@ -332,7 +346,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Avatar({ className, ...props }) {
+function Avatar(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "avatar",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("relative flex size-8 shrink-0 overflow-hidden rounded-full", className),
@@ -344,7 +359,8 @@ function Avatar({ className, ...props }) {
     }, this);
 }
 _c = Avatar;
-function AvatarImage({ className, ...props }) {
+function AvatarImage(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Image"], {
         "data-slot": "avatar-image",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("aspect-square size-full", className),
@@ -356,7 +372,8 @@ function AvatarImage({ className, ...props }) {
     }, this);
 }
 _c1 = AvatarImage;
-function AvatarFallback({ className, ...props }) {
+function AvatarFallback(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$avatar$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fallback"], {
         "data-slot": "avatar-fallback",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-muted flex size-full items-center justify-center rounded-full", className),
@@ -380,19 +397,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/dialog.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Dialog": (()=>Dialog),
-    "DialogClose": (()=>DialogClose),
-    "DialogContent": (()=>DialogContent),
-    "DialogDescription": (()=>DialogDescription),
-    "DialogFooter": (()=>DialogFooter),
-    "DialogHeader": (()=>DialogHeader),
-    "DialogOverlay": (()=>DialogOverlay),
-    "DialogPortal": (()=>DialogPortal),
-    "DialogTitle": (()=>DialogTitle),
-    "DialogTrigger": (()=>DialogTrigger)
+    "Dialog": ()=>Dialog,
+    "DialogClose": ()=>DialogClose,
+    "DialogContent": ()=>DialogContent,
+    "DialogDescription": ()=>DialogDescription,
+    "DialogFooter": ()=>DialogFooter,
+    "DialogHeader": ()=>DialogHeader,
+    "DialogOverlay": ()=>DialogOverlay,
+    "DialogPortal": ()=>DialogPortal,
+    "DialogTitle": ()=>DialogTitle,
+    "DialogTrigger": ()=>DialogTrigger
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-dialog/dist/index.mjs [app-client] (ecmascript)");
@@ -403,7 +420,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Dialog({ ...props }) {
+function Dialog(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "dialog",
         ...props
@@ -414,7 +432,8 @@ function Dialog({ ...props }) {
     }, this);
 }
 _c = Dialog;
-function DialogTrigger({ ...props }) {
+function DialogTrigger(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
         "data-slot": "dialog-trigger",
         ...props
@@ -425,7 +444,8 @@ function DialogTrigger({ ...props }) {
     }, this);
 }
 _c1 = DialogTrigger;
-function DialogPortal({ ...props }) {
+function DialogPortal(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
         "data-slot": "dialog-portal",
         ...props
@@ -436,7 +456,8 @@ function DialogPortal({ ...props }) {
     }, this);
 }
 _c2 = DialogPortal;
-function DialogClose({ ...props }) {
+function DialogClose(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Close"], {
         "data-slot": "dialog-close",
         ...props
@@ -447,7 +468,8 @@ function DialogClose({ ...props }) {
     }, this);
 }
 _c3 = DialogClose;
-function DialogOverlay({ className, ...props }) {
+function DialogOverlay(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Overlay"], {
         "data-slot": "dialog-overlay",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50", className),
@@ -459,7 +481,8 @@ function DialogOverlay({ className, ...props }) {
     }, this);
 }
 _c4 = DialogOverlay;
-function DialogContent({ className, children, showCloseButton = true, ...props }) {
+function DialogContent(param) {
+    let { className, children, showCloseButton = true, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogPortal, {
         "data-slot": "dialog-portal",
         children: [
@@ -511,7 +534,8 @@ function DialogContent({ className, children, showCloseButton = true, ...props }
     }, this);
 }
 _c5 = DialogContent;
-function DialogHeader({ className, ...props }) {
+function DialogHeader(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "dialog-header",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-2 text-center sm:text-left", className),
@@ -523,7 +547,8 @@ function DialogHeader({ className, ...props }) {
     }, this);
 }
 _c6 = DialogHeader;
-function DialogFooter({ className, ...props }) {
+function DialogFooter(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "dialog-footer",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className),
@@ -535,7 +560,8 @@ function DialogFooter({ className, ...props }) {
     }, this);
 }
 _c7 = DialogFooter;
-function DialogTitle({ className, ...props }) {
+function DialogTitle(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Title"], {
         "data-slot": "dialog-title",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-lg leading-none font-semibold", className),
@@ -547,7 +573,8 @@ function DialogTitle({ className, ...props }) {
     }, this);
 }
 _c8 = DialogTitle;
-function DialogDescription({ className, ...props }) {
+function DialogDescription(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Description"], {
         "data-slot": "dialog-description",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-muted-foreground text-sm", className),
@@ -578,19 +605,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/select.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Select": (()=>Select),
-    "SelectContent": (()=>SelectContent),
-    "SelectGroup": (()=>SelectGroup),
-    "SelectItem": (()=>SelectItem),
-    "SelectLabel": (()=>SelectLabel),
-    "SelectScrollDownButton": (()=>SelectScrollDownButton),
-    "SelectScrollUpButton": (()=>SelectScrollUpButton),
-    "SelectSeparator": (()=>SelectSeparator),
-    "SelectTrigger": (()=>SelectTrigger),
-    "SelectValue": (()=>SelectValue)
+    "Select": ()=>Select,
+    "SelectContent": ()=>SelectContent,
+    "SelectGroup": ()=>SelectGroup,
+    "SelectItem": ()=>SelectItem,
+    "SelectLabel": ()=>SelectLabel,
+    "SelectScrollDownButton": ()=>SelectScrollDownButton,
+    "SelectScrollUpButton": ()=>SelectScrollUpButton,
+    "SelectSeparator": ()=>SelectSeparator,
+    "SelectTrigger": ()=>SelectTrigger,
+    "SelectValue": ()=>SelectValue
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)");
@@ -603,7 +630,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Select({ ...props }) {
+function Select(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "select",
         ...props
@@ -614,7 +642,8 @@ function Select({ ...props }) {
     }, this);
 }
 _c = Select;
-function SelectGroup({ ...props }) {
+function SelectGroup(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Group"], {
         "data-slot": "select-group",
         ...props
@@ -625,7 +654,8 @@ function SelectGroup({ ...props }) {
     }, this);
 }
 _c1 = SelectGroup;
-function SelectValue({ ...props }) {
+function SelectValue(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Value"], {
         "data-slot": "select-value",
         ...props
@@ -636,7 +666,8 @@ function SelectValue({ ...props }) {
     }, this);
 }
 _c2 = SelectValue;
-function SelectTrigger({ className, size = "default", children, ...props }) {
+function SelectTrigger(param) {
+    let { className, size = "default", children, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
         "data-slot": "select-trigger",
         "data-size": size,
@@ -666,7 +697,8 @@ function SelectTrigger({ className, size = "default", children, ...props }) {
     }, this);
 }
 _c3 = SelectTrigger;
-function SelectContent({ className, children, position = "popper", ...props }) {
+function SelectContent(param) {
+    let { className, children, position = "popper", ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
             "data-slot": "select-content",
@@ -705,7 +737,8 @@ function SelectContent({ className, children, position = "popper", ...props }) {
     }, this);
 }
 _c4 = SelectContent;
-function SelectLabel({ className, ...props }) {
+function SelectLabel(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
         "data-slot": "select-label",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-muted-foreground px-2 py-1.5 text-xs", className),
@@ -717,7 +750,8 @@ function SelectLabel({ className, ...props }) {
     }, this);
 }
 _c5 = SelectLabel;
-function SelectItem({ className, children, ...props }) {
+function SelectItem(param) {
+    let { className, children, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Item"], {
         "data-slot": "select-item",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2", className),
@@ -758,7 +792,8 @@ function SelectItem({ className, children, ...props }) {
     }, this);
 }
 _c6 = SelectItem;
-function SelectSeparator({ className, ...props }) {
+function SelectSeparator(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {
         "data-slot": "select-separator",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-border pointer-events-none -mx-1 my-1 h-px", className),
@@ -770,7 +805,8 @@ function SelectSeparator({ className, ...props }) {
     }, this);
 }
 _c7 = SelectSeparator;
-function SelectScrollUpButton({ className, ...props }) {
+function SelectScrollUpButton(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollUpButton"], {
         "data-slot": "select-scroll-up-button",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
@@ -789,7 +825,8 @@ function SelectScrollUpButton({ className, ...props }) {
     }, this);
 }
 _c8 = SelectScrollUpButton;
-function SelectScrollDownButton({ className, ...props }) {
+function SelectScrollDownButton(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollDownButton"], {
         "data-slot": "select-scroll-down-button",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
@@ -827,13 +864,13 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/tabs.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Tabs": (()=>Tabs),
-    "TabsContent": (()=>TabsContent),
-    "TabsList": (()=>TabsList),
-    "TabsTrigger": (()=>TabsTrigger)
+    "Tabs": ()=>Tabs,
+    "TabsContent": ()=>TabsContent,
+    "TabsList": ()=>TabsList,
+    "TabsTrigger": ()=>TabsTrigger
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-tabs/dist/index.mjs [app-client] (ecmascript)");
@@ -842,7 +879,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Tabs({ className, ...props }) {
+function Tabs(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "tabs",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-2", className),
@@ -854,7 +892,8 @@ function Tabs({ className, ...props }) {
     }, this);
 }
 _c = Tabs;
-function TabsList({ className, ...props }) {
+function TabsList(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["List"], {
         "data-slot": "tabs-list",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]", className),
@@ -866,7 +905,8 @@ function TabsList({ className, ...props }) {
     }, this);
 }
 _c1 = TabsList;
-function TabsTrigger({ className, ...props }) {
+function TabsTrigger(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
         "data-slot": "tabs-trigger",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className),
@@ -878,7 +918,8 @@ function TabsTrigger({ className, ...props }) {
     }, this);
 }
 _c2 = TabsTrigger;
-function TabsContent({ className, ...props }) {
+function TabsContent(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$tabs$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
         "data-slot": "tabs-content",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex-1 outline-none", className),
@@ -903,10 +944,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/progress.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Progress": (()=>Progress)
+    "Progress": ()=>Progress
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$progress$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-progress/dist/index.mjs [app-client] (ecmascript)");
@@ -915,7 +956,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Progress({ className, value, ...props }) {
+function Progress(param) {
+    let { className, value, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$progress$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "progress",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-primary/20 relative h-2 w-full overflow-hidden rounded-full", className),
@@ -924,7 +966,7 @@ function Progress({ className, value, ...props }) {
             "data-slot": "progress-indicator",
             className: "bg-primary h-full w-full flex-1 transition-all",
             style: {
-                transform: `translateX(-${100 - (value || 0)}%)`
+                transform: "translateX(-".concat(100 - (value || 0), "%)")
             }
         }, void 0, false, {
             fileName: "[project]/components/ui/progress.tsx",
@@ -948,10 +990,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/app/admin/staff/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": (()=>StaffDetailsManagement)
+    "default": ()=>StaffDetailsManagement
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -1150,8 +1192,10 @@ const departmentColors = {
 };
 function StaffDetailsManagement() {
     _s();
-    const [staff, setStaff] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(staffData);
+    const [staff, setStaff] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [selectedStaff, setSelectedStaff] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [isDialogOpen, setIsDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false) // Thêm state này
+    ;
     const [searchQuery, setSearchQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [filterDepartment, setFilterDepartment] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [editData, setEditData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -1162,6 +1206,16 @@ function StaffDetailsManagement() {
         department: "",
         salary: 0
     });
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "StaffDetailsManagement.useEffect": ()=>{
+            const staffList = JSON.parse(localStorage.getItem("staffList") || "[]");
+            if (staffList.length > 0) {
+                setStaff(staffList);
+            } else {
+                setStaff(staffData); // staffData là mock data của bạn
+            }
+        }
+    }["StaffDetailsManagement.useEffect"], []);
     const filteredStaff = staff.filter((member)=>{
         const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) || member.position.toLowerCase().includes(searchQuery.toLowerCase()) || member.email.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesDepartment = filterDepartment === "all" || member.department === filterDepartment;
@@ -1173,7 +1227,7 @@ function StaffDetailsManagement() {
         departments: [
             ...new Set(staff.map((s)=>s.department))
         ].length,
-        avgRating: (staff.reduce((sum, s)=>sum + s.performance.customerRating, 0) / staff.length).toFixed(1)
+        avgRating: (staff.reduce((sum, s)=>sum + (s.performance && typeof s.performance.customerRating === "number" ? s.performance.customerRating : 0), 0) / (staff.filter((s)=>s.performance && typeof s.performance.customerRating === "number").length || 1)).toFixed(1)
     };
     const handleEditStaff = (member)=>{
         setSelectedStaff(member);
@@ -1185,6 +1239,7 @@ function StaffDetailsManagement() {
             department: member.department,
             salary: member.salary
         });
+        setIsDialogOpen(true); // Mở dialog khi edit
     };
     const handleUpdateStaff = ()=>{
         if (!selectedStaff) return;
@@ -1194,6 +1249,7 @@ function StaffDetailsManagement() {
             } : member);
         setStaff(updatedStaff);
         setSelectedStaff(null);
+        setIsDialogOpen(false); // Đóng dialog sau khi cập nhật
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-background",
@@ -1215,37 +1271,37 @@ function StaffDetailsManagement() {
                                                 className: "h-5 w-5"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 221,
-                                                columnNumber: 17
+                                                lineNumber: 242,
+                                                columnNumber: 9
                                             }, this),
                                             "Back to Admin"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 220,
-                                        columnNumber: 15
+                                        lineNumber: 241,
+                                        columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                         className: "text-2xl font-bold",
                                         children: "Staff Details Management"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 224,
-                                        columnNumber: 15
+                                        lineNumber: 245,
+                                        columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-muted-foreground",
                                         children: "Manage staff profiles, schedules, and performance"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 225,
-                                        columnNumber: 15
+                                        lineNumber: 246,
+                                        columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 219,
-                                columnNumber: 13
+                                lineNumber: 240,
+                                columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/admin/staff/add",
@@ -1255,36 +1311,36 @@ function StaffDetailsManagement() {
                                             className: "h-4 w-4 mr-2"
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 229,
-                                            columnNumber: 17
+                                            lineNumber: 250,
+                                            columnNumber: 9
                                         }, this),
                                         "Add New Staff"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                    lineNumber: 228,
-                                    columnNumber: 15
+                                    lineNumber: 249,
+                                    columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 227,
-                                columnNumber: 13
+                                lineNumber: 248,
+                                columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/staff/page.tsx",
-                        lineNumber: 218,
-                        columnNumber: 11
+                        lineNumber: 239,
+                        columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/admin/staff/page.tsx",
-                    lineNumber: 217,
-                    columnNumber: 9
+                    lineNumber: 238,
+                    columnNumber: 5
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/admin/staff/page.tsx",
-                lineNumber: 216,
-                columnNumber: 7
+                lineNumber: 237,
+                columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "container mx-auto px-4 py-8",
@@ -1302,21 +1358,21 @@ function StaffDetailsManagement() {
                                                 children: "Total Staff"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 242,
-                                                columnNumber: 15
+                                                lineNumber: 263,
+                                                columnNumber: 8
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
                                                 className: "h-4 w-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 243,
-                                                columnNumber: 15
+                                                lineNumber: 264,
+                                                columnNumber: 8
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 241,
-                                        columnNumber: 13
+                                        lineNumber: 262,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1324,19 +1380,19 @@ function StaffDetailsManagement() {
                                             children: staffStats.totalStaff
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 246,
-                                            columnNumber: 15
+                                            lineNumber: 267,
+                                            columnNumber: 8
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 245,
-                                        columnNumber: 13
+                                        lineNumber: 266,
+                                        columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 240,
-                                columnNumber: 11
+                                lineNumber: 261,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 children: [
@@ -1348,21 +1404,21 @@ function StaffDetailsManagement() {
                                                 children: "Active Staff"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 252,
-                                                columnNumber: 15
+                                                lineNumber: 273,
+                                                columnNumber: 8
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
                                                 className: "h-4 w-4 text-green-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 253,
-                                                columnNumber: 15
+                                                lineNumber: 274,
+                                                columnNumber: 8
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 251,
-                                        columnNumber: 13
+                                        lineNumber: 272,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1370,19 +1426,19 @@ function StaffDetailsManagement() {
                                             children: staffStats.activeStaff
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 256,
-                                            columnNumber: 15
+                                            lineNumber: 277,
+                                            columnNumber: 8
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 255,
-                                        columnNumber: 13
+                                        lineNumber: 276,
+                                        columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 250,
-                                columnNumber: 11
+                                lineNumber: 271,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 children: [
@@ -1394,21 +1450,21 @@ function StaffDetailsManagement() {
                                                 children: "Departments"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 262,
-                                                columnNumber: 15
+                                                lineNumber: 283,
+                                                columnNumber: 8
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$award$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Award$3e$__["Award"], {
                                                 className: "h-4 w-4 text-blue-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 263,
-                                                columnNumber: 15
+                                                lineNumber: 284,
+                                                columnNumber: 8
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 261,
-                                        columnNumber: 13
+                                        lineNumber: 282,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1416,19 +1472,19 @@ function StaffDetailsManagement() {
                                             children: staffStats.departments
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 266,
-                                            columnNumber: 15
+                                            lineNumber: 287,
+                                            columnNumber: 8
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 265,
-                                        columnNumber: 13
+                                        lineNumber: 286,
+                                        columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 260,
-                                columnNumber: 11
+                                lineNumber: 281,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 children: [
@@ -1440,21 +1496,21 @@ function StaffDetailsManagement() {
                                                 children: "Avg Rating"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 272,
-                                                columnNumber: 15
+                                                lineNumber: 293,
+                                                columnNumber: 8
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
                                                 className: "h-4 w-4 text-yellow-600"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 273,
-                                                columnNumber: 15
+                                                lineNumber: 294,
+                                                columnNumber: 8
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 271,
-                                        columnNumber: 13
+                                        lineNumber: 292,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1462,25 +1518,25 @@ function StaffDetailsManagement() {
                                             children: staffStats.avgRating
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 276,
-                                            columnNumber: 15
+                                            lineNumber: 297,
+                                            columnNumber: 8
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 275,
-                                        columnNumber: 13
+                                        lineNumber: 296,
+                                        columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 270,
-                                columnNumber: 11
+                                lineNumber: 291,
+                                columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/staff/page.tsx",
-                        lineNumber: 239,
-                        columnNumber: 9
+                        lineNumber: 260,
+                        columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
                         defaultValue: "directory",
@@ -1492,30 +1548,30 @@ function StaffDetailsManagement() {
                                         children: "Staff Directory"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 283,
-                                        columnNumber: 13
+                                        lineNumber: 304,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                         value: "schedule",
                                         children: "Schedule Management"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 284,
-                                        columnNumber: 13
+                                        lineNumber: 305,
+                                        columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                         value: "performance",
                                         children: "Performance Tracking"
                                     }, void 0, false, {
                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                        lineNumber: 285,
-                                        columnNumber: 13
+                                        lineNumber: 306,
+                                        columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 282,
-                                columnNumber: 11
+                                lineNumber: 303,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                 value: "directory",
@@ -1529,8 +1585,8 @@ function StaffDetailsManagement() {
                                                         children: "Staff Directory"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                        lineNumber: 292,
-                                                        columnNumber: 19
+                                                        lineNumber: 313,
+                                                        columnNumber: 10
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex gap-4",
@@ -1542,8 +1598,8 @@ function StaffDetailsManagement() {
                                                                 className: "w-64"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 294,
-                                                                columnNumber: 21
+                                                                lineNumber: 315,
+                                                                columnNumber: 11
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
                                                                 value: filterDepartment,
@@ -1553,13 +1609,13 @@ function StaffDetailsManagement() {
                                                                         className: "w-40",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                            lineNumber: 302,
-                                                                            columnNumber: 25
+                                                                            lineNumber: 323,
+                                                                            columnNumber: 13
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 301,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 322,
+                                                                        columnNumber: 12
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                         children: [
@@ -1568,74 +1624,77 @@ function StaffDetailsManagement() {
                                                                                 children: "All Departments"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 305,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 326,
+                                                                                columnNumber: 13
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: "Management",
                                                                                 children: "Management"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 306,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 327,
+                                                                                columnNumber: 13
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: "Sales",
                                                                                 children: "Sales"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 307,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 328,
+                                                                                columnNumber: 13
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: "Operations",
                                                                                 children: "Operations"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 308,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 329,
+                                                                                columnNumber: 13
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                 value: "Customer Service",
                                                                                 children: "Customer Service"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 309,
-                                                                                columnNumber: 25
+                                                                                lineNumber: 330,
+                                                                                columnNumber: 13
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 304,
-                                                                        columnNumber: 23
+                                                                        lineNumber: 325,
+                                                                        columnNumber: 12
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 300,
-                                                                columnNumber: 21
+                                                                lineNumber: 321,
+                                                                columnNumber: 11
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                        lineNumber: 293,
-                                                        columnNumber: 19
+                                                        lineNumber: 314,
+                                                        columnNumber: 10
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 291,
-                                                columnNumber: 17
+                                                lineNumber: 312,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 290,
-                                            columnNumber: 15
+                                            lineNumber: 311,
+                                            columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "grid grid-cols-1 md:grid-cols-2 gap-6",
-                                                children: filteredStaff.map((member)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                                children: filteredStaff.map((member)=>{
+                                                    var _member_performance, _member_performance1, _member_performance2, _member_performance3, _member_performance4, _member_performance5;
+                                                    var _member_performance_ordersProcessed, _member_performance_customerRating, _member_performance_tasksCompleted, _member_performance_tasksCompleted1, _member_performance_attendance, _member_performance_attendance1;
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                                         className: "hover:shadow-md transition-shadow",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                                             className: "p-6",
@@ -1650,24 +1709,24 @@ function StaffDetailsManagement() {
                                                                                 children: [
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarImage"], {
                                                                                         src: member.avatar || "/placeholder.svg",
-                                                                                        alt: member.name
+                                                                                        alt: member.name || ""
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 323,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 344,
+                                                                                        columnNumber: 16
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
-                                                                                        children: member.name.split(" ").map((n)=>n[0]).join("")
+                                                                                        children: (member.name || "").split(" ").map((n)=>n[0]).join("")
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 324,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 345,
+                                                                                        columnNumber: 16
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 322,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 343,
+                                                                                columnNumber: 15
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "space-y-2",
@@ -1679,30 +1738,30 @@ function StaffDetailsManagement() {
                                                                                                 children: member.name
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 333,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 354,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                                 className: "text-sm text-muted-foreground",
                                                                                                 children: member.position
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 334,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 355,
+                                                                                                columnNumber: 17
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 332,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 353,
+                                                                                        columnNumber: 16
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
                                                                                         className: departmentColors[member.department],
                                                                                         children: member.department
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 336,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 357,
+                                                                                        columnNumber: 16
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                         className: "space-y-1 text-sm",
@@ -1714,21 +1773,21 @@ function StaffDetailsManagement() {
                                                                                                         className: "h-3 w-3"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 341,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 362,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                                         children: member.email
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 342,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 363,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 340,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 361,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                 className: "flex items-center gap-2",
@@ -1737,21 +1796,21 @@ function StaffDetailsManagement() {
                                                                                                         className: "h-3 w-3"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 345,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 366,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                                         children: member.phone
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 346,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 367,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 344,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 365,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                 className: "flex items-center gap-2",
@@ -1760,44 +1819,47 @@ function StaffDetailsManagement() {
                                                                                                         className: "h-3 w-3"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 349,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 370,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                                         children: [
-                                                                                                            "Since ",
-                                                                                                            new Date(member.hireDate).toLocaleDateString()
+                                                                                                            "Since",
+                                                                                                            " ",
+                                                                                                            member.hireDate ? new Date(member.hireDate).toLocaleDateString() : ""
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 350,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 371,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 348,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 369,
+                                                                                                columnNumber: 17
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 339,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 360,
+                                                                                        columnNumber: 16
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 331,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 352,
+                                                                                columnNumber: 15
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 321,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 342,
+                                                                        columnNumber: 14
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
+                                                                        open: isDialogOpen,
+                                                                        onOpenChange: setIsDialogOpen,
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
                                                                                 asChild: true,
@@ -1810,20 +1872,20 @@ function StaffDetailsManagement() {
                                                                                             className: "h-4 w-4 mr-1"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                            lineNumber: 358,
-                                                                                            columnNumber: 33
+                                                                                            lineNumber: 384,
+                                                                                            columnNumber: 17
                                                                                         }, this),
                                                                                         "Edit"
                                                                                     ]
                                                                                 }, void 0, true, {
                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                    lineNumber: 357,
-                                                                                    columnNumber: 31
+                                                                                    lineNumber: 383,
+                                                                                    columnNumber: 16
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 356,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 382,
+                                                                                columnNumber: 15
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
                                                                                 className: "max-w-2xl",
@@ -1833,13 +1895,13 @@ function StaffDetailsManagement() {
                                                                                             children: "Staff Member Details"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                            lineNumber: 364,
-                                                                                            columnNumber: 33
+                                                                                            lineNumber: 390,
+                                                                                            columnNumber: 17
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 363,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 389,
+                                                                                        columnNumber: 16
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tabs"], {
                                                                                         defaultValue: "profile",
@@ -1851,38 +1913,38 @@ function StaffDetailsManagement() {
                                                                                                         children: "Profile"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 368,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 394,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                                                                                         value: "schedule",
                                                                                                         children: "Schedule"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 369,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 395,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                                                                                         value: "performance",
                                                                                                         children: "Performance"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 370,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 396,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsTrigger"], {
                                                                                                         value: "emergency",
                                                                                                         children: "Emergency"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 371,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 397,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 367,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 393,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                                                                                 value: "profile",
@@ -1898,8 +1960,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Full Name"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 377,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 403,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                         id: "name",
@@ -1910,14 +1972,14 @@ function StaffDetailsManagement() {
                                                                                                                                 }))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 378,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 404,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 376,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 402,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                 children: [
@@ -1926,8 +1988,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Email"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 385,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 411,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                         id: "email",
@@ -1938,20 +2000,20 @@ function StaffDetailsManagement() {
                                                                                                                                 }))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 386,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 412,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 384,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 410,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 375,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 401,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         className: "grid grid-cols-2 gap-4",
@@ -1963,8 +2025,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Phone"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 395,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 421,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                         id: "phone",
@@ -1975,14 +2037,14 @@ function StaffDetailsManagement() {
                                                                                                                                 }))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 396,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 422,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 394,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 420,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                 children: [
@@ -1991,8 +2053,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Position"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 403,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 429,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                         id: "position",
@@ -2003,20 +2065,20 @@ function StaffDetailsManagement() {
                                                                                                                                 }))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 404,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 430,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 402,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 428,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 393,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 419,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         className: "grid grid-cols-2 gap-4",
@@ -2028,8 +2090,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Department"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 413,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 439,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
                                                                                                                         value: editData.department,
@@ -2041,13 +2103,13 @@ function StaffDetailsManagement() {
                                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                    lineNumber: 421,
-                                                                                                                                    columnNumber: 43
+                                                                                                                                    lineNumber: 447,
+                                                                                                                                    columnNumber: 22
                                                                                                                                 }, this)
                                                                                                                             }, void 0, false, {
                                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                lineNumber: 420,
-                                                                                                                                columnNumber: 41
+                                                                                                                                lineNumber: 446,
+                                                                                                                                columnNumber: 21
                                                                                                                             }, this),
                                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
                                                                                                                                 children: [
@@ -2056,50 +2118,50 @@ function StaffDetailsManagement() {
                                                                                                                                         children: "Management"
                                                                                                                                     }, void 0, false, {
                                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                        lineNumber: 424,
-                                                                                                                                        columnNumber: 43
+                                                                                                                                        lineNumber: 450,
+                                                                                                                                        columnNumber: 22
                                                                                                                                     }, this),
                                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                                                                         value: "Sales",
                                                                                                                                         children: "Sales"
                                                                                                                                     }, void 0, false, {
                                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                        lineNumber: 425,
-                                                                                                                                        columnNumber: 43
+                                                                                                                                        lineNumber: 451,
+                                                                                                                                        columnNumber: 22
                                                                                                                                     }, this),
                                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                                                                         value: "Operations",
                                                                                                                                         children: "Operations"
                                                                                                                                     }, void 0, false, {
                                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                        lineNumber: 426,
-                                                                                                                                        columnNumber: 43
+                                                                                                                                        lineNumber: 452,
+                                                                                                                                        columnNumber: 22
                                                                                                                                     }, this),
                                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
                                                                                                                                         value: "Customer Service",
                                                                                                                                         children: "Customer Service"
                                                                                                                                     }, void 0, false, {
                                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                        lineNumber: 427,
-                                                                                                                                        columnNumber: 43
+                                                                                                                                        lineNumber: 453,
+                                                                                                                                        columnNumber: 22
                                                                                                                                     }, this)
                                                                                                                                 ]
                                                                                                                             }, void 0, true, {
                                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                lineNumber: 423,
-                                                                                                                                columnNumber: 41
+                                                                                                                                lineNumber: 449,
+                                                                                                                                columnNumber: 21
                                                                                                                             }, this)
                                                                                                                         ]
                                                                                                                     }, void 0, true, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 414,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 440,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 412,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 438,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                 children: [
@@ -2108,8 +2170,8 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Annual Salary"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 432,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 458,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                         id: "salary",
@@ -2121,20 +2183,20 @@ function StaffDetailsManagement() {
                                                                                                                                 }))
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 433,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 459,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 431,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 457,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 411,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 437,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         children: [
@@ -2143,8 +2205,8 @@ function StaffDetailsManagement() {
                                                                                                                 children: "Skills"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 444,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 470,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                 className: "flex gap-2 flex-wrap",
@@ -2153,19 +2215,19 @@ function StaffDetailsManagement() {
                                                                                                                         children: skill
                                                                                                                     }, index, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 447,
-                                                                                                                        columnNumber: 41
+                                                                                                                        lineNumber: 473,
+                                                                                                                        columnNumber: 21
                                                                                                                     }, this))
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 445,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 471,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 443,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 469,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                                                                                         onClick: handleUpdateStaff,
@@ -2173,21 +2235,23 @@ function StaffDetailsManagement() {
                                                                                                         children: "Update Profile"
                                                                                                     }, void 0, false, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 453,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 479,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 374,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 400,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                                                                                 value: "schedule",
                                                                                                 className: "space-y-4",
                                                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                     className: "space-y-3",
-                                                                                                    children: Object.entries(member.schedule).map(([day, hours])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                                    children: Object.entries(member.schedule).map((param)=>{
+                                                                                                        let [day, hours] = param;
+                                                                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                             className: "flex justify-between items-center p-3 border rounded",
                                                                                                             children: [
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2195,32 +2259,33 @@ function StaffDetailsManagement() {
                                                                                                                     children: day
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 462,
-                                                                                                                    columnNumber: 41
+                                                                                                                    lineNumber: 488,
+                                                                                                                    columnNumber: 21
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                                                     className: hours === "Off" ? "text-red-600" : "text-green-600",
-                                                                                                                    children: hours
+                                                                                                                    children: String(hours)
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 463,
-                                                                                                                    columnNumber: 41
+                                                                                                                    lineNumber: 489,
+                                                                                                                    columnNumber: 21
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, day, true, {
                                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                            lineNumber: 461,
-                                                                                                            columnNumber: 39
-                                                                                                        }, this))
+                                                                                                            lineNumber: 487,
+                                                                                                            columnNumber: 20
+                                                                                                        }, this);
+                                                                                                    })
                                                                                                 }, void 0, false, {
                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                    lineNumber: 459,
-                                                                                                    columnNumber: 35
+                                                                                                    lineNumber: 485,
+                                                                                                    columnNumber: 18
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 458,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 484,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                                                                                 value: "performance",
@@ -2235,22 +2300,22 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Orders Processed"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 474,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 500,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                         className: "text-2xl font-bold",
-                                                                                                                        children: member.performance.ordersProcessed
+                                                                                                                        children: (_member_performance_ordersProcessed = (_member_performance = member.performance) === null || _member_performance === void 0 ? void 0 : _member_performance.ordersProcessed) !== null && _member_performance_ordersProcessed !== void 0 ? _member_performance_ordersProcessed : 0
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 475,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 501,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 473,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 499,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                 children: [
@@ -2258,96 +2323,96 @@ function StaffDetailsManagement() {
                                                                                                                         children: "Customer Rating"
                                                                                                                     }, void 0, false, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 478,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 504,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this),
                                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                                         className: "text-2xl font-bold flex items-center gap-1",
                                                                                                                         children: [
-                                                                                                                            member.performance.customerRating,
+                                                                                                                            (_member_performance_customerRating = (_member_performance1 = member.performance) === null || _member_performance1 === void 0 ? void 0 : _member_performance1.customerRating) !== null && _member_performance_customerRating !== void 0 ? _member_performance_customerRating : 0,
                                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
                                                                                                                                 className: "h-5 w-5 text-yellow-500 fill-current"
                                                                                                                             }, void 0, false, {
                                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                                lineNumber: 481,
-                                                                                                                                columnNumber: 41
+                                                                                                                                lineNumber: 507,
+                                                                                                                                columnNumber: 21
                                                                                                                             }, this)
                                                                                                                         ]
                                                                                                                     }, void 0, true, {
                                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                        lineNumber: 479,
-                                                                                                                        columnNumber: 39
+                                                                                                                        lineNumber: 505,
+                                                                                                                        columnNumber: 20
                                                                                                                     }, this)
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 477,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 503,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 472,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 498,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         children: [
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                                                                                                 children: [
                                                                                                                     "Tasks Completed: ",
-                                                                                                                    member.performance.tasksCompleted
+                                                                                                                    (_member_performance_tasksCompleted = (_member_performance2 = member.performance) === null || _member_performance2 === void 0 ? void 0 : _member_performance2.tasksCompleted) !== null && _member_performance_tasksCompleted !== void 0 ? _member_performance_tasksCompleted : 0
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 486,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 512,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
-                                                                                                                value: member.performance.tasksCompleted,
+                                                                                                                value: (_member_performance_tasksCompleted1 = (_member_performance3 = member.performance) === null || _member_performance3 === void 0 ? void 0 : _member_performance3.tasksCompleted) !== null && _member_performance_tasksCompleted1 !== void 0 ? _member_performance_tasksCompleted1 : 0,
                                                                                                                 className: "mt-1"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 487,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 513,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 485,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 511,
+                                                                                                        columnNumber: 18
                                                                                                     }, this),
                                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                         children: [
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                                                                                                 children: [
                                                                                                                     "Attendance: ",
-                                                                                                                    member.performance.attendance,
+                                                                                                                    (_member_performance_attendance = (_member_performance4 = member.performance) === null || _member_performance4 === void 0 ? void 0 : _member_performance4.attendance) !== null && _member_performance_attendance !== void 0 ? _member_performance_attendance : 0,
                                                                                                                     "%"
                                                                                                                 ]
                                                                                                             }, void 0, true, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 490,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 516,
+                                                                                                                columnNumber: 19
                                                                                                             }, this),
                                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
-                                                                                                                value: member.performance.attendance,
+                                                                                                                value: (_member_performance_attendance1 = (_member_performance5 = member.performance) === null || _member_performance5 === void 0 ? void 0 : _member_performance5.attendance) !== null && _member_performance_attendance1 !== void 0 ? _member_performance_attendance1 : 0,
                                                                                                                 className: "mt-1"
                                                                                                             }, void 0, false, {
                                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                lineNumber: 491,
-                                                                                                                columnNumber: 37
+                                                                                                                lineNumber: 517,
+                                                                                                                columnNumber: 19
                                                                                                             }, this)
                                                                                                         ]
                                                                                                     }, void 0, true, {
                                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                        lineNumber: 489,
-                                                                                                        columnNumber: 35
+                                                                                                        lineNumber: 515,
+                                                                                                        columnNumber: 18
                                                                                                     }, this)
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 471,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 497,
+                                                                                                columnNumber: 17
                                                                                             }, this),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                                                                                 value: "emergency",
@@ -2361,22 +2426,22 @@ function StaffDetailsManagement() {
                                                                                                                     children: "Emergency Contact Name"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 498,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 524,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                     value: member.emergencyContact.name,
                                                                                                                     disabled: true
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 499,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 525,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                            lineNumber: 497,
-                                                                                                            columnNumber: 37
+                                                                                                            lineNumber: 523,
+                                                                                                            columnNumber: 19
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                             children: [
@@ -2384,22 +2449,22 @@ function StaffDetailsManagement() {
                                                                                                                     children: "Relationship"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 502,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 528,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                     value: member.emergencyContact.relationship,
                                                                                                                     disabled: true
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 503,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 529,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                            lineNumber: 501,
-                                                                                                            columnNumber: 37
+                                                                                                            lineNumber: 527,
+                                                                                                            columnNumber: 19
                                                                                                         }, this),
                                                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                                             children: [
@@ -2407,88 +2472,89 @@ function StaffDetailsManagement() {
                                                                                                                     children: "Emergency Phone"
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 506,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 532,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this),
                                                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                                                                                                     value: member.emergencyContact.phone,
                                                                                                                     disabled: true
                                                                                                                 }, void 0, false, {
                                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                                    lineNumber: 507,
-                                                                                                                    columnNumber: 39
+                                                                                                                    lineNumber: 533,
+                                                                                                                    columnNumber: 20
                                                                                                                 }, this)
                                                                                                             ]
                                                                                                         }, void 0, true, {
                                                                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                            lineNumber: 505,
-                                                                                                            columnNumber: 37
+                                                                                                            lineNumber: 531,
+                                                                                                            columnNumber: 19
                                                                                                         }, this)
                                                                                                     ]
                                                                                                 }, void 0, true, {
                                                                                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                    lineNumber: 496,
-                                                                                                    columnNumber: 35
+                                                                                                    lineNumber: 522,
+                                                                                                    columnNumber: 18
                                                                                                 }, this)
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                                lineNumber: 495,
-                                                                                                columnNumber: 33
+                                                                                                lineNumber: 521,
+                                                                                                columnNumber: 17
                                                                                             }, this)
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 366,
-                                                                                        columnNumber: 31
+                                                                                        lineNumber: 392,
+                                                                                        columnNumber: 16
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 362,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 388,
+                                                                                columnNumber: 15
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 355,
-                                                                        columnNumber: 27
+                                                                        lineNumber: 381,
+                                                                        columnNumber: 14
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 320,
-                                                                columnNumber: 25
+                                                                lineNumber: 341,
+                                                                columnNumber: 13
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                                            lineNumber: 319,
-                                                            columnNumber: 23
+                                                            lineNumber: 340,
+                                                            columnNumber: 12
                                                         }, this)
                                                     }, member.id, false, {
                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                        lineNumber: 318,
-                                                        columnNumber: 21
-                                                    }, this))
+                                                        lineNumber: 339,
+                                                        columnNumber: 11
+                                                    }, this);
+                                                })
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 316,
-                                                columnNumber: 17
+                                                lineNumber: 337,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 315,
-                                            columnNumber: 15
+                                            lineNumber: 336,
+                                            columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                    lineNumber: 289,
-                                    columnNumber: 13
+                                    lineNumber: 310,
+                                    columnNumber: 7
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 288,
-                                columnNumber: 11
+                                lineNumber: 309,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                 value: "schedule",
@@ -2499,13 +2565,13 @@ function StaffDetailsManagement() {
                                                 children: "Weekly Schedule Overview"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 526,
-                                                columnNumber: 17
+                                                lineNumber: 552,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 525,
-                                            columnNumber: 15
+                                            lineNumber: 551,
+                                            columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2524,21 +2590,21 @@ function StaffDetailsManagement() {
                                                                                 alt: member.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 534,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 560,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                 children: member.name.split(" ").map((n)=>n[0]).join("")
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 535,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 561,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 533,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 559,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
@@ -2547,32 +2613,34 @@ function StaffDetailsManagement() {
                                                                                 children: member.name
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 543,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 569,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                 className: "text-sm text-muted-foreground",
                                                                                 children: member.position
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 544,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 570,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 542,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 568,
+                                                                        columnNumber: 13
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 532,
-                                                                columnNumber: 23
+                                                                lineNumber: 558,
+                                                                columnNumber: 12
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "grid grid-cols-7 gap-2",
-                                                                children: Object.entries(member.schedule).map(([day, hours])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                children: Object.entries(member.schedule).map((param)=>{
+                                                                    let [day, hours] = param;
+                                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "text-center",
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2580,54 +2648,55 @@ function StaffDetailsManagement() {
                                                                                 children: day.slice(0, 3)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 550,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 576,
+                                                                                columnNumber: 15
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                                className: `text-xs p-2 rounded ${hours === "Off" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"}`,
-                                                                                children: hours === "Off" ? "OFF" : hours
+                                                                                className: "text-xs p-2 rounded ".concat(hours === "Off" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"),
+                                                                                children: hours === "Off" ? "OFF" : String(hours)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 551,
-                                                                                columnNumber: 29
+                                                                                lineNumber: 577,
+                                                                                columnNumber: 15
                                                                             }, this)
                                                                         ]
                                                                     }, day, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 549,
-                                                                        columnNumber: 27
-                                                                    }, this))
+                                                                        lineNumber: 575,
+                                                                        columnNumber: 14
+                                                                    }, this);
+                                                                })
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 547,
-                                                                columnNumber: 23
+                                                                lineNumber: 573,
+                                                                columnNumber: 12
                                                             }, this)
                                                         ]
                                                     }, member.id, true, {
                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                        lineNumber: 531,
-                                                        columnNumber: 21
+                                                        lineNumber: 557,
+                                                        columnNumber: 11
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 529,
-                                                columnNumber: 17
+                                                lineNumber: 555,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 528,
-                                            columnNumber: 15
+                                            lineNumber: 554,
+                                            columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                    lineNumber: 524,
-                                    columnNumber: 13
+                                    lineNumber: 550,
+                                    columnNumber: 7
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 523,
-                                columnNumber: 11
+                                lineNumber: 549,
+                                columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TabsContent"], {
                                 value: "performance",
@@ -2638,18 +2707,21 @@ function StaffDetailsManagement() {
                                                 children: "Performance Metrics"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 571,
-                                                columnNumber: 17
+                                                lineNumber: 597,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 570,
-                                            columnNumber: 15
+                                            lineNumber: 596,
+                                            columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CardContent"], {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "space-y-6",
-                                                children: staff.map((member)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: staff.map((member)=>{
+                                                    var _member_performance, _member_performance1, _member_performance2, _member_performance3, _member_performance4, _member_performance5, _member_performance6, _member_performance7;
+                                                    var _member_performance_ordersProcessed, _member_performance_customerRating, _member_performance_tasksCompleted, _member_performance_attendance, _member_performance_tasksCompleted1, _member_performance_tasksCompleted2, _member_performance_attendance1, _member_performance_attendance2;
+                                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "border rounded-lg p-6",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2666,21 +2738,21 @@ function StaffDetailsManagement() {
                                                                                         alt: member.name
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 580,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 606,
+                                                                                        columnNumber: 15
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
                                                                                         children: member.name.split(" ").map((n)=>n[0]).join("")
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 581,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 607,
+                                                                                        columnNumber: 15
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 579,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 605,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 children: [
@@ -2689,42 +2761,42 @@ function StaffDetailsManagement() {
                                                                                         children: member.name
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 589,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 615,
+                                                                                        columnNumber: 15
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                         className: "text-sm text-muted-foreground",
                                                                                         children: member.position
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 590,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 616,
+                                                                                        columnNumber: 15
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 588,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 614,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 578,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 604,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
                                                                         className: departmentColors[member.department],
                                                                         children: member.department
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 593,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 619,
+                                                                        columnNumber: 13
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 577,
-                                                                columnNumber: 23
+                                                                lineNumber: 603,
+                                                                columnNumber: 12
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "grid grid-cols-1 md:grid-cols-4 gap-4",
@@ -2734,25 +2806,25 @@ function StaffDetailsManagement() {
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "text-2xl font-bold text-blue-600",
-                                                                                children: member.performance.ordersProcessed
+                                                                                children: (_member_performance_ordersProcessed = (_member_performance = member.performance) === null || _member_performance === void 0 ? void 0 : _member_performance.ordersProcessed) !== null && _member_performance_ordersProcessed !== void 0 ? _member_performance_ordersProcessed : 0
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 600,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 626,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                 className: "text-sm text-muted-foreground",
                                                                                 children: "Orders Processed"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 601,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 627,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 599,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 625,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "text-center",
@@ -2760,58 +2832,58 @@ function StaffDetailsManagement() {
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "text-2xl font-bold text-yellow-600 flex items-center justify-center gap-1",
                                                                                 children: [
-                                                                                    member.performance.customerRating,
+                                                                                    (_member_performance_customerRating = (_member_performance1 = member.performance) === null || _member_performance1 === void 0 ? void 0 : _member_performance1.customerRating) !== null && _member_performance_customerRating !== void 0 ? _member_performance_customerRating : 0,
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
                                                                                         className: "h-5 w-5 fill-current"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 606,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 632,
+                                                                                        columnNumber: 15
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 604,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 630,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                 className: "text-sm text-muted-foreground",
                                                                                 children: "Customer Rating"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 608,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 634,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 603,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 629,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "text-center",
                                                                         children: [
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "text-2xl font-bold text-green-600",
-                                                                                children: member.performance.tasksCompleted
+                                                                                children: (_member_performance_tasksCompleted = (_member_performance2 = member.performance) === null || _member_performance2 === void 0 ? void 0 : _member_performance2.tasksCompleted) !== null && _member_performance_tasksCompleted !== void 0 ? _member_performance_tasksCompleted : 0
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 611,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 637,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                 className: "text-sm text-muted-foreground",
                                                                                 children: "Tasks Completed"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 612,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 638,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 610,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 636,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         className: "text-center",
@@ -2819,33 +2891,33 @@ function StaffDetailsManagement() {
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "text-2xl font-bold text-purple-600",
                                                                                 children: [
-                                                                                    member.performance.attendance,
+                                                                                    (_member_performance_attendance = (_member_performance3 = member.performance) === null || _member_performance3 === void 0 ? void 0 : _member_performance3.attendance) !== null && _member_performance_attendance !== void 0 ? _member_performance_attendance : 0,
                                                                                     "%"
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 615,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 641,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                                 className: "text-sm text-muted-foreground",
                                                                                 children: "Attendance"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 616,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 642,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 614,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 640,
+                                                                        columnNumber: 13
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 598,
-                                                                columnNumber: 23
+                                                                lineNumber: 624,
+                                                                columnNumber: 12
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "mt-4 space-y-2",
@@ -2859,37 +2931,37 @@ function StaffDetailsManagement() {
                                                                                         children: "Task Completion"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 623,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 649,
+                                                                                        columnNumber: 15
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                         children: [
-                                                                                            member.performance.tasksCompleted,
+                                                                                            (_member_performance_tasksCompleted1 = (_member_performance4 = member.performance) === null || _member_performance4 === void 0 ? void 0 : _member_performance4.tasksCompleted) !== null && _member_performance_tasksCompleted1 !== void 0 ? _member_performance_tasksCompleted1 : 0,
                                                                                             "%"
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 624,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 650,
+                                                                                        columnNumber: 15
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 622,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 648,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
-                                                                                value: member.performance.tasksCompleted
+                                                                                value: (_member_performance_tasksCompleted2 = (_member_performance5 = member.performance) === null || _member_performance5 === void 0 ? void 0 : _member_performance5.tasksCompleted) !== null && _member_performance_tasksCompleted2 !== void 0 ? _member_performance_tasksCompleted2 : 0
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 626,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 652,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 621,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 647,
+                                                                        columnNumber: 13
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                         children: [
@@ -2900,91 +2972,92 @@ function StaffDetailsManagement() {
                                                                                         children: "Attendance"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 630,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 656,
+                                                                                        columnNumber: 15
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                                         children: [
-                                                                                            member.performance.attendance,
+                                                                                            (_member_performance_attendance1 = (_member_performance6 = member.performance) === null || _member_performance6 === void 0 ? void 0 : _member_performance6.attendance) !== null && _member_performance_attendance1 !== void 0 ? _member_performance_attendance1 : 0,
                                                                                             "%"
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                        lineNumber: 631,
-                                                                                        columnNumber: 29
+                                                                                        lineNumber: 657,
+                                                                                        columnNumber: 15
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 629,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 655,
+                                                                                columnNumber: 14
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$progress$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Progress"], {
-                                                                                value: member.performance.attendance
+                                                                                value: (_member_performance_attendance2 = (_member_performance7 = member.performance) === null || _member_performance7 === void 0 ? void 0 : _member_performance7.attendance) !== null && _member_performance_attendance2 !== void 0 ? _member_performance_attendance2 : 0
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                                lineNumber: 633,
-                                                                                columnNumber: 27
+                                                                                lineNumber: 659,
+                                                                                columnNumber: 14
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                                        lineNumber: 628,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 654,
+                                                                        columnNumber: 13
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                                lineNumber: 620,
-                                                                columnNumber: 23
+                                                                lineNumber: 646,
+                                                                columnNumber: 12
                                                             }, this)
                                                         ]
                                                     }, member.id, true, {
                                                         fileName: "[project]/app/admin/staff/page.tsx",
-                                                        lineNumber: 576,
-                                                        columnNumber: 21
-                                                    }, this))
+                                                        lineNumber: 602,
+                                                        columnNumber: 11
+                                                    }, this);
+                                                })
                                             }, void 0, false, {
                                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                                lineNumber: 574,
-                                                columnNumber: 17
+                                                lineNumber: 600,
+                                                columnNumber: 9
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/page.tsx",
-                                            lineNumber: 573,
-                                            columnNumber: 15
+                                            lineNumber: 599,
+                                            columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/admin/staff/page.tsx",
-                                    lineNumber: 569,
-                                    columnNumber: 13
+                                    lineNumber: 595,
+                                    columnNumber: 7
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/admin/staff/page.tsx",
-                                lineNumber: 568,
-                                columnNumber: 11
+                                lineNumber: 594,
+                                columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/admin/staff/page.tsx",
-                        lineNumber: 281,
-                        columnNumber: 9
+                        lineNumber: 302,
+                        columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/admin/staff/page.tsx",
-                lineNumber: 237,
-                columnNumber: 7
+                lineNumber: 258,
+                columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/admin/staff/page.tsx",
-        lineNumber: 214,
-        columnNumber: 5
+        lineNumber: 235,
+        columnNumber: 3
     }, this);
 }
-_s(StaffDetailsManagement, "0Ns8zF+b1ac8cEtmX6O1ykkLlH0=");
+_s(StaffDetailsManagement, "xz+MIKzb/19D6c6PJAZb1k3JgWg=");
 _c = StaffDetailsManagement;
 var _c;
 __turbopack_context__.k.register(_c, "StaffDetailsManagement");

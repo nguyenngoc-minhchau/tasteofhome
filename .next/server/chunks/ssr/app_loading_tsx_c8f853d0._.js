@@ -3,15 +3,13 @@ module.exports = {
 "[project]/app/loading.tsx [app-rsc] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname } = __turbopack_context__;
-{
 __turbopack_context__.s({
-    "default": (()=>Loading)
+    "default": ()=>Loading
 });
 function Loading() {
     return null;
 }
-}}),
+}),
 
 };
 

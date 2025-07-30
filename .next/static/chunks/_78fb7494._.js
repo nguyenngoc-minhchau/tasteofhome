@@ -1,18 +1,21 @@
-(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push(["static/chunks/_78fb7494._.js", {
+(globalThis.TURBOPACK = globalThis.TURBOPACK || []).push([typeof document === "object" ? document.currentScript : undefined, {
 
 "[project]/lib/utils.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "cn": (()=>cn)
+    "cn": ()=>cn
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/clsx/dist/clsx.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-client] (ecmascript)");
 ;
 ;
-function cn(...inputs) {
+function cn() {
+    for(var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++){
+        inputs[_key] = arguments[_key];
+    }
     return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clsx"])(inputs));
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -22,11 +25,11 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/button.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Button": (()=>Button),
-    "buttonVariants": (()=>buttonVariants)
+    "Button": ()=>Button,
+    "buttonVariants": ()=>buttonVariants
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
@@ -58,7 +61,8 @@ const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         size: "default"
     }
 });
-function Button({ className, variant, size, asChild = false, ...props }) {
+function Button(param) {
+    let { className, variant, size, asChild = false, ...props } = param;
     const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "button";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "button",
@@ -85,22 +89,23 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/card.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Card": (()=>Card),
-    "CardAction": (()=>CardAction),
-    "CardContent": (()=>CardContent),
-    "CardDescription": (()=>CardDescription),
-    "CardFooter": (()=>CardFooter),
-    "CardHeader": (()=>CardHeader),
-    "CardTitle": (()=>CardTitle)
+    "Card": ()=>Card,
+    "CardAction": ()=>CardAction,
+    "CardContent": ()=>CardContent,
+    "CardDescription": ()=>CardDescription,
+    "CardFooter": ()=>CardFooter,
+    "CardHeader": ()=>CardHeader,
+    "CardTitle": ()=>CardTitle
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
-function Card({ className, ...props }) {
+function Card(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm", className),
@@ -112,7 +117,8 @@ function Card({ className, ...props }) {
     }, this);
 }
 _c = Card;
-function CardHeader({ className, ...props }) {
+function CardHeader(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-header",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6", className),
@@ -124,7 +130,8 @@ function CardHeader({ className, ...props }) {
     }, this);
 }
 _c1 = CardHeader;
-function CardTitle({ className, ...props }) {
+function CardTitle(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-title",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("leading-none font-semibold", className),
@@ -136,7 +143,8 @@ function CardTitle({ className, ...props }) {
     }, this);
 }
 _c2 = CardTitle;
-function CardDescription({ className, ...props }) {
+function CardDescription(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-description",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-muted-foreground text-sm", className),
@@ -148,7 +156,8 @@ function CardDescription({ className, ...props }) {
     }, this);
 }
 _c3 = CardDescription;
-function CardAction({ className, ...props }) {
+function CardAction(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-action",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className),
@@ -160,7 +169,8 @@ function CardAction({ className, ...props }) {
     }, this);
 }
 _c4 = CardAction;
-function CardContent({ className, ...props }) {
+function CardContent(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-content",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("px-6", className),
@@ -172,7 +182,8 @@ function CardContent({ className, ...props }) {
     }, this);
 }
 _c5 = CardContent;
-function CardFooter({ className, ...props }) {
+function CardFooter(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         "data-slot": "card-footer",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center px-6 [.border-t]:pt-6", className),
@@ -200,16 +211,17 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/input.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Input": (()=>Input)
+    "Input": ()=>Input
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
-function Input({ className, type, ...props }) {
+function Input(param) {
+    let { className, type, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
         type: type,
         "data-slot": "input",
@@ -232,10 +244,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/label.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Label": (()=>Label)
+    "Label": ()=>Label
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-label/dist/index.mjs [app-client] (ecmascript)");
@@ -244,7 +256,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Label({ className, ...props }) {
+function Label(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$label$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "label",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50", className),
@@ -266,11 +279,11 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/badge.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Badge": (()=>Badge),
-    "badgeVariants": (()=>badgeVariants)
+    "Badge": ()=>Badge,
+    "badgeVariants": ()=>badgeVariants
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-slot/dist/index.mjs [app-client] (ecmascript)");
@@ -293,7 +306,8 @@ const badgeVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_m
         variant: "default"
     }
 });
-function Badge({ className, variant, asChild = false, ...props }) {
+function Badge(param) {
+    let { className, variant, asChild = false, ...props } = param;
     const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slot"] : "span";
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
         "data-slot": "badge",
@@ -318,19 +332,19 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/select.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Select": (()=>Select),
-    "SelectContent": (()=>SelectContent),
-    "SelectGroup": (()=>SelectGroup),
-    "SelectItem": (()=>SelectItem),
-    "SelectLabel": (()=>SelectLabel),
-    "SelectScrollDownButton": (()=>SelectScrollDownButton),
-    "SelectScrollUpButton": (()=>SelectScrollUpButton),
-    "SelectSeparator": (()=>SelectSeparator),
-    "SelectTrigger": (()=>SelectTrigger),
-    "SelectValue": (()=>SelectValue)
+    "Select": ()=>Select,
+    "SelectContent": ()=>SelectContent,
+    "SelectGroup": ()=>SelectGroup,
+    "SelectItem": ()=>SelectItem,
+    "SelectLabel": ()=>SelectLabel,
+    "SelectScrollDownButton": ()=>SelectScrollDownButton,
+    "SelectScrollUpButton": ()=>SelectScrollUpButton,
+    "SelectSeparator": ()=>SelectSeparator,
+    "SelectTrigger": ()=>SelectTrigger,
+    "SelectValue": ()=>SelectValue
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-select/dist/index.mjs [app-client] (ecmascript)");
@@ -343,7 +357,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Select({ ...props }) {
+function Select(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "select",
         ...props
@@ -354,7 +369,8 @@ function Select({ ...props }) {
     }, this);
 }
 _c = Select;
-function SelectGroup({ ...props }) {
+function SelectGroup(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Group"], {
         "data-slot": "select-group",
         ...props
@@ -365,7 +381,8 @@ function SelectGroup({ ...props }) {
     }, this);
 }
 _c1 = SelectGroup;
-function SelectValue({ ...props }) {
+function SelectValue(param) {
+    let { ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Value"], {
         "data-slot": "select-value",
         ...props
@@ -376,7 +393,8 @@ function SelectValue({ ...props }) {
     }, this);
 }
 _c2 = SelectValue;
-function SelectTrigger({ className, size = "default", children, ...props }) {
+function SelectTrigger(param) {
+    let { className, size = "default", children, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Trigger"], {
         "data-slot": "select-trigger",
         "data-size": size,
@@ -406,7 +424,8 @@ function SelectTrigger({ className, size = "default", children, ...props }) {
     }, this);
 }
 _c3 = SelectTrigger;
-function SelectContent({ className, children, position = "popper", ...props }) {
+function SelectContent(param) {
+    let { className, children, position = "popper", ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Portal"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Content"], {
             "data-slot": "select-content",
@@ -445,7 +464,8 @@ function SelectContent({ className, children, position = "popper", ...props }) {
     }, this);
 }
 _c4 = SelectContent;
-function SelectLabel({ className, ...props }) {
+function SelectLabel(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
         "data-slot": "select-label",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("text-muted-foreground px-2 py-1.5 text-xs", className),
@@ -457,7 +477,8 @@ function SelectLabel({ className, ...props }) {
     }, this);
 }
 _c5 = SelectLabel;
-function SelectItem({ className, children, ...props }) {
+function SelectItem(param) {
+    let { className, children, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Item"], {
         "data-slot": "select-item",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2", className),
@@ -498,7 +519,8 @@ function SelectItem({ className, children, ...props }) {
     }, this);
 }
 _c6 = SelectItem;
-function SelectSeparator({ className, ...props }) {
+function SelectSeparator(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Separator"], {
         "data-slot": "select-separator",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("bg-border pointer-events-none -mx-1 my-1 h-px", className),
@@ -510,7 +532,8 @@ function SelectSeparator({ className, ...props }) {
     }, this);
 }
 _c7 = SelectSeparator;
-function SelectScrollUpButton({ className, ...props }) {
+function SelectScrollUpButton(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollUpButton"], {
         "data-slot": "select-scroll-up-button",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
@@ -529,7 +552,8 @@ function SelectScrollUpButton({ className, ...props }) {
     }, this);
 }
 _c8 = SelectScrollUpButton;
-function SelectScrollDownButton({ className, ...props }) {
+function SelectScrollDownButton(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$select$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollDownButton"], {
         "data-slot": "select-scroll-down-button",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex cursor-default items-center justify-center py-1", className),
@@ -567,16 +591,17 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/textarea.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Textarea": (()=>Textarea)
+    "Textarea": ()=>Textarea
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils.ts [app-client] (ecmascript)");
 ;
 ;
-function Textarea({ className, ...props }) {
+function Textarea(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
         "data-slot": "textarea",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm", className),
@@ -598,10 +623,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/components/ui/checkbox.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "Checkbox": (()=>Checkbox)
+    "Checkbox": ()=>Checkbox
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$checkbox$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@radix-ui/react-checkbox/dist/index.mjs [app-client] (ecmascript)");
@@ -612,7 +637,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$
 ;
 ;
 ;
-function Checkbox({ className, ...props }) {
+function Checkbox(param) {
+    let { className, ...props } = param;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$checkbox$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "checkbox",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50", className),
@@ -649,10 +675,10 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 "[project]/app/admin/staff/add/page.tsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
-var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+var { k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
 __turbopack_context__.s({
-    "default": (()=>AddStaffPage)
+    "default": ()=>AddStaffPage
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -671,9 +697,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/select.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/textarea.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$checkbox$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/checkbox.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -774,6 +802,8 @@ function AddStaffPage() {
     const [currentStep, setCurrentStep] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("basic");
     const [isSubmitting, setIsSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [errors, setErrors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [success, setSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         // Basic Information
         name: "",
@@ -914,20 +944,22 @@ function AddStaffPage() {
     const handleSubmit = async ()=>{
         if (!validateStep("emergency")) return;
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise((resolve)=>setTimeout(resolve, 2000));
-        // In a real app, you would:
-        // 1. Validate all form data
-        // 2. Create user account
-        // 3. Send welcome email
-        // 4. Generate employee ID
-        // 5. Set up system access
-        // 6. Create payroll entry
-        // 7. Schedule orientation
-        console.log("New staff member created:", formData);
+        // Tạo staff mới
+        const newStaff = {
+            ...formData,
+            id: Date.now()
+        };
+        // Lưu vào localStorage (giả lập backend)
+        const staffList = JSON.parse(localStorage.getItem("staffList") || "[]");
+        staffList.push(newStaff);
+        localStorage.setItem("staffList", JSON.stringify(staffList));
+        // Hiển thị thông báo thành công
+        setSuccess(true);
         setIsSubmitting(false);
-    // Redirect to staff list or show success message
-    // router.push('/admin/staff')
+        // Chuyển hướng sau 1.5s
+        setTimeout(()=>{
+            router.push("/admin/staff");
+        }, 1500);
     };
     const getAvailablePositions = ()=>{
         return formData.department ? positions[formData.department] || [] : [];
@@ -1072,7 +1104,7 @@ function AddStaffPage() {
                                     className: "flex items-center",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `flex items-center justify-center w-10 h-10 rounded-full border-2 ${isActive ? "border-primary bg-primary text-primary-foreground" : isCompleted ? "border-green-500 bg-green-500 text-white" : "border-muted-foreground text-muted-foreground"}`,
+                                            className: "flex items-center justify-center w-10 h-10 rounded-full border-2 ".concat(isActive ? "border-primary bg-primary text-primary-foreground" : isCompleted ? "border-green-500 bg-green-500 text-white" : "border-muted-foreground text-muted-foreground"),
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
                                                 className: "h-5 w-5"
                                             }, void 0, false, {
@@ -1086,7 +1118,7 @@ function AddStaffPage() {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: `ml-2 text-sm font-medium ${isActive ? "text-primary" : isCompleted ? "text-green-600" : "text-muted-foreground"}`,
+                                            className: "ml-2 text-sm font-medium ".concat(isActive ? "text-primary" : isCompleted ? "text-green-600" : "text-muted-foreground"),
                                             children: step.label
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/add/page.tsx",
@@ -1094,7 +1126,7 @@ function AddStaffPage() {
                                             columnNumber: 19
                                         }, this),
                                         index < 4 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `w-12 h-0.5 mx-4 ${isCompleted ? "bg-green-500" : "bg-muted"}`
+                                            className: "w-12 h-0.5 mx-4 ".concat(isCompleted ? "bg-green-500" : "bg-muted")
                                         }, void 0, false, {
                                             fileName: "[project]/app/admin/staff/add/page.tsx",
                                             lineNumber: 275,
@@ -1851,7 +1883,9 @@ function AddStaffPage() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "space-y-4",
-                                                    children: Object.entries(formData.schedule).map(([day, schedule])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    children: Object.entries(formData.schedule).map((param)=>{
+                                                        let [day, schedule] = param;
+                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "flex items-center gap-4 p-4 border rounded-lg",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1873,7 +1907,7 @@ function AddStaffPage() {
                                                                     className: "flex items-center space-x-2",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$checkbox$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Checkbox"], {
-                                                                            id: `${day}-off`,
+                                                                            id: "".concat(day, "-off"),
                                                                             checked: schedule.isOff,
                                                                             onCheckedChange: (checked)=>handleScheduleChange(day, "isOff", checked)
                                                                         }, void 0, false, {
@@ -1882,7 +1916,7 @@ function AddStaffPage() {
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                            htmlFor: `${day}-off`,
+                                                                            htmlFor: "".concat(day, "-off"),
                                                                             className: "text-sm",
                                                                             children: "Day Off"
                                                                         }, void 0, false, {
@@ -1994,7 +2028,8 @@ function AddStaffPage() {
                                                             fileName: "[project]/app/admin/staff/add/page.tsx",
                                                             lineNumber: 519,
                                                             columnNumber: 25
-                                                        }, this))
+                                                        }, this);
+                                                    })
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/admin/staff/add/page.tsx",
                                                     lineNumber: 517,
@@ -2521,6 +2556,38 @@ function AddStaffPage() {
                 fileName: "[project]/app/admin/staff/add/page.tsx",
                 lineNumber: 239,
                 columnNumber: 7
+            }, this),
+            success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-white rounded-lg shadow-lg p-8 text-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-2xl font-bold mb-2 text-green-600",
+                            children: "Staff Created Successfully!"
+                        }, void 0, false, {
+                            fileName: "[project]/app/admin/staff/add/page.tsx",
+                            lineNumber: 747,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "mb-4",
+                            children: "Redirecting to staff list..."
+                        }, void 0, false, {
+                            fileName: "[project]/app/admin/staff/add/page.tsx",
+                            lineNumber: 748,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/admin/staff/add/page.tsx",
+                    lineNumber: 746,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/admin/staff/add/page.tsx",
+                lineNumber: 745,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
@@ -2529,7 +2596,11 @@ function AddStaffPage() {
         columnNumber: 5
     }, this);
 }
-_s(AddStaffPage, "U4ovDmdW86XFIv8CNmlUdyEuv00=");
+_s(AddStaffPage, "Zdse46rfpY82poVoJFN/SQnnoSY=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = AddStaffPage;
 var _c;
 __turbopack_context__.k.register(_c, "AddStaffPage");
