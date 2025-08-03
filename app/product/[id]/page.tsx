@@ -16,6 +16,8 @@ import {
   Package,
   Shield,
   Truck,
+  Loader2,
+  CheckCircle,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -157,6 +159,9 @@ export default function ProductDetailPage() {
   const [viewsIncremented, setViewsIncremented] = useState(false)
 
   const { state: cartState, dispatch: cartDispatch } = useCart()
+  const [isLoading, setIsLoading] = useState(false)
+  const [isAdded, setIsAdded] = useState(false)
+
 
   // Simulate incrementing view count when page loads
   useEffect(() => {
@@ -190,6 +195,7 @@ export default function ProductDetailPage() {
   }
 
   const handleAddToCart = () => {
+    setIsLoading(true)
     cartDispatch({
       type: "ADD_ITEM",
       payload: {
@@ -202,6 +208,11 @@ export default function ProductDetailPage() {
         stock: product.stock,
       },
     })
+    setTimeout(() => {
+      setIsLoading(false)
+      setIsAdded(true)
+      setTimeout(() => setIsAdded(false), 700)
+    }, 700) // spinner 
 
     // Show success message or redirect
     console.log(`Added ${quantity} x ${product.name} to cart`)
@@ -361,9 +372,23 @@ export default function ProductDetailPage() {
               </div>
 
               <div className="flex gap-3">
-                <Button onClick={handleAddToCart} className="flex-1" size="lg">
-                  <ShoppingCart className="h-5 w-5 mr-2" />
-                  Add to Cart - ${(product.price * quantity).toFixed(2)}
+                <Button
+                  onClick={handleAddToCart}
+                  disabled={isLoading || isAdded}
+                  className="w-full flex items-center justify-center gap-2 transition-all duration-300"
+                >
+                  {isLoading ? (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                  ) : isAdded ? (
+                    <>
+                      <CheckCircle className="h-5 w-5 text-green-600" />
+                      Added – ${(product.price * quantity).toFixed(2)}
+                    </>
+                  ) : (
+                    <>
+                      Add to Cart – ${(product.price * quantity).toFixed(2)}
+                    </>
+                  )}
                 </Button>
                 <Button
                   variant="outline"
