@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRouter } from "next/navigation"
 
 const departments = ["Management", "Sales", "Operations", "Customer Service", "Marketing", "IT Support", "Accounting"]
 
@@ -69,6 +70,8 @@ export default function AddStaffPage() {
   const [currentStep, setCurrentStep] = useState("basic")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const router = useRouter()
+  const [success, setSuccess] = useState(false)
 
   const [formData, setFormData] = useState({
     // Basic Information
@@ -186,24 +189,21 @@ export default function AddStaffPage() {
 
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // Tạo staff mới
+    const newStaff = { ...formData, id: Date.now() }
+    // Lưu vào localStorage (giả lập backend)
+    const staffList = JSON.parse(localStorage.getItem("staffList") || "[]")
+    staffList.push(newStaff)
+    localStorage.setItem("staffList", JSON.stringify(staffList))
 
-    // In a real app, you would:
-    // 1. Validate all form data
-    // 2. Create user account
-    // 3. Send welcome email
-    // 4. Generate employee ID
-    // 5. Set up system access
-    // 6. Create payroll entry
-    // 7. Schedule orientation
-
-    console.log("New staff member created:", formData)
-
+    // Hiển thị thông báo thành công
+    setSuccess(true)
     setIsSubmitting(false)
 
-    // Redirect to staff list or show success message
-    // router.push('/admin/staff')
+    // Chuyển hướng sau 1.5s
+    setTimeout(() => {
+      router.push("/admin/staff")
+    }, 1500)
   }
 
   const getAvailablePositions = () => {
@@ -740,6 +740,15 @@ export default function AddStaffPage() {
           )}
         </div>
       </div>
+
+      {success && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+            <h2 className="text-2xl font-bold mb-2 text-green-600">Staff Created Successfully!</h2>
+            <p className="mb-4">Redirecting to staff list...</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

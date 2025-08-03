@@ -148,7 +148,7 @@ export default function HomePage() {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [isOrganic, setIsOrganic] = useState(false)
   const [isArtisanal, setIsArtisanal] = useState(false)
-
+  const [isAdmin, setIsAdmin] = useState(false)
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const [addedProductIds, setAddedProductIds] = useState<number[]>([])
   const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
@@ -248,6 +248,16 @@ export default function HomePage() {
               <Link href="/support">
                 <Button variant="ghost">Support</Button>
               </Link>
+				{isAdmin && (
+				  <>
+					<Link href="/admin/system-settings">
+					  <Button variant="ghost">System Settings</Button>
+					</Link>
+					<Link href="/admin/user-roles">
+					  <Button variant="ghost">Role Management</Button>
+					</Link>
+				  </>
+				)}
               <Button variant="ghost" size="icon">
                 <Heart className="h-5 w-5" />
               </Button>
@@ -265,7 +275,18 @@ export default function HomePage() {
           </div>
         </div>
       </header>
-
+		{/* Admin Toggle */}
+		<div className="container mx-auto px-4 pt-2 pb-4 text-right">
+		  <label className="inline-flex items-center gap-2 text-sm">
+			<input
+			  type="checkbox"
+			  checked={isAdmin}
+			  onChange={() => setIsAdmin(!isAdmin)}
+			  className="form-checkbox"
+			/>
+			Admin Mode
+		  </label>
+		</div>
       {/* Hero Section with Search */}
       <section className="bg-gradient-to-r from-orange-50 to-amber-50 py-12">
         <div className="container mx-auto px-4 text-center">
