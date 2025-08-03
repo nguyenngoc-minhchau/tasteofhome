@@ -69,10 +69,10 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
             className="w-full mt-4"
             onClick={() => {
               setOpen(false)
-              router.push("/checkout") 
+              router.push("/cart") 
             }}
           >
-            Go to Checkout
+            Go to Cart
           </Button>
         </div>
       </SheetContent>
