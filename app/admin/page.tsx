@@ -1,101 +1,78 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Search, Eye, RefreshCw, DollarSign, Package, Users, TrendingUp, MoreHorizontal, Download } from "lucide-react"
+import { Users, Shield, Settings, Activity, AlertTriangle, CheckCircle, Clock, Server } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-
-// Mock admin order data
-const adminOrders = [
-  {
-    id: "ORD-2024-001",
-    customer: "John Doe",
-    email: "john@example.com",
-    date: "2024-01-15",
-    status: "delivered",
-    paymentStatus: "paid",
-    total: 67.48,
-    items: [
-      { name: "Premium Ethiopian Coffee Beans", quantity: 2, price: 24.99 },
-      { name: "Himalayan Pink Salt", quantity: 1, price: 12.5 },
-    ],
-    refundEligible: true,
-    hasReturns: false,
-  },
-  {
-    id: "ORD-2024-002",
-    customer: "Jane Smith",
-    email: "jane@example.com",
-    date: "2024-01-20",
-    status: "shipped",
-    paymentStatus: "paid",
-    total: 45.75,
-    items: [
-      { name: "Organic Green Tea", quantity: 1, price: 18.75 },
-      { name: "Wild Honey", quantity: 1, price: 28.99 },
-    ],
-    refundEligible: true,
-    hasReturns: false,
-  },
-  {
-    id: "ORD-2024-003",
-    customer: "Bob Johnson",
-    email: "bob@example.com",
-    date: "2024-01-22",
-    status: "processing",
-    paymentStatus: "paid",
-    total: 32.0,
-    items: [{ name: "Artisan Dark Chocolate", quantity: 1, price: 32.0 }],
-    refundEligible: true,
-    hasReturns: false,
-  },
-  {
-    id: "ORD-2024-004",
-    customer: "Alice Brown",
-    email: "alice@example.com",
-    date: "2024-01-10",
-    status: "refunded",
-    paymentStatus: "refunded",
-    total: 15.25,
-    items: [{ name: "Basmati Rice", quantity: 1, price: 15.25 }],
-    refundEligible: false,
-    hasReturns: false,
-  },
-]
-
-const statusColors = {
-  processing: "bg-blue-500",
-  shipped: "bg-orange-500",
-  delivered: "bg-green-500",
-  cancelled: "bg-red-500",
-  refunded: "bg-purple-500",
-}
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 export default function AdminDashboard() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedStatus, setSelectedStatus] = useState("all")
-
-  const filteredOrders = adminOrders.filter((order) => {
-    const matchesSearch =
-      order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.email.toLowerCase().includes(searchQuery.toLowerCase())
-
-    const matchesStatus = selectedStatus === "all" || order.status === selectedStatus
-
-    return matchesSearch && matchesStatus
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [userRole, setUserRole] = useState("")
+  const [systemStats, setSystemStats] = useState({
+    totalUsers: 1247,
+    activeUsers: 892,
+    systemHealth: "healthy",
+    lastBackup: "2024-01-23T10:30:00Z",
+    serverUptime: "99.9%",
+    securityAlerts: 0,
   })
 
-  const stats = {
-    totalOrders: adminOrders.length,
-    totalRevenue: adminOrders.reduce((sum, order) => sum + order.total, 0),
-    pendingOrders: adminOrders.filter((order) => order.status === "processing").length,
-    refundableOrders: adminOrders.filter((order) => order.refundEligible).length,
+  // Simulate authentication check - Only Admin can access
+  useEffect(() => {
+    const checkAuth = () => {
+      const role = localStorage.getItem("userRole") || "staff"
+      setUserRole(role)
+      setIsAuthenticated(role === "admin")
+    }
+    checkAuth()
+  }, [])
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Card className="w-96">
+          <CardHeader>
+            <CardTitle className="text-center">Access Denied</CardTitle>
+          </CardHeader>
+          <CardContent className="text-center space-y-4">
+            <AlertTriangle className="h-16 w-16 text-red-500 mx-auto" />
+            <div>
+              <p className="mb-2">
+                You need <strong>Administrator</strong> privileges to access the Admin Dashboard.
+              </p>
+              <p className="text-sm text-muted-foreground">Current role: {userRole || "Not authenticated"}</p>
+              <p className="text-xs text-muted-foreground mt-2">Admin dashboard is for system administration only.</p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">For demo purposes, you can simulate Admin role:</p>
+              <Button
+                onClick={() => {
+                  localStorage.setItem("userRole", "admin")
+                  window.location.reload()
+                }}
+              >
+                Login as Administrator
+              </Button>
+            </div>
+            <div className="flex gap-2">
+              <Link href="/manager">
+                <Button variant="outline" size="sm">
+                  Manager Dashboard
+                </Button>
+              </Link>
+              <Link href="/">
+                <Button variant="outline" size="sm">
+                  Back to Store
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   return (
@@ -105,189 +82,224 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-              <p className="text-muted-foreground">Manage orders, refunds, and returns</p>
+              <h1 className="text-3xl font-bold">System Administration</h1>
+              <p className="text-muted-foreground">Manage system users, roles, and configurations</p>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/admin/products">
-                <Button variant="outline">
-                  <Package className="h-4 w-4 mr-2" />
-                  Products
-                </Button>
-              </Link>
-              <Link href="/admin/reports">
-                <Button variant="outline">
-                  <TrendingUp className="h-4 w-4 mr-2" />
-                  Reports
-                </Button>
+              <Badge variant="destructive">Administrator Access</Badge>
+              <Link href="/manager">
+                <Button variant="outline">Manager Dashboard</Button>
               </Link>
               <Link href="/">
                 <Button variant="outline">Back to Store</Button>
               </Link>
-              <Button variant="outline" size="sm">
-                <RefreshCw className="h-4 w-4 mr-2" />
-                Refresh
-              </Button>
             </div>
           </div>
         </div>
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Stats Cards */}
+        {/* System Health Overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-              <Package className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stats.totalOrders}</div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">${stats.totalRevenue.toFixed(2)}</div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Pending Orders</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stats.pendingOrders}</div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Refund Eligible</CardTitle>
+              <CardTitle className="text-sm font-medium">Total Users</CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{stats.refundableOrders}</div>
+              <div className="text-2xl font-bold">{systemStats.totalUsers}</div>
+              <p className="text-xs text-muted-foreground">System accounts</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Active Users</CardTitle>
+              <Activity className="h-4 w-4 text-green-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-green-600">{systemStats.activeUsers}</div>
+              <p className="text-xs text-muted-foreground">Currently online</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">System Health</CardTitle>
+              <Server className="h-4 w-4 text-green-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-green-600 capitalize">{systemStats.systemHealth}</div>
+              <p className="text-xs text-muted-foreground">Uptime: {systemStats.serverUptime}</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Security Alerts</CardTitle>
+              <Shield className="h-4 w-4 text-green-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-green-600">{systemStats.securityAlerts}</div>
+              <p className="text-xs text-muted-foreground">No active threats</p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Order Management */}
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle>Order Management</CardTitle>
-              <Button variant="outline" size="sm">
-                <Download className="h-4 w-4 mr-2" />
-                Export
-              </Button>
-            </div>
-          </CardHeader>
-          <CardContent>
-            {/* Search and Filters */}
-            <div className="flex gap-4 mb-6">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  placeholder="Search orders, customers, or emails..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <Tabs value={selectedStatus} onValueChange={setSelectedStatus}>
-                <TabsList>
-                  <TabsTrigger value="all">All</TabsTrigger>
-                  <TabsTrigger value="processing">Processing</TabsTrigger>
-                  <TabsTrigger value="shipped">Shipped</TabsTrigger>
-                  <TabsTrigger value="delivered">Delivered</TabsTrigger>
-                  <TabsTrigger value="refunded">Refunded</TabsTrigger>
-                </TabsList>
-              </Tabs>
-            </div>
-
-            {/* Orders Table */}
-            <div className="space-y-4">
-              {filteredOrders.length === 0 ? (
-                <div className="text-center py-8">
-                  <p className="text-muted-foreground">No orders found matching your criteria</p>
+        {/* System Status */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>System Status</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span>Database Connection</span>
                 </div>
-              ) : (
-                filteredOrders.map((order) => (
-                  <Card key={order.id} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-4">
-                            <h3 className="font-semibold">{order.id}</h3>
-                            <Badge className={statusColors[order.status as keyof typeof statusColors]}>
-                              {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                            </Badge>
-                            {order.refundEligible && (
-                              <Badge variant="outline" className="text-green-600 border-green-600">
-                                Refund Eligible
-                              </Badge>
-                            )}
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            <p>
-                              <strong>Customer:</strong> {order.customer} ({order.email})
-                            </p>
-                            <p>
-                              <strong>Date:</strong> {new Date(order.date).toLocaleDateString()}
-                            </p>
-                            <p>
-                              <strong>Items:</strong> {order.items.length} item(s)
-                            </p>
-                          </div>
-                        </div>
+                <Badge className="bg-green-500">Healthy</Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span>API Services</span>
+                </div>
+                <Badge className="bg-green-500">Running</Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span>Email Service</span>
+                </div>
+                <Badge className="bg-green-500">Active</Badge>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-blue-600" />
+                  <span>Last Backup</span>
+                </div>
+                <span className="text-sm text-muted-foreground">
+                  {new Date(systemStats.lastBackup).toLocaleDateString()}
+                </span>
+              </div>
+            </CardContent>
+          </Card>
 
-                        <div className="text-right space-y-2">
-                          <p className="text-2xl font-bold">${order.total.toFixed(2)}</p>
-                          <div className="flex gap-2">
-                            <Link href={`/admin/orders/${order.id}`}>
-                              <Button variant="outline" size="sm">
-                                <Eye className="h-4 w-4 mr-1" />
-                                View
-                              </Button>
-                            </Link>
-                            <DropdownMenu>
-                              <DropdownMenuTrigger asChild>
-                                <Button variant="outline" size="sm">
-                                  <MoreHorizontal className="h-4 w-4" />
-                                </Button>
-                              </DropdownMenuTrigger>
-                              <DropdownMenuContent>
-                                <DropdownMenuItem>
-                                  <Link href={`/admin/orders/${order.id}`} className="w-full">
-                                    View Details
-                                  </Link>
-                                </DropdownMenuItem>
-                                {order.refundEligible && (
-                                  <DropdownMenuItem>
-                                    <Link href={`/admin/orders/${order.id}/refund`} className="w-full">
-                                      Process Refund
-                                    </Link>
-                                  </DropdownMenuItem>
-                                )}
-                                <DropdownMenuItem>Download Invoice</DropdownMenuItem>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              )}
-            </div>
-          </CardContent>
-        </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent System Activity</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="text-sm font-medium">System backup completed</p>
+                    <p className="text-xs text-muted-foreground">2 hours ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="text-sm font-medium">New user role created</p>
+                    <p className="text-xs text-muted-foreground">5 hours ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="text-sm font-medium">Security policy updated</p>
+                    <p className="text-xs text-muted-foreground">1 day ago</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                  <div>
+                    <p className="text-sm font-medium">Database optimization completed</p>
+                    <p className="text-xs text-muted-foreground">2 days ago</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Admin Functions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/admin/users">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="h-5 w-5" />
+                  User Management
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Manage system user accounts, create new users, and handle account settings.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">Total Users</span>
+                  <Badge variant="outline">{systemStats.totalUsers}</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/admin/roles">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Shield className="h-5 w-5" />
+                  Role & Permissions
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Configure user roles, permissions, and access control policies.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">Active Roles</span>
+                  <Badge variant="outline">5</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href="/admin/settings">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Settings className="h-5 w-5" />
+                  System Settings
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Configure system-wide settings, security policies, and integrations.
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium">Status</span>
+                  <Badge className="bg-green-500">Configured</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+
+        {/* Important Notice */}
+        <Alert className="mt-8">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertDescription>
+            <strong>Administrator Notice:</strong> This dashboard is for system administration only. For business
+            operations like product management, inventory, and staff management, please use the{" "}
+            <Link href="/manager" className="underline font-medium">
+              Manager Dashboard
+            </Link>
+            .
+          </AlertDescription>
+        </Alert>
       </div>
     </div>
   )

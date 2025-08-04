@@ -1,14 +1,16 @@
-// app/layout.tsx
+import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
+import { CartProvider } from "@/contexts/cart-context"
+import { ThemeProvider } from "@/components/theme-provider"
 import { Inter } from "next/font/google"
-import { Providers } from "./providers"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Artisan Market",
-  description: "Curated premium organic and artisanal products",
+  title: "v0 App",
+  description: "Created with v0",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -17,11 +19,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+        <CartProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+        </CartProvider>
       </body>
     </html>
   )
