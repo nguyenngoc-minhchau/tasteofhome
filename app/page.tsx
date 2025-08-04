@@ -1,12 +1,13 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { Search, ShoppingCart, Heart, Star } from "lucide-react"
+import { Search, ShoppingCart, Heart, Star, CheckCircle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SearchFilters } from "@/components/search-filters"
+import { MiniCart } from "@/components/mini-cart"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
 
@@ -149,6 +150,9 @@ export default function HomePage() {
   const [isArtisanal, setIsArtisanal] = useState(false)
 
   const { state: cartState, dispatch: cartDispatch } = useCart()
+  const [addedProductIds, setAddedProductIds] = useState<number[]>([])
+  const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
+  
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -203,7 +207,11 @@ export default function HomePage() {
 
   const featuredProducts = products.slice(0, 3)
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = async (product: any) => {
+  setLoadingProductIds((prev) => [...prev, product.id])
+
+  // Giả lập chờ thêm sản phẩm (ví dụ gọi API)
+  setTimeout(() => {
     cartDispatch({
       type: "ADD_ITEM",
       payload: {
@@ -216,6 +224,14 @@ export default function HomePage() {
         stock: 50, // Default stock
       },
     })
+
+    setLoadingProductIds((prev) => prev.filter((id) => id !== product.id))
+    setAddedProductIds((prev) => [...prev, product.id])
+
+    setTimeout(() => {
+      setAddedProductIds((prev) => prev.filter((id) => id !== product.id))
+    }, 700)
+  }, 700) // 
   }
 
   return (
@@ -308,8 +324,17 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-bold">${product.price}</span>
-                      <Button size="sm" onClick={() => handleAddToCart(product)}>
-                        Add to Cart
+                        <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
+                        {loadingProductIds.includes(product.id) ? (
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+                        ) : addedProductIds.includes(product.id) ? (
+                          <>
+                            <CheckCircle className="h-4 w-4 mr-1" />
+                            Added
+                          </>
+                        ) : (
+                          "Add to Cart"
+                        )}
                       </Button>
                     </div>
                   </CardContent>
@@ -319,6 +344,7 @@ export default function HomePage() {
           </div>
         </section>
       )}
+      <MiniCart openTrigger={addedProductIds.at(-1)} />
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
@@ -413,9 +439,20 @@ export default function HomePage() {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-lg font-bold">${product.price}</span>
-                        <Button size="sm" onClick={() => handleAddToCart(product)}>
-                          <ShoppingCart className="h-4 w-4 mr-1" />
-                          Add to Cart
+                        <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[140px] justify-center" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
+                          {loadingProductIds.includes(product.id) ? (
+                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+                          ) : addedProductIds.includes(product.id) ? (
+                            <>
+                              <CheckCircle className="h-4 w-4 mr-1" />
+                              Added
+                            </>
+                          ) : (
+                            <>
+                              <ShoppingCart className="h-4 w-4 mr-1" />
+                              Add to Cart
+                            </>
+                          )}
                         </Button>
                       </div>
                     </CardContent>
