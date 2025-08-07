@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { Search, ShoppingCart, Heart, Star, CheckCircle } from "lucide-react"
+import { Search, ShoppingCart, Heart, Star, LogOut, User as UserIcon, LayoutDashboard, CheckCircle } from "lucide-react" // Them UserIcon cho profile
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -10,6 +10,19 @@ import { SearchFilters } from "@/components/search-filters"
 import { MiniCart } from "@/components/mini-cart"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
+import {HeroSection} from "@/components/hero-section"
+import {useAuth} from "@/components/auth-provider"
+import { useRouter } from 'next/navigation'
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 
 // Mock product data
 const products = [
@@ -152,7 +165,13 @@ export default function HomePage() {
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const [addedProductIds, setAddedProductIds] = useState<number[]>([])
   const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
-  
+  const { user, isLoggedIn, logout } = useAuth()
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/auth');
+  };
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -240,8 +259,55 @@ export default function HomePage() {
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Artisan Market</h1>
+            <Link href="/">
+              <img src="/logo.png" alt="Team Logo" className="h-20 w-auto ml-16"/>
+            </Link>
             <div className="flex items-center gap-4">
+
+              {/* Avatar and Log Out */}
+              {isLoggedIn ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="relative w-8 h-8 rounded-full overflow-hidden p-0">
+                      <img
+                        src="/placeholder-user.jpg"
+                        alt={user?.name || "User Avatar"}
+                        className="w-full h-full object-cover"
+                      />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <DropdownMenuLabel>
+                      {user?.name || user?.email || "My Account"}
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link href="/profile"> {/* Vi du: lien ket den trang profile */}
+                        <UserIcon className="mr-2 h-4 w-4" />
+                        <span>Profile</span>
+                      </Link>
+                    </DropdownMenuItem>
+
+                    {user?.role && user.role !== "customer" && (
+                      <DropdownMenuItem asChild>
+                        <Link href={`/${user.role}/dashboard`}>
+                          <LayoutDashboard className="mr-2 h-4 w-4" />
+                          <span>Dashboard</span>
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuItem onClick={handleLogout}>
+                      <LogOut className="mr-2 h-4 w-4" />
+                      <span>Log Out</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                // Sign In
+                <Link href="/auth">
+                  <Button variant="ghost">Sign In</Button>
+                </Link>
+              )}
               <Link href="/orders">
                 <Button variant="ghost">Orders</Button>
               </Link>
@@ -267,7 +333,7 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section with Search */}
-      <section className="bg-gradient-to-r from-orange-50 to-amber-50 py-12">
+      <section className="bg-beige py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">Discover Premium Artisan Products</h2>
           <p className="text-lg text-muted-foreground mb-8">
@@ -300,8 +366,8 @@ export default function HomePage() {
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />
-                      {product.isOrganic && <Badge className="absolute top-2 left-2 bg-green-500">Organic</Badge>}
-                      {product.isArtisanal && <Badge className="absolute top-2 right-2 bg-purple-500">Artisanal</Badge>}
+                      {product.isOrganic && <Badge className="absolute top-2 left-2 bg-coral">Organic</Badge>}
+                      {product.isArtisanal && <Badge className="absolute top-2 right-2 bg-mint">Artisanal</Badge>}
                     </div>
                   </Link>
                   <CardContent className="p-4">
@@ -399,8 +465,8 @@ export default function HomePage() {
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-2 left-2 flex flex-col gap-1">
-                          {product.isOrganic && <Badge className="bg-green-500 text-white">Organic</Badge>}
-                          {product.isArtisanal && <Badge className="bg-purple-500 text-white">Artisanal</Badge>}
+                          {product.isOrganic && <Badge className="bg-mint text-yellowish">Organic</Badge>}
+                          {product.isArtisanal && <Badge className="bg-coral text-yellowish">Artisanal</Badge>}
                         </div>
                         <Button
                           size="icon"

@@ -72,7 +72,7 @@ export default function CartPage() {
                 <ArrowLeft className="h-5 w-5" />
                 Continue Shopping
               </Link>
-              <h1 className="text-2xl font-bold">Shopping Cart</h1>
+              <h1 className="text-2xl font-bold translate-x-[-50px]">Shopping Cart</h1>
               <div className="w-24"></div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function CartPage() {
               <ArrowLeft className="h-5 w-5" />
               Continue Shopping
             </Link>
-            <h1 className="text-2xl font-bold">Shopping Cart</h1>
+            <h1 className="text-2xl font-bold translate-x-[-50px]">Shopping Cart</h1>
             <Badge variant="secondary">{cartState.itemCount} items</Badge>
           </div>
         </div>

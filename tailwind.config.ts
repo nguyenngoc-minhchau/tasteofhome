@@ -13,6 +13,12 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+			yellowish: "#FEEFDD",
+			coral: "#F28076",
+        	pink: "#FFB6AF",
+        	beige: "#FAE0C7",
+        	orange: "#FBC193",
+        	mint: "#4EB09B",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -12,15 +12,19 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { useCart } from "@/contexts/cart-context"
+import { DiscountCodeInput } from "@/components/discount-code-input"
 
 export default function CheckoutPage() {
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const router = useRouter()
   const [isProcessing, setIsProcessing] = useState(false)
-
+  const [appliedDiscount, setAppliedDiscount] = useState<{ code: string; amount: number } | null>(null)
+  
   const shippingCost = cartState.total > 50 ? 0 : 5.99
   const tax = cartState.total * 0.08
-  const finalTotal = cartState.total + shippingCost + tax
+  const discountAmount = appliedDiscount ? appliedDiscount.amount : 0
+  const finalTotal = cartState.total + shippingCost + tax - discountAmount
+
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -175,6 +179,13 @@ export default function CheckoutPage() {
                     <span>Tax</span>
                     <span>${tax.toFixed(2)}</span>
                   </div>
+                  
+                  {appliedDiscount && (
+                  <div className="flex justify-between text-green-600">
+                    <span>Discount ({appliedDiscount.code})</span>
+                    <span>- ${discountAmount.toFixed(2)}</span>
+                  </div>
+                  )}
                   <Separator />
                   <div className="flex justify-between text-lg font-semibold">
                     <span>Total</span>
