@@ -35,7 +35,7 @@ export default function AuthPage() {
       id: "1",
       email: "user@example.com",
       name: "John Doe",
-      role: "admin"
+      role: "customer"
     })
 
     toast({
