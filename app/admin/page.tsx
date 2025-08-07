@@ -2,15 +2,17 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Users, Shield, Settings, Activity, AlertTriangle, CheckCircle, Clock, Server } from "lucide-react"
+import { Users, Shield, Settings, Activity, AlertTriangle, CheckCircle, Clock, Server, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { useAuth } from "@/components/auth-provider"
+import { useRouter } from "next/navigation"
 
 export default function AdminDashboard() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [userRole, setUserRole] = useState("")
+  const { user, isLoggedIn, logout } = useAuth()
+  const router = useRouter()
+
   const [systemStats, setSystemStats] = useState({
     totalUsers: 1247,
     activeUsers: 892,
@@ -20,59 +22,30 @@ export default function AdminDashboard() {
     securityAlerts: 0,
   })
 
-  // Simulate authentication check - Only Admin can access
+  // Access control logic
   useEffect(() => {
-    const checkAuth = () => {
-      const role = localStorage.getItem("userRole") || "staff"
-      setUserRole(role)
-      setIsAuthenticated(role === "admin")
+    if (!isLoggedIn) {
+      router.push("/auth")
+    } else if (user?.role !== "admin") {
+      if (user?.role === "customer") {
+        router.push("/")
+      } else {
+        router.push("/dashboard")
+      }
     }
-    checkAuth()
-  }, [])
+  }, [isLoggedIn, user, router])
 
-  if (!isAuthenticated) {
+  if (!isLoggedIn || user?.role !== "admin") {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Card className="w-96">
-          <CardHeader>
-            <CardTitle className="text-center">Access Denied</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center space-y-4">
-            <AlertTriangle className="h-16 w-16 text-red-500 mx-auto" />
-            <div>
-              <p className="mb-2">
-                You need <strong>Administrator</strong> privileges to access the Admin Dashboard.
-              </p>
-              <p className="text-sm text-muted-foreground">Current role: {userRole || "Not authenticated"}</p>
-              <p className="text-xs text-muted-foreground mt-2">Admin dashboard is for system administration only.</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">For demo purposes, you can simulate Admin role:</p>
-              <Button
-                onClick={() => {
-                  localStorage.setItem("userRole", "admin")
-                  window.location.reload()
-                }}
-              >
-                Login as Administrator
-              </Button>
-            </div>
-            <div className="flex gap-2">
-              <Link href="/manager">
-                <Button variant="outline" size="sm">
-                  Manager Dashboard
-                </Button>
-              </Link>
-              <Link href="/">
-                <Button variant="outline" size="sm">
-                  Back to Store
-                </Button>
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
+        <p>Redirecting...</p>
       </div>
     )
+  }
+
+  const handleLogout = () => {
+    logout()
+    router.push("/auth")
   }
 
   return (
@@ -87,12 +60,10 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <Badge variant="destructive">Administrator Access</Badge>
-              <Link href="/manager">
-                <Button variant="outline">Manager Dashboard</Button>
-              </Link>
-              <Link href="/">
-                <Button variant="outline">Back to Store</Button>
-              </Link>
+              <Button variant="outline" onClick={handleLogout}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </Button>
             </div>
           </div>
         </div>
@@ -287,19 +258,6 @@ export default function AdminDashboard() {
             </Card>
           </Link>
         </div>
-
-        {/* Important Notice */}
-        <Alert className="mt-8">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertDescription>
-            <strong>Administrator Notice:</strong> This dashboard is for system administration only. For business
-            operations like product management, inventory, and staff management, please use the{" "}
-            <Link href="/manager" className="underline font-medium">
-              Manager Dashboard
-            </Link>
-            .
-          </AlertDescription>
-        </Alert>
       </div>
     </div>
   )
