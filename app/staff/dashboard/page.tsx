@@ -1,12 +1,12 @@
 "use client"
 
-import { Clock, MessageCircle, Truck } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
+import { useState, useEffect } from "react"
+import { Clock, MessageCircle, Truck, LogOut } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card"
+import { Badge } from "@components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { useAuth } from "@/components/auth-provider"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 
 const staffDashboardData = {
   pendingOrders: 23,
@@ -25,23 +25,55 @@ const staffDashboardData = {
 }
 
 export default function StaffDashboardPage() {
-  const { user, loading } = useAuth()
+  const { user, isLoggedIn, loading, logout } = useAuth()
   const router = useRouter()
 
+  // Logic kiem tra quyen truy cap va chuyen huong
   useEffect(() => {
-    if (!loading && user?.role !== "staff") {
-      router.push("/") 
+    // Chi kiem tra sau khi da load xong thong tin user
+    if (!loading) {
+      if (!isLoggedIn) {
+        // Neu chua dang nhap, chuyen huong ve trang login
+        router.push("/auth")
+      } else if (user?.role !== "staff") {
+        // Neu khong phai staff, chuyen huong phu hop voi tung role
+        if (user?.role === "customer") {
+          router.push("/")
+        } else {
+          router.push("/dashboard")
+        }
+      }
     }
-  }, [user, loading])
+  }, [isLoggedIn, user, loading, router])
 
-  if (loading) return <p>Checking login...</p>
+  // Hien thi loading hoac mot trang trang khi dang chuyen huong
+  if (loading || !isLoggedIn || user?.role !== "staff") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Redirecting...</p>
+      </div>
+    )
+  }
+
+  const handleLogout = () => {
+    logout()
+    router.push("/auth")
+  }
 
   return (
     <div className="min-h-screen bg-background p-6">
-      <h2 className="text-3xl font-bold mb-6">Staff Dashboard</h2>
-      <p className="text-muted-foreground mb-8">
-        Track orders, manage shipments, and handle customer support requests
-      </p>
+      <header className="border-b mb-6 pb-4 flex justify-between items-center">
+        <div>
+          <h2 className="text-3xl font-bold mb-2">Staff Dashboard</h2>
+          <p className="text-muted-foreground">
+            Track orders, manage shipments, and handle customer support requests
+          </p>
+        </div>
+        <Button variant="outline" onClick={handleLogout}>
+          <LogOut className="h-4 w-4 mr-2" />
+          Logout
+        </Button>
+      </header>
 
       {/* Staff Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
