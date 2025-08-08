@@ -2976,3 +2976,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO system_setting (setting_key, value, description, category, updated_by)
+VALUES ('site_name', 'Taste of Home', 'The name of the site', 'general', 1);
+
+CREATE TABLE `support_requests` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `customer_name` VARCHAR(255) NOT NULL,
+  `customer_email` VARCHAR(255) NOT NULL,
+  `subject` VARCHAR(255) NOT NULL,
+  `message` TEXT NOT NULL,
+  `order_id` BIGINT UNSIGNED DEFAULT NULL,
+  `screenshot_url` VARCHAR(255) DEFAULT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

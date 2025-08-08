@@ -34,14 +34,36 @@ export default function SupportPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+try {
+  const res = await fetch("/api/support", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      order_id: formData.orderNumber || null,
+      screenshot_url: null, // You can add file upload later
+    }),
+  })
 
-    // Generate ticket number
-    const ticketId = `SUP-${Date.now().toString().slice(-6)}`
-    setTicketNumber(ticketId)
-    setTicketSubmitted(true)
-    setIsSubmitting(false)
+  if (!res.ok) {
+    const { error } = await res.json()
+    throw new Error(error || "Failed to submit support request")
+  }
+
+  const { record } = await res.json()
+  setTicketNumber(`SUP-${record.id.toString().padStart(6, "0")}`)
+  setTicketSubmitted(true)
+} catch (error) {
+  console.error("Submission error:", error)
+  alert("There was a problem submitting your request. Please try again.")
+} finally {
+  setIsSubmitting(false)
+}
 
     // In a real app, you would:
     // 1. Validate form data

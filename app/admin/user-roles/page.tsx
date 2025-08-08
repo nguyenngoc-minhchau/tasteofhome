@@ -1,23 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 
-type Role = {
-  id: number;
-  name: string;
-  permissions: string[];
-  isSystem?: boolean;
-};
-
-type User = {
-  id: number;
-  name: string;
-  roleId: number | null;
-};
+type Permission = { id: number; name: string };
+type Role = { id: number; name: string; permissions: Permission[]; isSystem?: boolean };
+type User = { id: number; name: string; roleId: number | null };
 
 const defaultPermissions = [
   "view_products",
@@ -27,48 +18,93 @@ const defaultPermissions = [
   "manage_roles",
 ];
 
-// 🟡 This mock data simulates shared roles (can be replaced with import or API)
-const initialRoles: Role[] = [
-  { id: 1, name: "Admin", permissions: defaultPermissions, isSystem: true },
-  { id: 2, name: "Manager", permissions: ["view_products", "manage_orders"] },
-  { id: 3, name: "Viewer", permissions: ["view_products"] },
-];
-
-// 🧍 Initial mock users
-const initialUsers: User[] = [
-  { id: 1, name: "Alice", roleId: 2 },
-  { id: 2, name: "Bob", roleId: 3 },
-  { id: 3, name: "Charlie", roleId: null },
-];
-
 export default function UserRoleAssignments() {
-  const [roles, setRoles] = useState<Role[]>(initialRoles);
-  const [users, setUsers] = useState<User[]>(initialUsers);
-
+  const [roles, setRoles] = useState<Role[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const [selectedRoleId, setSelectedRoleId] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const assignRoleToUser = () => {
-    if (selectedUserId == null || selectedRoleId == null) return;
-    setUsers((prev) =>
-      prev.map((user) =>
-        user.id === selectedUserId ? { ...user, roleId: selectedRoleId } : user
-      )
-    );
+  // Load roles & users from backend
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const [rolesRes, usersRes] = await Promise.all([
+          fetch("/api/roles"),
+          fetch("/api/users"),
+        ]);
+        const rolesData = await rolesRes.json();
+        const usersData = await usersRes.json();
+        setRoles(rolesData);
+        setUsers(usersData);
+      } catch (err) {
+        console.error("Failed to load data:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
+
+  // Assign role to a user
+  const assignRoleToUser = async () => {
+    if (!selectedUserId || !selectedRoleId) return;
+    try {
+      const res = await fetch("/api/users", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: selectedUserId, roleId: selectedRoleId }),
+      });
+      if (!res.ok) throw new Error("Failed to assign role");
+      // Update UI without reload
+      setUsers((prev) =>
+        prev.map((u) => (u.id === selectedUserId ? { ...u, roleId: selectedRoleId } : u))
+      );
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const togglePermissionForRole = (roleId: number, permission: string) => {
-    setRoles((prev) =>
-      prev.map((role) => {
-        if (role.id !== roleId || role.isSystem) return role;
-        const has = role.permissions.includes(permission);
-        const updated = has
-          ? role.permissions.filter((p) => p !== permission)
-          : [...role.permissions, permission];
-        return { ...role, permissions: updated };
-      })
-    );
+  // Toggle permission for a role
+  const togglePermissionForRole = async (roleId: number, permissionId: number) => {
+    const role = roles.find((r) => r.id === roleId);
+    if (!role || role.isSystem) return;
+
+    let updatedPermissions: number[];
+    if (role.permissions.some((p) => p.id === permissionId)) {
+      updatedPermissions = role.permissions.filter((p) => p.id !== permissionId).map((p) => p.id);
+    } else {
+      updatedPermissions = [...role.permissions.map((p) => p.id), permissionId];
+    }
+
+    try {
+      const res = await fetch("/api/roles", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ roleId, permissionIds: updatedPermissions }),
+      });
+      if (!res.ok) throw new Error("Failed to update role permissions");
+      // Update UI without reload
+      setRoles((prev) =>
+        prev.map((r) =>
+          r.id === roleId
+            ? {
+                ...r,
+                permissions: r.permissions.some((p) => p.id === permissionId)
+                  ? r.permissions.filter((p) => p.id !== permissionId)
+                  : [...r.permissions, { id: permissionId, name: defaultPermissions.find((p) => p === permissionId.toString()) || "" }],
+              }
+            : r
+        )
+      );
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  if (loading) {
+    return <p className="p-6">Loading...</p>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
@@ -140,7 +176,7 @@ export default function UserRoleAssignments() {
         </CardContent>
       </Card>
 
-      {/* Optional: Edit Permissions for Custom Roles */}
+      {/* Edit Permissions */}
       <Card>
         <CardHeader>
           <CardTitle>Edit Role Permissions (Custom Roles Only)</CardTitle>
@@ -150,13 +186,13 @@ export default function UserRoleAssignments() {
             <div key={role.id} className="border rounded p-4 space-y-2">
               <h3 className="font-semibold">{role.name}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-                {defaultPermissions.map((perm) => (
-                  <label key={perm} className="flex items-center gap-2">
+                {role.permissions.map((perm) => (
+                  <label key={perm.id} className="flex items-center gap-2">
                     <Checkbox
-                      checked={role.permissions.includes(perm)}
-                      onCheckedChange={() => togglePermissionForRole(role.id, perm)}
+                      checked={role.permissions.some((p) => p.id === perm.id)}
+                      onCheckedChange={() => togglePermissionForRole(role.id, perm.id)}
                     />
-                    <span className="text-sm capitalize">{perm.replaceAll("_", " ")}</span>
+                    <span className="text-sm capitalize">{perm.name.replaceAll("_", " ")}</span>
                   </label>
                 ))}
               </div>
