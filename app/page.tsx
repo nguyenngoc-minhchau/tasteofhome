@@ -1,536 +1,484 @@
+// /app/page.tsx
 "use client"
 
-import { useState, useMemo, useEffect } from "react" // Them useEffect
-import { Search, ShoppingCart, Heart, Star, LogOut, User as UserIcon, LayoutDashboard, CheckCircle } from "lucide-react"
+import { useState, useMemo, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { Search, ShoppingCart, Heart, LogOut, User as UserIcon, CheckCircle, ChevronRight, ChevronLeft } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { SearchFilters } from "@/components/search-filters"
 import { MiniCart } from "@/components/mini-cart"
-import Link from "next/link"
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { useCart } from "@/contexts/cart-context"
-import { HeroSection } from "@/components/hero-section"
 import { useAuth } from "@/components/auth-provider"
-import { useRouter } from 'next/navigation'
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+interface Product {
+  id: number
+  title: string
+  image: string | null
+  price: number
+  price_discount?: number
+  re_name?: string
+  category?: string
+  capacity?: string
+}
 
-// Mock product data
-const products = [
-    {
-        id: 1,
-        name: "Premium Ethiopian Coffee Beans",
-        price: 24.99,
-        category: "Coffee",
-        country: "Ethiopia",
-        tags: ["single-origin", "medium-roast"],
-        isOrganic: true,
-        isArtisanal: true,
-        rating: 4.8,
-        reviews: 127,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 2,
-        name: "Himalayan Pink Salt",
-        price: 12.5,
-        category: "Spices",
-        country: "Pakistan",
-        tags: ["mineral-rich", "unrefined"],
-        isOrganic: true,
-        isArtisanal: false,
-        rating: 4.6,
-        reviews: 89,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 3,
-        name: "Organic Green Tea",
-        price: 18.75,
-        category: "Tea",
-        country: "Japan",
-        tags: ["ceremonial-grade", "matcha"],
-        isOrganic: true,
-        isArtisanal: true,
-        rating: 4.9,
-        reviews: 203,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 4,
-        name: "Artisan Dark Chocolate",
-        price: 32.0,
-        category: "Chocolate",
-        country: "Belgium",
-        tags: ["70%-cacao", "fair-trade"],
-        isOrganic: false,
-        isArtisanal: true,
-        rating: 4.7,
-        reviews: 156,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 5,
-        name: "Wild Honey",
-        price: 28.99,
-        category: "Honey",
-        country: "New Zealand",
-        tags: ["raw", "manuka"],
-        isOrganic: true,
-        isArtisanal: true,
-        rating: 4.8,
-        reviews: 94,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 6,
-        name: "Basmati Rice",
-        price: 15.25,
-        category: "Grains",
-        country: "India",
-        tags: ["aged", "aromatic"],
-        isOrganic: true,
-        isArtisanal: false,
-        rating: 4.5,
-        reviews: 78,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 7,
-        name: "French Lavender Oil",
-        price: 45.0,
-        category: "Essential Oils",
-        country: "France",
-        tags: ["therapeutic-grade", "steam-distilled"],
-        isOrganic: true,
-        isArtisanal: true,
-        rating: 4.9,
-        reviews: 167,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-        id: 8,
-        name: "Aged Balsamic Vinegar",
-        price: 38.5,
-        category: "Condiments",
-        country: "Italy",
-        tags: ["12-year-aged", "traditional"],
-        isOrganic: false,
-        isArtisanal: true,
-        rating: 4.8,
-        reviews: 112,
-        image: "/placeholder.svg?height=200&width=200",
-    },
-]
+interface Category {
+  id: number
+  title: string
+  re_name: string
+  ishot: number
+  isnew: number
+  priority: number
+}
 
-const categories = ["Coffee", "Tea", "Spices", "Chocolate", "Honey", "Grains", "Essential Oils", "Condiments"]
-const countries = ["Ethiopia", "Pakistan", "Japan", "Belgium", "New Zealand", "India", "France", "Italy"]
-const allTags = [
-    "single-origin",
-    "medium-roast",
-    "mineral-rich",
-    "unrefined",
-    "ceremonial-grade",
-    "matcha",
-    "70%-cacao",
-    "fair-trade",
-    "raw",
-    "manuka",
-    "aged",
-    "aromatic",
-    "therapeutic-grade",
-    "steam-distilled",
-    "12-year-aged",
-    "traditional",
-]
+interface Capacity {
+  id: number
+  title: string
+  priority: number
+}
+
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  }).format(price)
 
 export default function HomePage() {
-    const [searchQuery, setSearchQuery] = useState("")
-    const [selectedCategory, setSelectedCategory] = useState("")
-    const [priceRange, setPriceRange] = useState<[number, number]>([0, 200])
-    const [selectedCountries, setSelectedCountries] = useState<string[]>([])
-    const [selectedTags, setSelectedTags] = useState<string[]>([])
-    const [isOrganic, setIsOrganic] = useState(false)
-    const [isArtisanal, setIsArtisanal] = useState(false)
+  const [products, setProducts] = useState<Product[]>([])
+  const [categories, setCategories] = useState<Category[]>([])
+  const [capacities, setCapacities] = useState<Capacity[]>([])
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 0])
+  const [minPrice, setMinPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(0)
+  const [hotProducts, setHotProducts] = useState<Product[]>([])
+  const [newProducts, setNewProducts] = useState<Product[]>([])
 
-    const { state: cartState, dispatch: cartDispatch } = useCart()
-    const [addedProductIds, setAddedProductIds] = useState<number[]>([])
-    const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
-    const { user, isLoggedIn, logout } = useAuth()
-    const router = useRouter();
+  const [hotExpanded, setHotExpanded] = useState(false)
+  const [newExpanded, setNewExpanded] = useState(false)
 
-    // The logic to handle redirection for non-customer roles
-    useEffect(() => {
-        if (isLoggedIn && user && user.role !== "customer") {
-            router.replace('/dashboard'); // Redirect to dashboard for non-customer roles
-        }
-    }, [isLoggedIn, user, router]);
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-    const handleLogout = () => {
-        logout();
-        router.push('/auth');
-    };
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("")
+  const [selectedCapacity, setSelectedCapacity] = useState("")
 
-    const filteredProducts = useMemo(() => {
-        return products.filter((product) => {
-            // Search query filter
-            if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase())) {
-                return false
-            }
+  const { state: cartState, dispatch: cartDispatch } = useCart()
+  const [addedProductIds, setAddedProductIds] = useState<number[]>([])
+  const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
+  const { user, isLoggedIn, logout } = useAuth()
+  const router = useRouter()
 
-            // Category filter
-            if (selectedCategory && product.category !== selectedCategory) {
-                return false
-            }
+  const PRODUCTS_PER_PAGE = 12
+  const [currentPage, setCurrentPage] = useState(1)
 
-            // Price range filter
-            if (product.price < priceRange[0] || product.price > priceRange[1]) {
-                return false
-            }
-
-            // Country filter
-            if (selectedCountries.length > 0 && !selectedCountries.includes(product.country)) {
-                return false
-            }
-
-            // Tags filter
-            if (selectedTags.length > 0 && !selectedTags.some((tag) => product.tags.includes(tag))) {
-                return false
-            }
-
-            // Organic filter
-            if (isOrganic && !product.isOrganic) {
-                return false
-            }
-
-            // Artisanal filter
-            if (isArtisanal && !product.isArtisanal) {
-                return false
-            }
-
-            return true
-        })
-    }, [searchQuery, selectedCategory, priceRange, selectedCountries, selectedTags, isOrganic, isArtisanal])
-
-    const clearAllFilters = () => {
-        setSelectedCategory("")
-        setPriceRange([0, 200])
-        setSelectedCountries([])
-        setSelectedTags([])
-        setIsOrganic(false)
-        setIsArtisanal(false)
-        setSearchQuery("")
+  useEffect(() => {
+    if (isLoggedIn && user?.role !== "customer") {
+      router.replace("/dashboard")
+      return
     }
 
-    const featuredProducts = products.slice(0, 3)
+    async function fetchData() {
+      try {
+        setIsLoading(true)
+        setError(null)
 
-    const handleAddToCart = async (product: any) => {
-        setLoadingProductIds((prev) => [...prev, product.id])
+        const [productsRes, categoriesRes, priceRangeRes, capacitiesRes, highlightsRes] = await Promise.all([
+          fetch("/api/product"),
+          fetch("/api/categories"),
+          fetch("/api/products/price-range"),
+          fetch("/api/capacities"),
+          fetch("/api/products/highlights"),
+        ])
 
-        // Giả lập chờ thêm sản phẩm (ví dụ gọi API)
-        setTimeout(() => {
-            cartDispatch({
-                type: "ADD_ITEM",
-                payload: {
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: 1,
-                    image: product.image,
-                    category: product.category,
-                    stock: 50, // Default stock
-                },
-            })
+        if (!productsRes.ok) throw new Error("Failed to fetch products")
+        if (!categoriesRes.ok) throw new Error("Failed to fetch categories")
+        if (!priceRangeRes.ok) throw new Error("Failed to fetch price range")
+        if (!capacitiesRes.ok) throw new Error("Failed to fetch capacities")
+        if (!highlightsRes.ok) throw new Error("Failed to fetch highlights")
 
-            setLoadingProductIds((prev) => prev.filter((id) => id !== product.id))
-            setAddedProductIds((prev) => [...prev, product.id])
+        const productsData = await productsRes.json()
+        const categoriesData = await categoriesRes.json()
+        const priceRangeData = await priceRangeRes.json()
+        const capacitiesData = await capacitiesRes.json()
+        const highlightsData = await highlightsRes.json()
 
-            setTimeout(() => {
-                setAddedProductIds((prev) => prev.filter((id) => id !== product.id))
-            }, 700)
-        }, 700)
+        setProducts(productsData)
+        setCategories(categoriesData)
+        setPriceRange([priceRangeData.minPrice, priceRangeData.maxPrice])
+        setMinPrice(priceRangeData.minPrice)
+        setMaxPrice(priceRangeData.maxPrice)
+        setCapacities(capacitiesData)
+        setHotProducts(highlightsData.hot || [])
+        setNewProducts(highlightsData.new || [])
+      } catch (err: any) {
+        setError(err.message || "Something went wrong")
+      } finally {
+        setIsLoading(false)
+      }
     }
 
-    // Nếu người dùng là non-customer, không render gì và chuyển hướng ngay lập tức
-    if (isLoggedIn && user && user.role !== "customer") {
-        return null;
+    fetchData()
+  }, [isLoggedIn, user, router])
+
+  const handleLogout = () => {
+    logout()
+    router.push("/auth")
+  }
+
+  const featuredProducts = useMemo(() => {
+    const allHighlights = [...hotProducts, ...newProducts];
+    const uniqueProducts = Array.from(new Map(allHighlights.map(item => [item.id, item])).values());
+    return uniqueProducts.slice(0, 3);
+  }, [hotProducts, newProducts]);
+
+  const filteredProducts = useMemo(() => {
+    const productsToFilter = products.filter((product) => {
+      if (searchQuery && !product.title.toLowerCase().includes(searchQuery.toLowerCase())) return false
+      if (selectedCategory && product.category !== selectedCategory) return false
+      if (product.price < priceRange[0] || product.price > priceRange[1]) return false
+      if (selectedCapacity && product.capacity !== selectedCapacity) return false
+      return true
+    })
+    return productsToFilter
+  }, [products, searchQuery, selectedCategory, priceRange, selectedCapacity])
+
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE)
+  const currentProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE
+    const endIndex = startIndex + PRODUCTS_PER_PAGE
+    return filteredProducts.slice(startIndex, endIndex)
+  }, [filteredProducts, currentPage])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchQuery, selectedCategory, selectedCapacity, priceRange])
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const clearAllFilters = () => {
+    setSearchQuery("")
+    setSelectedCategory("")
+    setSelectedCapacity("")
+    setPriceRange([minPrice, maxPrice])
+  }
+
+  const renderProductCard = (product: Product, buttonWidth: string = "w-[140px]") => (
+    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+      <Link href={`/product/${product.id}`}>
+        <div className="aspect-square relative cursor-pointer">
+          <Image
+            src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
+            alt={product.title}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      </Link>
+      <CardContent className="p-4">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+          <span>{product.category}</span>
+        </div>
+        <Link href={`/product/${product.id}`}>
+          <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
+            {product.title}
+          </h4>
+        </Link>
+        <div className="flex items-center justify-between">
+          <span className="text-lg font-bold">{formatPrice(product.price)}</span>
+          <Button
+            size="sm"
+            onClick={() => handleAddToCart(product)}
+            className={`${buttonWidth} justify-center`}
+            disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}
+          >
+            {loadingProductIds.includes(product.id) ? (
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+            ) : addedProductIds.includes(product.id) ? (
+              <>
+                <CheckCircle className="h-4 w-4 mr-1" />
+                Added
+              </>
+            ) : (
+              <>
+                <ShoppingCart className="h-4 w-4 mr-1" />
+                Add to Cart
+              </>
+            )}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+
+  const handleAddToCart = (product: Product) => {
+    if (loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)) return
+    setLoadingProductIds((prev) => [...prev, product.id])
+    setTimeout(() => {
+      cartDispatch({
+        type: "ADD_ITEM",
+        payload: {
+          id: product.id,
+          name: product.title,
+          price: product.price,
+          quantity: 1,
+          image: product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : null,
+          category: product.category || "",
+          stock: 50,
+        },
+      })
+      setLoadingProductIds((prev) => prev.filter((id) => id !== product.id))
+      setAddedProductIds((prev) => [...prev, product.id])
+      setTimeout(() => {
+        setAddedProductIds((prev) => prev.filter((id) => id !== product.id))
+      }, 700)
+    }, 700)
+  }
+
+  const renderProductGroup = (
+    title: string,
+    productsList: Product[],
+    expanded: boolean,
+    setExpanded: (val: boolean) => void
+  ) => {
+    const visibleCount = 3
+    const displayedProducts = expanded ? productsList : productsList.slice(0, visibleCount)
+    if (productsList.length === 0) return null
+    return (
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <h3 className="text-2xl font-bold mb-8 flex justify-between items-center">
+            {title}
+            {productsList.length > visibleCount && (
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="text-primary text-base font-semibold hover:underline"
+              >
+                {expanded ? "Less" : "More"}
+              </button>
+            )}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {displayedProducts.map((product) => renderProductCard(product))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  const renderPagination = () => {
+    if (totalPages <= 1) return null
+
+    const pageNumbers = []
+    const maxPageButtons = 5
+    const startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2))
+    const endPage = Math.min(totalPages, startPage + maxPageButtons - 1)
+
+    for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i)
     }
 
     return (
-        <div className="min-h-screen bg-background">
-            {/* Header */}
-            <header className="border-b">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <Link href="/">
-                            <img src="/logo.png" alt="Team Logo" className="h-20 w-auto ml-16" />
-                        </Link>
-                        <div className="flex items-center gap-4">
-
-                            {/* Avatar and Log Out */}
-                            {isLoggedIn ? (
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="relative w-8 h-8 rounded-full overflow-hidden p-0">
-                                            <img
-                                                src="/placeholder-user.jpg"
-                                                alt={user?.name || "User Avatar"}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent className="w-56" align="end" forceMount>
-                                        <DropdownMenuLabel>
-                                            {user?.name || user?.email || "My Account"}
-                                        </DropdownMenuLabel>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/profile">
-                                                <UserIcon className="mr-2 h-4 w-4" />
-                                                <span>Profile</span>
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={handleLogout}>
-                                            <LogOut className="mr-2 h-4 w-4" />
-                                            <span>Log Out</span>
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            ) : (
-                                // Sign In
-                                <Link href="/auth">
-                                    <Button variant="ghost">Sign In</Button>
-                                </Link>
-                            )}
-                            <Link href="/orders">
-                                <Button variant="ghost">Orders</Button>
-                            </Link>
-                            <Link href="/support">
-                                <Button variant="ghost">Support</Button>
-                            </Link>
-                            <Button variant="ghost" size="icon">
-                                <Heart className="h-5 w-5" />
-                            </Button>
-                            <Link href="/cart">
-                                <Button variant="ghost" size="icon" className="relative">
-                                    <ShoppingCart className="h-5 w-5" />
-                                    {cartState.itemCount > 0 && (
-                                        <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs">
-                                            {cartState.itemCount}
-                                        </Badge>
-                                    )}
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            {/* Hero Section with Search */}
-            <section className="bg-beige py-12">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-4xl font-bold mb-4">Discover Premium Artisan Products</h2>
-                    <p className="text-lg text-muted-foreground mb-8">
-                        Curated selection of organic, artisanal, and specialty items from around the world
-                    </p>
-                    <div className="max-w-2xl mx-auto relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-                        <Input
-                            placeholder="Search for products, categories, or brands..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-10 py-3 text-lg"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Featured Products */}
-            {!searchQuery && !selectedCategory && (
-                <section className="py-12">
-                    <div className="container mx-auto px-4">
-                        <h3 className="text-2xl font-bold mb-8">Featured Products</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {featuredProducts.map((product) => (
-                                <Card key={product.id} className="overflow-hidden">
-                                    <Link href={`/product/${product.id}`}>
-                                        <div className="aspect-square relative cursor-pointer">
-                                            <img
-                                                src={product.image || "/placeholder.svg"}
-                                                alt={product.name}
-                                                className="w-full h-full object-cover"
-                                            />
-                                            {product.isOrganic && <Badge className="absolute top-2 left-2 bg-coral">Organic</Badge>}
-                                            {product.isArtisanal && <Badge className="absolute top-2 right-2 bg-mint">Artisanal</Badge>}
-                                        </div>
-                                    </Link>
-                                    <CardContent className="p-4">
-                                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                                            <span>{product.category}</span>
-                                            <span>•</span>
-                                            <span>{product.country}</span>
-                                        </div>
-                                        <Link href={`/product/${product.id}`}>
-                                            <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
-                                                {product.name}
-                                            </h4>
-                                        </Link>
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <div className="flex items-center">
-                                                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                                                <span className="text-sm ml-1">{product.rating}</span>
-                                            </div>
-                                            <span className="text-sm text-muted-foreground">({product.reviews} reviews)</span>
-                                        </div>
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-lg font-bold">${product.price}</span>
-                                            <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
-                                                {loadingProductIds.includes(product.id) ? (
-                                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-                                                ) : addedProductIds.includes(product.id) ? (
-                                                    <>
-                                                        <CheckCircle className="h-4 w-4 mr-1" />
-                                                        Added
-                                                    </>
-                                                ) : (
-                                                    "Add to Cart"
-                                                )}
-                                            </Button>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            )}
-            <MiniCart openTrigger={addedProductIds.at(-1)} />
-
-            {/* Main Content */}
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                    {/* Filters Sidebar */}
-                    <div className="lg:col-span-1">
-                        <SearchFilters
-                            categories={categories}
-                            countries={countries}
-                            tags={allTags}
-                            selectedCategory={selectedCategory}
-                            onCategoryChange={setSelectedCategory}
-                            priceRange={priceRange}
-                            onPriceRangeChange={setPriceRange}
-                            selectedCountries={selectedCountries}
-                            onCountriesChange={setSelectedCountries}
-                            selectedTags={selectedTags}
-                            onTagsChange={setSelectedTags}
-                            isOrganic={isOrganic}
-                            onOrganicChange={setIsOrganic}
-                            isArtisanal={isArtisanal}
-                            onArtisanalChange={setIsArtisanal}
-                            onClearAll={clearAllFilters}
-                        />
-                    </div>
-
-                    {/* Products Grid */}
-                    <div className="lg:col-span-3">
-                        <div className="flex items-center justify-between mb-6">
-                            <h3 className="text-xl font-semibold">
-                                {searchQuery || selectedCategory ? "Search Results" : "All Products"}
-                                <span className="text-muted-foreground ml-2">({filteredProducts.length} products)</span>
-                            </h3>
-                        </div>
-
-                        {filteredProducts.length === 0 ? (
-                            <div className="text-center py-12">
-                                <p className="text-lg text-muted-foreground mb-4">No products found matching your criteria</p>
-                                <Button onClick={clearAllFilters} variant="outline">
-                                    Clear All Filters
-                                </Button>
-                            </div>
-                        ) : (
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                                {filteredProducts.map((product) => (
-                                    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                                        <Link href={`/product/${product.id}`}>
-                                            <div className="aspect-square relative cursor-pointer">
-                                                <img
-                                                    src={product.image || "/placeholder.svg"}
-                                                    alt={product.name}
-                                                    className="w-full h-full object-cover"
-                                                />
-                                                <div className="absolute top-2 left-2 flex flex-col gap-1">
-                                                    {product.isOrganic && <Badge className="bg-mint text-yellowish">Organic</Badge>}
-                                                    {product.isArtisanal && <Badge className="bg-coral text-yellowish">Artisanal</Badge>}
-                                                </div>
-                                                <Button
-                                                    size="icon"
-                                                    variant="ghost"
-                                                    className="absolute top-2 right-2 bg-white/80 hover:bg-white"
-                                                    onClick={(e) => e.preventDefault()}
-                                                >
-                                                    <Heart className="h-4 w-4" />
-                                                </Button>
-                                            </div>
-                                        </Link>
-                                        <CardContent className="p-4">
-                                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                                                <span>{product.category}</span>
-                                                <span>•</span>
-                                                <span>{product.country}</span>
-                                            </div>
-                                            <Link href={`/product/${product.id}`}>
-                                                <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
-                                                    {product.name}
-                                                </h4>
-                                            </Link>
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <div className="flex items-center">
-                                                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                                                    <span className="text-sm ml-1">{product.rating}</span>
-                                                </div>
-                                                <span className="text-sm text-muted-foreground">({product.reviews})</span>
-                                            </div>
-                                            <div className="flex flex-wrap gap-1 mb-3">
-                                                {product.tags.slice(0, 2).map((tag) => (
-                                                    <Badge key={tag} variant="secondary" className="text-xs">
-                                                        {tag}
-                                                    </Badge>
-                                                ))}
-                                            </div>
-                                            <div className="flex items-center justify-between">
-                                                <span className="text-lg font-bold">${product.price}</span>
-                                                <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
-                                                    {loadingProductIds.includes(product.id) ? (
-                                                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-                                                    ) : addedProductIds.includes(product.id) ? (
-                                                        <>
-                                                            <CheckCircle className="h-4 w-4 mr-1" />
-                                                            Added
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <ShoppingCart className="h-4 w-4 mr-1" />
-                                                            Add to Cart
-                                                        </>
-                                                    )}
-                                                </Button>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
+        <div className="flex items-center justify-center space-x-2 mt-6">
+            <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+            >
+                <ChevronLeft className="h-4 w-4" />
+            </Button>
+            {pageNumbers.map(page => (
+                <Button
+                    key={page}
+                    variant={currentPage === page ? "default" : "outline"}
+                    onClick={() => handlePageChange(page)}
+                >
+                    {page}
+                </Button>
+            ))}
+            <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+            >
+                <ChevronRight className="h-4 w-4" />
+            </Button>
         </div>
     )
+  }
+
+  if (isLoggedIn && user?.role !== "customer") {
+    return null
+  }
+
+  if (isLoading) {
+    return <div className="min-h-screen flex items-center justify-center text-xl font-semibold">Loading products...</div>
+  }
+
+  if (error) {
+    return <div className="min-h-screen flex items-center justify-center text-lg text-red-500">Error: {error}</div>
+  }
+
+  const isFiltered = searchQuery || selectedCategory || selectedCapacity || priceRange[0] !== minPrice || priceRange[1] !== maxPrice;
+
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b bg-white sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <Link href="/" className="ml-16">
+            <Image src="/logo.png" alt="Team Logo" width={120} height={80} priority />
+          </Link>
+
+          <div className="flex items-center gap-4">
+            {isLoggedIn ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative w-8 h-8 rounded-full overflow-hidden p-0">
+                    <img
+                      src="/placeholder-user.jpg"
+                      alt={user?.name || "User Avatar"}
+                      className="w-full h-full object-cover"
+                    />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuLabel>{user?.name || user?.username || "My Account"}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link href="/profile" className="flex items-center">
+                      <UserIcon className="mr-2 h-4 w-4" />
+                      Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Log Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link href="/auth">
+                <Button variant="ghost">Sign In</Button>
+              </Link>
+            )}
+
+            <Link href="/orders">
+              <Button variant="ghost">Orders</Button>
+            </Link>
+
+            <Link href="/support">
+              <Button variant="ghost">Support</Button>
+            </Link>
+
+            <Button variant="ghost" size="icon">
+              <Heart className="h-5 w-5" />
+            </Button>
+
+            <Link href="/cart" className="relative">
+              <Button variant="ghost" size="icon">
+                <ShoppingCart className="h-5 w-5" />
+                {cartState?.itemCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs">
+                    {cartState.itemCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section with Search */}
+      <section className="bg-beige py-12">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">Discover Premium Artisan Products</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Curated selection of organic, artisanal, and specialty items from around the world
+          </p>
+          <div className="max-w-2xl mx-auto relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+            <Input placeholder="Search for products, categories, or brands..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 py-3 text-lg" />
+          </div>
+        </div>
+      </section>
+      <MiniCart openTrigger={addedProductIds.at(-1)} />
+
+      {/* Featured Products */}
+      {!isFiltered && featuredProducts.length > 0 && (
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <h3 className="text-2xl font-bold mb-8">Featured Products</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredProducts.map((product) => renderProductCard(product))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Dynamic Product Sections (Hot/New) */}
+      {!isFiltered && (
+        <>
+          {renderProductGroup("Hot Products", hotProducts, hotExpanded, setHotExpanded)}
+          {renderProductGroup("New Products", newProducts, newExpanded, setNewExpanded)}
+        </>
+      )}
+      
+      {/* Main Content & Filtered Results */}
+      <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+              <aside className="lg:col-span-1">
+                  <SearchFilters
+                      categories={categories.map((c) => c.title)}
+                      capacities={capacities.map((c) => c.title)}
+                      selectedCategory={selectedCategory}
+                      onCategoryChange={setSelectedCategory}
+                      selectedCapacity={selectedCapacity}
+                      onCapacityChange={setSelectedCapacity}
+                      priceRange={priceRange}
+                      onPriceRangeChange={setPriceRange}
+                      onClearAll={clearAllFilters}
+                      minPrice={minPrice}
+                      maxPrice={maxPrice}
+                  />
+              </aside>
+              <main className="lg:col-span-3">
+                  <div className="flex items-center justify-between mb-6">
+                      <h3 className="text-xl font-semibold">
+                          {isFiltered ? "Search Results" : "All Products"} <span className="text-muted-foreground ml-2">({filteredProducts.length} products)</span>
+                      </h3>
+                  </div>
+
+                  {filteredProducts.length === 0 ? (
+                      <div className="text-center py-12">
+                          <p className="text-lg text-muted-foreground mb-4">No products found matching your criteria</p>
+                          <Button onClick={clearAllFilters} variant="outline">
+                              Clear All Filters
+                          </Button>
+                      </div>
+                  ) : (
+                      <>
+                          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                              {currentProducts.map((product) => renderProductCard(product))}
+                          </div>
+                          {renderPagination()}
+                      </>
+                  )}
+              </main>
+          </div>
+      </div>
+    </div>
+  )
 }
