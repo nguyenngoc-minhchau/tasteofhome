@@ -66,14 +66,14 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
             <span>${cartState.total.toFixed(2)}</span>
           </div>
           <Button
-            className="w-full mt-4"
-            onClick={() => {
-              setOpen(false)
-              router.push("/cart") 
-            }}
-          >
-            Go to Cart
-          </Button>
+          className="w-full mt-4 bg-orange hover:bg-orange/80 text-black"
+          onClick={() => {
+            setOpen(false)
+            router.push("/cart")
+          }}
+        >
+          Go to Cart
+        </Button>
         </div>
       </SheetContent>
     </Sheet>

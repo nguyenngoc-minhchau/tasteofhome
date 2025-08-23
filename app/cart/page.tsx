@@ -241,7 +241,12 @@ export default function CartPage() {
                   <span>${finalTotal.toFixed(2)}</span>
                 </div>
 
-                <Button onClick={handleProceedToCheckout} disabled={isValidating} className="w-full" size="lg">
+                <Button
+                  onClick={handleProceedToCheckout}
+                  disabled={isValidating}
+                  className="w-full bg-orange text-black hover:bg-orange/80"
+                  size="lg"
+                >
                   <CreditCard className="h-5 w-5 mr-2" />
                   {isValidating ? "Validating..." : "Proceed to Checkout"}
                 </Button>

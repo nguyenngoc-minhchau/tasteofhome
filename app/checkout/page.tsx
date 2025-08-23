@@ -194,7 +194,12 @@ export default function CheckoutPage() {
                 </div>
 
                 <form onSubmit={handlePlaceOrder}>
-                  <Button type="submit" disabled={isProcessing} className="w-full" size="lg">
+                  <Button
+                    type="submit"
+                    disabled={isProcessing}
+                    className="w-full bg-orange text-black hover:bg-orange/80"
+                    size="lg"
+                  >
                     {isProcessing ? "Processing..." : `Place Order - $${finalTotal.toFixed(2)}`}
                   </Button>
                 </form>

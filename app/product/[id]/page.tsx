@@ -375,7 +375,7 @@ export default function ProductDetailPage() {
                 <Button
                   onClick={handleAddToCart}
                   disabled={isLoading || isAdded}
-                  className="w-full flex items-center justify-center gap-2 transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 transition-all duration-300 bg-orange text-black hover:bg-orange/80"
                 >
                   {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin" />
