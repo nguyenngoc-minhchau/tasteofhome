@@ -392,7 +392,7 @@ export default function HomePage() {
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <span className="text-lg font-bold">${product.price}</span>
-                                            <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
+                                            <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
                                                 {loadingProductIds.includes(product.id) ? (
                                                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
                                                 ) : addedProductIds.includes(product.id) ? (
@@ -507,7 +507,7 @@ export default function HomePage() {
                                             </div>
                                             <div className="flex items-center justify-between">
                                                 <span className="text-lg font-bold">${product.price}</span>
-                                                <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[140px] justify-center" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
+                                                <Button size="sm" onClick={() => handleAddToCart(product)} className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80" disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}>
                                                     {loadingProductIds.includes(product.id) ? (
                                                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
                                                     ) : addedProductIds.includes(product.id) ? (
