@@ -2347,6 +2347,10 @@ INSERT INTO `users` VALUES(5, 'a.Tiến', 'a.Tiến', '', 0, 'chuongtien2020@gma
 INSERT INTO `users` VALUES(6, 'HIẾU VŨ', 'HIEU HIEU', '', 0, 'vt.hieu1991@gmail.com', '0903882224', NULL, 1, 1, NULL, '$2y$10$3fElEh19elZ4q.IRRMEy/ukfb87B9J88yiiuWm8GlO./M2beWHakG', NULL, '2023-06-21 15:26:15', '2023-06-29 11:25:18');
 INSERT INTO `users` VALUES(7, 'chị vy', 'vyvu', '', 0, 'nghivu07@yahoo.com.vn', '0906400018', NULL, 1, 1, NULL, '$2y$10$7TqG30UfaOBT/jLQu2pDs.tYjlQvryY39Ws7Pfz/fkZXC2QFvk.2i', NULL, '2023-11-27 06:26:58', '2023-11-27 06:26:58');
 
+-- Add role column in users table
+ALTER TABLE users
+ADD COLUMN role ENUM('customer', 'staff', 'manager', 'admin') 
+NOT NULL DEFAULT 'customer';
 --
 -- Indexes for dumped tables
 --
