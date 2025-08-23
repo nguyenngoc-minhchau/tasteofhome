@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+function serialize(obj: any) {
+  return JSON.parse(
+    JSON.stringify(obj, (_, value) =>
+      typeof value === "bigint" ? value.toString() : value
+    )
+  );
+}
+
 // GET all orders
 export async function GET() {
   const orders = await prisma.product_order.findMany({
@@ -9,7 +17,7 @@ export async function GET() {
     include: { details: true },
   });
 
-  return NextResponse.json(orders);
+  return NextResponse.json(serialize(orders));
 }
 
 // GET single order by inv_code
@@ -22,7 +30,7 @@ export async function GETBYID(req: Request, { params }: { params: { id: string }
 
   if (!order) return NextResponse.json({ error: "Order not found" }, { status: 404 });
 
-  return NextResponse.json(order);
+  return NextResponse.json(serialize(order));
 }
 
 // POST → create new order
@@ -58,7 +66,7 @@ export async function POST(req: Request) {
       include: { details: true },
     });
 
-    return NextResponse.json(order);
+    return NextResponse.json(serialize(order));
   } catch (error) {
     console.error("POST /api/orderfin failed:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
@@ -83,7 +91,7 @@ export async function PATCH(req: Request) {
       },
     });
 
-    return NextResponse.json(order);
+    return NextResponse.json(serialize(order));
   } catch (error) {
     console.error("PATCH /api/orderfin failed:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

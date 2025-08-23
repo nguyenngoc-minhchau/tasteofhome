@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server"
 import prisma from "@/lib/prisma"
 
+function serialize(obj: any) {
+  return JSON.parse(
+    JSON.stringify(obj, (_, value) =>
+      typeof value === "bigint" ? value.toString() : value
+    )
+  );
+}
+
 // GET /api/orderfin/[id] → fetch single order by inv_code
 export async function GET(
   req: Request,
@@ -19,7 +27,7 @@ export async function GET(
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
-    return NextResponse.json({
+    return NextResponse.json( serialize({
       id: order.id,
       inv_code: order.inv_code,
       fullname: order.fullname,
@@ -41,7 +49,7 @@ export async function GET(
         price: item.price,
         pro_status: item.pro_status,
       })),
-    });
+    }));
   } catch (error) {
     console.error("Failed to fetch order:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });

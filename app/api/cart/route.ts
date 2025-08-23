@@ -5,8 +5,8 @@ import { cookies } from "next/headers"
 import { randomUUID } from "crypto"
 
 // Helper to get or create a cart identifier
-export function getCartIdentifier() {
-  const cookieStore = cookies() // synchronous access in route.ts
+export async function getCartIdentifier() {
+  const cookieStore = await cookies() // synchronous access in route.ts
   let cartId = cookieStore.get("cart_id")?.value
 
   if (!cartId) {
