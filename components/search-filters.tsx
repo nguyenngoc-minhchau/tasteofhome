@@ -12,76 +12,49 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 
 interface SearchFiltersProps {
   categories: string[]
-  countries: string[]
-  tags: string[]
   selectedCategory: string
   onCategoryChange: (category: string) => void
+  capacities: string[]
+  selectedCapacity: string
+  onCapacityChange: (capacity: string) => void
   priceRange: [number, number]
   onPriceRangeChange: (range: [number, number]) => void
-  selectedCountries: string[]
-  onCountriesChange: (countries: string[]) => void
-  selectedTags: string[]
-  onTagsChange: (tags: string[]) => void
-  isOrganic: boolean
-  onOrganicChange: (organic: boolean) => void
-  isArtisanal: boolean
-  onArtisanalChange: (artisanal: boolean) => void
   onClearAll: () => void
+  minPrice: number
+  maxPrice: number
 }
 
 export function SearchFilters({
-  categories,
-  countries,
-  tags,
+  categories = [],
   selectedCategory,
   onCategoryChange,
+  capacities = [],
+  selectedCapacity,
+  onCapacityChange,
   priceRange,
   onPriceRangeChange,
-  selectedCountries,
-  onCountriesChange,
-  selectedTags,
-  onTagsChange,
-  isOrganic,
-  onOrganicChange,
-  isArtisanal,
-  onArtisanalChange,
   onClearAll,
+  minPrice = 0,
+  maxPrice = 1000000,
 }: SearchFiltersProps) {
   const [openSections, setOpenSections] = useState({
     category: true,
     price: true,
-    country: true,
-    features: true,
-    tags: false,
+    capacity: true,
   })
 
   const toggleSection = (section: keyof typeof openSections) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
   }
 
-  const handleCountryChange = (country: string, checked: boolean) => {
-    if (checked) {
-      onCountriesChange([...selectedCountries, country])
-    } else {
-      onCountriesChange(selectedCountries.filter((c) => c !== country))
-    }
-  }
-
-  const handleTagChange = (tag: string, checked: boolean) => {
-    if (checked) {
-      onTagsChange([...selectedTags, tag])
-    } else {
-      onTagsChange(selectedTags.filter((t) => t !== tag))
-    }
-  }
-
   const activeFiltersCount =
     (selectedCategory ? 1 : 0) +
-    (selectedCountries.length > 0 ? 1 : 0) +
-    (selectedTags.length > 0 ? 1 : 0) +
-    (isOrganic ? 1 : 0) +
-    (isArtisanal ? 1 : 0) +
-    (priceRange[0] > 0 || priceRange[1] < 200 ? 1 : 0)
+    (selectedCapacity ? 1 : 0) +
+    (priceRange[0] > minPrice || priceRange[10] < maxPrice ? 1 : 0)
+
+  // Guard to ensure priceRange values are valid numbers before calling toLocaleString
+  const fromPrice = typeof priceRange === "number" ? priceRange : minPrice
+  const toPrice = typeof priceRange[10] === "number" ? priceRange[10] : maxPrice
 
   return (
     <Card>
@@ -108,9 +81,11 @@ export function SearchFilters({
         {/* Category Filter */}
         <Collapsible open={openSections.category} onOpenChange={() => toggleSection("category")}>
           <CollapsibleTrigger asChild>
-            <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-              <span className="font-medium">Category</span>
-              {openSections.category ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            <Button variant="ghost" className="w-full p-0 h-auto">
+              <div className="flex w-full justify-between items-center">
+                <span className="font-medium">Category</span>
+                {openSections.category ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </div>
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-2 mt-3">
@@ -132,12 +107,43 @@ export function SearchFilters({
           </CollapsibleContent>
         </Collapsible>
 
+        {/* Capacity Filter */}
+        <Collapsible open={openSections.capacity} onOpenChange={() => toggleSection("capacity")}>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" className="w-full p-0 h-auto">
+              <div className="flex w-full justify-between items-center">
+                <span className="font-medium">Capacity</span>
+                {openSections.capacity ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </div>
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="space-y-2 mt-3">
+            <div className="space-y-2">
+              <Label className="flex items-center space-x-2 cursor-pointer">
+                <Checkbox checked={selectedCapacity === ""} onCheckedChange={() => onCapacityChange("")} />
+                <span>All Capacities</span>
+              </Label>
+              {capacities.map((capacity) => (
+                <Label key={capacity} className="flex items-center space-x-2 cursor-pointer">
+                  <Checkbox
+                    checked={selectedCapacity === capacity}
+                    onCheckedChange={() => onCapacityChange(selectedCapacity === capacity ? "" : capacity)}
+                  />
+                  <span>{capacity}</span>
+                </Label>
+              ))}
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+
         {/* Price Range Filter */}
         <Collapsible open={openSections.price} onOpenChange={() => toggleSection("price")}>
           <CollapsibleTrigger asChild>
-            <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-              <span className="font-medium">Price Range</span>
-              {openSections.price ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            <Button variant="ghost" className="w-full p-0 h-auto">
+              <div className="flex w-full justify-between items-center">
+                <span className="font-medium">Price Range</span>
+                {openSections.price ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </div>
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-4 mt-3">
@@ -145,83 +151,15 @@ export function SearchFilters({
               <Slider
                 value={priceRange}
                 onValueChange={(value) => onPriceRangeChange(value as [number, number])}
-                max={200}
-                min={0}
-                step={5}
+                min={minPrice}
+                max={maxPrice}
+                step={1000}
                 className="w-full"
               />
               <div className="flex justify-between text-sm text-muted-foreground mt-2">
-                <span>${priceRange[0]}</span>
-                <span>${priceRange[1]}+</span>
+                <span>{fromPrice.toLocaleString("vi-VN")}₫</span>
+                <span>{toPrice.toLocaleString("vi-VN")}₫+</span>
               </div>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-
-        {/* Country Filter */}
-        <Collapsible open={openSections.country} onOpenChange={() => toggleSection("country")}>
-          <CollapsibleTrigger asChild>
-            <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-              <span className="font-medium">Country of Origin</span>
-              {openSections.country ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </Button>
-          </CollapsibleTrigger>
-          <CollapsibleContent className="space-y-2 mt-3">
-            <div className="space-y-2 max-h-48 overflow-y-auto">
-              {countries.map((country) => (
-                <Label key={country} className="flex items-center space-x-2 cursor-pointer">
-                  <Checkbox
-                    checked={selectedCountries.includes(country)}
-                    onCheckedChange={(checked) => handleCountryChange(country, checked as boolean)}
-                  />
-                  <span>{country}</span>
-                </Label>
-              ))}
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-
-        {/* Features Filter */}
-        <Collapsible open={openSections.features} onOpenChange={() => toggleSection("features")}>
-          <CollapsibleTrigger asChild>
-            <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-              <span className="font-medium">Features</span>
-              {openSections.features ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </Button>
-          </CollapsibleTrigger>
-          <CollapsibleContent className="space-y-2 mt-3">
-            <div className="space-y-2">
-              <Label className="flex items-center space-x-2 cursor-pointer">
-                <Checkbox checked={isOrganic} onCheckedChange={onOrganicChange} />
-                <span>Organic</span>
-              </Label>
-              <Label className="flex items-center space-x-2 cursor-pointer">
-                <Checkbox checked={isArtisanal} onCheckedChange={onArtisanalChange} />
-                <span>Artisanal</span>
-              </Label>
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-
-        {/* Tags Filter */}
-        <Collapsible open={openSections.tags} onOpenChange={() => toggleSection("tags")}>
-          <CollapsibleTrigger asChild>
-            <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-              <span className="font-medium">Tags</span>
-              {openSections.tags ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </Button>
-          </CollapsibleTrigger>
-          <CollapsibleContent className="space-y-2 mt-3">
-            <div className="space-y-2 max-h-48 overflow-y-auto">
-              {tags.map((tag) => (
-                <Label key={tag} className="flex items-center space-x-2 cursor-pointer">
-                  <Checkbox
-                    checked={selectedTags.includes(tag)}
-                    onCheckedChange={(checked) => handleTagChange(tag, checked as boolean)}
-                  />
-                  <span className="capitalize">{tag}</span>
-                </Label>
-              ))}
             </div>
           </CollapsibleContent>
         </Collapsible>
