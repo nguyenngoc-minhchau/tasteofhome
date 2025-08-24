@@ -6,10 +6,10 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  context: { params: Promise<{ id: string }> }
+  context: { params: { id: string } } // Sửa lại kiểu dữ liệu
 ) {
   try {
-    const { id } = await context.params;
+    const { id } = context.params;
     const productId = BigInt(id);
 
     // Get the product
@@ -31,23 +31,16 @@ export async function GET(
     });
 
     // Fetch related capacity (if any)
-	let capacityTitle = product.capacity;
-	if (!capacityTitle && product.capacity_id) {
-	  const cap = await prisma.product_capacity.findUnique({
-		where: { id: product.capacity_id },
-		select: { title: true },
-	  });
-	  capacityTitle = cap?.title || null;
-	}
-
-	let capacityLookup: string | null = null;
-	if (product.capacity_id) {
-	  const cap = await prisma.product_capacity.findUnique({
-		where: { id: product.capacity_id },
-		select: { title: true },
-	  });
-	  capacityLookup = cap?.title || null;
-	}
+    let capacityTitle: string | null = null;
+    if (product.capacity_id) {
+      const cap = await prisma.product_capacity.findUnique({
+        where: { id: product.capacity_id },
+        select: { title: true },
+      });
+      capacityTitle = cap?.title || null;
+    } else if (product.capacity) {
+      capacityTitle = product.capacity;
+    }
 
     // Fetch related datepackage (if any)
     const datepackage =
@@ -58,26 +51,27 @@ export async function GET(
           })
         : null;
 
-	// Fetch related taggables
-	const taggables = await prisma.taggables.findMany({
-	  where: { taggable_id: product.id, taggable_type: "product_pro" },
-	});
+    // Fetch related taggables
+    const taggables = await prisma.taggables.findMany({
+      where: { taggable_id: product.id, taggable_type: "product_pro" },
+    });
 
-	// Fetch actual tags for each taggable
-	const tags = await prisma.tags.findMany({
-	  where: {
-    id: { in: taggables.map((t: { tags_id: number }) => t.tags_id) },
-	  },
-	  select: { id: true, tag_name: true, re_name: true },
-	});
-	//Fetch brief from product detail
-	const detail = await prisma.product_detail.findFirst({
-	  where: { pro_id: product.id },
-	  select: { brief: true },
-	  orderBy: { priority: "asc" },
-	});
-	
-	// Fetch related products (by category, max 8)
+    // Fetch actual tags for each taggable
+    const tags = await prisma.tags.findMany({
+      where: {
+        id: { in: taggables.map((t: { tags_id: bigint }) => Number(t.tags_id)) },
+      },
+      select: { id: true, tag_name: true, re_name: true },
+    });
+
+    //Fetch brief from product detail
+    const detail = await prisma.product_detail.findFirst({
+      where: { pro_id: product.id },
+      select: { brief: true },
+      orderBy: { priority: "asc" },
+    });
+
+    // Fetch related products (by category, max 8)
     let relatedProducts: any[] = [];
     if (product.cat_id) {
       const related = await prisma.product_pro.findMany({
@@ -85,32 +79,26 @@ export async function GET(
           cat_id: Number(product.cat_id),
           id: { not: product.id }, // exclude current product
         },
-        take: 8, // limit to 8
-        orderBy: { created_at: "desc" }, // optional
+        take: 8,
+        orderBy: { created_at: "desc" },
       });
 
-      // Fetch category slug
-      const categorySlugObj = await prisma.product_cat.findUnique({
+      // Fetch category info for related products
+      const categoryObj = await prisma.product_cat.findUnique({
         where: { id: Number(product.cat_id) },
-        select: { re_name: true },
+        select: { title: true, re_name: true },
       });
 
-      relatedProducts = related.map((p: {
-        id: bigint;
-        title: string;
-        image: string | null;
-        price: number;
-        price_discount?: number;
-        cat_id: number | bigint | null;
-        created_at?: Date;
-      }) => ({
+      relatedProducts = related.map((p: any) => ({
         id: p.id,
         title: p.title,
         image: p.image,
         price: p.price,
-        categorySlug: categorySlugObj?.re_name ?? "",
+        category: categoryObj?.title ?? "",
+        categorySlug: categoryObj?.re_name ?? "",
       }));
     }
+
     // Format for frontend
     const formattedProduct = {
       id: product.id,
@@ -119,17 +107,17 @@ export async function GET(
       price: product.price,
       price_discount: product.price_discount,
       capacity: capacityTitle,
-    capacityTitle: capacityLookup,
+      capacityTitle: capacityTitle,
       datepackage: datepackage?.title ?? null,
       category: category?.title ?? "Not defined",
       categorySlug: category?.re_name ?? "",
       brief: detail?.brief ?? product.brief,
-    tags: tags.map((tag: { id: number; tag_name: string; re_name: string }) => ({
-    id: tag.id,
-    name: tag.tag_name,
-    slug: tag.re_name,
-  })),
-    relatedProducts,
+      tags: tags.map((tag: { id: bigint; tag_name: string; re_name: string | null }) => ({
+        id: Number(tag.id),
+        name: tag.tag_name,
+        slug: tag.re_name ?? "",
+      })),
+      relatedProducts,
       content: product.content,
       tips: product.tips,
       keyword: product.keyword,

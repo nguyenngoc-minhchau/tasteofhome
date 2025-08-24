@@ -35,7 +35,7 @@ export async function GET(
       }, { status: 401 })
     }
 
-    const orderId = params.id
+    const orderId = await params.id
 
     // Tìm đơn hàng theo inv_code và user_id
     const order = await prisma.product_order.findFirst({

@@ -46,6 +46,8 @@ useEffect(() => {
       router.replace("/admin")
     } else if (user.role === "manager") {
       router.replace("/manager")
+    } else if (user.role === "staff") {
+      router.replace("/staff") 
     } else {
       router.replace("/")
     }

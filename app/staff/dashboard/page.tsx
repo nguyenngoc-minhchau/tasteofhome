@@ -28,36 +28,27 @@ export default function StaffDashboardPage() {
   const { user, isLoggedIn, loading, logout } = useAuth()
   const router = useRouter()
 
-  // Logic kiem tra quyen truy cap va chuyen huong
   useEffect(() => {
-    // Chi kiem tra sau khi da load xong thong tin user
-    if (!loading) {
-      if (!isLoggedIn) {
-        // Neu chua dang nhap, chuyen huong ve trang login
-        router.push("/auth")
-      } else if (user?.role !== "staff") {
-        // Neu khong phai staff, chuyen huong phu hop voi tung role
-        if (user?.role === "customer") {
-          router.push("/")
-        } else {
-          router.push("/dashboard")
-        }
-      }
-    }
-  }, [isLoggedIn, user, loading, router])
+    if (isLoggedIn === null) return
 
-  // Hien thi loading hoac mot trang trang khi dang chuyen huong
-  if (loading || !isLoggedIn || user?.role !== "staff") {
+    if (isLoggedIn === false) {
+      router.replace("/auth")
+    } else if (user && user.role !== "staff") {
+      router.replace(user.role === "customer" ? "/" : "/dashboard")
+    }
+  }, [isLoggedIn, user, router])
+
+  if (isLoggedIn === null || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Redirecting...</p>
+        <p>Loading...</p>
       </div>
     )
   }
 
   const handleLogout = () => {
     logout()
-    router.push("/auth")
+    router.replace("/auth")
   }
 
   return (
