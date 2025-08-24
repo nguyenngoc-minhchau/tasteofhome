@@ -76,6 +76,33 @@ export async function GET(
 	  select: { brief: true },
 	  orderBy: { priority: "asc" },
 	});
+	
+	// Fetch related products (by category, max 4)
+    let relatedProducts: any[] = [];
+    if (product.cat_id) {
+      const related = await prisma.product_pro.findMany({
+        where: {
+          cat_id: Number(product.cat_id),
+          id: { not: product.id }, // exclude current product
+        },
+        take: 4, // limit to 4
+        orderBy: { created_at: "desc" }, // optional
+      });
+
+      // Fetch category slug
+      const categorySlugObj = await prisma.product_cat.findUnique({
+        where: { id: Number(product.cat_id) },
+        select: { re_name: true },
+      });
+
+      relatedProducts = related.map((p) => ({
+        id: p.id,
+        title: p.title,
+        image: p.image,
+        price: p.price,
+        categorySlug: categorySlugObj?.re_name ?? "",
+      }));
+    }
     // Format for frontend
     const formattedProduct = {
       id: product.id,
@@ -95,6 +122,7 @@ export async function GET(
 	  name: tag.tag_name,
 	  slug: tag.re_name,
 	})),
+	  relatedProducts,
       content: product.content,
       brief: product.brief,
       tips: product.tips,
