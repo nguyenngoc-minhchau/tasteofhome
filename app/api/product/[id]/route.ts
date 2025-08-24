@@ -77,7 +77,7 @@ export async function GET(
 	  orderBy: { priority: "asc" },
 	});
 	
-	// Fetch related products (by category, max 4)
+	// Fetch related products (by category, max 8)
     let relatedProducts: any[] = [];
     if (product.cat_id) {
       const related = await prisma.product_pro.findMany({
@@ -85,7 +85,7 @@ export async function GET(
           cat_id: Number(product.cat_id),
           id: { not: product.id }, // exclude current product
         },
-        take: 4, // limit to 4
+        take: 8, // limit to 8
         orderBy: { created_at: "desc" }, // optional
       });
 

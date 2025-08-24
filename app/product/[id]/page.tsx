@@ -20,20 +20,16 @@ export default function ProductDetailPage() {
   const [openMiniCartTrigger, setOpenMiniCartTrigger] = useState<number | null>(null)
 
   useEffect(() => {
+    setLoading(true)
+    setProduct(null)
+    setRelatedProducts([])
     const fetchProduct = async () => {
       try {
         const res = await fetch(`/api/product/${id}`)
         if (!res.ok) throw new Error("Failed to fetch product")
         const data = await res.json()
         setProduct(data)
-
-        if (data.categorySlug) {
-          const relatedRes = await fetch(`/api/products?categorySlug=${data.categorySlug}&limit=4`)
-          if (relatedRes.ok) {
-            const related = await relatedRes.json()
-            setRelatedProducts(related.filter((p: any) => p.id !== data.id))
-          }
-        }
+        setRelatedProducts(data.relatedProducts || [])
       } catch (err) {
         console.error(err)
       } finally {
