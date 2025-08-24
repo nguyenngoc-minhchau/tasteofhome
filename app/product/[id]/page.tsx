@@ -85,17 +85,37 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Thông tin sản phẩm */}
-        <div>
-          <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
-          <p className="text-lg text-muted-foreground mb-6">{product.category}</p>
-          <div className="text-2xl font-bold text-primary mb-6">
-            {product.price.toLocaleString("vi-VN")} ₫
-          </div>
-          <p className="text-muted-foreground mb-6">Dung tích: {product.capacity}</p>
+		<div>
+		  <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
+		  <p className="text-lg text-muted-foreground mb-6">{product.category}</p>
+		  <div className="text-2xl font-bold text-primary mb-6">
+			{product.price.toLocaleString("vi-VN")} ₫
+		  </div>
 
-          <Button className="w-full">Add to Cart</Button>
-        </div>
-      </div>
+		  {/* New brief section */}
+		  {product.brief && (
+			<div
+			  className="text-muted-foreground mb-6 space-y-2"
+			  dangerouslySetInnerHTML={{ __html: product.brief }}
+			/>
+		  )}
+
+		  <p className="text-muted-foreground mb-6">
+			Dung tích:
+			{product.capacityTitle && (
+			  <>
+				{" "}
+				{product.capacityTitle}
+				<br />
+			  </>
+			)}
+			{product.capacity ?? ""}
+		  </p>
+
+		  <Button className="w-full">Add to Cart</Button>
+		</div>
+
+	</div>   
 
       {/* Related products */}
       {relatedProducts.length > 0 && (
