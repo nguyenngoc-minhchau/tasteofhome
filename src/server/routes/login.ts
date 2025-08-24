@@ -4,6 +4,12 @@ import { NextResponse } from 'next/server'
 import { randomBytes } from 'crypto'
 
 // Handle login and set session token cookie
+const JWT_SECRET = process.env.JWT_SECRET as string
+if (!JWT_SECRET) {
+  throw new Error('Missing JWT_SECRET environment variable')
+}
+
+// Handle login and set token cookie
 export async function handleLogin(req: Request) {
   const { email, password } = await req.json()
   console.log('Login API called:', email)

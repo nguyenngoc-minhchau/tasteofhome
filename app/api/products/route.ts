@@ -26,7 +26,7 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
     const product = await prisma.product_pro.create({ data });
-    return NextResponse.json(serialize(products), { status: 201 });
+    return NextResponse.json(serialize(product), { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

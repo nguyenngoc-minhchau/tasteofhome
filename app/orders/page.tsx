@@ -76,10 +76,10 @@ export default function OrderHistoryPage() {
     }
   }, [isAuthenticated])
 
-  const filteredOrders = orders.filter((order) => {
+  const filteredOrders = Array.isArray(orders) ? orders.filter((order) => {
     if (selectedTab === "all") return true
     return order.status === selectedTab
-  })
+  }) : []
 
   // Nếu đang loading auth, hiển thị loading
   if (loading) {

@@ -177,10 +177,12 @@ export default function HomePage() {
       <Link href={`/product/${product.id}`}>
         <div className="aspect-square relative cursor-pointer">
           <Image
-            src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
-            alt={product.title}
-            fill
-            style={{ objectFit: "cover" }}
+          src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
+          alt={product.title}
+          width={400}
+          height={400}
+          quality={100}
+          className="object-cover"
           />
         </div>
       </Link>
@@ -254,20 +256,21 @@ export default function HomePage() {
     const displayedProducts = expanded ? productsList : productsList.slice(0, visibleCount)
     if (productsList.length === 0) return null
     return (
-      <section className="py-12">
+      <section className={`py-12 ${
+      title === "Hot Products" ? "bg-beige" : "bg-yellowish"}`}>
         <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold mb-8 flex justify-between items-center">
-            {title}
+          <div className="relative mb-8">
+            <h3 className="text-3xl font-bold text-center text-[#1C352D]">{title}</h3>
             {productsList.length > visibleCount && (
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="text-primary text-base font-semibold hover:underline"
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-primary text-base font-semibold hover:underline"
               >
-                {expanded ? "Less" : "More"}
-              </button>
-            )}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {expanded ? "Less" : "More"}
+            </button>
+          )}
+        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {displayedProducts.map((product) => renderProductCard(product))}
           </div>
         </div>
@@ -355,7 +358,7 @@ export default function HomePage() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <DropdownMenuLabel>{user?.name || user?.username || "My Account"}</DropdownMenuLabel>
+                  <DropdownMenuLabel>{user?.name || "My Account"}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
                     <Link href="/profile" className="flex items-center">
@@ -418,9 +421,9 @@ export default function HomePage() {
 
       {/* Featured Products */}
       {!isFiltered && featuredProducts.length > 0 && (
-        <section className="py-12">
+        <section className="py-12 bg-yellowish">
           <div className="container mx-auto px-4">
-            <h3 className="text-2xl font-bold mb-8">Featured Products</h3>
+            <h3 className="text-3xl font-bold mb-8 text-center text-[#1C352D]">Featured Products</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {featuredProducts.map((product) => renderProductCard(product))}
             </div>
