@@ -48,7 +48,6 @@ export default function CheckoutPage() {
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const router = useRouter()
   const [isProcessing, setIsProcessing] = useState(false)
-  const [appliedDiscount, setAppliedDiscount] = useState<{ code: string; amount: number } | null>(null)
   
   // State cho form
   const [shippingInfo, setShippingInfo] = useState<ShippingInfo>({
@@ -79,7 +78,7 @@ export default function CheckoutPage() {
 
   const shippingCost = cartState.total > 50 ? 0 : 5.99
   const tax = cartState.total * 0.08
-  const discountAmount = appliedDiscount ? appliedDiscount.amount : 0
+  const discountAmount = cartState.appliedDiscount ? cartState.appliedDiscount.amount : 0
   const finalTotal = cartState.total + shippingCost + tax - discountAmount
 
   const handleShippingChange = (field: keyof ShippingInfo, value: string) => {
@@ -543,9 +542,9 @@ export default function CheckoutPage() {
                       <span>{tax.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                     
-                    {appliedDiscount && (
+                    {cartState.appliedDiscount && (
                     <div className="flex justify-between text-green-600">
-                      <span>Giảm giá ({appliedDiscount.code})</span>
+                      <span>Giảm giá ({cartState.appliedDiscount.code})</span>
                       <span>- {discountAmount.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                     )}

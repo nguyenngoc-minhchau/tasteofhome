@@ -42,6 +42,40 @@ export async function POST(request: NextRequest) {
       orderSummary
     } = body
 
+    // Validate required fields
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return NextResponse.json({
+        success: false,
+        message: "Giỏ hàng không được để trống"
+      }, { status: 400 })
+    }
+
+    // Validate và log kiểu dữ liệu của items
+    console.log("Items data:", JSON.stringify(items, null, 2))
+    
+    for (const item of items) {
+      if (!item.id || !item.quantity || !item.price) {
+        return NextResponse.json({
+          success: false,
+          message: "Dữ liệu sản phẩm không hợp lệ"
+        }, { status: 400 })
+      }
+      
+      // Log kiểu dữ liệu của từng field
+      console.log(`Item ${item.id}:`, {
+        id: { value: item.id, type: typeof item.id },
+        quantity: { value: item.quantity, type: typeof item.quantity },
+        price: { value: item.price, type: typeof item.price }
+      })
+    }
+
+    if (!shippingInfo || !shippingInfo.firstName || !shippingInfo.lastName || !shippingInfo.email || !shippingInfo.address) {
+      return NextResponse.json({
+        success: false,
+        message: "Vui lòng điền đầy đủ thông tin giao hàng"
+      }, { status: 400 })
+    }
+
     // Tạo mã đơn hàng duy nhất
     const orderCode = `ORD${Date.now()}${Math.random().toString(36).substr(2, 5).toUpperCase()}`
     
@@ -79,7 +113,7 @@ export async function POST(request: NextRequest) {
         discount: orderSummary.discount || 0,
         subtotal: orderSummary.subtotal,
         payment_at: new Date(),
-        transportfee: orderSummary.shipping,
+        transportfee: Math.round(orderSummary.shipping * 100), // Chuyển về cent
         taxvat: orderSummary.tax,
         user_id: Number(user.id), // Sử dụng ID của user đã đăng nhập
         agent_id: null,
@@ -108,10 +142,10 @@ export async function POST(request: NextRequest) {
           data: {
             order_id: order.id,
             stock_id: 1, // Tạm thời
-            product_id: item.id,
+            product_id: Number(item.id), // Chuyển đổi sang number
             capacity_id: 1, // Tạm thời
-            quantity: item.quantity,
-            price: item.price,
+            quantity: Number(item.quantity), // Đảm bảo là number
+            price: Number(item.price), // Đảm bảo là number
             commission_daily: 0,
             commission_npp: 0,
             commission_ctv: 0,
@@ -143,10 +177,17 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error("Error creating order:", error)
+    
+    // Log chi tiết lỗi để debug
+    if (error instanceof Error) {
+      console.error("Error details:", error.message)
+      console.error("Error stack:", error.stack)
+    }
+    
     return NextResponse.json(
       { 
         success: false, 
-        message: "Có lỗi xảy ra khi tạo đơn hàng" 
+        message: "Có lỗi xảy ra khi tạo đơn hàng: " + (error instanceof Error ? error.message : "Unknown error")
       },
       { status: 500 }
     )
