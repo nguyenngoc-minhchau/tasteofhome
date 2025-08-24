@@ -9,16 +9,42 @@ function serialize(obj: any) {
   );
 }
 
-// GET all orders
-export async function GET() {
-  const orders = await prisma.product_order.findMany({
-    orderBy: { created_at: "desc" },
-    take: 20,
-    include: { details: true },
-  });
+// GET all orders with role-based access
+export async function GET(req: Request) {
+  try {
+    // Get user from request (adjust to your auth system)
+    const token = req.headers.get("authorization")?.split(" ")[1];
+    if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  return NextResponse.json(serialize(orders));
+    const user = await prisma.users.findUnique({ where: { token } }); // adjust according to your token storage
+    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+    let orders;
+
+    if (user.role === "admin") {
+      // Admin sees all orders
+      orders = await prisma.product_order.findMany({
+        orderBy: { created_at: "desc" },
+        take: 20,
+        include: { details: true },
+      });
+    } else {
+      // Regular users see only their own orders
+      orders = await prisma.product_order.findMany({
+        where: { user_id: user.id },
+        orderBy: { created_at: "desc" },
+        take: 20,
+        include: { details: true },
+      });
+    }
+
+    return NextResponse.json(serialize(orders));
+  } catch (error) {
+    console.error("GET /api/orders failed:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
 }
+
 
 // GET single order by inv_code
 export async function GETBYID(req: Request, { params }: { params: { id: string } }) {

@@ -200,7 +200,7 @@ export default function HomePage() {
           <Button
             size="sm"
             onClick={() => handleAddToCart(product)}
-            className={`${buttonWidth} justify-center`}
+            className = "w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
             disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}
           >
             {loadingProductIds.includes(product.id) ? (
