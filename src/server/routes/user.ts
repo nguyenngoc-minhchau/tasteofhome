@@ -51,7 +51,6 @@ export async function createUser(req: Request) {
         image: image ?? null, // If image is not provided, assign null
         phone: phone ?? null, // If phone is not provided, assign null
         address: address ?? null, // If address is not provided, assign null
-        isadmin: 0, // Default to not being an admin
         role: 'customer', // Assign 'customer' role directly
         email_verified_at: email_verified_at ?? null,
         remember_token: remember_token ?? null,
@@ -64,7 +63,7 @@ export async function createUser(req: Request) {
   } catch (error) {
     console.error('Create user error:', error);
     // Handle unique constraint error for email/username
-    if (error.code === 'P2002') { 
+    if (typeof error === 'object' && error !== null && 'code' in error && (error as any).code === 'P2002') { 
       return NextResponse.json({ error: 'User with this email or username already exists.' }, { status: 409 });
     }
     return NextResponse.json({ error: 'Failed to create user.' }, { status: 500 });

@@ -1,135 +1,160 @@
-import { prisma } from '@/lib/prisma'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from "next/server"
+import prisma from "@/lib/prisma"
 
 export async function GET(
-  req: Request,
-  context: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: { id: string } }
 ) {
-  const { id } = await context.params
-
   try {
-    // Lấy thông tin đơn hàng
+    // Lấy session token từ cookie hoặc header
+    const sessionToken = request.cookies.get("session_token")?.value || 
+                        request.headers.get("authorization")?.replace("Bearer ", "")
+
+    if (!sessionToken) {
+      return NextResponse.json({ 
+        error: "Bạn cần đăng nhập để xem chi tiết đơn hàng" 
+      }, { status: 401 })
+    }
+
+    // Tìm user bằng remember_token
+    const user = await prisma.users.findFirst({
+      where: { 
+        remember_token: sessionToken,
+        isactive: 1
+      },
+      select: {
+        id: true,
+        username: true,
+        email: true
+      }
+    })
+
+    if (!user) {
+      return NextResponse.json({ 
+        error: "Token không hợp lệ hoặc user không tồn tại" 
+      }, { status: 401 })
+    }
+
+    const orderId = params.id
+
+    // Tìm đơn hàng theo inv_code và user_id
     const order = await prisma.product_order.findFirst({
-      where: { inv_code: id },
+      where: {
+        inv_code: orderId,
+        user_id: Number(user.id) // Chỉ lấy order của user đã đăng nhập
+      }
     })
 
     if (!order) {
-      return NextResponse.json({ error: 'Order not found' }, { status: 404 })
+      return NextResponse.json(
+        { error: "Không tìm thấy đơn hàng hoặc bạn không có quyền xem đơn hàng này" },
+        { status: 404 }
+      )
     }
 
-    // Lấy chi tiết sản phẩm
+    // Lấy chi tiết đơn hàng
     const orderDetails = await prisma.product_orderdetail.findMany({
-      where: { order_id: order.id },
+      where: { order_id: order.id }
     })
 
-    // Lấy thông tin sản phẩm từ bảng product_pro
-    const productIds = orderDetails.map(detail => detail.product_id)
+    // Lấy thông tin sản phẩm cho các item trong order
+    const productIds = orderDetails.map(item => item.product_id)
     const products = await prisma.product_pro.findMany({
       where: { id: { in: productIds.map(id => BigInt(id)) } },
-      select: { id: true, title: true, image: true }
+      select: {
+        id: true,
+        title: true,
+        image: true
+      }
     })
 
-    // Tạo map để truy cập nhanh thông tin sản phẩm
+    // Tạo map để tìm sản phẩm nhanh
     const productMap = new Map(products.map(p => [Number(p.id), p]))
 
-    // Timeline dựa trên trạng thái thực tế từ database
-    const getTimelineFromStatus = (orderStatus: string) => {
-      const baseTimeline = [
+    // Tạo timeline dựa trên status
+    const getTimelineFromStatus = (status: string) => {
+      const timeline = [
         {
-          status: "Đặt hàng",
-          date: order.created_at?.toISOString(),
-          description: "Đơn hàng đã được tiếp nhận và đang xử lý",
-          completed: true,
-        },
-        {
-          status: "Xác nhận thanh toán",
-          date: order.payment_at?.toISOString() || "",
-          description: "Thanh toán đã được xử lý thành công",
-          completed: !!order.payment_at,
-        },
-        {
-          status: "Đang giao hàng",
-          date: order.shipped_at?.toISOString() || "",
-          description: "Đơn hàng đang được vận chuyển",
-          completed: !!order.shipped_at,
-        },
-        {
-          status: "Đang giao",
-          date: order.out_for_delivery_at?.toISOString() || "",
-          description: "Gói hàng đang được giao",
-          completed: !!order.out_for_delivery_at,
-        },
-        {
-          status: "Đã giao hàng",
-          date: order.deliverydate?.toISOString() || "",
-          description: "Gói hàng đã được giao thành công",
-          completed: !!order.deliverydate,
-        },
+          title: "Đơn hàng đã được tạo",
+          description: "Đơn hàng của bạn đã được tiếp nhận",
+          date: order.created_at,
+          completed: true
+        }
       ]
 
-      // Cập nhật trạng thái hoàn thành dựa trên trạng thái đơn hàng
-      if (orderStatus === "Mới" || orderStatus === "Duyệt") {
-        baseTimeline[0].completed = true
-        baseTimeline[1].completed = !!order.payment_at
-        baseTimeline[2].completed = false
-        baseTimeline[3].completed = false
-        baseTimeline[4].completed = false
-      } else if (orderStatus === "Đang giao") {
-        baseTimeline[0].completed = true
-        baseTimeline[1].completed = true
-        baseTimeline[2].completed = true
-        baseTimeline[3].completed = !!order.out_for_delivery_at
-        baseTimeline[4].completed = false
-      } else if (orderStatus === "Đã giao") {
-        baseTimeline[0].completed = true
-        baseTimeline[1].completed = true
-        baseTimeline[2].completed = true
-        baseTimeline[3].completed = true
-        baseTimeline[4].completed = true
-      } else if (orderStatus === "Hủy") {
-        baseTimeline.forEach(step => step.completed = false)
-        baseTimeline[0].completed = true
+      if (status === "Duyệt" || status === "Đang giao" || status === "Đã giao") {
+        timeline.push({
+          title: "Đơn hàng đã được duyệt",
+          description: "Đơn hàng đang được chuẩn bị",
+          date: order.updated_at,
+          completed: true
+        })
       }
 
-      return baseTimeline
+      if (status === "Đang giao" || status === "Đã giao") {
+        timeline.push({
+          title: "Đang giao hàng",
+          description: "Đơn hàng đang được vận chuyển",
+          date: order.shipped_at,
+          completed: true
+        })
+      }
+
+      if (status === "Đã giao") {
+        timeline.push({
+          title: "Giao hàng thành công",
+          description: "Đơn hàng đã được giao thành công",
+          date: order.deliverydate,
+          completed: true
+        })
+      }
+
+      return timeline
     }
 
-    const timeline = getTimelineFromStatus(order.status)
-
-    // Xử lý payment status
-    const getPaymentStatus = (paymentStatus: string) => {
-      if (paymentStatus === "1" || paymentStatus === "paid") return "paid"
-      if (paymentStatus === "0" || paymentStatus === "unpaid") return "unpaid"
-      return paymentStatus
+    // Helper function để map payment status
+    const getPaymentStatus = (status: string) => {
+      return status === "1" ? "paid" : "unpaid"
     }
 
-    return NextResponse.json({
+    const result = {
       id: order.inv_code,
-      date: order.created_at?.toISOString(),
       status: order.status,
-      paymentStatus: getPaymentStatus(order.payment_status),
-      paymentMethod: order.payment_method || "Chưa xác định",
+      date: order.created_at,
       total: order.totalamount,
       subtotal: order.subtotal,
       shipping: order.transportfee,
       tax: order.taxvat,
-      items: orderDetails.map((item) => ({
-        id: item.product_id,
-        name: productMap.get(item.product_id)?.title || `Product ${item.product_id}`,
-        image: productMap.get(item.product_id)?.image || null,
-        quantity: item.quantity,
-        price: item.price,
-      })),
-      estimatedDelivery: order.estimated_delivery?.toISOString(),
-      actualDelivery: order.deliverydate?.toISOString(),
-      shippingAddress: {
-        name: order.fullname || "",
-        address: order.address || "",
+      paymentStatus: getPaymentStatus(order.payment_status),
+      paymentMethod: order.payment_method,
+      estimatedDelivery: order.estimated_delivery,
+      actualDelivery: order.deliverydate,
+      customer: {
+        name: order.fullname,
+        email: order.email,
+        phone: order.phone,
+        address: order.address
       },
-      timeline,
-    })
+      items: orderDetails.map(item => {
+        const product = productMap.get(item.product_id)
+        return {
+          id: item.product_id,
+          name: product ? product.title : `Sản phẩm ${item.product_id}`,
+          image: product ? product.image : "/placeholder.svg",
+          quantity: item.quantity,
+          price: item.price,
+          total: item.price * item.quantity
+        }
+      }),
+      timeline: getTimelineFromStatus(order.status)
+    }
+
+    return NextResponse.json(result)
   } catch (error) {
-    console.error('Failed to fetch order:', error)
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+    console.error("Error fetching order:", error)
+    return NextResponse.json(
+      { error: "Không thể lấy thông tin đơn hàng" },
+      { status: 500 }
+    )
   }
 }

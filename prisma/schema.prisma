@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = "mysql://root@localhost:3306/tasteofhome"
 }
 
 model about_us {
@@ -699,7 +699,7 @@ model users {
   username          String    @db.VarChar(255)
   image             String?   @db.VarChar(255)
   isadmin           Int       @default(0) @db.TinyInt
-  email             String    @db.VarChar(255)
+  email             String    @unique(map: "email") @db.VarChar(255)
   phone             String?   @db.VarChar(20)
   address           String?   @db.VarChar(255)
   province_id       Int       @default(1) @db.TinyInt
@@ -709,4 +709,5 @@ model users {
   remember_token    String?   @db.VarChar(100)
   created_at        DateTime? @db.Timestamp(0)
   updated_at        DateTime? @db.Timestamp(0)
+  role              String    @default("customer") @db.VarChar(100)
 }

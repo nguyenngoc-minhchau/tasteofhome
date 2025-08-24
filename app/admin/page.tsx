@@ -6,7 +6,7 @@ import { Users, Shield, Settings, Activity, AlertTriangle, CheckCircle, Clock, S
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useAuth } from "@/components/auth-provider"
+import { useAuth } from "@/hooks/use-auth"
 import { useRouter } from "next/navigation"
 
 export default function AdminDashboard() {

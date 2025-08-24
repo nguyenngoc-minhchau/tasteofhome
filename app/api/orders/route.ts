@@ -1,12 +1,47 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/prisma"
 
 // GET /api/orders
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    // Lấy session token từ cookie hoặc header
+    const sessionToken = request.cookies.get("session_token")?.value || 
+                        request.headers.get("authorization")?.replace("Bearer ", "")
+
+    if (!sessionToken) {
+      return NextResponse.json({ 
+        error: "Bạn cần đăng nhập để xem đơn hàng" 
+      }, { status: 401 })
+    }
+
+    // Tìm user bằng remember_token
+    const user = await prisma.users.findFirst({
+      where: { 
+        remember_token: sessionToken,
+        isactive: 1
+      },
+      select: {
+        id: true,
+        username: true,
+        email: true
+      }
+    })
+
+    if (!user) {
+      return NextResponse.json({ 
+        error: "Token không hợp lệ hoặc user không tồn tại" 
+      }, { status: 401 })
+    }
+
+    const userId = user.id
+
+    // Lấy orders của user đã đăng nhập
     const orders = await prisma.product_order.findMany({
+      where: {
+        user_id: Number(userId) // Chuyển BigInt sang Number
+      },
       orderBy: { created_at: "desc" },
-      take: 50, // Lấy nhiều hơn để hiển thị đầy đủ
+      take: 50,
       select: {
         id: true,
         inv_code: true,

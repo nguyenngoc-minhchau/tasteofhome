@@ -4,14 +4,14 @@
 import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link" // Import Link de su dung cho nut "Back to Store"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { useAuth } from "@/components/auth-provider"
+import { useAuth } from "@/hooks/use-auth"
 import { useToast } from "@/hooks/use-toast"
 import { ArrowLeft } from "lucide-react"
 
@@ -20,70 +20,152 @@ export default function AuthPage() {
   const [showForgotPassword, setShowForgotPassword] = useState(false)
   const [resetEmailSent, setResetEmailSent] = useState(false)
   const [resetEmail, setResetEmail] = useState("")
-  const { login } = useAuth()
+  const [loginData, setLoginData] = useState({ email: "", password: "" })
+  const [registerData, setRegisterData] = useState({ 
+    name: "", 
+    email: "", 
+    password: "", 
+    confirmPassword: "" 
+  })
+  const [error, setError] = useState("")
+  const { isAuthenticated, user, logout } = useAuth()
   const { toast } = useToast()
   const router = useRouter()
+
+  // Nếu đã đăng nhập thì chuyển về trang chủ
+  if (isAuthenticated && user) {
+    router.push("/")
+    return null
+  }
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError("")
 
-    // Simulate login
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: loginData.email,
+          password: loginData.password,
+        }),
+      })
 
-    login({
-      id: "1",
-      email: "user@example.com",
-      name: "John Doe",
-      role: "customer"
-    })
+      const data = await response.json()
 
-    toast({
-      title: "Welcome back!",
-      description: "You have been successfully logged in.",
-    })
+      if (!response.ok) {
+        throw new Error(data.message || "Đăng nhập thất bại")
+      }
 
-    router.push("/")
-    setIsLoading(false)
+      toast({
+        title: "Đăng nhập thành công!",
+        description: "Chào mừng bạn trở lại.",
+      })
+
+      // Reload page để cập nhật authentication state
+      window.location.href = "/"
+    } catch (error) {
+      console.error("Login error:", error)
+      setError(error instanceof Error ? error.message : "Đăng nhập thất bại")
+      toast({
+        title: "Đăng nhập thất bại",
+        description: error instanceof Error ? error.message : "Có lỗi xảy ra",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError("")
 
-    // Simulate registration
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    if (registerData.password !== registerData.confirmPassword) {
+      setError("Mật khẩu xác nhận không khớp")
+      setIsLoading(false)
+      return
+    }
 
-    login({
-      id: "1",
-      email: "user@example.com",
-      name: "John Doe",
-      role: "admin"
-    })
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: registerData.name,
+          email: registerData.email,
+          password: registerData.password,
+        }),
+      })
 
-    toast({
-      title: "Account created!",
-      description: "Your account has been created successfully.",
-    })
+      const data = await response.json()
 
-    router.push("/")
-    setIsLoading(false)
+      if (!response.ok) {
+        throw new Error(data.message || "Đăng ký thất bại")
+      }
+
+      toast({
+        title: "Tài khoản đã được tạo!",
+        description: "Bạn có thể đăng nhập ngay bây giờ.",
+      })
+
+      // Chuyển về tab đăng nhập
+      setRegisterData({ name: "", email: "", password: "", confirmPassword: "" })
+      setError("")
+    } catch (error) {
+      console.error("Register error:", error)
+      setError(error instanceof Error ? error.message : "Đăng ký thất bại")
+      toast({
+        title: "Đăng ký thất bại",
+        description: error instanceof Error ? error.message : "Có lỗi xảy ra",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate email validation and reset link generation
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: resetEmail }),
+      })
 
-    setResetEmailSent(true)
-    setIsLoading(false)
+      const data = await response.json()
 
-    toast({
-      title: "Reset link sent!",
-      description: "Check your email for password reset instructions.",
-    })
+      if (!response.ok) {
+        throw new Error(data.message || "Gửi email reset thất bại")
+      }
+
+      setResetEmailSent(true)
+      toast({
+        title: "Đã gửi link reset!",
+        description: "Kiểm tra email của bạn để reset mật khẩu.",
+      })
+    } catch (error) {
+      console.error("Reset password error:", error)
+      toast({
+        title: "Gửi email reset thất bại",
+        description: error instanceof Error ? error.message : "Có lỗi xảy ra",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const BackToStoreButton = () => (
@@ -91,7 +173,7 @@ export default function AuthPage() {
       <Link href="/">
         <Button variant="ghost" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
           <ArrowLeft className="h-4 w-4" />
-          Back to Store
+          Quay lại cửa hàng
         </Button>
       </Link>
     </div>
@@ -103,41 +185,41 @@ export default function AuthPage() {
         <BackToStoreButton />
         <Card>
           <CardHeader>
-            <CardTitle>Reset Your Password</CardTitle>
+            <CardTitle>Reset mật khẩu</CardTitle>
           </CardHeader>
           <CardContent>
             {!resetEmailSent ? (
               <form onSubmit={handleForgotPassword} className="space-y-4">
                 <div>
-                  <Label htmlFor="resetEmail">Email Address</Label>
+                  <Label htmlFor="resetEmail">Địa chỉ email</Label>
                   <Input
                     id="resetEmail"
                     type="email"
-                    placeholder="Enter your registered email"
+                    placeholder="Nhập email đã đăng ký"
                     value={resetEmail}
                     onChange={(e) => setResetEmail(e.target.value)}
                     required
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Sending reset link..." : "Send Reset Link"}
+                  {isLoading ? "Đang gửi..." : "Gửi link reset"}
                 </Button>
                 <Button type="button" variant="ghost" className="w-full" onClick={() => setShowForgotPassword(false)}>
-                  Back to Login
+                  Quay lại đăng nhập
                 </Button>
               </form>
             ) : (
               <div className="space-y-4">
                 <Alert>
                   <AlertDescription>
-                    We've sent a password reset link to <strong>{resetEmail}</strong>. Please check your email and click
-                    the link to reset your password.
+                    Chúng tôi đã gửi link reset mật khẩu đến <strong>{resetEmail}</strong>. 
+                    Vui lòng kiểm tra email và click vào link để reset mật khẩu.
                   </AlertDescription>
                 </Alert>
                 <div className="text-sm text-muted-foreground space-y-2">
-                  <p>• The reset link will expire in 1 hour</p>
-                  <p>• Check your spam folder if you don't see the email</p>
-                  <p>• You can request a new link if needed</p>
+                  <p>• Link reset sẽ hết hạn sau 1 giờ</p>
+                  <p>• Kiểm tra thư mục spam nếu không thấy email</p>
+                  <p>• Bạn có thể yêu cầu link mới nếu cần</p>
                 </div>
                 <Button
                   type="button"
@@ -149,7 +231,7 @@ export default function AuthPage() {
                     setResetEmail("")
                   }}
                 >
-                  Back to Login
+                  Quay lại đăng nhập
                 </Button>
               </div>
             )}
@@ -164,31 +246,49 @@ export default function AuthPage() {
       <BackToStoreButton />
       <Tabs defaultValue="login" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="login">Login</TabsTrigger>
-          <TabsTrigger value="register">Register</TabsTrigger>
+          <TabsTrigger value="login">Đăng nhập</TabsTrigger>
+          <TabsTrigger value="register">Đăng ký</TabsTrigger>
         </TabsList>
 
         <TabsContent value="login">
           <Card>
             <CardHeader>
-              <CardTitle>Login to your account</CardTitle>
+              <CardTitle>Đăng nhập vào tài khoản</CardTitle>
             </CardHeader>
             <CardContent>
+              {error && (
+                <Alert variant="destructive" className="mb-4">
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" required />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@example.com" 
+                    value={loginData.email}
+                    onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
+                    required 
+                  />
                 </div>
                 <div>
-                  <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" required />
+                  <Label htmlFor="password">Mật khẩu</Label>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    value={loginData.password}
+                    onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                    required 
+                  />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Logging in..." : "Login"}
+                  {isLoading ? "Đang đăng nhập..." : "Đăng nhập"}
                 </Button>
                 <div className="text-center">
                   <Button type="button" variant="link" className="text-sm" onClick={() => setShowForgotPassword(true)}>
-                    Forgot your password?
+                    Quên mật khẩu?
                   </Button>
                 </div>
               </form>
@@ -199,28 +299,58 @@ export default function AuthPage() {
         <TabsContent value="register">
           <Card>
             <CardHeader>
-              <CardTitle>Create an account</CardTitle>
+              <CardTitle>Tạo tài khoản mới</CardTitle>
             </CardHeader>
             <CardContent>
+              {error && (
+                <Alert variant="destructive" className="mb-4">
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
               <form onSubmit={handleRegister} className="space-y-4">
                 <div>
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input id="name" placeholder="John Doe" required />
+                  <Label htmlFor="name">Họ và tên</Label>
+                  <Input 
+                    id="name" 
+                    placeholder="Nguyễn Văn A" 
+                    value={registerData.name}
+                    onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
+                    required 
+                  />
                 </div>
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" required />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@example.com" 
+                    value={registerData.email}
+                    onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
+                    required 
+                  />
                 </div>
                 <div>
-                  <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" required />
+                  <Label htmlFor="password">Mật khẩu</Label>
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    value={registerData.password}
+                    onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
+                    required 
+                  />
                 </div>
                 <div>
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
-                  <Input id="confirmPassword" type="password" required />
+                  <Label htmlFor="confirmPassword">Xác nhận mật khẩu</Label>
+                  <Input 
+                    id="confirmPassword" 
+                    type="password" 
+                    value={registerData.confirmPassword}
+                    onChange={(e) => setRegisterData({ ...registerData, confirmPassword: e.target.value })}
+                    required 
+                  />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? "Creating account..." : "Create Account"}
+                  {isLoading ? "Đang tạo tài khoản..." : "Tạo tài khoản"}
                 </Button>
               </form>
             </CardContent>

@@ -14,7 +14,7 @@ import { SearchFilters } from "@/components/search-filters"
 import { MiniCart } from "@/components/mini-cart"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { useCart } from "@/contexts/cart-context"
-import { useAuth } from "@/components/auth-provider"
+import { useAuth } from "@/hooks/use-auth"
 
 interface Product {
   id: number
@@ -71,14 +71,14 @@ export default function HomePage() {
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const [addedProductIds, setAddedProductIds] = useState<number[]>([])
   const [loadingProductIds, setLoadingProductIds] = useState<number[]>([])
-  const { user, isLoggedIn, logout } = useAuth()
+  const { user, isAuthenticated, logout } = useAuth()
   const router = useRouter()
 
   const PRODUCTS_PER_PAGE = 12
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
-    if (isLoggedIn && user?.role !== "customer") {
+    if (isAuthenticated && user?.role !== "customer") {
       router.replace("/dashboard")
       return
     }
@@ -124,7 +124,7 @@ export default function HomePage() {
     }
 
     fetchData()
-  }, [isLoggedIn, user, router])
+  }, [isAuthenticated, user, router])
 
   const handleLogout = () => {
     logout()
@@ -231,7 +231,7 @@ export default function HomePage() {
           name: product.title,
           price: product.price,
           quantity: 1,
-          image: product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : null,
+          image: product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg",
           category: product.category || "",
           stock: 50,
         },
@@ -318,7 +318,7 @@ export default function HomePage() {
     )
   }
 
-  if (isLoggedIn && user?.role !== "customer") {
+  if (isAuthenticated && user?.role !== "customer") {
     return null
   }
 
@@ -343,7 +343,7 @@ export default function HomePage() {
           </Link>
 
           <div className="flex items-center gap-4">
-            {isLoggedIn ? (
+            {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative w-8 h-8 rounded-full overflow-hidden p-0">

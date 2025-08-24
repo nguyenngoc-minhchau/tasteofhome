@@ -5,7 +5,7 @@ import { Clock, MessageCircle, Truck, LogOut } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card"
 import { Badge } from "@components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { useAuth } from "@/components/auth-provider"
+import { useAuth } from "@/hooks/use-auth"
 import { useRouter } from "next/navigation"
 
 const staffDashboardData = {

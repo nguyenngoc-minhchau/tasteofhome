@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, Package, Eye, Download, RefreshCw, Star } from "lucide-react"
+import { ArrowLeft, Package, Eye, Download, RefreshCw, Star, LogIn } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useAuth } from "@/hooks/use-auth"
 
 const statusColors = {
   processing: "bg-blue-500",
@@ -42,31 +43,94 @@ const getStatusStyle = (status: string) => {
 }
 
 export default function OrderHistoryPage() {
+  const { isAuthenticated, user, loading } = useAuth()
   const [selectedTab, setSelectedTab] = useState("all")
   const [orders, setOrders] = useState<any[]>([])
-  const [loading, setLoading] = useState(false)
+  const [ordersLoading, setOrdersLoading] = useState(false)
 
   // Fetch orders from API
   const fetchOrders = async () => {
-    setLoading(true)
+    if (!isAuthenticated) return
+    
+    setOrdersLoading(true)
     try {
       const res = await fetch("/api/orders")
-      const data = await res.json()
-      setOrders(data)
+      if (res.ok) {
+        const data = await res.json()
+        setOrders(data)
+      } else if (res.status === 401) {
+        // Unauthorized - redirect to login
+        setOrders([])
+      } else {
+        setOrders([])
+      }
     } catch (error) {
       setOrders([])
     }
-    setLoading(false)
+    setOrdersLoading(false)
   }
 
   useEffect(() => {
-    fetchOrders()
-  }, [])
+    if (isAuthenticated) {
+      fetchOrders()
+    }
+  }, [isAuthenticated])
 
   const filteredOrders = orders.filter((order) => {
     if (selectedTab === "all") return true
     return order.status === selectedTab
   })
+
+  // Nếu đang loading auth, hiển thị loading
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">Đang tải...</div>
+      </div>
+    )
+  }
+
+  // Nếu chưa đăng nhập, hiển thị trang yêu cầu đăng nhập
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background">
+        <header className="border-b">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
+                <ArrowLeft className="h-5 w-5" />
+                Quay lại cửa hàng
+              </Link>
+              <h1 className="text-2xl font-bold">Lịch sử đơn hàng</h1>
+              <div className="w-24"></div>
+            </div>
+          </div>
+        </header>
+
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-md mx-auto text-center">
+            <LogIn className="h-24 w-24 mx-auto text-muted-foreground mb-6" />
+            <h2 className="text-2xl font-bold mb-4">Bạn cần đăng nhập</h2>
+            <p className="text-muted-foreground mb-8">
+              Để xem lịch sử đơn hàng, bạn cần đăng nhập vào tài khoản của mình.
+            </p>
+            <div className="space-y-3">
+              <Link href="/auth">
+                <Button size="lg" className="w-full">
+                  Đăng nhập
+                </Button>
+              </Link>
+              <Link href="/">
+                <Button variant="outline" className="w-full">
+                  Tiếp tục mua sắm
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,7 +142,14 @@ export default function OrderHistoryPage() {
               <ArrowLeft className="h-5 w-5" />
               Quay lại cửa hàng
             </Link>
-            <h1 className="text-2xl font-bold">Lịch sử đơn hàng</h1>
+            <div className="text-center">
+              <h1 className="text-2xl font-bold">Lịch sử đơn hàng</h1>
+              {user && (
+                <p className="text-sm text-muted-foreground">
+                  Xin chào, {user.name || user.username}
+                </p>
+              )}
+            </div>
             <div className="w-24"></div>
           </div>
         </div>
@@ -91,8 +162,8 @@ export default function OrderHistoryPage() {
               <h2 className="text-3xl font-bold">Đơn hàng của bạn</h2>
               <p className="text-muted-foreground">Theo dõi và quản lý lịch sử đơn hàng</p>
             </div>
-            <Button variant="outline" size="sm" onClick={fetchOrders}>
-              <RefreshCw className="h-4 w-4 mr-2" />
+            <Button variant="outline" size="sm" onClick={fetchOrders} disabled={ordersLoading}>
+              <RefreshCw className={`h-4 w-4 mr-2 ${ordersLoading ? 'animate-spin' : ''}`} />
               Làm mới
             </Button>
           </div>
@@ -107,7 +178,7 @@ export default function OrderHistoryPage() {
             </TabsList>
 
             <TabsContent value={selectedTab} className="mt-6">
-              {loading ? (
+              {ordersLoading ? (
                 <div className="text-center py-12">Đang tải...</div>
               ) : filteredOrders.length === 0 ? (
                 <div className="text-center py-12">

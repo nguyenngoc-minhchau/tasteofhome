@@ -3,6 +3,37 @@ import prisma from "@/lib/prisma"
 
 export async function POST(request: NextRequest) {
   try {
+    // Lấy session token từ cookie hoặc header
+    const sessionToken = request.cookies.get("session_token")?.value || 
+                        request.headers.get("authorization")?.replace("Bearer ", "")
+
+    if (!sessionToken) {
+      return NextResponse.json({ 
+        success: false,
+        message: "Bạn cần đăng nhập để đặt hàng" 
+      }, { status: 401 })
+    }
+
+    // Tìm user bằng remember_token
+    const user = await prisma.users.findFirst({
+      where: { 
+        remember_token: sessionToken,
+        isactive: 1
+      },
+      select: {
+        id: true,
+        username: true,
+        email: true
+      }
+    })
+
+    if (!user) {
+      return NextResponse.json({ 
+        success: false,
+        message: "Token không hợp lệ hoặc user không tồn tại" 
+      }, { status: 401 })
+    }
+
     const body = await request.json()
     const {
       items,
@@ -14,6 +45,22 @@ export async function POST(request: NextRequest) {
     // Tạo mã đơn hàng duy nhất
     const orderCode = `ORD${Date.now()}${Math.random().toString(36).substr(2, 5).toUpperCase()}`
     
+    // Xác định trạng thái thanh toán dựa trên phương thức
+    let paymentStatus = "1" // Mặc định là đã thanh toán
+    let orderStatus = "Mới"
+    
+    if (paymentInfo.paymentMethod === "Cash on Delivery") {
+      paymentStatus = "0" // Chưa thanh toán
+      orderStatus = "Chờ thanh toán"
+    } else if (paymentInfo.paymentMethod === "Bank Transfer") {
+      paymentStatus = "0" // Chưa thanh toán (chờ xác nhận)
+      orderStatus = "Chờ xác nhận thanh toán"
+    } else if (paymentInfo.paymentMethod === "E-wallet") {
+      paymentStatus = "0" // Chưa thanh toán (chờ xác nhận)
+      orderStatus = "Chờ xác nhận thanh toán"
+    }
+    // Credit Card mặc định là đã thanh toán (paymentStatus = "1")
+
     // Tạo đơn hàng chính
     const order = await prisma.product_order.create({
       data: {
@@ -34,7 +81,7 @@ export async function POST(request: NextRequest) {
         payment_at: new Date(),
         transportfee: orderSummary.shipping,
         taxvat: orderSummary.tax,
-        user_id: 1, // Tạm thời hardcode, sau này sẽ lấy từ session
+        user_id: Number(user.id), // Sử dụng ID của user đã đăng nhập
         agent_id: null,
         voucher: null,
         npp: null,
@@ -43,11 +90,11 @@ export async function POST(request: NextRequest) {
         commission_npp: null,
         commission_daily: null,
         estimated_delivery: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 ngày sau
-        status: "Mới", // Trạng thái ban đầu
+        status: orderStatus, // Trạng thái dựa trên phương thức thanh toán
         shipped_at: new Date(0), // Chưa ship
         out_for_delivery_at: new Date(0), // Chưa out for delivery
         deliverydate: null, // Chưa giao
-        payment_status: "1", // Đã thanh toán
+        payment_status: paymentStatus, // Trạng thái thanh toán dựa trên phương thức
         payment_method: paymentInfo.paymentMethod || "Credit Card",
         created_at: new Date(),
         updated_at: new Date()
@@ -81,7 +128,7 @@ export async function POST(request: NextRequest) {
       data: {
         order_id: order.id,
         amount: order.totalamount,
-        user_id: 1, // Tạm thời
+        user_id: Number(user.id), // Sử dụng ID của user đã đăng nhập
         notes: "Đơn hàng mới được tạo",
         created_at: new Date(),
         updated_at: new Date()

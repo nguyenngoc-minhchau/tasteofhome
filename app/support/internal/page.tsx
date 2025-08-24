@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { useAuth } from "@/components/auth-provider"
+import { useAuth } from "@/hooks/use-auth"
 import Link from "next/link"
 import { ArrowLeft, Ticket, Search, CheckCircle, Clock, XCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
