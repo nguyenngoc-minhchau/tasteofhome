@@ -117,14 +117,14 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Ảnh sản phẩm */}
           <div className="aspect-square rounded-2xl overflow-hidden border bg-gray-100">
-          <Image
-            src={`/${product.image}`}
-            alt={product.title ?? "Product"}
-            width={600} 
-            height={600}
-          className="w-full h-full object-cover"
-          />
-        </div>
+            <Image
+              src={`/${product.image}`}
+              alt={product.title ?? "Product"}
+              width={600}
+              height={600}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           {/* Thông tin sản phẩm */}
           <div>
@@ -181,15 +181,6 @@ export default function ProductDetailPage() {
                 ))}
                 <span className="font-semibold text-lg">{averageRating.toFixed(1)}</span>
                 <span className="text-muted-foreground">({reviews.length} đánh giá)</span>
-              </div>
-
-              {/* Nút chuyển sang trang review */}
-              <div className="mt-4">
-                <Link href={`/product/${id}/review`}>
-                  <Button variant="outline" className="w-full">
-                    Viết đánh giá
-                  </Button>
-                </Link>
               </div>
             </div>
 
