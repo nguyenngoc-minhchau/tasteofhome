@@ -47,7 +47,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
                 <div>
                   <p className="font-medium">{item.name}</p>
                   <p className="text-sm text-muted-foreground">
-                    {item.quantity} × ${item.price}
+                    {item.quantity} × {item.price} VNĐ
                   </p>
                 </div>
                 <img
@@ -63,7 +63,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
         <div className="mt-auto border-t pt-4">
           <div className="flex justify-between font-medium">
             <span>Total:</span>
-            <span>${cartState.total.toFixed(2)}</span>
+            <span>{cartState.total.toFixed(2)} VNĐ</span>
           </div>
           <Button
           className="w-full mt-4 bg-orange hover:bg-orange/80 text-black"
