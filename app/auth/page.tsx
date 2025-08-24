@@ -42,8 +42,13 @@ if (isAuthenticated === null) {
 }
 useEffect(() => {
   if (isAuthenticated && user) {
-    if (user.role === "admin") router.replace("/admin")
-    else router.replace("/")
+    if (user.role === "admin") {
+      router.replace("/admin")
+    } else if (user.role === "manager") {
+      router.replace("/manager")
+    } else {
+      router.replace("/")
+    }
   }
 }, [isAuthenticated, user, router])
 
