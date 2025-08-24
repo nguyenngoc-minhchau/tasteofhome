@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { CartProvider } from "@/contexts/cart-context"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthProvider } from "@/components/auth-provider" // import AuthProvider thêm vào
 import { Inter } from "next/font/google"
 import { Toaster } from "sonner"
 
@@ -20,13 +21,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="vi" suppressHydrationWarning>
       <body className={inter.className}>
-        <CartProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            {children}
-          </ThemeProvider>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </CartProvider>
+        </AuthProvider>
         <Toaster richColors position="top-right" />
       </body>
     </html>
