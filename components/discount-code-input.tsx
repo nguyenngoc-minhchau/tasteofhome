@@ -5,6 +5,7 @@ import { Tag, Check, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
+import { useCart } from "@/contexts/cart-context"
 
 // Mock discount codes
 const discountCodes = {
@@ -17,17 +18,14 @@ const discountCodes = {
 
 interface DiscountCodeInputProps {
   subtotal: number
-  onDiscountApplied: (discount: { code: string; amount: number; type: string; description: string }) => void
-  onDiscountRemoved: () => void
   appliedDiscount?: { code: string; amount: number; type: string; description: string } | null
 }
 
 export function DiscountCodeInput({
   subtotal,
-  onDiscountApplied,
-  onDiscountRemoved,
   appliedDiscount,
 }: DiscountCodeInputProps) {
+  const { dispatch } = useCart()
   const [discountCode, setDiscountCode] = useState("")
   const [isApplying, setIsApplying] = useState(false)
   const [error, setError] = useState("")
@@ -65,11 +63,14 @@ export function DiscountCodeInput({
       discountAmount = 5.99 // Assuming standard shipping cost
     }
 
-    onDiscountApplied({
-      code,
-      amount: discountAmount,
-      type: discount.type,
-      description: discount.description,
+    dispatch({
+      type: "APPLY_DISCOUNT",
+      payload: {
+        code,
+        amount: discountAmount,
+        type: discount.type,
+        description: discount.description,
+      }
     })
 
     setDiscountCode("")
@@ -77,7 +78,7 @@ export function DiscountCodeInput({
   }
 
   const handleRemoveDiscount = () => {
-    onDiscountRemoved()
+    dispatch({ type: "REMOVE_DISCOUNT" })
     setError("")
   }
 

@@ -14,10 +14,18 @@ interface CartItem {
   stock: number
 }
 
+interface DiscountCode {
+  code: string
+  amount: number
+  type: string
+  description: string
+}
+
 interface CartState {
   items: CartItem[]
   total: number
   itemCount: number
+  appliedDiscount: DiscountCode | null
 }
 
 type CartAction =
@@ -25,6 +33,8 @@ type CartAction =
   | { type: "REMOVE_ITEM"; payload: number }
   | { type: "UPDATE_QUANTITY"; payload: { id: number; quantity: number } }
   | { type: "CLEAR_CART" }
+  | { type: "APPLY_DISCOUNT"; payload: DiscountCode }
+  | { type: "REMOVE_DISCOUNT" }
 
 const CartContext = createContext<{
   state: CartState
@@ -45,13 +55,13 @@ function cartReducer(state: CartState, action: CartAction): CartState {
         const total = updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
         const itemCount = updatedItems.reduce((sum, item) => sum + item.quantity, 0)
 
-        return { items: updatedItems, total, itemCount }
+        return { ...state, items: updatedItems, total, itemCount }
       } else {
         const updatedItems = [...state.items, action.payload]
         const total = updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
         const itemCount = updatedItems.reduce((sum, item) => sum + item.quantity, 0)
 
-        return { items: updatedItems, total, itemCount }
+        return { ...state, items: updatedItems, total, itemCount }
       }
     }
 
@@ -60,7 +70,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       const total = updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
       const itemCount = updatedItems.reduce((sum, item) => sum + item.quantity, 0)
 
-      return { items: updatedItems, total, itemCount }
+      return { ...state, items: updatedItems, total, itemCount }
     }
 
     case "UPDATE_QUANTITY": {
@@ -75,11 +85,17 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       const total = updatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
       const itemCount = updatedItems.reduce((sum, item) => sum + item.quantity, 0)
 
-      return { items: updatedItems, total, itemCount }
+      return { ...state, items: updatedItems, total, itemCount }
     }
 
     case "CLEAR_CART":
-      return { items: [], total: 0, itemCount: 0 }
+      return { items: [], total: 0, itemCount: 0, appliedDiscount: null }
+
+    case "APPLY_DISCOUNT":
+      return { ...state, appliedDiscount: action.payload }
+
+    case "REMOVE_DISCOUNT":
+      return { ...state, appliedDiscount: null }
 
     default:
       return state
@@ -91,6 +107,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     items: [],
     total: 0,
     itemCount: 0,
+    appliedDiscount: null,
   })
 
   return <CartContext.Provider value={{ state, dispatch }}>{children}</CartContext.Provider>

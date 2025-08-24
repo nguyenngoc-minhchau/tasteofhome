@@ -15,12 +15,6 @@ export default function CartPage() {
   const { state: cartState, dispatch: cartDispatch } = useCart()
   const router = useRouter()
   const [isValidating, setIsValidating] = useState(false)
-  const [appliedDiscount, setAppliedDiscount] = useState<{
-    code: string
-    amount: number
-    type: string
-    description: string
-  } | null>(null)
 
   const updateQuantity = (id: number, quantity: number) => {
     cartDispatch({
@@ -58,7 +52,7 @@ export default function CartPage() {
 
   const shippingCost = cartState.total > 50 ? 0 : 5.99
   const tax = cartState.total * 0.08
-  const discountAmount = appliedDiscount?.amount || 0
+  const discountAmount = cartState.appliedDiscount?.amount || 0
   const finalTotal = cartState.total + shippingCost + tax - discountAmount
 
   if (cartState.items.length === 0) {
@@ -213,10 +207,10 @@ export default function CartPage() {
                     <span>{tax.toLocaleString('vi-VN')} VNĐ</span>
                   </div>
 
-                  {appliedDiscount && (
+                  {cartState.appliedDiscount && (
                     <div className="flex justify-between text-green-600">
-                      <span>Giảm giá ({appliedDiscount.code})</span>
-                      <span>-{appliedDiscount.amount.toLocaleString('vi-VN')} VNĐ</span>
+                      <span>Giảm giá ({cartState.appliedDiscount.code})</span>
+                      <span>-{cartState.appliedDiscount.amount.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                   )}
 
@@ -229,9 +223,7 @@ export default function CartPage() {
 
                 <DiscountCodeInput
                   subtotal={cartState.total}
-                  onDiscountApplied={setAppliedDiscount}
-                  onDiscountRemoved={() => setAppliedDiscount(null)}
-                  appliedDiscount={appliedDiscount}
+                  appliedDiscount={cartState.appliedDiscount}
                 />
 
                 <Separator />

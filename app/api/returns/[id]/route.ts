@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { prisma } from "@/lib/db" // Make sure this path matches your project setup
+import prisma from "@/lib/prisma"
 
 export async function GET(
   _: Request,
