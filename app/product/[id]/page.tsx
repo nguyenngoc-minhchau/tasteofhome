@@ -162,7 +162,7 @@ export default function ProductDetailPage() {
               )}
             </Button>
 
-            {/* Phần đánh giá trung bình */}
+            {/* Đánh giá trung bình */}
             <div className="mt-6">
               <h2 className="text-xl font-semibold mb-2">Đánh giá khách hàng</h2>
               <div className="flex items-center gap-2">
@@ -178,6 +178,15 @@ export default function ProductDetailPage() {
                 ))}
                 <span className="font-semibold text-lg">{averageRating.toFixed(1)}</span>
                 <span className="text-muted-foreground">({reviews.length} đánh giá)</span>
+              </div>
+
+              {/* Nút chuyển sang trang review */}
+              <div className="mt-4">
+                <Link href={`/product/${id}/review`}>
+                  <Button variant="outline" className="w-full">
+                    Viết đánh giá
+                  </Button>
+                </Link>
               </div>
             </div>
 
