@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
@@ -116,12 +117,14 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Ảnh sản phẩm */}
           <div className="aspect-square rounded-2xl overflow-hidden border bg-gray-100">
-            <img
-              src={product.image || "/placeholder.png"}
-              alt={product.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Image
+            src={`/${product.image}`}
+            alt={product.title ?? "Product"}
+            width={600} 
+            height={600}
+          className="w-full h-full object-cover"
+          />
+        </div>
 
           {/* Thông tin sản phẩm */}
           <div>
@@ -223,9 +226,11 @@ export default function ProductDetailPage() {
               <Link key={rp.id} href={`/product/${rp.id}`} className="block">
                 <div className="rounded-2xl overflow-hidden border shadow-sm hover:shadow-lg transition bg-white">
                   <div className="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={rp.image || "/placeholder.png"}
-                      alt={rp.title}
+                    <Image
+                      src={`/${rp.image}`} 
+                      alt={rp.title ?? "Product"}
+                      width={300}
+                      height={200}
                       className="w-full h-full object-cover"
                     />
                   </div>

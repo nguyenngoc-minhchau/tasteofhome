@@ -66,7 +66,7 @@ export async function GET(
 	// Fetch actual tags for each taggable
 	const tags = await prisma.tags.findMany({
 	  where: {
-		id: { in: taggables.map((t) => t.tags_id) },
+    id: { in: taggables.map((t: { tags_id: number }) => t.tags_id) },
 	  },
 	  select: { id: true, tag_name: true, re_name: true },
 	});
@@ -95,7 +95,15 @@ export async function GET(
         select: { re_name: true },
       });
 
-      relatedProducts = related.map((p) => ({
+      relatedProducts = related.map((p: {
+        id: bigint;
+        title: string;
+        image: string | null;
+        price: number;
+        price_discount?: number;
+        cat_id: number | bigint | null;
+        created_at?: Date;
+      }) => ({
         id: p.id,
         title: p.title,
         image: p.image,
@@ -111,20 +119,18 @@ export async function GET(
       price: product.price,
       price_discount: product.price_discount,
       capacity: capacityTitle,
-	  capacityTitle: capacityLookup,
-	  capacity: product.capacity,
+    capacityTitle: capacityLookup,
       datepackage: datepackage?.title ?? null,
       category: category?.title ?? "Not defined",
       categorySlug: category?.re_name ?? "",
-	  brief: detail?.brief ?? product.brief,
-	  tags: tags.map((tag) => ({
-	  id: tag.id,
-	  name: tag.tag_name,
-	  slug: tag.re_name,
-	})),
-	  relatedProducts,
+      brief: detail?.brief ?? product.brief,
+    tags: tags.map((tag: { id: number; tag_name: string; re_name: string }) => ({
+    id: tag.id,
+    name: tag.tag_name,
+    slug: tag.re_name,
+  })),
+    relatedProducts,
       content: product.content,
-      brief: product.brief,
       tips: product.tips,
       keyword: product.keyword,
       meta_description: product.meta_description,
