@@ -311,8 +311,6 @@ model product_detail {
   isactive       Int       @default(0) @db.TinyInt
   updated_at     DateTime? @db.Timestamp(0)
   created_at     DateTime? @db.Timestamp(0)
-  
-  product   product_pro @relation("ProductDetails", fields: [pro_id], references: [id])
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -346,44 +344,41 @@ model product_imexport_history {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model product_order {
-  id               Int       @id @default(autoincrement()) @db.UnsignedInt
-  inv_id           Int
-  invcode          String    @db.VarChar(7)
-  inv_code         String    @db.VarChar(50)
-  fullname         String?   @db.VarChar(255)
-  address          String?   @db.VarChar(255)
-  sendingaddress   String?   @db.VarChar(255)
-  company          String?
-  email            String?
-  phone            String?   @db.VarChar(100)
-  content          String?   @db.TinyText
-  totalcost        Int?
-  totalamount      Float     @default(0)
-  discount         Float?
-  balance          Int?
-  COD              Int       @default(0)
-  transportfee_id  Int       @db.TinyInt
-  transportfee     Int       @default(0)
-  taxvat           Float     @default(0)
-  user_id          Int?      @db.TinyInt
-  agent_id         Int?
-  voucher          Int?
-  npp              Int?
-  daily            Int?
-  ctv              Int?
-  commission_npp   Float?
-  commission_daily Float?
-  commission_ctv   Float?
-  isactive         Int       @default(0) @db.TinyInt
-  ischeck          Boolean   @default(false)
-  isdelivery       Int       @default(0) @db.TinyInt
-  deliverydate     DateTime? @db.Timestamp(0)
-  ispayment        Int       @default(0) @db.TinyInt
-  paymentdate      DateTime? @db.Timestamp(0)
-  created_at       DateTime? @db.Timestamp(0)
-  updated_at       DateTime? @db.Timestamp(0)
-  
-  details          product_orderdetail[]
+  id                  Int       @id @default(autoincrement()) @db.UnsignedInt
+  inv_id              Int
+  invcode             String    @db.VarChar(7)
+  inv_code            String    @db.VarChar(50)
+  fullname            String?   @db.VarChar(255)
+  address             String?   @db.VarChar(255)
+  sendingaddress      String?   @db.VarChar(255)
+  company             String?
+  email               String?
+  phone               String?   @db.VarChar(100)
+  content             String?   @db.TinyText
+  totalcost           Int?
+  totalamount         Float     @default(0)
+  discount            Float?
+  subtotal            Float     @db.Float
+  payment_at          DateTime  @db.DateTime(0)
+  transportfee        Int       @default(0)
+  taxvat              Float     @default(0)
+  user_id             Int?      @db.TinyInt
+  agent_id            Int?
+  voucher             Int?
+  npp                 Int?
+  daily               Int?
+  ctv                 Int?
+  commission_npp      Float?
+  commission_daily    Float?
+  estimated_delivery  DateTime? @db.Date
+  status              String    @db.VarChar(50)
+  shipped_at          DateTime  @db.DateTime(0)
+  out_for_delivery_at DateTime  @db.DateTime(0)
+  deliverydate        DateTime? @db.DateTime(0)
+  payment_status      String    @default("0") @db.VarChar(50)
+  payment_method      String    @db.VarChar(50)
+  created_at          DateTime? @db.Timestamp(0)
+  updated_at          DateTime? @db.Timestamp(0)
 }
 
 model product_order_history {
@@ -426,7 +421,7 @@ model product_orderdetail {
   id               Int       @id @default(autoincrement())
   order_id         Int       @db.UnsignedInt
   stock_id         Int       @default(1) @db.TinyInt
-  product_id       BigInt    @db.UnsignedBigInt
+  product_id       Int       @db.UnsignedInt
   capacity_id      Int
   quantity         Int
   price            Float
@@ -436,9 +431,6 @@ model product_orderdetail {
   price_im         Int?
   pro_status       Int       @db.TinyInt
   delivery_date    DateTime? @db.DateTime(0)
-  
-  order            product_order   @relation(fields: [order_id], references: [id], onDelete: Cascade)
-  product		   product_pro   @relation(fields: [product_id], references: [id]) 
 }
 
 model product_photo {
@@ -492,9 +484,6 @@ model product_pro {
   isactive         Int       @default(0) @db.TinyInt
   updated_at       DateTime? @db.Timestamp(0)
   created_at       DateTime? @db.Timestamp(0)
-  
-  orderdetails product_orderdetail[] 
-  details   product_detail[] @relation("ProductDetails")
 }
 
 model route_language {
@@ -720,41 +709,4 @@ model users {
   remember_token    String?   @db.VarChar(100)
   created_at        DateTime? @db.Timestamp(0)
   updated_at        DateTime? @db.Timestamp(0)
-}
-
-model system_setting {
-  id               BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  category         String   @db.VarChar(100)
-  setting_key      String   @db.VarChar(100)
-  value            String   @db.Text
-  description      String?  @db.Text
-  requires_restart Boolean  @default(false)
-  sensitive        Boolean  @default(false)
-  updated_by       BigInt?  @db.UnsignedBigInt
-  updated_at       DateTime @default(now()) @updatedAt @db.Timestamp(6)
-
-  @@unique([category, setting_key])
-  @@map("system_setting")
-}
-
-model system_setting_audit {
-  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
-  setting_id BigInt   @db.UnsignedBigInt
-  old_value  String?  @db.Text
-  new_value  String?  @db.Text
-  changed_by BigInt?  @db.UnsignedBigInt
-  changed_at DateTime @default(now()) @db.Timestamp(6)
-
-  @@map("system_setting_audit")
-}
-
-model supportrequest {
-  id             BigInt   @id @default(autoincrement())
-  name           String
-  email          String
-  subject        String
-  message        String
-  order_id       String?
-  screenshot_url String?
-  created_at     DateTime @default(now())
 }

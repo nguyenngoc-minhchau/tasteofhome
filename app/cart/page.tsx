@@ -46,7 +46,7 @@ export default function CartPage() {
     const outOfStockItems = cartState.items.filter((item) => item.quantity > item.stock)
 
     if (outOfStockItems.length > 0) {
-      alert("Some items in your cart are out of stock. Please update quantities.")
+      alert("Một số sản phẩm trong giỏ hàng đã hết hàng. Vui lòng cập nhật số lượng.")
       setIsValidating(false)
       return
     }
@@ -82,12 +82,12 @@ export default function CartPage() {
         <div className="container mx-auto px-4 py-16">
           <div className="text-center max-w-md mx-auto">
             <ShoppingBag className="h-24 w-24 mx-auto text-muted-foreground mb-6" />
-            <h2 className="text-2xl font-bold mb-4">Your cart is empty</h2>
+            <h2 className="text-2xl font-bold mb-4">Giỏ hàng trống</h2>
             <p className="text-muted-foreground mb-8">
-              Looks like you haven't added any items to your cart yet. Start shopping to fill it up!
+              Có vẻ như bạn chưa thêm sản phẩm nào vào giỏ hàng. Hãy bắt đầu mua sắm để làm đầy giỏ hàng!
             </p>
             <Link href="/">
-              <Button size="lg">Start Shopping</Button>
+              <Button size="lg">Bắt đầu mua sắm</Button>
             </Link>
           </div>
         </div>
@@ -103,10 +103,10 @@ export default function CartPage() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
               <ArrowLeft className="h-5 w-5" />
-              Continue Shopping
+              Tiếp tục mua sắm
             </Link>
-            <h1 className="text-2xl font-bold translate-x-[-50px]">Shopping Cart</h1>
-            <Badge variant="secondary">{cartState.itemCount} items</Badge>
+            <h1 className="text-2xl font-bold translate-x-[-50px]">Giỏ hàng</h1>
+            <Badge variant="secondary">{cartState.itemCount} sản phẩm</Badge>
           </div>
         </div>
       </header>
@@ -115,7 +115,7 @@ export default function CartPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
-            <h2 className="text-xl font-semibold mb-4">Cart Items</h2>
+            <h2 className="text-xl font-semibold mb-4">Sản phẩm trong giỏ hàng</h2>
 
             {cartState.items.map((item) => (
               <Card key={item.id}>
@@ -171,12 +171,12 @@ export default function CartPage() {
                         </div>
 
                         <div className="text-right">
-                          <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
-                          <p className="text-sm text-muted-foreground">${item.price} each</p>
+                          <p className="font-semibold">{(item.price * item.quantity).toLocaleString('vi-VN')} VNĐ</p>
+                          <p className="text-sm text-muted-foreground">{item.price.toLocaleString('vi-VN')} VNĐ mỗi sản phẩm</p>
                         </div>
                       </div>
 
-                      {item.quantity >= item.stock && <p className="text-sm text-red-500">Maximum quantity reached</p>}
+                      {item.quantity >= item.stock && <p className="text-sm text-red-500">Đã đạt số lượng tối đa</p>}
                     </div>
                   </div>
                 </CardContent>
@@ -188,41 +188,41 @@ export default function CartPage() {
           <div className="lg:col-span-1">
             <Card className="sticky top-4">
               <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+                <CardTitle>Tóm tắt đơn hàng</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span>Subtotal ({cartState.itemCount} items)</span>
-                    <span>${cartState.total.toFixed(2)}</span>
+                    <span>Tạm tính ({cartState.itemCount} sản phẩm)</span>
+                    <span>{cartState.total.toLocaleString('vi-VN')} VNĐ</span>
                   </div>
 
                   <div className="flex justify-between">
-                    <span>Shipping</span>
+                    <span>Phí vận chuyển</span>
                     <span>
                       {shippingCost === 0 ? (
-                        <span className="text-green-600">Free</span>
+                        <span className="text-green-600">Miễn phí</span>
                       ) : (
-                        `$${shippingCost.toFixed(2)}`
+                        `${shippingCost.toLocaleString('vi-VN')} VNĐ`
                       )}
                     </span>
                   </div>
 
                   <div className="flex justify-between">
-                    <span>Tax</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span>Thuế</span>
+                    <span>{tax.toLocaleString('vi-VN')} VNĐ</span>
                   </div>
 
                   {appliedDiscount && (
                     <div className="flex justify-between text-green-600">
-                      <span>Discount ({appliedDiscount.code})</span>
-                      <span>-${appliedDiscount.amount.toFixed(2)}</span>
+                      <span>Giảm giá ({appliedDiscount.code})</span>
+                      <span>-{appliedDiscount.amount.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                   )}
 
                   {cartState.total < 50 && (
                     <p className="text-sm text-muted-foreground">
-                      Add ${(50 - cartState.total).toFixed(2)} more for free shipping
+                      Thêm {(50 - cartState.total).toLocaleString('vi-VN')} VNĐ để được miễn phí vận chuyển
                     </p>
                   )}
                 </div>
@@ -237,8 +237,8 @@ export default function CartPage() {
                 <Separator />
 
                 <div className="flex justify-between text-lg font-semibold">
-                  <span>Total</span>
-                  <span>${finalTotal.toFixed(2)}</span>
+                  <span>Tổng cộng</span>
+                  <span>{finalTotal.toLocaleString('vi-VN')} VNĐ</span>
                 </div>
 
                 <Button
@@ -248,13 +248,13 @@ export default function CartPage() {
                   size="lg"
                 >
                   <CreditCard className="h-5 w-5 mr-2" />
-                  {isValidating ? "Validating..." : "Proceed to Checkout"}
+                  {isValidating ? "Đang xác thực..." : "Tiến hành thanh toán"}
                 </Button>
 
                 <div className="text-center">
                   <Link href="/">
                     <Button variant="ghost" className="text-sm">
-                      Continue Shopping
+                      Tiếp tục mua sắm
                     </Button>
                   </Link>
                 </div>

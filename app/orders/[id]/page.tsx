@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import { ArrowLeft, Package, Truck, CheckCircle, Clock, Download, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,231 +10,17 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Progress } from "@/components/ui/progress"
 
-// Mock detailed order data
-const orderDetails = {
-  "ORD-2024-001": {
-    id: "ORD-2024-001",
-    date: "2024-01-15",
-    status: "delivered",
-    paymentStatus: "paid",
-    paymentMethod: "Credit Card ending in 4242",
-    total: 67.48,
-    subtotal: 62.48,
-    shipping: 0,
-    tax: 5.0,
-    items: [
-      {
-        id: 1,
-        name: "Premium Ethiopian Coffee Beans",
-        quantity: 2,
-        price: 24.99,
-        image: "/placeholder.svg?height=80&width=80&text=Coffee",
-      },
-      {
-        id: 2,
-        name: "Himalayan Pink Salt",
-        quantity: 1,
-        price: 12.5,
-        image: "/placeholder.svg?height=80&width=80&text=Salt",
-      },
-    ],
-    trackingNumber: "1Z999AA1234567890",
-    estimatedDelivery: "2024-01-18",
-    actualDelivery: "2024-01-17",
-    shippingAddress: {
-      name: "John Doe",
-      street: "123 Main Street",
-      city: "New York",
-      state: "NY",
-      zip: "10001",
-      country: "United States",
-    },
-    timeline: [
-      {
-        status: "Order Placed",
-        date: "2024-01-15 10:30 AM",
-        description: "Your order has been received and is being processed",
-        completed: true,
-      },
-      {
-        status: "Payment Confirmed",
-        date: "2024-01-15 10:35 AM",
-        description: "Payment has been successfully processed",
-        completed: true,
-      },
-      {
-        status: "Order Shipped",
-        date: "2024-01-16 2:15 PM",
-        description: "Your order has been shipped and is on its way",
-        completed: true,
-      },
-      {
-        status: "Out for Delivery",
-        date: "2024-01-17 8:00 AM",
-        description: "Your package is out for delivery",
-        completed: true,
-      },
-      {
-        status: "Delivered",
-        date: "2024-01-17 3:45 PM",
-        description: "Package delivered successfully",
-        completed: true,
-      },
-    ],
-  },
-  "ORD-2024-002": {
-    id: "ORD-2024-002",
-    date: "2024-01-20",
-    status: "shipped",
-    paymentStatus: "paid",
-    paymentMethod: "Credit Card ending in 4242",
-    total: 45.75,
-    subtotal: 47.74,
-    shipping: 0,
-    tax: 3.82,
-    items: [
-      {
-        id: 3,
-        name: "Organic Green Tea",
-        quantity: 1,
-        price: 18.75,
-        image: "/placeholder.svg?height=80&width=80&text=Tea",
-      },
-      {
-        id: 5,
-        name: "Wild Honey",
-        quantity: 1,
-        price: 28.99,
-        image: "/placeholder.svg?height=80&width=80&text=Honey",
-      },
-    ],
-    trackingNumber: "1Z999AA1234567891",
-    estimatedDelivery: "2024-01-25",
-    shippingAddress: {
-      name: "John Doe",
-      street: "123 Main Street",
-      city: "New York",
-      state: "NY",
-      zip: "10001",
-      country: "United States",
-    },
-    timeline: [
-      {
-        status: "Order Placed",
-        date: "2024-01-20 2:15 PM",
-        description: "Your order has been received and is being processed",
-        completed: true,
-      },
-      {
-        status: "Payment Confirmed",
-        date: "2024-01-20 2:20 PM",
-        description: "Payment has been successfully processed",
-        completed: true,
-      },
-      {
-        status: "Order Shipped",
-        date: "2024-01-21 11:30 AM",
-        description: "Your order has been shipped and is on its way",
-        completed: true,
-      },
-      {
-        status: "Out for Delivery",
-        date: "",
-        description: "Your package will be out for delivery soon",
-        completed: false,
-      },
-      {
-        status: "Delivered",
-        date: "",
-        description: "Package will be delivered",
-        completed: false,
-      },
-    ],
-  },
-  "ORD-2024-005": {
-    id: "ORD-2024-005",
-    date: "2024-01-18",
-    status: "delivered",
-    paymentStatus: "paid",
-    paymentMethod: "Credit Card ending in 4242",
-    total: 159.5,
-    subtotal: 147.5,
-    shipping: 0,
-    tax: 12.0,
-    items: [
-      {
-        id: 3,
-        name: "Organic Green Tea",
-        quantity: 1,
-        price: 18.75,
-        image: "/placeholder.svg?height=80&width=80&text=Tea",
-      },
-      {
-        id: 4,
-        name: "Artisan Dark Chocolate",
-        quantity: 2,
-        price: 32.0,
-        image: "/placeholder.svg?height=80&width=80&text=Chocolate",
-      },
-      {
-        id: 7,
-        name: "French Lavender Oil",
-        quantity: 1,
-        price: 45.0,
-        image: "/placeholder.svg?height=80&width=80&text=Lavender",
-      },
-    ],
-    trackingNumber: "1Z999AA1234567892",
-    estimatedDelivery: "2024-01-22",
-    actualDelivery: "2024-01-20",
-    shippingAddress: {
-      name: "John Doe",
-      street: "123 Main Street",
-      city: "New York",
-      state: "NY",
-      zip: "10001",
-      country: "United States",
-    },
-    timeline: [
-      {
-        status: "Order Placed",
-        date: "2024-01-18 9:15 AM",
-        description: "Your order has been received and is being processed",
-        completed: true,
-      },
-      {
-        status: "Payment Confirmed",
-        date: "2024-01-18 9:20 AM",
-        description: "Payment has been successfully processed",
-        completed: true,
-      },
-      {
-        status: "Order Shipped",
-        date: "2024-01-19 1:30 PM",
-        description: "Your order has been shipped and is on its way",
-        completed: true,
-      },
-      {
-        status: "Out for Delivery",
-        date: "2024-01-20 7:45 AM",
-        description: "Your package is out for delivery",
-        completed: true,
-      },
-      {
-        status: "Delivered",
-        date: "2024-01-20 2:30 PM",
-        description: "Package delivered successfully",
-        completed: true,
-      },
-    ],
-  },
-}
-
 const statusColors = {
   processing: "bg-blue-500",
   shipped: "bg-orange-500",
   delivered: "bg-green-500",
   cancelled: "bg-red-500",
+  // Thêm các trạng thái khác từ database
+  "Đang giao": "bg-orange-500",
+  "Đã giao": "bg-green-500",
+  "Hủy": "bg-red-500",
+  "Duyệt": "bg-blue-500",
+  "Mới": "bg-gray-500",
 }
 
 const statusIcons = {
@@ -241,28 +28,74 @@ const statusIcons = {
   shipped: Truck,
   delivered: CheckCircle,
   cancelled: Package,
+  // Thêm các trạng thái khác từ database
+  "Đang giao": Truck,
+  "Đã giao": CheckCircle,
+  "Hủy": Package,
+  "Duyệt": Clock,
+  "Mới": Clock,
+}
+
+// Hàm helper để lấy màu và icon cho trạng thái
+const getStatusStyle = (status: string) => {
+  const color = statusColors[status as keyof typeof statusColors] || "bg-gray-500"
+  const Icon = statusIcons[status as keyof typeof statusIcons] || Clock
+  return { color, Icon }
 }
 
 export default function OrderDetailPage() {
   const params = useParams()
   const orderId = params.id as string
-  const order = orderDetails[orderId as keyof typeof orderDetails]
 
-  if (!order) {
+  const [order, setOrder] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchOrder = async () => {
+      setLoading(true)
+      try {
+        const res = await fetch(`/api/orders/${orderId}`)
+        if (!res.ok) {
+          setError("Không tìm thấy đơn hàng")
+          setOrder(null)
+        } else {
+          const data = await res.json()
+          setOrder(data)
+          setError(null)
+        }
+      } catch (err) {
+        setError("Không thể tải thông tin đơn hàng")
+        setOrder(null)
+      }
+      setLoading(false)
+    }
+    fetchOrder()
+  }, [orderId])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">Đang tải...</div>
+      </div>
+    )
+  }
+
+  if (error || !order) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Order Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">{error || "Không tìm thấy đơn hàng"}</h1>
           <Link href="/orders">
-            <Button>Back to Orders</Button>
+            <Button>Quay lại danh sách</Button>
           </Link>
         </div>
       </div>
     )
   }
 
-  const StatusIcon = statusIcons[order.status as keyof typeof statusIcons]
-  const completedSteps = order.timeline.filter((step) => step.completed).length
+  const { color: statusColor, Icon: StatusIcon } = getStatusStyle(order.status)
+  const completedSteps = order.timeline.filter((step: any) => step.completed).length
   const progressPercentage = (completedSteps / order.timeline.length) * 100
 
   return (
@@ -273,9 +106,9 @@ export default function OrderDetailPage() {
           <div className="flex items-center justify-between">
             <Link href="/orders" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
               <ArrowLeft className="h-5 w-5" />
-              Back to Orders
+              Quay lại danh sách
             </Link>
-            <h1 className="text-2xl font-bold">Order Details</h1>
+            <h1 className="text-2xl font-bold">Chi tiết đơn hàng</h1>
             <div className="w-24"></div>
           </div>
         </div>
@@ -290,15 +123,15 @@ export default function OrderDetailPage() {
                 <div>
                   <CardTitle className="text-2xl">{order.id}</CardTitle>
                   <p className="text-muted-foreground">
-                    Placed on {new Date(order.date).toLocaleDateString()} at {new Date(order.date).toLocaleTimeString()}
+                    Đặt hàng ngày {new Date(order.date).toLocaleDateString('vi-VN')}
                   </p>
                 </div>
                 <div className="text-right">
-                  <Badge className={`${statusColors[order.status as keyof typeof statusColors]} mb-2`}>
+                  <Badge className={`${statusColor} mb-2`}>
                     <StatusIcon className="h-4 w-4 mr-1" />
-                    {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                    {order.status}
                   </Badge>
-                  <p className="text-2xl font-bold">${order.total.toFixed(2)}</p>
+                  <p className="text-2xl font-bold">{order.total.toLocaleString('vi-VN')} VNĐ</p>
                 </div>
               </div>
             </CardHeader>
@@ -307,7 +140,7 @@ export default function OrderDetailPage() {
                 <div>
                   <h4 className="font-semibold mb-2">Payment Status</h4>
                   <Badge variant={order.paymentStatus === "paid" ? "default" : "destructive"}>
-                    {order.paymentStatus.charAt(0).toUpperCase() + order.paymentStatus.slice(1)}
+                    {order.paymentStatus === "paid" ? "Đã thanh toán" : "Chưa thanh toán"}
                   </Badge>
                   <p className="text-sm text-muted-foreground mt-1">{order.paymentMethod}</p>
                 </div>
@@ -321,12 +154,14 @@ export default function OrderDetailPage() {
 
                 <div>
                   <h4 className="font-semibold mb-2">
-                    {order.status === "delivered" ? "Delivered" : "Estimated Delivery"}
+                    {order.status === "Đã giao" ? "Ngày giao hàng" : "Dự kiến giao hàng"}
                   </h4>
                   <p className="text-sm">
-                    {order.status === "delivered" && order.actualDelivery
+                    {order.status === "Đã giao" && order.actualDelivery
                       ? new Date(order.actualDelivery).toLocaleDateString()
-                      : new Date(order.estimatedDelivery).toLocaleDateString()}
+                      : order.estimatedDelivery 
+                        ? new Date(order.estimatedDelivery).toLocaleDateString()
+                        : "Chưa xác định"}
                   </p>
                 </div>
               </div>
@@ -336,20 +171,20 @@ export default function OrderDetailPage() {
           {/* Order Progress */}
           <Card>
             <CardHeader>
-              <CardTitle>Order Progress</CardTitle>
+              <CardTitle>Tiến trình đơn hàng</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span>Progress</span>
-                    <span>{Math.round(progressPercentage)}% Complete</span>
+                    <span>Tiến độ</span>
+                    <span>{Math.round(progressPercentage)}% Hoàn thành</span>
                   </div>
                   <Progress value={progressPercentage} className="h-2" />
                 </div>
 
                 <div className="space-y-4">
-                  {order.timeline.map((step, index) => (
+                  {order.timeline.map((step: any, index: number) => (
                     <div key={index} className="flex items-start gap-4">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center ${
@@ -363,7 +198,9 @@ export default function OrderDetailPage() {
                           {step.status}
                         </h4>
                         <p className="text-sm text-muted-foreground">{step.description}</p>
-                        {step.date && <p className="text-xs text-muted-foreground mt-1">{step.date}</p>}
+                        {step.date && <p className="text-xs text-muted-foreground mt-1">
+                          {new Date(step.date).toLocaleDateString('vi-VN')}
+                        </p>}
                       </div>
                     </div>
                   ))}
@@ -376,21 +213,27 @@ export default function OrderDetailPage() {
             {/* Order Items */}
             <Card>
               <CardHeader>
-                <CardTitle>Order Items</CardTitle>
+                <CardTitle>Sản phẩm đặt hàng</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {order.items.map((item) => (
+                  {order.items.map((item: any) => (
                     <div key={item.id} className="flex gap-4">
-                      <img
-                        src={item.image || "/placeholder.svg"}
-                        alt={item.name}
-                        className="w-16 h-16 object-cover rounded-md"
-                      />
+                      <div className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center overflow-hidden">
+                        {item.image ? (
+                          <img 
+                            src={item.image} 
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <Package className="h-8 w-8 text-gray-400" />
+                        )}
+                      </div>
                       <div className="flex-1">
                         <h4 className="font-semibold">{item.name}</h4>
-                        <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
-                        <p className="font-semibold">${(item.price * item.quantity).toFixed(2)}</p>
+                        <p className="text-sm text-muted-foreground">Số lượng: {item.quantity}</p>
+                        <p className="font-semibold">{(item.price * item.quantity).toLocaleString('vi-VN')} VNĐ</p>
                       </div>
                     </div>
                   ))}
@@ -399,21 +242,21 @@ export default function OrderDetailPage() {
 
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span>Subtotal</span>
-                      <span>${order.subtotal.toFixed(2)}</span>
+                      <span>Tạm tính</span>
+                      <span>{order.subtotal?.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Shipping</span>
-                      <span>{order.shipping === 0 ? "Free" : `$${order.shipping.toFixed(2)}`}</span>
+                      <span>Phí vận chuyển</span>
+                      <span>{order.shipping === 0 ? "Miễn phí" : `${order.shipping?.toLocaleString('vi-VN')} VNĐ`}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Tax</span>
-                      <span>${order.tax.toFixed(2)}</span>
+                      <span>Thuế</span>
+                      <span>{order.tax?.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                     <Separator />
                     <div className="flex justify-between font-semibold text-lg">
-                      <span>Total</span>
-                      <span>${order.total.toFixed(2)}</span>
+                      <span>Tổng cộng</span>
+                      <span>{order.total?.toLocaleString('vi-VN')} VNĐ</span>
                     </div>
                   </div>
                 </div>
@@ -425,56 +268,14 @@ export default function OrderDetailPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
-                  Shipping Address
+                  Địa chỉ giao hàng
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
                   <p className="font-semibold">{order.shippingAddress.name}</p>
-                  <p>{order.shippingAddress.street}</p>
-                  <p>
-                    {order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.zip}
-                  </p>
-                  <p>{order.shippingAddress.country}</p>
+                  <p>{order.shippingAddress.address}</p>
                 </div>
-
-                <div className="mt-6 space-y-2">
-                  {order.status === "delivered" && (
-                    <Button className="w-full bg-transparent" variant="outline">
-                      <Download className="h-4 w-4 mr-2" />
-                      Download Invoice
-                    </Button>
-                  )}
-
-                  {order.trackingNumber && order.status !== "delivered" && (
-                    <Button className="w-full bg-transparent" variant="outline">
-                      <Truck className="h-4 w-4 mr-2" />
-                      Track Package
-                    </Button>
-                  )}
-                </div>
-
-                {order.status === "delivered" && (
-                  <>
-                    <Button className="w-full bg-transparent" variant="outline">
-                      <Link href={`/orders/${order.id}/return`} className="w-full flex items-center justify-center">
-                        <Package className="h-4 w-4 mr-2" />
-                        Request Return
-                      </Link>
-                    </Button>
-
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium">Write Reviews:</p>
-                      {order.items.map((item) => (
-                        <Link key={item.id} href={`/product/${item.id}/review`}>
-                          <Button variant="outline" size="sm" className="w-full text-xs bg-transparent">
-                            Review: {item.name}
-                          </Button>
-                        </Link>
-                      ))}
-                    </div>
-                  </>
-                )}
               </CardContent>
             </Card>
           </div>

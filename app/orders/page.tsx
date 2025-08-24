@@ -1,77 +1,24 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Package, Eye, Download, RefreshCw, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ReturnScenarioBanner } from "@/components/return-scenario-banner"
-
-// Mock order data
-const orders = [
-  {
-    id: "ORD-2024-001",
-    date: "2024-01-15",
-    status: "delivered",
-    total: 67.48,
-    items: [
-      { name: "Premium Ethiopian Coffee Beans", quantity: 2, price: 24.99 },
-      { name: "Himalayan Pink Salt", quantity: 1, price: 12.5 },
-    ],
-    trackingNumber: "1Z999AA1234567890",
-    estimatedDelivery: "2024-01-18",
-    actualDelivery: "2024-01-17",
-  },
-  {
-    id: "ORD-2024-002",
-    date: "2024-01-20",
-    status: "shipped",
-    total: 45.75,
-    items: [
-      { name: "Organic Green Tea", quantity: 1, price: 18.75 },
-      { name: "Wild Honey", quantity: 1, price: 28.99 },
-    ],
-    trackingNumber: "1Z999AA1234567891",
-    estimatedDelivery: "2024-01-25",
-  },
-  {
-    id: "ORD-2024-003",
-    date: "2024-01-22",
-    status: "processing",
-    total: 32.0,
-    items: [{ name: "Artisan Dark Chocolate", quantity: 1, price: 32.0 }],
-    estimatedDelivery: "2024-01-28",
-  },
-  {
-    id: "ORD-2024-004",
-    date: "2024-01-10",
-    status: "cancelled",
-    total: 15.25,
-    items: [{ name: "Basmati Rice", quantity: 1, price: 15.25 }],
-  },
-  {
-    id: "ORD-2024-005",
-    date: "2024-01-18",
-    status: "delivered",
-    total: 159.5,
-    items: [
-      { name: "Organic Green Tea", quantity: 1, price: 18.75 },
-      { name: "Artisan Dark Chocolate", quantity: 2, price: 32.0 },
-      { name: "French Lavender Oil", quantity: 1, price: 45.0 },
-    ],
-    trackingNumber: "1Z999AA1234567892",
-    estimatedDelivery: "2024-01-22",
-    actualDelivery: "2024-01-20",
-  },
-]
 
 const statusColors = {
   processing: "bg-blue-500",
   shipped: "bg-orange-500",
   delivered: "bg-green-500",
   cancelled: "bg-red-500",
+  // Thêm các trạng thái khác từ database
+  "Đang giao": "bg-orange-500",
+  "Đã giao": "bg-green-500",
+  "Hủy": "bg-red-500",
+  "Duyệt": "bg-blue-500",
+  "Mới": "bg-gray-500",
 }
 
 const statusLabels = {
@@ -79,10 +26,42 @@ const statusLabels = {
   shipped: "Shipped",
   delivered: "Delivered",
   cancelled: "Cancelled",
+  // Thêm các trạng thái khác từ database
+  "Đang giao": "Đang giao",
+  "Đã giao": "Đã giao",
+  "Hủy": "Hủy",
+  "Duyệt": "Duyệt",
+  "Mới": "Mới",
+}
+
+// Hàm helper để lấy màu và label cho trạng thái
+const getStatusStyle = (status: string) => {
+  const color = statusColors[status as keyof typeof statusColors] || "bg-gray-500"
+  const label = statusLabels[status as keyof typeof statusLabels] || status
+  return { color, label }
 }
 
 export default function OrderHistoryPage() {
   const [selectedTab, setSelectedTab] = useState("all")
+  const [orders, setOrders] = useState<any[]>([])
+  const [loading, setLoading] = useState(false)
+
+  // Fetch orders from API
+  const fetchOrders = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch("/api/orders")
+      const data = await res.json()
+      setOrders(data)
+    } catch (error) {
+      setOrders([])
+    }
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetchOrders()
+  }, [])
 
   const filteredOrders = orders.filter((order) => {
     if (selectedTab === "all") return true
@@ -97,9 +76,9 @@ export default function OrderHistoryPage() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
               <ArrowLeft className="h-5 w-5" />
-              Back to Shop
+              Quay lại cửa hàng
             </Link>
-            <h1 className="text-2xl font-bold">Order History</h1>
+            <h1 className="text-2xl font-bold">Lịch sử đơn hàng</h1>
             <div className="w-24"></div>
           </div>
         </div>
@@ -109,40 +88,36 @@ export default function OrderHistoryPage() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-bold">Your Orders</h2>
-              <p className="text-muted-foreground">Track and manage your order history</p>
+              <h2 className="text-3xl font-bold">Đơn hàng của bạn</h2>
+              <p className="text-muted-foreground">Theo dõi và quản lý lịch sử đơn hàng</p>
             </div>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" onClick={fetchOrders}>
               <RefreshCw className="h-4 w-4 mr-2" />
-              Refresh
+              Làm mới
             </Button>
           </div>
-
-          {/* Add the banner here */}
-          <div className="mb-6">
-            <ReturnScenarioBanner />
-          </div>
-
           {/* Order Filters */}
           <Tabs value={selectedTab} onValueChange={setSelectedTab} className="mb-8">
             <TabsList className="grid w-full grid-cols-5">
-              <TabsTrigger value="all">All Orders</TabsTrigger>
-              <TabsTrigger value="processing">Processing</TabsTrigger>
-              <TabsTrigger value="shipped">Shipped</TabsTrigger>
-              <TabsTrigger value="delivered">Delivered</TabsTrigger>
-              <TabsTrigger value="cancelled">Cancelled</TabsTrigger>
+              <TabsTrigger value="all">Tất cả</TabsTrigger>
+              <TabsTrigger value="processing">Đang xử lý</TabsTrigger>
+              <TabsTrigger value="shipped">Đang giao</TabsTrigger>
+              <TabsTrigger value="delivered">Đã giao</TabsTrigger>
+              <TabsTrigger value="cancelled">Đã hủy</TabsTrigger>
             </TabsList>
 
             <TabsContent value={selectedTab} className="mt-6">
-              {filteredOrders.length === 0 ? (
+              {loading ? (
+                <div className="text-center py-12">Đang tải...</div>
+              ) : filteredOrders.length === 0 ? (
                 <div className="text-center py-12">
                   <Package className="h-24 w-24 mx-auto text-muted-foreground mb-6" />
-                  <h3 className="text-xl font-semibold mb-2">No orders found</h3>
+                  <h3 className="text-xl font-semibold mb-2">Không tìm thấy đơn hàng</h3>
                   <p className="text-muted-foreground mb-6">
-                    {selectedTab === "all" ? "You haven't placed any orders yet." : `No ${selectedTab} orders found.`}
+                    {selectedTab === "all" ? "Bạn chưa đặt đơn hàng nào." : `Không tìm thấy đơn hàng ${selectedTab}.`}
                   </p>
                   <Link href="/">
-                    <Button>Start Shopping</Button>
+                    <Button>Bắt đầu mua sắm</Button>
                   </Link>
                 </div>
               ) : (
@@ -154,99 +129,61 @@ export default function OrderHistoryPage() {
                           <div>
                             <CardTitle className="text-lg">{order.id}</CardTitle>
                             <p className="text-sm text-muted-foreground">
-                              Placed on {new Date(order.date).toLocaleDateString()}
+                              Đặt hàng ngày {new Date(order.created_at).toLocaleDateString('vi-VN')}
                             </p>
+                            {order.fullname && (
+                              <p className="text-sm text-muted-foreground">
+                                Khách hàng: {order.fullname}
+                              </p>
+                            )}
                           </div>
                           <div className="text-right">
-                            <Badge className={statusColors[order.status as keyof typeof statusColors]}>
-                              {statusLabels[order.status as keyof typeof statusLabels]}
+                            <Badge className={getStatusStyle(order.status).color}>
+                              {getStatusStyle(order.status).label}
                             </Badge>
-                            <p className="text-lg font-semibold mt-1">${order.total.toFixed(2)}</p>
+                            <p className="text-lg font-semibold mt-1">
+                              {order.total ? `${order.total.toLocaleString('vi-VN')} VNĐ` : ""}
+                            </p>
                           </div>
                         </div>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
-                          {/* Order Items */}
-                          <div>
-                            <h4 className="font-medium mb-2">Items ({order.items.length})</h4>
-                            <div className="space-y-1">
-                              {order.items.map((item, index) => (
-                                <div key={index} className="flex justify-between text-sm">
-                                  <span>
-                                    {item.quantity}x {item.name}
-                                  </span>
-                                  <span>${(item.price * item.quantity).toFixed(2)}</span>
-                                </div>
-                              ))}
+                          <div className="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                              <span className="font-medium">Email: </span>
+                              <span>{order.email || "Không có"}</span>
+                            </div>
+                            <div>
+                              <span className="font-medium">SĐT: </span>
+                              <span>{order.phone || "Không có"}</span>
                             </div>
                           </div>
-
-                          {/* Tracking Information */}
-                          {order.trackingNumber && (
+                          {order.address && (
                             <div className="text-sm">
-                              <span className="font-medium">Tracking: </span>
-                              <span className="font-mono">{order.trackingNumber}</span>
+                              <span className="font-medium">Địa chỉ: </span>
+                              <span>{order.address}</span>
                             </div>
                           )}
-
-                          {/* Delivery Information */}
-                          {order.estimatedDelivery && (
-                            <div className="text-sm">
-                              <span className="font-medium">
-                                {order.status === "delivered" ? "Delivered: " : "Estimated Delivery: "}
-                              </span>
-                              <span>
-                                {order.status === "delivered" && order.actualDelivery
-                                  ? new Date(order.actualDelivery).toLocaleDateString()
-                                  : new Date(order.estimatedDelivery).toLocaleDateString()}
+                          <div className="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                              <span className="font-medium">Thanh toán: </span>
+                              <span className={order.paymentStatus === "1" ? "text-green-600" : "text-red-600"}>
+                                {order.paymentStatus === "1" ? "Đã thanh toán" : "Chưa thanh toán"}
                               </span>
                             </div>
-                          )}
-
-                          {/* Action Buttons */}
+                            <div>
+                              <span className="font-medium">Phương thức: </span>
+                              <span>{order.paymentMethod || "Không xác định"}</span>
+                            </div>
+                          </div>
                           <div className="flex gap-2 pt-2">
                             <Link href={`/orders/${order.id}`}>
                               <Button variant="outline" size="sm">
                                 <Eye className="h-4 w-4 mr-2" />
-                                View Details
+                                Xem chi tiết
                               </Button>
                             </Link>
-
-                            {order.status === "delivered" && (
-                              <Button variant="outline" size="sm">
-                                <Download className="h-4 w-4 mr-2" />
-                                Download Invoice
-                              </Button>
-                            )}
-
-                            {order.status === "processing" && (
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="text-red-600 hover:text-red-700 bg-transparent"
-                              >
-                                Cancel Order
-                              </Button>
-                            )}
-
-                            {order.status === "delivered" && (
-                              <>
-                                <Link href={`/orders/${order.id}/return`}>
-                                  <Button variant="outline" size="sm">
-                                    <Package className="h-4 w-4 mr-2" />
-                                    Request Return
-                                  </Button>
-                                </Link>
-
-                                <Link href={`/product/${order.items[0]?.id || 1}/review`}>
-                                  <Button variant="outline" size="sm">
-                                    <Star className="h-4 w-4 mr-2" />
-                                    Write Review
-                                  </Button>
-                                </Link>
-                              </>
-                            )}
                           </div>
                         </div>
                       </CardContent>

@@ -9,7 +9,7 @@ npx prisma generate
 npx prisma studio
 Make sure your local MySQL database is running and that your .env file has this:
 
-DATABASE_URL="mysql://root@localhost:3306/tasteofhome"
+DATABASE_URL="mysql://root@localhost:3306/quadacsa_dacsan2025"
 Add a password if your MySQL user requires one.
 
 The database schema is defined in prisma/schema.prisma.
