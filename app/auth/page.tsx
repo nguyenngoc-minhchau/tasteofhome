@@ -3,6 +3,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import { useEffect } from "react";
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -31,12 +32,21 @@ export default function AuthPage() {
   const { isAuthenticated, user, logout } = useAuth()
   const { toast } = useToast()
   const router = useRouter()
-
   // Nếu đã đăng nhập thì chuyển về trang chủ
+if (isAuthenticated === null) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p>Loading...</p>
+    </div>
+  )
+}
+useEffect(() => {
   if (isAuthenticated && user) {
-    router.push("/")
-    return null
+    if (user.role === "admin") router.replace("/admin")
+    else router.replace("/")
   }
+}, [isAuthenticated, user, router])
+
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()

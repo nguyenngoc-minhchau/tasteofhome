@@ -22,27 +22,25 @@ export default function AdminDashboard() {
     securityAlerts: 0,
   })
 
-  // Access control logic
   useEffect(() => {
-    if (!isLoggedIn) {
-      router.push("/auth")
-    } else if (user?.role !== "admin") {
-      if (user?.role === "customer") {
-        router.push("/")
-      } else {
-        router.push("/dashboard")
-      }
+    if (isLoggedIn === null) return // still loading → do nothing
+
+    if (isLoggedIn === false) {
+      router.replace("/auth")
+    } else if (user && user.role !== "admin") {
+      router.replace(user.role === "customer" ? "/" : "/dashboard")
     }
   }, [isLoggedIn, user, router])
 
-  if (!isLoggedIn || user?.role !== "admin") {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Redirecting...</p>
-      </div>
-    )
-  }
 
+// Render placeholder while redirecting
+if (isLoggedIn === null || user === null || user?.role !== "admin") {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <p>Redirecting...</p>
+    </div>
+  );
+}
   const handleLogout = () => {
     logout()
     router.push("/auth")
