@@ -101,7 +101,12 @@ export default function OrderDetailPage() {
   if (!order) {
     return (
       <div className="min-h-screen bg-background">
-        <header className="border-b">
+        {/* Welcome bar */}
+        <div className="bg-red-700 text-white text-sm text-center py-2">
+          Chào mừng đến Taste Of Home
+        </div>
+
+        <header className="bg-beige text-black border-b">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <Link href="/orders" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
@@ -132,8 +137,12 @@ export default function OrderDetailPage() {
 
   return (
     <div className="min-h-screen bg-background">
+        {/* Welcome bar */}
+        <div className="bg-red-700 text-white text-sm text-center py-2">
+          Chào mừng đến Taste Of Home
+        </div>
       {/* Header */}
-      <header className="border-b">
+      <header className="bg-beige text-black border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/orders" className="flex items-center gap-2 text-lg font-semibold hover:text-primary">
@@ -391,13 +400,43 @@ export default function OrderDetailPage() {
               </Button>
             </Link>
             <Link href="/">
-              <Button>
+              <Button className="bg-orange hover:bg-orange-600 text-black">
                 Tiếp tục mua sắm
               </Button>
             </Link>
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <footer className="bg-beige text-black mt-12">
+        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-center md:text-left">
+          <div>
+            <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3 mx-auto md:mx-0" />
+            <p>Địa chỉ: 123 Đường ABC, Quận 1, TP.HCM</p>
+            <p>Hotline: 0123 456 789</p>
+            <p>Email: support@tasteofhome.com</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Danh mục chính</h3>
+            <ul className="space-y-1">
+              <li>Rau củ quả</li>
+              <li>Thịt cá</li>
+              <li>Đặc sản vùng miền</li>
+              <li>Gia vị & Nước chấm</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Về chúng tôi</h3>
+            <p>
+              TasteOfHome mang hương vị quê hương đến từng bữa ăn của bạn.
+              Cam kết sản phẩm sạch, chất lượng, an toàn và giao hàng tận nơi.
+            </p>
+          </div>
+        </div>
+        <div className="bg-black text-center text-white py-3 text-xs">
+          © 2025 TasteOfHome. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }
