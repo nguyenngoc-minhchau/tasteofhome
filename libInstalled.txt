@@ -1,0 +1,13 @@
+Các file mình đã tải thêm:
+npm install @types/express --save-dev
+npm install next-auth
+npm install bryptjs
+npm install jsonwebtoken
+npm install dotenv
+npm install -D @types/bcryptjs @types/jsonwebtoken
+npm install bcrypt
+npm install @next-auth/prisma-adapter
+npm i --save-dev @types/bcrypt
+npm install resend
+npm install --save-dev @types/js-cookie
+npm install next react react-dom
