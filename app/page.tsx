@@ -1,4 +1,3 @@
-// /app/page.tsx
 "use client"
 
 import { useState, useMemo, useEffect } from "react"
@@ -138,9 +137,16 @@ export default function HomePage() {
     return uniqueProducts.filter(product => product.isactive).slice(0, 3)
   }, [hotProducts, newProducts]);
 
+  // Kiểm tra ký tự đặc biệt
+  const hasSpecialChars = /[!@#]/.test(searchQuery)
+
   const filteredProducts = useMemo(() => {
+    if (hasSpecialChars) {
+      // Nếu có ký tự đặc biệt thì không trả về sản phẩm nào
+      return []
+    }
     const productsToFilter = products.filter((product) => {
-	  if (!product.isactive) return false   
+      if (!product.isactive) return false   
       if (searchQuery && !product.title.toLowerCase().includes(searchQuery.toLowerCase())) return false
       if (selectedCategory && product.category !== selectedCategory) return false
       if (product.price < priceRange[0] || product.price > priceRange[1]) return false
@@ -174,68 +180,68 @@ export default function HomePage() {
     setPriceRange([minPrice, maxPrice])
   }
 
-	const renderProductCard = (product: Product) => {
-	  const cartItem = cartState.items.find(item => item.id === product.id)
+  const renderProductCard = (product: Product) => {
+    const cartItem = cartState.items.find(item => item.id === product.id)
 
-	  return (
-		<Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-		  <Link href={`/product/${product.id}`}>
-			<div className="aspect-square relative cursor-pointer">
-			  <Image
-				src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
-				alt={product.title}
-				width={400}
-				height={400}
-				quality={100}
-				className="object-cover"
-			  />
-			</div>
-		  </Link>
-		  <CardContent className="p-4">
-			<div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-			  <span>{product.category}</span>
-			</div>
-			<Link href={`/product/${product.id}`}>
-			  <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
-				{product.title}
-			  </h4>
-			</Link>
-			<div className="flex items-center justify-between">
-			  <span className="text-lg font-bold">{formatPrice(product.price)}</span>
+    return (
+      <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+        <Link href={`/product/${product.id}`}>
+          <div className="aspect-square relative cursor-pointer">
+            <Image
+              src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
+              alt={product.title}
+              width={400}
+              height={400}
+              quality={100}
+              className="object-cover"
+            />
+          </div>
+        </Link>
+        <CardContent className="p-4">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+            <span>{product.category}</span>
+          </div>
+          <Link href={`/product/${product.id}`}>
+            <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
+              {product.title}
+            </h4>
+          </Link>
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-bold">{formatPrice(product.price)}</span>
 
-			  {cartItem ? (
-				<div className="flex items-center gap-2">
-				  <Button
-					size="sm"
-					onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity - 1 } })}
-					disabled={cartItem.quantity <= 1}
-				  >
-					-
-				  </Button>
-				  <span>{cartItem.quantity}</span>
-				  <Button
-					size="sm"
-					onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity + 1 } })}
-					disabled={cartItem.quantity >= 50} // stock limit
-				  >
-					+
-				  </Button>
-				</div>
-			  ) : (
-				<Button
-				  size="sm"
-				  onClick={() => handleAddToCart(product)}
-				  className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
-				>
-				  <ShoppingCart className="h-6 w-6" />
-				  Thêm vào giỏ
-				</Button>
-			  )}
-			</div>
-		  </CardContent>
-		</Card>
-	  )
-	}
+            {cartItem ? (
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity - 1 } })}
+                  disabled={cartItem.quantity <= 1}
+                >
+                  -
+                </Button>
+                <span>{cartItem.quantity}</span>
+                <Button
+                  size="sm"
+                  onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity + 1 } })}
+                  disabled={cartItem.quantity >= 50} // stock limit
+                >
+                  +
+                </Button>
+              </div>
+            ) : (
+              <Button
+                size="sm"
+                onClick={() => handleAddToCart(product)}
+                className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
+              >
+                <ShoppingCart className="h-6 w-6" />
+                Thêm vào giỏ
+              </Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
 
   const handleAddToCart = (product: Product) => {
     if (loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)) return
@@ -350,7 +356,6 @@ export default function HomePage() {
 
   const isFiltered = searchQuery || selectedCategory || selectedCapacity || priceRange[0] !== minPrice || priceRange[1] !== maxPrice;
 
-
   return (
     <div className="min-h-screen bg-background">
       {/* Welcome bar */}
@@ -428,7 +433,23 @@ export default function HomePage() {
           </p>
           <div className="max-w-2xl mx-auto relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-            <Input placeholder="Tìm kiếm" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 py-3 text-lg" />
+            <Input
+              placeholder="Tìm kiếm"
+              value={searchQuery}
+              onChange={(e) => {
+                const val = e.target.value
+                setSearchQuery(val)
+                // Nếu phát hiện ký tự đặc biệt, hiện alert
+                if (/[!@#]/.test(val)) {
+                  alert("Không được nhập ký tự đặc biệt !, @, # trong tìm kiếm")
+                }
+              }}
+              className="pl-10 py-3 text-lg"
+            />
+            {/* Hiển thị cảnh báo dưới input (tuỳ chọn) */}
+            {hasSpecialChars && (
+              <p className="text-red-500 mt-2 text-sm">Không được nhập ký tự đặc biệt !, @, # trong tìm kiếm</p>
+            )}
           </div>
         </div>
       </section>
