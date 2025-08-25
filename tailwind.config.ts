@@ -13,6 +13,7 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+			red: "#E6521F",
 			yellowish: "#FEEFDD",
 			coral: "#F28076",
         	pink: "#FFB6AF",

@@ -122,7 +122,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-red-700 text-white text-sm text-center py-2">
+      <div className="bg-red text-white text-sm text-center py-2">
         Chào mừng đến Taste Of Home
       </div>
 
