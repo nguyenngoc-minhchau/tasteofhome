@@ -45,17 +45,6 @@ CREATE TABLE `about_us` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `about_us`
---
-
-INSERT INTO `about_us` (`id`, `title`, `brief`, `content`, `keyword`, `meta_description`, `image`, `re_name`, `isdefault`, `priority`, `isactive`, `language_id`, `created_at`, `updated_at`) VALUES
-(1, 'SẢN PHẨM CHẤT LƯỢNG', '<p>Chúng tôi cam kết mang đến những sản phẩm chất lượng, được sản xuất và chế biến từ những vùng đất nổi tiếng về độ ngon và an toàn vệ sinh thực phẩm.</p>', NULL, NULL, NULL, 'dam-bao-chat-luong.png', 'san-pham-chat-luong', 0, 1, 1, 2, '2025-01-13 10:57:52', '2025-01-20 23:53:17'),
-(2, 'GIÁ CẢ HỢP LÝ', '<p>Chúng tôi cung cấp các đặc sản với mức giá cạnh tranh, phù hợp với nhu cầu của mọi đối tượng khách hàng.</p>', NULL, NULL, NULL, 'gia-ca-hop-ly.png', 'gia-ca-hop-ly', 0, 3, 1, 2, '2025-01-13 10:58:17', '2025-01-22 08:35:47'),
-(3, 'GIAO HÀNG TẬN NƠI', '<p>Dù bạn ở bất kỳ đâu kể cả nước ngoài, chúng tôi sẽ giao hàng tận nơi nhanh chóng, bảo đảm chất lượng sản phẩm, liên hệ trực tiếp số điện thoại: 08 42 81 81 32 để được tư vấn tận tình</p>', NULL, NULL, NULL, 'giao-hang-tan-noi.png', 'giao-hang-tan-noi', 0, 5, 1, 2, '2025-01-13 10:58:59', '2025-01-22 07:10:44'),
-(4, 'ĐÓNG GÓI CẨN THẬN', NULL, NULL, NULL, NULL, 'logo-dong-doi.png', 'dong-goi-can-than', 0, 4, 1, 2, '2025-01-20 23:47:20', '2025-01-22 07:10:54'),
-(5, 'TƯ VẤN NHIỆT TÌNH', NULL, NULL, NULL, NULL, 'logo-tu-van.png', 'tu-van-nhiet-tinh', 0, 2, 1, 2, '2025-01-20 23:47:41', '2025-01-22 08:35:36');
-
 -- --------------------------------------------------------
 
 --
@@ -76,15 +65,6 @@ CREATE TABLE `advertisement` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `advertisement`
---
-
-INSERT INTO `advertisement` (`id`, `title`, `brief`, `url`, `new_tab`, `image`, `group`, `language_id`, `priority`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'Flash sales', NULL, NULL, 1, 'banner-3_1.jpg', 1, 2, 1, 1, NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `agents`
@@ -112,257 +92,6 @@ CREATE TABLE `agents` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `agents`
---
-
-INSERT INTO `agents` (`id`, `code`, `name`, `level_id`, `commission`, `image`, `email_verified_at`, `email`, `phone`, `address`, `province_id`, `notes`, `password`, `isactive`, `isstaff`, `remember_token`, `parent_id`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 'WEB-250216223159', 'Kim Loan', 0, 0, NULL, NULL, 'ntkl77@gmail.com', '0948844889', '103 Pasteur, Q1', 1, NULL, '$2y$12$2ZJhghimutv2kg.vmWPwuOiLCAm9o1xJNTp2Q3Wsj.dkJPMF4cFWi', 1, 0, NULL, 0, NULL, '2025-02-16 15:32:00', '2025-02-16 15:32:00'),
-(2, 'WEB-250217115037', 'zkWLxGpGzYDSEc', 0, 0, NULL, NULL, 'hubbardjaddhn@gmail.com', '6006303231', 'yIUDHCVTNIXs', 1, NULL, '$2y$12$.C.25.3lzgtuoLjKjijw2eOhgsjlDyHEYMm3/eNg0kGd4TxgB.Lqa', 1, 0, NULL, 0, NULL, '2025-02-17 04:50:37', '2025-02-17 04:50:37'),
-(3, 'WEB-250218144351', 'qpOcIFqU', 0, 0, NULL, NULL, 'gonzdarkeih7@gmail.com', '5560655669', 'gRhDLGgIxYZBcO', 1, NULL, '$2y$12$JtLN6quTXaLj32EVVY6hx..92FqS4x9TAQAfiVrl1nb1OxHFAlg1G', 1, 0, NULL, 0, NULL, '2025-02-18 07:43:52', '2025-02-18 07:43:52'),
-(4, 'WEB-250220003032', 'CVdhizAA', 0, 0, NULL, NULL, 'zazevenopo699@gmail.com', '7876727629', 'uOYbsHzYI', 1, NULL, '$2y$12$YymEvhRWnRJHAnvh4fDO8e0TJvDHq03JVCJIqZPb0FjOUuqrPAMNa', 1, 0, NULL, 0, NULL, '2025-02-19 17:30:33', '2025-02-19 17:30:33'),
-(5, 'WEB-250222110042', 'qJUnlGPXePfrAKj', 0, 0, NULL, NULL, 'ywilkersonmn46@gmail.com', '4307648169', 'vUVesNbepmoE', 1, NULL, '$2y$12$v/ADNH4KuRGHJ0nHhxcCju2uCbS.ljAPy684Fplo9i6coTibuteuW', 1, 0, NULL, 0, NULL, '2025-02-22 04:00:42', '2025-02-22 04:00:42'),
-(6, 'WEB-250223093119', 'oeHMUXfIdPlnHm', 0, 0, NULL, NULL, 'oldindaw30@gmail.com', '3666875262', 'qygHNsZYrTtPz', 1, NULL, '$2y$12$T3FWRkPZ2Gl45ivivOAEs.R3D8.6xCLoSfXZQf1F5KHWNsKiN1.pe', 1, 0, NULL, 0, NULL, '2025-02-23 02:31:20', '2025-02-23 02:31:20'),
-(7, 'WEB-250224031251', 'srjSyKFPZvIbCOW', 0, 0, NULL, NULL, 'cohensilverd39@gmail.com', '9844835050', 'qQucyBhfq', 1, NULL, '$2y$12$fdvBg.lkbFV8pTalHF0zq.ViYB3xDU8Hwcz2ccW0oPteuiWMEME4y', 1, 0, NULL, 0, NULL, '2025-02-23 20:12:52', '2025-02-23 20:12:52'),
-(8, 'WEB-250226031902', 'qaBjhqvmzQgTQ', 0, 0, NULL, NULL, 'foliobison@yahoo.com', '5519489132', 'xyVNTegxNfyij', 1, NULL, '$2y$12$NkTjNSqrvaj3bNaCs5w.QOsOM/izrqsNEsRAgFvyyOsIiSA/tRSwe', 1, 0, NULL, 0, NULL, '2025-02-25 20:19:03', '2025-02-25 20:19:03'),
-(9, 'WEB-250227193250', 'XhpyumKvd', 0, 0, NULL, NULL, 'ramirezaetelrikqi@gmail.com', '4263960228', 'wRybcxzPpP', 1, NULL, '$2y$12$FIbDZ60GEdfd821s0pC.EuAx.V0tHGdJWfA5YXRFxrA.hnLSPB3pK', 1, 0, NULL, 0, NULL, '2025-02-27 12:32:51', '2025-02-27 12:32:51'),
-(10, 'WEB-250228192858', 'uINvHjkmAViQxtd', 0, 0, NULL, NULL, 'lyizabe@gmail.com', '7163774959', 'eHVuaVRoUalDrrg', 1, NULL, '$2y$12$Pvzzxzq/Z/FNpnmKUdoE7eced7iaIKeQXmuUbApOQA4MSn0nhEgJ.', 1, 0, NULL, 0, NULL, '2025-02-28 12:28:58', '2025-02-28 12:28:58'),
-(11, 'WEB-250301130518', 'CvTRFndYrAxdlK', 0, 0, NULL, NULL, 'syzirushq3@gmail.com', '4759329772', 'JkKLXnRls', 1, NULL, '$2y$12$Jma9XlT1pHuRKj7X7OeYRufjdZpvSszv8LrVM8y7JnvjuffLUjcwC', 1, 0, NULL, 0, NULL, '2025-03-01 06:05:19', '2025-03-01 06:05:19'),
-(12, 'WEB-250302064822', 'AqCWLGBzQt', 0, 0, NULL, NULL, 'denmalone40@gmail.com', '2354310900', 'ldJtCOtkvWBxW', 1, NULL, '$2y$12$aIXeEtzIhMZFbSzjvY7XpOD88.Ze8ePV.7VJSHVKRpjkwUcqEZPBi', 1, 0, NULL, 0, NULL, '2025-03-01 23:48:23', '2025-03-01 23:48:23'),
-(13, 'WEB-250303000024', 'FTDzTjBGAaxxla', 0, 0, NULL, NULL, 'vddhlisumdl@yahoo.com', '8285652850', 'eIyiXFdNI', 1, NULL, '$2y$12$3gM/BIcoHF6AjNsZX5hzJO.xJnhAwLwAFoIAeO7ETIPWyM/gmcp4u', 1, 0, NULL, 0, NULL, '2025-03-02 17:00:24', '2025-03-02 17:00:24'),
-(14, 'WEB-250303154137', 'sEnUwHwJr', 0, 0, NULL, NULL, 'tc9qilhfz@yahoo.com', '2512422256', 'ysVvTBxzMWtMI', 1, NULL, '$2y$12$VL4ArAkpb/UbWUbKeybZ0e2tzNV6gwUpnKjmcf36i6saXPJ1gwHiy', 1, 0, NULL, 0, NULL, '2025-03-03 08:41:37', '2025-03-03 08:41:37'),
-(15, 'WEB-250304172117', 'jtvAxWgBQGQRDU', 0, 0, NULL, NULL, 'povto9ll8w@yahoo.com', '8336373243', 'yARsjIzMvUPdc', 1, NULL, '$2y$12$0TyUoY/NgpFxGhN.XBbpy.hn.wFP84Mw3SlSvVeFE7l3ueMQ8OgI2', 1, 0, NULL, 0, NULL, '2025-03-04 10:21:18', '2025-03-04 10:21:18'),
-(16, 'WEB-250305180708', 'fuJSCuKezgWhzR', 0, 0, NULL, NULL, 'ashgolden80@gmail.com', '5373166506', 'XLZIMGRGKDaHNd', 1, NULL, '$2y$12$Gvo0urZIAlmPGkE0aETAJudJr8Ne/8e7tj6wep1.DVmWRZw3LMLHi', 1, 0, NULL, 0, NULL, '2025-03-05 11:07:09', '2025-03-05 11:07:09'),
-(17, 'WEB-250307004622', 'iweZPtrajyepM', 0, 0, NULL, NULL, 'zavalamidjlg@gmail.com', '6521714432', 'rMPimUGYr', 1, NULL, '$2y$12$ukTkbeJFPm6pSh78Y.YQdOYpMt9yzw8MqDQyKAoOXmEVknI0ZifR.', 1, 0, NULL, 0, NULL, '2025-03-06 17:46:22', '2025-03-06 17:46:22'),
-(18, 'WEB-250308071318', 'SOQEjrSt', 0, 0, NULL, NULL, 'iutempestau72zeal10@gmail.com', '6074589760', 'nUfwtfcBFcvOl', 1, NULL, '$2y$12$V4uqcWI9z.mjvr/WK9VAzeFJ13W/ViIdB4NmIsnu7KoJd0Ba1zmyq', 1, 0, NULL, 0, NULL, '2025-03-08 00:13:18', '2025-03-08 00:13:18'),
-(19, 'WEB-250309003638', 'IBUANKuZLSkqA', 0, 0, NULL, NULL, 'browningleksiyaos4@gmail.com', '4453599165', 'EusRdCSo', 1, NULL, '$2y$12$EQHxgxn3VxEs7Tgv.Tc4HOIGP6psmD7wJY2BcK.00Vaxqo6BeWNbO', 1, 0, NULL, 0, NULL, '2025-03-08 17:36:39', '2025-03-08 17:36:39'),
-(20, 'WEB-250310004349', 'JIXZfpibTq', 0, 0, NULL, NULL, 'durhamcherisve@gmail.com', '3824766433', 'xmvrwKwoYUI', 1, NULL, '$2y$12$.CCyo.rQ2ivZOFxJdC5iPOl7RNDmvmmVFFHNWjk4bK/0/JcgrwHOC', 1, 0, NULL, 0, NULL, '2025-03-09 17:43:49', '2025-03-09 17:43:49'),
-(21, 'WEB-250311194447', 'UEwBaxyLFcb', 0, 0, NULL, NULL, 'kertjordan38@gmail.com', '5699944592', 'bdEHtGbh', 1, NULL, '$2y$12$h7VPxiYGCz2njaAGGcEnSeUCSOyCo9JobYvbe29Z4Qfv4BsBopU/6', 1, 0, NULL, 0, NULL, '2025-03-11 12:44:47', '2025-03-11 12:44:47'),
-(22, 'WEB-250313132339', 'oVxHoFhWUKpDPq', 0, 0, NULL, NULL, 'dshahk53@gmail.com', '9321397953', 'UHPndotvxDkESi', 1, NULL, '$2y$12$8D6c0aY6/oDfu7uXaIXXNONoLzGLQFy9LRE8N2fSD8OZb4AAgjFEC', 1, 0, NULL, 0, NULL, '2025-03-13 06:23:40', '2025-03-13 06:23:40'),
-(23, 'WEB-250314153523', 'YlezAwmvc', 0, 0, NULL, NULL, 'eilitspencezy@gmail.com', '7617431300', 'IVUptWKyGQVDE', 1, NULL, '$2y$12$s/gP9.JQJDgjZh58dpglRuCZohgPNeMCNsE1.xqjpCmaVhH/8fWim', 1, 0, NULL, 0, NULL, '2025-03-14 08:35:23', '2025-03-14 08:35:23'),
-(24, 'WEB-250315133011', 'YjljrQxPNNhO', 0, 0, NULL, NULL, 'delaitgutierrezm2000@gmail.com', '7208005327', 'EUaRDSmeIU', 1, NULL, '$2y$12$vRelIPdQRb2CdSMyuz.E5uZAWCwdwH1wBJWSmyl8u.BQlkDbSGABG', 1, 0, NULL, 0, NULL, '2025-03-15 06:30:11', '2025-03-15 06:30:11'),
-(25, 'WEB-250316094239', 'tNxIqTrMTy', 0, 0, NULL, NULL, 'arizonabrahmavar955010@yahoo.com', '6986632579', 'cmqTfgRsxLSPgmJ', 1, NULL, '$2y$12$rgAm6eVfc6chKfVclbalxOlOQEiC5CusAWdcDpaO/a41SmUyKzYrK', 1, 0, NULL, 0, NULL, '2025-03-16 02:42:40', '2025-03-16 02:42:40'),
-(26, 'WEB-250317214550', 'ElMsesAqi', 0, 0, NULL, NULL, 'michelle.salazar21686@yahoo.com', '6503422361', 'WleGxMrmjcEViWc', 1, NULL, '$2y$12$2ipJW9d/CMPymgJDRhvqBOUD2G1pNVZuT5MwqRuTAxPovoPekZ.bC', 1, 0, NULL, 0, NULL, '2025-03-17 14:45:51', '2025-03-17 14:45:51'),
-(27, 'WEB-250319111044', 'telJIdunAfFNyy', 0, 0, NULL, NULL, 'koylmanjo91@gmail.com', '6745325138', 'DwovcapSkN', 1, NULL, '$2y$12$m2JAX/bnGEkNfuyJMVK4Q.vwFVjHEL4BOGUuhIWsXi2oq2VCn7SGW', 1, 0, NULL, 0, NULL, '2025-03-19 04:10:45', '2025-03-19 04:10:45'),
-(28, 'WEB-250321201305', 'WXdNvvujh', 0, 0, NULL, NULL, 'jan_classen494561@yahoo.com', '3573676791', 'NGzjNXKUcaSSyk', 1, NULL, '$2y$12$NvVIveEXALUoBViSTBOuG.c5p5CVTBcqDjYRhAzCi4F.F8EJdL2Pe', 1, 0, NULL, 0, NULL, '2025-03-21 13:13:06', '2025-03-21 13:13:06'),
-(29, 'WEB-250322123642', 'PdLqCLdhXdLis', 0, 0, NULL, NULL, 'colemanberniscq1989@gmail.com', '6319008426', 'EJrmFhMxKMLokwt', 1, NULL, '$2y$12$UGuVCnc1Rx1j3rPz3C58UOqrE5Oizvw.AamspeD.znmjuVlb4Qr.a', 1, 0, NULL, 0, NULL, '2025-03-22 05:36:43', '2025-03-22 05:36:43'),
-(30, 'WEB-250323033005', 'kNBuIMoUuo', 0, 0, NULL, NULL, 'birhanienovak271100@yahoo.com', '5112045603', 'dFzzYCGFduS', 1, NULL, '$2y$12$D/F2YDSuz4XPoY4V.z2mzeyFhx7ha5xfNpHVFMMXeVT7Uz6BEsa.m', 1, 0, NULL, 0, NULL, '2025-03-22 20:30:06', '2025-03-22 20:30:06'),
-(31, 'WEB-250323175747', 'ISEGpsdJaJ', 0, 0, NULL, NULL, 'solisfrend2002@gmail.com', '9388556465', 'ccyoxQFWIJNn', 1, NULL, '$2y$12$VAmRI03MUeHPXhAMlCNUgOXN2ueOtGR4zllb5iwvmMblL4bZIljWi', 1, 0, NULL, 0, NULL, '2025-03-23 10:57:48', '2025-03-23 10:57:48'),
-(32, 'WEB-250324111245', 'lrkgoVEVn', 0, 0, NULL, NULL, 'evans.angie338492@yahoo.com', '5265168241', 'oFYRqylqDLM', 1, NULL, '$2y$12$4.6ap1cr6b/KXPjQvrNKUOradKqfSiWTLd7R2G6Bj3mvYSSlsli5u', 1, 0, NULL, 0, NULL, '2025-03-24 04:12:46', '2025-03-24 04:12:46'),
-(33, 'WEB-250406005051', 'cFKRmFRofBLa', 0, 0, NULL, NULL, 'vangbelindtd@gmail.com', '6753431387', 'QCzvOzKA', 1, NULL, '$2y$12$yiaNOjaYR7xs14sC.6VPl.pJ7Wuf.1vTp.i6V8M/nkg2P2ZjBisze', 1, 0, NULL, 0, NULL, '2025-04-05 17:50:51', '2025-04-05 17:50:51'),
-(34, 'WEB-250407005920', 'CMjowVyrt', 0, 0, NULL, NULL, 'chasehykkga32@gmail.com', '3116385422', 'HAvuYKXMcoAz', 1, NULL, '$2y$12$RwemkHq7ymI7exQJbRK13uMHOiQMUrwce3YdtqGqINAkInkXcnfyG', 1, 0, NULL, 0, NULL, '2025-04-06 17:59:21', '2025-04-06 17:59:21'),
-(35, 'WEB-250407042427', 'kTVyEazEsjLjIx', 0, 0, NULL, NULL, 'willbroydihm1988@gmail.com', '6993525194', 'wsfrsrAozYu', 1, NULL, '$2y$12$H.7uAyeXNjlrZjG1Moy1w.7DG4Q4FiVfTvb32q3u8swwJv4gN4FJW', 1, 0, NULL, 0, NULL, '2025-04-06 21:24:27', '2025-04-06 21:24:27'),
-(36, 'WEB-250407125942', 'kOswLGsER', 0, 0, NULL, NULL, 'bdjid38@gmail.com', '6283343519', 'fONVLOGQVmPHeKe', 1, NULL, '$2y$12$uokX6Dq254JuZbNUNyat4eGrZFWcTyPLUkx3D3rRr1YPv.m.AB5Ii', 1, 0, NULL, 0, NULL, '2025-04-07 05:59:42', '2025-04-07 05:59:42'),
-(37, 'WEB-250407154431', 'feoGqYPEI', 0, 0, NULL, NULL, 'redvargas37@gmail.com', '7539114570', 'wgGILcmN', 1, NULL, '$2y$12$ccDKQrLfw250ceN6PtcwNed8bkBtjS6yCSSHvA841QfvUe2melcoS', 1, 0, NULL, 0, NULL, '2025-04-07 08:44:32', '2025-04-07 08:44:32'),
-(38, 'WEB-250410143704', 'RVSsUlVb', 0, 0, NULL, NULL, 'darsigvz1988@gmail.com', '9382653532', 'ccEXtgNFY', 1, NULL, '$2y$12$GmAehpQFo1pXk6EoXBasDOVLudEXAZIxBzjES5Izid4pH7w3XI0QC', 1, 0, NULL, 0, NULL, '2025-04-10 07:37:05', '2025-04-10 07:37:05'),
-(39, 'WEB-250411120125', 'wrtXHXGTZp', 0, 0, NULL, NULL, 'hudginsjaime268731@yahoo.com', '5395566275', 'seFgKXrbtyGfFzg', 1, NULL, '$2y$12$W4C4Q0nCgt5qKN5ZviA/AOsTh4UizvIu3vtlxRBiYOQM/nfH3AUX2', 1, 0, NULL, 0, NULL, '2025-04-11 05:01:25', '2025-04-11 05:01:25'),
-(40, 'WEB-250411141354', 'UOQJjNUUiUNXPR', 0, 0, NULL, NULL, 'gensjg@gmail.com', '4247066847', 'QbxLKuivlQp', 1, NULL, '$2y$12$ikKZk5oGT74NPVWNMoSZCOTMGkN.BfQbK2lQA6a7Rf56O4lPzW4bi', 1, 0, NULL, 0, NULL, '2025-04-11 07:13:55', '2025-04-11 07:13:55'),
-(41, 'WEB-250411162728', 'rsOSmgWCrUCJBwN', 0, 0, NULL, NULL, 'misty_stokes152776@yahoo.com', '9670131125', 'onSaiyEUMuJvMZe', 1, NULL, '$2y$12$ryPk2.cbIty7sJHnvLuaNO8LdLra6hzrhbrUbNdVCsdorPmNFDTNi', 1, 0, NULL, 0, NULL, '2025-04-11 09:27:28', '2025-04-11 09:27:28'),
-(42, 'WEB-250412135843', 'vCiKLQgKPFiRp', 0, 0, NULL, NULL, 'alex.ford588593@yahoo.com', '4139770626', 'ywWsYWuOjx', 1, NULL, '$2y$12$Buk9D/FOzn3csjJKkScNHOX.E5MSZACnWYv6g3YM4TK.QG0GEr7n2', 1, 0, NULL, 0, NULL, '2025-04-12 06:58:43', '2025-04-12 06:58:43'),
-(43, 'WEB-250415131525', 'UFsdSSzO', 0, 0, NULL, NULL, 'michelle.morgan784468@yahoo.com', '4897114433', 'JBYfqcGGg', 1, NULL, '$2y$12$y7OOxYGaQgts.Ivwntlfd.fFNLI0ruZNIA2i6qFi07laetcA05OO2', 1, 0, NULL, 0, NULL, '2025-04-15 06:15:25', '2025-04-15 06:15:25'),
-(44, 'WEB-250416084750', 'kIOmtwRkgMVloP', 0, 0, NULL, NULL, 'camachchep@gmail.com', '5964523099', 'mbOFlsTackDYPRU', 1, NULL, '$2y$12$rc6ki3pb63BhcN3MB2OFoO6nXiHdHSsHeSbvPx.gUJ5Xso.c1uvaK', 1, 0, NULL, 0, NULL, '2025-04-16 01:47:50', '2025-04-16 01:47:50'),
-(45, 'WEB-250416135252', 'LLybdNQMVwv', 0, 0, NULL, NULL, 'cvernaq1993@gmail.com', '8368104463', 'zBqMmGhCNRcGw', 1, NULL, '$2y$12$qW/lSq/DVnadDTzEndmXzuocetzQK85cuCyuqoulNx3I0DA4RIeq6', 1, 0, NULL, 0, NULL, '2025-04-16 06:52:53', '2025-04-16 06:52:53'),
-(46, 'WEB-250418071505', 'pCcggfGaOsVS', 0, 0, NULL, NULL, 'ohardyw1@gmail.com', '6122344256', 'vCIMteUQBEIj', 1, NULL, '$2y$12$VqR/NXa4xXmz3wyp/n2UweEl5d5dYUbqMN5KJJYLACEHY.ijZ5rmu', 1, 0, NULL, 0, NULL, '2025-04-18 00:15:05', '2025-04-18 00:15:05'),
-(47, 'WEB-250418102343', 'UHosrOmEAyMo', 0, 0, NULL, NULL, 'byrdchelsiuu28@gmail.com', '5264743695', 'JibAfLcwPFpCzvu', 1, NULL, '$2y$12$Vulx1I.c1WS24OwdYGjqvusFKYe8.IA9ByV1Le/5pOniDCpCKglrq', 1, 0, NULL, 0, NULL, '2025-04-18 03:23:43', '2025-04-18 03:23:43'),
-(48, 'WEB-250420202036', 'SzEXsCbQxtJRaY', 0, 0, NULL, NULL, 'schmittfelisiya53@gmail.com', '3182076523', 'MAuEtNjk', 1, NULL, '$2y$12$coL6P/0IFTnNGO4xLTRU4uqz/Jr0h4Laqr08IlOw8DzCEuItsg7TC', 1, 0, NULL, 0, NULL, '2025-04-20 13:20:37', '2025-04-20 13:20:37'),
-(49, 'WEB-250421164457', 'IpVLDBsxXdBA', 0, 0, NULL, NULL, 'yondasimsfp@gmail.com', '4268157007', 'dXBLSqdaxhrkq', 1, NULL, '$2y$12$sKpaAMBryX9zLEvjcVFJVegYkiwhi/ok/.Dcihmda3PhH3.hLf2cu', 1, 0, NULL, 0, NULL, '2025-04-21 09:44:57', '2025-04-21 09:44:57'),
-(50, 'WEB-250421221518', 'wTRJJfLnJbOCE', 0, 0, NULL, NULL, 'villanuevaterans2002@gmail.com', '6449751688', 'vqggJwkZsnkBL', 1, NULL, '$2y$12$Z3mMvdm106jZLFrnF7Cvau4GW1/ojIAz5ZxrkxcrKWw.F9EXvHOs2', 1, 0, NULL, 0, NULL, '2025-04-21 15:15:18', '2025-04-21 15:15:18'),
-(51, 'WEB-250422034428', 'iCrGizhkyNdo', 0, 0, NULL, NULL, 'oldfolsos@gmail.com', '7200209213', 'TaQuUMji', 1, NULL, '$2y$12$pxBIpuffMzl9iXh2jp2PYuBm.BY4RJ7IHG0eGHc4pONi74BAk7ok2', 1, 0, NULL, 0, NULL, '2025-04-21 20:44:29', '2025-04-21 20:44:29'),
-(52, 'WEB-250426044721', 'ubUVNfqwkTbdr', 0, 0, NULL, NULL, 'bbollardo@gmail.com', '7951640886', 'JvHBAIoBr', 1, NULL, '$2y$12$whD/op97um8fKRXGxlPo3.KFTQRB7opFHB.BkckJJQnSqU5sgE6c2', 1, 0, NULL, 0, NULL, '2025-04-25 21:47:21', '2025-04-25 21:47:21'),
-(53, 'WEB-250426185633', 'TZkUPhPFxHqVW', 0, 0, NULL, NULL, 'alfikzq8@gmail.com', '7725732423', 'dAgQxZOGrS', 1, NULL, '$2y$12$7NBYpofIX1hHq4D31vcacusNdKwnYJROkB8sMCDS/m0E/FpMknlGG', 1, 0, NULL, 0, NULL, '2025-04-26 11:56:33', '2025-04-26 11:56:33'),
-(54, 'WEB-250426212942', 'IfKaSHlgWx', 0, 0, NULL, NULL, 'simmonkaro40@gmail.com', '5834497732', 'svhbKWtdzPAQP', 1, NULL, '$2y$12$zsqFfOVDGdGwV0sqydMV2uPNqvbogs7Wg3Fq4M4iXfYfgOPEuVROW', 1, 0, NULL, 0, NULL, '2025-04-26 14:29:42', '2025-04-26 14:29:42'),
-(55, 'WEB-250427034017', 'OCDDvxlzhl', 0, 0, NULL, NULL, 'delbesilvef38@gmail.com', '9283984868', 'VhvCdctGHZNZvE', 1, NULL, '$2y$12$d4zlYWuD4E61U1iKxwycRevg3n180H/Up2j2I.HTQt0vwmkDuNXb2', 1, 0, NULL, 0, NULL, '2025-04-26 20:40:18', '2025-04-26 20:40:18'),
-(56, 'WEB-250427084929', 'DXsrEtslH', 0, 0, NULL, NULL, 'rayanjac42@gmail.com', '9433261014', 'rEgJlbcuQdZcR', 1, NULL, '$2y$12$h4oAFjBw69QlWk1kexHMtOu6A4uqsyVY.sB8rdcLhnCltuhPhT5HG', 1, 0, NULL, 0, NULL, '2025-04-27 01:49:30', '2025-04-27 01:49:30'),
-(57, 'WEB-250427093641', 'YclxdMjMulbYan', 0, 0, NULL, NULL, 'rosscaseb@gmail.com', '3279798822', 'mxnZRNwLh', 1, NULL, '$2y$12$0S0fTj540usNJ1iNzJX9quVFXczrgaHrPlvqtxdptmKfB2vu63n6m', 1, 0, NULL, 0, NULL, '2025-04-27 02:36:41', '2025-04-27 02:36:41'),
-(58, 'WEB-250427143934', 'rbafuMaUJxqsu', 0, 0, NULL, NULL, 'mskyilerp@gmail.com', '3080319359', 'CGweoOeBjNNF', 1, NULL, '$2y$12$lQt0l.6eOBeBKeSyrbe5du73HXPc.c1JPmrIO2HCwDcN01WBBFllu', 1, 0, NULL, 0, NULL, '2025-04-27 07:39:34', '2025-04-27 07:39:34'),
-(59, 'WEB-250427163844', 'NPGMKAWV', 0, 0, NULL, NULL, 'terrensbyh2001@gmail.com', '8847566754', 'EJxcgOetsgkicN', 1, NULL, '$2y$12$GeqD0hUBsS5afTseQjHrXuHfXyf2BKy7JWjsx4gExc6utzk9MF6aS', 1, 0, NULL, 0, NULL, '2025-04-27 09:38:45', '2025-04-27 09:38:45'),
-(60, 'WEB-250428013115', 'fEUDcbLGKMog', 0, 0, NULL, NULL, 'sberryhc1999@gmail.com', '9217268384', 'iMdZuuczIlxf', 1, NULL, '$2y$12$BIfbn1OYdFTT5VBN5503SuOJ8scRmA7sc1CC1aO4PJWLK/F7JV15e', 1, 0, NULL, 0, NULL, '2025-04-27 18:31:15', '2025-04-27 18:31:15'),
-(61, 'WEB-250429050551', 'HxVIJTYkN', 0, 0, NULL, NULL, 'tenkacoten1982@yahoo.com', '8446103487', 'YTsQemZwQWzFTb', 1, NULL, '$2y$12$AwLljBdnOC2Y0lvUfPdZAe/zuWidUM9ZPXv0b0f8e0grgNZH8viB6', 1, 0, NULL, 0, NULL, '2025-04-28 22:05:52', '2025-04-28 22:05:52'),
-(62, 'WEB-250429123531', 'zCrrTJyWmDE', 0, 0, NULL, NULL, 'norrisdjoynic1994@gmail.com', '7038559049', 'EmevCiLxUUmJa', 1, NULL, '$2y$12$Vr93ZzvyUITvjjnCREHoC.bytyWGhJ5eAPDKopHT2uf1elqVtVoO6', 1, 0, NULL, 0, NULL, '2025-04-29 05:35:32', '2025-04-29 05:35:32'),
-(63, 'WEB-250430143313', 'PjbDSlVsfSuFpoy', 0, 0, NULL, NULL, 'vbowmanuu48@gmail.com', '9686540996', 'zcLNoQiDvTp', 1, NULL, '$2y$12$sv8YqShrHRDFu4yP3BJU5uK6cFUg5UCN7ou8MqvxnzDK0nUHXRQuu', 1, 0, NULL, 0, NULL, '2025-04-30 07:33:13', '2025-04-30 07:33:13'),
-(64, 'WEB-250430185413', 'ZzeOIGdybpSHhoH', 0, 0, NULL, NULL, 'deivhudsonpe2005@gmail.com', '7408967956', 'JmAlhzvHhIIbm', 1, NULL, '$2y$12$JsP137IruYJ/xAwM/snXgeexJpcLCpZU/x6cOUspk6t.gyvKfb.KG', 1, 0, NULL, 0, NULL, '2025-04-30 11:54:13', '2025-04-30 11:54:13'),
-(65, 'WEB-250501140505', 'xCObbpqEPXlaXm', 0, 0, NULL, NULL, 'klagoodm34@gmail.com', '9845873895', 'uYvtdwOnq', 1, NULL, '$2y$12$DoemJVw5GUVY9mRv0FPF8OohnLkglHws5.ufJ2cx2Gcx5zG9IlJmu', 1, 0, NULL, 0, NULL, '2025-05-01 07:05:05', '2025-05-01 07:05:05'),
-(66, 'WEB-250501225820', 'RVGdwIjJptj', 0, 0, NULL, NULL, 'dennboydlb9@gmail.com', '6427665088', 'ralMteTp', 1, NULL, '$2y$12$eDt.oGPCkMWuFK.abHG.YOUXPiJdTa1UDTghi3Qww7bFsavac1gXW', 1, 0, NULL, 0, NULL, '2025-05-01 15:58:20', '2025-05-01 15:58:20'),
-(67, 'WEB-250502013246', 'mGNuCdOJHrH', 0, 0, NULL, NULL, 'evalinbestd1992@gmail.com', '5267415732', 'rgBiPhxupN', 1, NULL, '$2y$12$ct1KhVPc9QKOHZ10xr.1c.I2jk28dizGGXAZhRfv76EXkHJ1KSIBe', 1, 0, NULL, 0, NULL, '2025-05-01 18:32:46', '2025-05-01 18:32:46'),
-(68, 'WEB-250502115643', 'KyvYLFIgVWPe', 0, 0, NULL, NULL, 'tironhuang49@gmail.com', '3502676575', 'ngUVQGrAbediXvF', 1, NULL, '$2y$12$R.IPEi.4hOkIvvgRmrjYVerUWxYHPPYDG0CXu6NxiimEL.kahqS3q', 1, 0, NULL, 0, NULL, '2025-05-02 04:56:44', '2025-05-02 04:56:44'),
-(69, 'WEB-250503103309', 'zsoIoXaeTwnyX', 0, 0, NULL, NULL, 'dmadizinr@gmail.com', '4534730113', 'cnRmAQkRNKTBY', 1, NULL, '$2y$12$k0yjE1x4ahua78Namq1lV./ahfKaLQWZaYqvHIAlJ6cx8wU/BKCm6', 1, 0, NULL, 0, NULL, '2025-05-03 03:33:09', '2025-05-03 03:33:09'),
-(70, 'WEB-250504210549', 'UQBveNdxiDhyWZp', 0, 0, NULL, NULL, 'nobleklaivzj1986@gmail.com', '7756528317', 'VXsTpjQDYGjxcno', 1, NULL, '$2y$12$rhzeQu0N6bDIYHQXFT4vH.FMNZ7UwAIBV8K4z7xbuHpZeb2.8NQCy', 1, 0, NULL, 0, NULL, '2025-05-04 14:05:49', '2025-05-04 14:05:49'),
-(71, 'WEB-250505044132', 'rEwPSirFkRAi', 0, 0, NULL, NULL, 'tgrahamjz@gmail.com', '6707008129', 'rHiWxBCEfEEgEbW', 1, NULL, '$2y$12$p4d46MRI9E5YIvHu7UXBauGIeIaMPdwPH7ehpVzH/cIHLxgh.XgKO', 1, 0, NULL, 0, NULL, '2025-05-04 21:41:32', '2025-05-04 21:41:32'),
-(72, 'WEB-250507173845', 'PuOjkzqzGJlxuW', 0, 0, NULL, NULL, 'sdjervisr@gmail.com', '4137459433', 'nrPrZVZZFpzj', 1, NULL, '$2y$12$9mulXPLjaKWrD4qfpBVGm.F7plrhTCODJzVoh9XIeyxwD9Wvew8fG', 1, 0, NULL, 0, NULL, '2025-05-07 10:38:45', '2025-05-07 10:38:45'),
-(73, 'WEB-250507180423', 'hrEwfYCtEaNuGW', 0, 0, NULL, NULL, 'keiburnsyu1@gmail.com', '5403716540', 'vyuVeXMiAONigfC', 1, NULL, '$2y$12$5v7uB1mQYVkjtmCDoyjpaOrcqOM5GMUBVgQkE5zNq393.WvKkE9jq', 1, 0, NULL, 0, NULL, '2025-05-07 11:04:23', '2025-05-07 11:04:23'),
-(74, 'WEB-250512132311', 'YdzfNwkOnZLUi', 0, 0, NULL, NULL, 'idgardbu78@gmail.com', '9033112058', 'wcxpeTgs', 1, NULL, '$2y$12$jVbC57hXLliTuKOK.g3ioOuVcnU1pMQKFRkn878/VJYSpVmhAw4bG', 1, 0, NULL, 0, NULL, '2025-05-12 06:23:12', '2025-05-12 06:23:12'),
-(75, 'WEB-250513013342', 'LXNbSqoeLIr', 0, 0, NULL, NULL, 'filippariceqk@gmail.com', '5059395392', 'VVrQUeBnA', 1, NULL, '$2y$12$s.BzIbsltAIQ53nPtHsC6uAOW54diPp5u.G23rj2hC.TyPzku6GPK', 1, 0, NULL, 0, NULL, '2025-05-12 18:33:43', '2025-05-12 18:33:43'),
-(76, 'WEB-250513074034', 'RPaCKJBsDxmCUN', 0, 0, NULL, NULL, 'osmondgonzalesi2004@gmail.com', '5016319097', 'PfwWHZMeZgpCOl', 1, NULL, '$2y$12$vtfxdylaHsPs9qMvEsQWE.YzH3SxtEj3BbzwKpHEmvpz6rSzv6FYW', 1, 0, NULL, 0, NULL, '2025-05-13 00:40:34', '2025-05-13 00:40:34'),
-(77, 'WEB-250513221115', 'MnXKLcwao', 0, 0, NULL, NULL, 'ayersronhh1980@gmail.com', '9076737295', 'LcaawCcPLZIFqI', 1, NULL, '$2y$12$hUa595pxbM92LmOPS/p3mexv9RdgpjXF/PxuJIPL3xSSBqJ5IWvh6', 1, 0, NULL, 0, NULL, '2025-05-13 15:11:15', '2025-05-13 15:11:15'),
-(78, 'WEB-250514222827', 'UNeAxsOcMrsW', 0, 0, NULL, NULL, 'mendozafrancisco261314@yahoo.com', '9137890764', 'fWUGWxUJiSjv', 1, NULL, '$2y$12$bxTk9hT2gdve8bAh6hZkM.lbggdO2lM/65pT5ir.GNtr89WUA59bi', 1, 0, NULL, 0, NULL, '2025-05-14 15:28:28', '2025-05-14 15:28:28'),
-(79, 'WEB-250515034429', 'dXmaSpTiGzFSrb', 0, 0, NULL, NULL, 'bassettwlr@gmail.com', '9525739747', 'XeaNibXbTQpIk', 1, NULL, '$2y$12$8MeUFDCEJKgnPPJCsOZIQenIqRd8o04rLWFRuZxPEjLQC8rZkChcy', 1, 0, NULL, 0, NULL, '2025-05-14 20:44:29', '2025-05-14 20:44:29'),
-(80, 'WEB-250515091720', 'iVZoFteVY', 0, 0, NULL, NULL, 'braymondg1993@gmail.com', '6829086651', 'eUuJydyCxuJR', 1, NULL, '$2y$12$iIYxU.3elFa9Mhe5DbBXEOaMAXAt8kP8d15U0qZQXKizn7fBu37Vm', 1, 0, NULL, 0, NULL, '2025-05-15 02:17:21', '2025-05-15 02:17:21'),
-(81, 'WEB-250515180600', 'OegvtNpvOVLykRI', 0, 0, NULL, NULL, 'steelkonk57@gmail.com', '7188271985', 'KGZPgFGt', 1, NULL, '$2y$12$2Ld/LdpiV.7ZA0mAGxn6zuFbr1T33fIxN.kGDcssuw8ho9w/kx9Ey', 1, 0, NULL, 0, NULL, '2025-05-15 11:06:00', '2025-05-15 11:06:00'),
-(82, 'WEB-250515181158', 'mHHeIwOdRUWCqV', 0, 0, NULL, NULL, 'kertarcherfx@gmail.com', '7160836234', 'NFiDNqRpxFBJ', 1, NULL, '$2y$12$SyGb/zI58Mxn2O/fW4Lnze4mzC5xWDaFCeBZbyI.wKv1V5qutchdS', 1, 0, NULL, 0, NULL, '2025-05-15 11:11:58', '2025-05-15 11:11:58'),
-(83, 'WEB-250516155316', 'CKhlNFxnYtRks', 0, 0, NULL, NULL, 'dinofrank270340@yahoo.com', '8123534348', 'fQOFNspUCwl', 1, NULL, '$2y$12$dC8M9/PfxVG15zxrvm3UXO8wDLlFdU256f3mqJxziD0KOPb1mpCzu', 1, 0, NULL, 0, NULL, '2025-05-16 08:53:17', '2025-05-16 08:53:17'),
-(84, 'WEB-250516161410', 'UnezJVHMni', 0, 0, NULL, NULL, 'kirbymodesti1@gmail.com', '9064630105', 'NMEQSZYAORIOSK', 1, NULL, '$2y$12$us0EuARDrE4xqxDyArDJfONyev4NOuUj.CQud0HQfSNqvYgOe4lpu', 1, 0, NULL, 0, NULL, '2025-05-16 09:14:11', '2025-05-16 09:14:11'),
-(85, 'WEB-250516175836', 'dIhfVlXprBwEE', 0, 0, NULL, NULL, 'daviesdjoangz14@gmail.com', '9991432331', 'bdXdaOkZKy', 1, NULL, '$2y$12$Eb9CgtOGB9wrzXoQh45Nl.xj/pG9XugrsPIzd2DUnDDbfgpL7pSTO', 1, 0, NULL, 0, NULL, '2025-05-16 10:58:37', '2025-05-16 10:58:37'),
-(86, 'WEB-250516223048', 'IlTjCYFotXm', 0, 0, NULL, NULL, 'mordenir2000@gmail.com', '3783342657', 'rPkgveQWYuUPrl', 1, NULL, '$2y$12$KSK54BX497.YYg1xJ8UMce2aYPXr7Gptx3r1CNCA5zSAf.PLSeCXK', 1, 0, NULL, 0, NULL, '2025-05-16 15:30:48', '2025-05-16 15:30:48'),
-(87, 'WEB-250517160148', 'HkdKsjUX', 0, 0, NULL, NULL, 'kbatildf@gmail.com', '4561438103', 'QiOwovsxj', 1, NULL, '$2y$12$auaS7qWhVY8XDR6a4JdOWuRr32brtlSfn8QBwvWDCVoPvoaBxPK8.', 1, 0, NULL, 0, NULL, '2025-05-17 09:01:48', '2025-05-17 09:01:48'),
-(88, 'WEB-250517172253', 'LmUpktpACMK', 0, 0, NULL, NULL, 'hitkliffedwardsr@gmail.com', '7974627550', 'ZHYsaFIMasaIY', 1, NULL, '$2y$12$MNeM4lDLjDPeaXfFVmQql.NbOOiBNfahnSCFXfexkxUY/kVzH7lQm', 1, 0, NULL, 0, NULL, '2025-05-17 10:22:54', '2025-05-17 10:22:54'),
-(89, 'WEB-250517210135', 'RFpNLXlmSQaE', 0, 0, NULL, NULL, 'djekkbestpr50@gmail.com', '5324782131', 'qcdpCuwYumJVpK', 1, NULL, '$2y$12$hoQn7DZeemAS8bZTXX1N2eKTtQ.WNYm8WkdWTA4UfntbMnp.AuDQK', 1, 0, NULL, 0, NULL, '2025-05-17 14:01:35', '2025-05-17 14:01:35'),
-(90, 'WEB-250519102356', 'sFsSWTMxTE', 0, 0, NULL, NULL, 'gburnettnm1991@gmail.com', '8472520104', 'fQAcmeQrb', 1, NULL, '$2y$12$Km47JjKhfy.AZwpKeIGJ6.xpTaI6/H/2MoUEPlfaJ.LWPwDGcAzlq', 1, 0, NULL, 0, NULL, '2025-05-19 03:23:57', '2025-05-19 03:23:57'),
-(91, 'WEB-250519172314', 'CEqCNCZCGGFa', 0, 0, NULL, NULL, 'tuckerhelen107393@yahoo.com', '8653707268', 'FDmjfurvFnt', 1, NULL, '$2y$12$wR9IeFDKxlBBxoHRHJCfKOqxbk2SDgKs.X7Pfy6Bovk0tNeYpTkRW', 1, 0, NULL, 0, NULL, '2025-05-19 10:23:15', '2025-05-19 10:23:15'),
-(92, 'WEB-250519175004', 'VjOQdghsY', 0, 0, NULL, NULL, 'sokkalingamyovany912110@yahoo.com', '4467550130', 'IDWJezXqHyXN', 1, NULL, '$2y$12$PLJdEdD0Epig8iwKwkuiAu0meT0c89AryKbqDc.AoDQtBTSUpm9dK', 1, 0, NULL, 0, NULL, '2025-05-19 10:50:04', '2025-05-19 10:50:04'),
-(93, 'WEB-250520135357', 'AHZyknXKtHbxbTQ', 0, 0, NULL, NULL, 'vargasmarlong5@gmail.com', '4804065184', 'cjqLCIYYhw', 1, NULL, '$2y$12$WkHKGs91M8fOOcnDJ0RwueCvUhmMZmpreG8v8.0eW3xlmRhCLx9kS', 1, 0, NULL, 0, NULL, '2025-05-20 06:53:57', '2025-05-20 06:53:57'),
-(94, 'WEB-250521185500', 'teeRbgZwFd', 0, 0, NULL, NULL, 'hiramcsu@gmail.com', '6482356788', 'WlukOrGgFVFTNx', 1, NULL, '$2y$12$kyt5OwpDU4Kn.mpNx9Ps5efUJwpB1jzv9zJTONqip6RmC0wSk13ce', 1, 0, NULL, 0, NULL, '2025-05-21 11:55:01', '2025-05-21 11:55:01'),
-(95, 'WEB-250522101417', 'EfllfTYs', 0, 0, NULL, NULL, 'filoyorkdr78@gmail.com', '5441002272', 'vUrINbmwmtk', 1, NULL, '$2y$12$cAza76qOHS.6BEW2MxSBG.pJqlAFifM.gIZjAX0Ycn6lFFpZ6hJkG', 1, 0, NULL, 0, NULL, '2025-05-22 03:14:18', '2025-05-22 03:14:18'),
-(96, 'WEB-250523042342', 'fgDSgLkWHJuB', 0, 0, NULL, NULL, 'michkari22@gmail.com', '4367163575', 'hSzlZegWCv', 1, NULL, '$2y$12$A3gMssCLf/gPSuceHJgQ3utOLKe0DsNcSQNFqZyPAL4uIlMuj3Nsq', 1, 0, NULL, 0, NULL, '2025-05-22 21:23:43', '2025-05-22 21:23:43'),
-(97, 'WEB-250524105005', 'YWQqcnSag', 0, 0, NULL, NULL, 'dsparksm1997@gmail.com', '6100181563', 'PGqLCpecJk', 1, NULL, '$2y$12$b/ht4otupwfdBAxhLpSugOnVmQ6vuqBUGgVahn1bBNPkK8P95wWvy', 1, 0, NULL, 0, NULL, '2025-05-24 03:50:05', '2025-05-24 03:50:05'),
-(98, 'WEB-250524165239', 'XNbyjzhGxJCe', 0, 0, NULL, NULL, 'brennaharringtonhh18@gmail.com', '5570991243', 'YLYAsIHhPzmKS', 1, NULL, '$2y$12$CFI73nZ/dsNKLq7PJe3tY.aZGsDL8EY2jSTx594Q3Cqj/GIoYbnbe', 1, 0, NULL, 0, NULL, '2025-05-24 09:52:39', '2025-05-24 09:52:39'),
-(99, 'WEB-250525045529', 'kfQJmXob', 0, 0, NULL, NULL, 'kbradshaww17@gmail.com', '9448291455', 'QjTtMRblCNiS', 1, NULL, '$2y$12$tvMmqj9LXw3aaBcUN.FtK.fIFYpNSA5IVW.uskPZOvZRblzoSoJlC', 1, 0, NULL, 0, NULL, '2025-05-24 21:55:30', '2025-05-24 21:55:30'),
-(100, 'WEB-250525175127', 'GFRVFVKQ', 0, 0, NULL, NULL, 'abidjilfrazierz1990@gmail.com', '6278887177', 'qcDgjoCcwpAX', 1, NULL, '$2y$12$DXjH2Ad24AzM.khyCt3Tb.hZ1aLbsI.4U/uYK1Koe36aWXeLQxI0i', 1, 0, NULL, 0, NULL, '2025-05-25 10:51:27', '2025-05-25 10:51:27'),
-(101, 'WEB-250526073121', 'ATqkwWdTqDTT', 0, 0, NULL, NULL, 'dgilbertvy9@gmail.com', '5637507807', 'OsoJkoNvZGvyB', 1, NULL, '$2y$12$yJh4IgIsrYsOeo/qR87QD.jPFNykJLIZJseVbi3ZMiC1YroG5cg0a', 1, 0, NULL, 0, NULL, '2025-05-26 00:31:22', '2025-05-26 00:31:22'),
-(102, 'WEB-250526141911', 'vwUitEucBfNAYn', 0, 0, NULL, NULL, 'hamiltonanthony269563@yahoo.com', '7300398517', 'bhqReSEjaXcbRs', 1, NULL, '$2y$12$Lxs3IiwOK3pgHxUppjtZluaP2m0FmUqe01BBlz5lh8rKpB135aR5G', 1, 0, NULL, 0, NULL, '2025-05-26 07:19:11', '2025-05-26 07:19:11'),
-(103, 'WEB-250526155201', 'cFBddOhoT', 0, 0, NULL, NULL, 'lynndarilbf@gmail.com', '3830142767', 'iiNmoNumU', 1, NULL, '$2y$12$.M8lTbPklnCoqIO2K..7cuv1AoupSKaoJqjEck/n14jCcqdDWSeHi', 1, 0, NULL, 0, NULL, '2025-05-26 08:52:01', '2025-05-26 08:52:01'),
-(104, 'WEB-250526185323', 'MEZRPwBBuNc', 0, 0, NULL, NULL, 'arobersonva@gmail.com', '3269633299', 'KNjSsPmUVWOWt', 1, NULL, '$2y$12$jUHTSsoLim4ObCFP1tUjc.zfeliu0gYKmCnWWr0BXaejsSd9B6Sau', 1, 0, NULL, 0, NULL, '2025-05-26 11:53:24', '2025-05-26 11:53:24'),
-(105, 'WEB-250526212846', 'DJyAEnsGtbW', 0, 0, NULL, NULL, 'elfridgarr@gmail.com', '9074566572', 'NNMYlNxjBRldgnF', 1, NULL, '$2y$12$tzlqCb001QYVNd8PXo/jC.W5bFeyzvbbWspmXkLYfdwCd7qjlEhbq', 1, 0, NULL, 0, NULL, '2025-05-26 14:28:47', '2025-05-26 14:28:47'),
-(106, 'WEB-250527072441', 'upJyvilcIDPqHh', 0, 0, NULL, NULL, 'averyarabel43@gmail.com', '7952148326', 'XsCjldqWCcd', 1, NULL, '$2y$12$/mpm4AUg5t6.s/COA3YGKOqZVf2b2GsmJ4wXgAVXA1p4GqWcVOoI2', 1, 0, NULL, 0, NULL, '2025-05-27 00:24:41', '2025-05-27 00:24:41'),
-(107, 'WEB-250527134009', 'QymYHMtGZSABvBL', 0, 0, NULL, NULL, 'idgarmathews1@gmail.com', '6348604857', 'sQQeAgnXXOAu', 1, NULL, '$2y$12$aKpArCK5sMeaZm68jBYcJ.r5INAzvB5uUBQiIhLHaQup.iSnMELrW', 1, 0, NULL, 0, NULL, '2025-05-27 06:40:10', '2025-05-27 06:40:10'),
-(108, 'WEB-250527232718', 'EfzWxcTVCOkvbKt', 0, 0, NULL, NULL, 'mereditpeterson2006@gmail.com', '4871598625', 'qzsBBVwzfui', 1, NULL, '$2y$12$VrdyoAowE6C0zhPOymSDMebHX8C8M9FWZ.T.qTuVyHT287UYrh/Bm', 1, 0, NULL, 0, NULL, '2025-05-27 16:27:19', '2025-05-27 16:27:19'),
-(109, 'WEB-250528180352', 'iLSJapoE', 0, 0, NULL, NULL, 'yriahcx20@gmail.com', '3315633688', 'VCQNxxhnJGSNPPn', 1, NULL, '$2y$12$3U6yry44W89XeTEX4NtC6.UwXRwLxUl3uQqErlJvqNV5MY9D8CVL.', 1, 0, NULL, 0, NULL, '2025-05-28 11:03:52', '2025-05-28 11:03:52'),
-(110, 'WEB-250528182324', 'amIKmqWWRTQXka', 0, 0, NULL, NULL, 'lmckenziewc1998@gmail.com', '2464328762', 'KxUvjnYpx', 1, NULL, '$2y$12$oCmNA0krFihqrUesN/twv.rCCfHCS.r.HzO3PibmMgA66h3WHSGFC', 1, 0, NULL, 0, NULL, '2025-05-28 11:23:25', '2025-05-28 11:23:25'),
-(111, 'WEB-250528200127', 'vvKXeUtTU', 0, 0, NULL, NULL, 'tacevedox@gmail.com', '2597174552', 'UWsYAYED', 1, NULL, '$2y$12$6scLWr.mm3hCz3KhS8fj1ea6txavbRfmjrIYHcr.AaD6gue4oBpXC', 1, 0, NULL, 0, NULL, '2025-05-28 13:01:27', '2025-05-28 13:01:27'),
-(112, 'WEB-250529092341', 'TLosTqiLSZ', 0, 0, NULL, NULL, 'tongateszb@gmail.com', '4036997916', 'AVMuWLsVujGDgv', 1, NULL, '$2y$12$mEhHZwZGg0.3SVfRQX3uRO0Igib/G/Y2ZprILTC7MgJNNIkacB5Pa', 1, 0, NULL, 0, NULL, '2025-05-29 02:23:41', '2025-05-29 02:23:41'),
-(113, 'WEB-250530164730', 'yTLpzUJNXy', 0, 0, NULL, NULL, 'robrobbinsgb1982@gmail.com', '4509737807', 'hwmJznCpTe', 1, NULL, '$2y$12$NrVTrvFlGj3G.z19EyD9T.IRh81CR7ZWdJ8/AtW4G4oTSSlyoMK36', 1, 0, NULL, 0, NULL, '2025-05-30 09:47:31', '2025-05-30 09:47:31'),
-(114, 'WEB-250530165143', 'VuYopbVESoIBFi', 0, 0, NULL, NULL, 'kilercn48@gmail.com', '3302317508', 'rVOKzQBxjeGHXS', 1, NULL, '$2y$12$m6jwrL2TFU6Tn.3X6Ag.SOVl2kv3D/AutPI3lfafRsEZZ/i0.Ez5a', 1, 0, NULL, 0, NULL, '2025-05-30 09:51:43', '2025-05-30 09:51:43'),
-(115, 'WEB-250531060046', 'ISPjQwRUWDqeQCr', 0, 0, NULL, NULL, 'ericking277409@yahoo.com', '7940808636', 'neIZIDCvrzw', 1, NULL, '$2y$12$ouv66wvDysYX32nFgFGXCeGRDS2GzU9VQw/GHb90LzsZkmJo0AK06', 1, 0, NULL, 0, NULL, '2025-05-30 23:00:47', '2025-05-30 23:00:47'),
-(116, 'WEB-250531155519', 'QGWFptutJgZX', 0, 0, NULL, NULL, 'roseannteale@gmail.com', '6982036851', 'HJJRezsEMgxc', 1, NULL, '$2y$12$JRsU7wIiTz6lXvbFWcKAc.EgGgic7RfH76.OxoDCrA2Cp9mAz.RSm', 1, 0, NULL, 0, NULL, '2025-05-31 08:55:19', '2025-05-31 08:55:19'),
-(117, 'WEB-250601061046', 'rhozSRfvYPAoA', 0, 0, NULL, NULL, 'djastise95@gmail.com', '5744567601', 'XJbACxgKWtCGHQ', 1, NULL, '$2y$12$QC7y2HMVwgx08X6GLkb50uFF1FJSThdsqOs1nKQALTTVvIyaSgbc6', 1, 0, NULL, 0, NULL, '2025-05-31 23:10:46', '2025-05-31 23:10:46'),
-(118, 'WEB-250602171208', 'JxWSzwznXE', 0, 0, NULL, NULL, 'natansumme@gmail.com', '2608970767', 'HYEACbgsPH', 1, NULL, '$2y$12$vNFUkorNqrJTunMvJJV8T.vOX3lV5s4iB52RPloJ7dPmApOriR2ty', 1, 0, NULL, 0, NULL, '2025-06-02 10:12:09', '2025-06-02 10:12:09'),
-(119, 'WEB-250604093612', 'bqnsCAjfcQFngih', 0, 0, NULL, NULL, 'pollarddjoism1994@gmail.com', '2166403098', 'ltPaDxyZOY', 1, NULL, '$2y$12$NwOEtEEKbeSTu4ilMOnY.edkJPoIL2O3nurXDg1SMFnCGDWUNk/76', 1, 0, NULL, 0, NULL, '2025-06-04 02:36:12', '2025-06-04 02:36:12'),
-(120, 'WEB-250604215133', 'lMEimWpRvxMQm', 0, 0, NULL, NULL, 'deitonaou@gmail.com', '7060544532', 'ekzlNSgvSvKb', 1, NULL, '$2y$12$0bb3QTJs8OcQOhoNs.eBy.nnDO31/QsThElQtyd5Boy6ptMPNis/W', 1, 0, NULL, 0, NULL, '2025-06-04 14:51:33', '2025-06-04 14:51:33'),
-(121, 'WEB-250606053831', 'ahcMnEzzPUzN', 0, 0, NULL, NULL, 'hbakerd5@gmail.com', '9604589758', 'iuqNVOqL', 1, NULL, '$2y$12$kBS5uh/A2dlmItTJ9c2xm.JSsHYChOxYwIGWWGURPJAuaXrfKGeCe', 1, 0, NULL, 0, NULL, '2025-06-05 22:38:31', '2025-06-05 22:38:31'),
-(122, 'WEB-250606085354', 'rAhunzZwq', 0, 0, NULL, NULL, 'lekolttu1994@gmail.com', '4516102544', 'KJQMyuvUOEHH', 1, NULL, '$2y$12$JsiNXRyipuBfdASDtH5QA.HuLxb0O1o8JTqx7d/QQInX8TJsM/E/e', 1, 0, NULL, 0, NULL, '2025-06-06 01:53:55', '2025-06-06 01:53:55'),
-(123, 'WEB-250606092937', 'oLIPmVBVGbhhK', 0, 0, NULL, NULL, 'vfishery1994@gmail.com', '5681943954', 'SDuchNQi', 1, NULL, '$2y$12$IBq3jIFkVAJOf59.JtmrvemP3j./Vb7ZBgBUfPHCqkbMkuk6phWPy', 1, 0, NULL, 0, NULL, '2025-06-06 02:29:38', '2025-06-06 02:29:38'),
-(124, 'WEB-250606124527', 'QiAcudUJCli', 0, 0, NULL, NULL, 'hodzickevin833429@yahoo.com', '3197711080', 'nufNVdfEyqwl', 1, NULL, '$2y$12$lStXpllsj19SisoOg.GtX.Eup6DYgj.blm2SJSEYYV0a3baLDNmRW', 1, 0, NULL, 0, NULL, '2025-06-06 05:45:27', '2025-06-06 05:45:27'),
-(125, 'WEB-250606181728', 'etcOqXZzllnHmE', 0, 0, NULL, NULL, 'hloyae59@gmail.com', '6569122784', 'rgvPiEfHIubahyN', 1, NULL, '$2y$12$iUqmAmud5fzeovlk5FZs6.S//F8xw4MBiOtWlNRWjTvo6WM2FPRiu', 1, 0, NULL, 0, NULL, '2025-06-06 11:17:28', '2025-06-06 11:17:28'),
-(126, 'WEB-250606213929', 'bBOqmwnvWkqLI', 0, 0, NULL, NULL, 'odomebigeilwa5@gmail.com', '2615199521', 'qqDlFOzmVeCyzH', 1, NULL, '$2y$12$hTDcFyJQI0lgmTTrc8pKjextmcuMqmrfmoAgZGs2I6BhPULtkEg0C', 1, 0, NULL, 0, NULL, '2025-06-06 14:39:29', '2025-06-06 14:39:29'),
-(127, 'WEB-250607031152', 'bdRjRUnVeFaE', 0, 0, NULL, NULL, 'syzanrhodesfi7@gmail.com', '9323330537', 'adlvWmvGVC', 1, NULL, '$2y$12$LP8yCgxMMGuoEA8hAsqbSeGaZTP2cWL6P/kCNtAlSuYNhFosy2gtK', 1, 0, NULL, 0, NULL, '2025-06-06 20:11:52', '2025-06-06 20:11:52'),
-(128, 'WEB-250607085750', 'zkMARFgw', 0, 0, NULL, NULL, 'drakemeidleinfq@gmail.com', '4083267171', 'GAGpOgRTlOwqdJ', 1, NULL, '$2y$12$YcChPLWyKU.WGTk6T1nJh.bb2e/qlxDwjcDTYIbmtCURi7Cz74Uki', 1, 0, NULL, 0, NULL, '2025-06-07 01:57:50', '2025-06-07 01:57:50'),
-(129, 'WEB-250607093924', 'IjassaRSJh', 0, 0, NULL, NULL, 'vyattwarh95@gmail.com', '6290217898', 'MhFPluVY', 1, NULL, '$2y$12$wBRrG8h/MfR2ZkRX2gAIe.hwlsPSecfsTh1AK9ks4n5sgVao69nSm', 1, 0, NULL, 0, NULL, '2025-06-07 02:39:24', '2025-06-07 02:39:24'),
-(130, 'WEB-250607120339', 'bpvmLUIZJwFivno', 0, 0, NULL, NULL, 'melespvz1983@gmail.com', '4311310737', 'ZFWmWArLhABVZmo', 1, NULL, '$2y$12$Btq1vco4IfksDOh48qg7EurlSTW/X4QXvsH6uxB1XGKYWlzCAHBGO', 1, 0, NULL, 0, NULL, '2025-06-07 05:03:40', '2025-06-07 05:03:40'),
-(131, 'WEB-250607175533', 'fCvhLGfjS', 0, 0, NULL, NULL, 'robinapacel@gmail.com', '7744003755', 'ToIHoXXdDVqFQNS', 1, NULL, '$2y$12$e..8yR5Dak0EaBBN69Vve.TAK2kPZn7myfwJCAUSpjHNAAnwEHWZe', 1, 0, NULL, 0, NULL, '2025-06-07 10:55:34', '2025-06-07 10:55:34'),
-(132, 'WEB-250608012426', 'gztqlpmOlTcuCem', 0, 0, NULL, NULL, 'imoginbrown99@gmail.com', '4300431482', 'snGBXUvZYr', 1, NULL, '$2y$12$XZkySycB43CvGc3LUMGCLOmS3Y.Wzgo201OMsn6C18BoPdHpMpzXS', 1, 0, NULL, 0, NULL, '2025-06-07 18:24:27', '2025-06-07 18:24:27'),
-(133, 'WEB-250608015425', 'nKyvqHaFOS', 0, 0, NULL, NULL, 'dotayamq2@gmail.com', '2967922355', 'LEALuBwOkwXz', 1, NULL, '$2y$12$DuNygwRl4k2jXnqu6saQR.WeUe3GBTfF2hPhBp59oqe3bB.QdrlOG', 1, 0, NULL, 0, NULL, '2025-06-07 18:54:25', '2025-06-07 18:54:25'),
-(134, 'WEB-250608015712', 'EPqtqbkm', 0, 0, NULL, NULL, 'evandjelaincdr3@gmail.com', '9874859970', 'bDZqteSuW', 1, NULL, '$2y$12$v6EEM/68GYeBYQ2keRULUOYIzUd5itjkySPnK5PkkvZ4zjzQZVktO', 1, 0, NULL, 0, NULL, '2025-06-07 18:57:13', '2025-06-07 18:57:13'),
-(135, 'WEB-250608134313', 'uRYheFiebCqJP', 0, 0, NULL, NULL, 'monroetrentgb1998@gmail.com', '9121275153', 'CoYzWPdrVhro', 1, NULL, '$2y$12$mZtKzhbKAWqjpmnWqrdhn.LpXyimhKps.qO9zXl.4bKyX4vOlN3gq', 1, 0, NULL, 0, NULL, '2025-06-08 06:43:13', '2025-06-08 06:43:13'),
-(136, 'WEB-250608164356', 'SCCBLlgC', 0, 0, NULL, NULL, 'erikacole641775@yahoo.com', '4788976999', 'AyCfpFRHTgkC', 1, NULL, '$2y$12$DdQ59qVoJVt./xM6V6SEVOqye0rav.yvR45cBJ5XMjtrHORJcw/TW', 1, 0, NULL, 0, NULL, '2025-06-08 09:43:57', '2025-06-08 09:43:57'),
-(137, 'WEB-250608192200', 'FFlltUsdFNJnCcN', 0, 0, NULL, NULL, 'penalaioneld36@gmail.com', '6069148390', 'zabJgHSOrMaX', 1, NULL, '$2y$12$wepQheh3swNgSNbGK1e8NeIiHOsRzW4/gpij2g3FK8FgcM4YhXY0C', 1, 0, NULL, 0, NULL, '2025-06-08 12:22:00', '2025-06-08 12:22:00'),
-(138, 'WEB-250608230126', 'FCxbTKPDjAr', 0, 0, NULL, NULL, 'sextonflinnhq@gmail.com', '2896096596', 'ZIVWdFSdGvcyDD', 1, NULL, '$2y$12$0Eo4QfLGkkLNL4/TeocEteY2HA7XMslEoYjzQETz1p.45tMYxYYJq', 1, 0, NULL, 0, NULL, '2025-06-08 16:01:27', '2025-06-08 16:01:27'),
-(139, 'WEB-250609035315', 'EEQDzVcHyHfLc', 0, 0, NULL, NULL, 'gvaierdkz2002@gmail.com', '3451171941', 'KzRkoQxaaOQLPhv', 1, NULL, '$2y$12$AncCcjbbjetFbj0dp9H49uMDG2G5IVgrpwgTh0w9E7bTSuKB4Hw1m', 1, 0, NULL, 0, NULL, '2025-06-08 20:53:15', '2025-06-08 20:53:15'),
-(140, 'WEB-250609164408', 'vayCMCTURkyQg', 0, 0, NULL, NULL, 'chrisrogers166713@yahoo.com', '6002673685', 'fIrqDyARUGCdDt', 1, NULL, '$2y$12$is9jiLJimGIbfhYM4OBFjuvQSvS1t1JAWPt6RLFZ8xjIFbT24qmIq', 1, 0, NULL, 0, NULL, '2025-06-09 09:44:08', '2025-06-09 09:44:08'),
-(141, 'WEB-250609192033', 'NHiLjnKMeqj', 0, 0, NULL, NULL, 'ashledeivirk1989@gmail.com', '8873504449', 'XidWZBCABAdZRSX', 1, NULL, '$2y$12$TqsRHExUvXlRsgS9ydwFreMbFjXe8lEignzfisJ1.k6H/B5.IK4Yu', 1, 0, NULL, 0, NULL, '2025-06-09 12:20:33', '2025-06-09 12:20:33'),
-(142, 'WEB-250610025505', 'icRGptNxiKQ', 0, 0, NULL, NULL, 'tannerdevereyks4@gmail.com', '9404683046', 'pYGGanRZPcg', 1, NULL, '$2y$12$psFqStVds0hBcQ1z9D01AuJAXgw7lpNmB342SnJkK6QhXuRC2PROO', 1, 0, NULL, 0, NULL, '2025-06-09 19:55:05', '2025-06-09 19:55:05'),
-(143, 'WEB-250610154329', 'gJcmOtdW', 0, 0, NULL, NULL, 'laurajones555073@yahoo.com', '8092604837', 'AaMpHddZ', 1, NULL, '$2y$12$gm/Io2KyBZ0kvslDtZ7cGulBlr72RxWXikFfmypJKLeeuBco7DEEi', 1, 0, NULL, 0, NULL, '2025-06-10 08:43:29', '2025-06-10 08:43:29'),
-(144, 'WEB-250610225107', 'EGjlwdcnHCKwNt', 0, 0, NULL, NULL, 'santanaklint4@gmail.com', '4137921034', 'cbpZgHNPoovR', 1, NULL, '$2y$12$yhpIv.0brC2VC86m4BDpB.WsG3/46bYDDQssYhR0uzEB2HhSH2bfG', 1, 0, NULL, 0, NULL, '2025-06-10 15:51:08', '2025-06-10 15:51:08'),
-(145, 'WEB-250612041408', 'iNnETcrr', 0, 0, NULL, NULL, 'tempestlct8@gmail.com', '4524433170', 'tEdNbiIBArQhsPz', 1, NULL, '$2y$12$dQDFpnCYek6p2Qi49cBfv.prsz5gV10xt4Bj.QIXpy62qzWZJs/h.', 1, 0, NULL, 0, NULL, '2025-06-11 21:14:08', '2025-06-11 21:14:08'),
-(146, 'WEB-250612195800', 'ZUNZBKPhlhzEZqb', 0, 0, NULL, NULL, 'krisschw33@gmail.com', '9340116066', 'eYNKGTbMS', 1, NULL, '$2y$12$d.yFsL6XT0BHv0YVyvxk0ejubZMcyPCDJg5.Ue4qA3rN2KjdRMSjK', 1, 0, NULL, 0, NULL, '2025-06-12 12:58:01', '2025-06-12 12:58:01'),
-(147, 'WEB-250612213232', 'KmcXUVUHRitqs', 0, 0, NULL, NULL, 'ndeniel27@gmail.com', '8786863721', 'tClVWbiqs', 1, NULL, '$2y$12$HTftc2LxF6eCKJhhC9VSjeX0NGnHVi1WFq3/yiZp/Wxw1EiTpvbga', 1, 0, NULL, 0, NULL, '2025-06-12 14:32:32', '2025-06-12 14:32:32'),
-(148, 'WEB-250613044200', 'FQxCskwvBo', 0, 0, NULL, NULL, 'fterransi30@gmail.com', '6289859673', 'irdeqeIB', 1, NULL, '$2y$12$DO6Xxu2vIABdomHU85VY9O15L7eqGRegxSkZ7Lm.QWLbaDFl0MMOO', 1, 0, NULL, 0, NULL, '2025-06-12 21:42:00', '2025-06-12 21:42:00'),
-(149, 'WEB-250613104324', 'qbjBjXqj', 0, 0, NULL, NULL, 'osbornklintonzn@gmail.com', '7010233449', 'BmrtxQMM', 1, NULL, '$2y$12$3nvdclMH4rt7qcXLR9PbEeNg8OsxH14fCbYxpGkQiEFgkddxXHlGu', 1, 0, NULL, 0, NULL, '2025-06-13 03:43:24', '2025-06-13 03:43:24'),
-(150, 'WEB-250614121715', 'SgtetcZgmqRU', 0, 0, NULL, NULL, 'hogandeai35@gmail.com', '2918985288', 'twhBflhTh', 1, NULL, '$2y$12$6kfy39H76o/xhHIknM1Kv.kqL/mrTZrSKPosOKsJk11cNDKo64HCG', 1, 0, NULL, 0, NULL, '2025-06-14 05:17:15', '2025-06-14 05:17:15'),
-(151, 'WEB-250614235112', 'TvsEtYDbBSFNg', 0, 0, NULL, NULL, 'melbgloverh@gmail.com', '2899049714', 'dIpegWSPznwl', 1, NULL, '$2y$12$VwdV6sjw.YEHB4hHEG7LTe.lsiFK6T7SiSszqdHChQGW5XEidih5O', 1, 0, NULL, 0, NULL, '2025-06-14 16:51:12', '2025-06-14 16:51:12'),
-(152, 'WEB-250615154650', 'DBUerPamDLII', 0, 0, NULL, NULL, 'gantvanrl1990@gmail.com', '5657481737', 'dcPgSSKwJhG', 1, NULL, '$2y$12$fJBL5r4cPMgr1SONf2fpzu/Z.eST.YgNrG8UZvPBizZf9ZWvGDYwK', 1, 0, NULL, 0, NULL, '2025-06-15 08:46:50', '2025-06-15 08:46:50'),
-(153, 'WEB-250615212117', 'FVrIAyChGyuAV', 0, 0, NULL, NULL, 'shamysdickerson23@gmail.com', '2948404656', 'xajSXgUQmWBSVZ', 1, NULL, '$2y$12$4D33sC8GO8i8ik3DS3RY8ecw4VIa8he/55qT9IdxfbIAlemZxgYCG', 1, 0, NULL, 0, NULL, '2025-06-15 14:21:18', '2025-06-15 14:21:18'),
-(154, 'WEB-250616130650', 'DeVQGdvw', 0, 0, NULL, NULL, 'mannicherrih@gmail.com', '3946374960', 'vpchhWlpEoPjvr', 1, NULL, '$2y$12$ws3qTgXT.lONHE0gM47HvOsHQAw07UYMficvUD4z/lhFS/loLuHzK', 1, 0, NULL, 0, NULL, '2025-06-16 06:06:51', '2025-06-16 06:06:51'),
-(155, 'WEB-250616132115', 'nFcVFjGMAdPXu', 0, 0, NULL, NULL, 'kaneendib@gmail.com', '7294003459', 'TYwHigKAHauWBmc', 1, NULL, '$2y$12$DacS7WU3f8BObOwB20jZ1OjQpCbP9aMMbtud4/smyPoygU/4sjtKW', 1, 0, NULL, 0, NULL, '2025-06-16 06:21:15', '2025-06-16 06:21:15'),
-(156, 'WEB-250617035951', 'UEQpRhHufmd', 0, 0, NULL, NULL, 'adelislove42@gmail.com', '3388827167', 'QSkGoqVCvlhO', 1, NULL, '$2y$12$1XOkuvnHDAHAn8m47ycGCOJ75Jjnt9DXSF5417SIr0mTRKTT.VHhG', 1, 0, NULL, 0, NULL, '2025-06-16 20:59:52', '2025-06-16 20:59:52'),
-(157, 'WEB-250617070138', 'lbMLdwNVG', 0, 0, NULL, NULL, 'fordkingj80@gmail.com', '8656025496', 'OxTsUBfmi', 1, NULL, '$2y$12$hTjPZeXgPj/oEk0hIpnD2O239cI9gaBW2KHj0IIVAcg/6srWy4KcK', 1, 0, NULL, 0, NULL, '2025-06-17 00:01:39', '2025-06-17 00:01:39'),
-(158, 'WEB-250617213401', 'XodIFWFqWcQHIfl', 0, 0, NULL, NULL, 'mfabianft47@gmail.com', '9210310273', 'yKFCqLwLuB', 1, NULL, '$2y$12$YtsskFjGO795522hQ3FQ2eqU.2kub8IQg91NcR4f3uuIQ9T3JulLi', 1, 0, NULL, 0, NULL, '2025-06-17 14:34:02', '2025-06-17 14:34:02'),
-(159, 'WEB-250618071807', 'LfADjhjZMq', 0, 0, NULL, NULL, 'lawsofil63@gmail.com', '9605447534', 'UulotfHS', 1, NULL, '$2y$12$65Ukk7mbKE3Zzjy5.vmAqeGxn.u89qctq.Bcri1LnhrXOnJs42DWO', 1, 0, NULL, 0, NULL, '2025-06-18 00:18:07', '2025-06-18 00:18:07'),
-(160, 'WEB-250618091245', 'VRAMaWiaTb', 0, 0, NULL, NULL, 'deifordn9@gmail.com', '9669719639', 'mXFXcttFujZXdH', 1, NULL, '$2y$12$ROsdwdp05zwN9uEFkcIE0OGbfGuyh9ktsDjU0cfOp.DkJNGfZ3AMe', 1, 0, NULL, 0, NULL, '2025-06-18 02:12:45', '2025-06-18 02:12:45'),
-(161, 'WEB-250618142733', 'lRyCHUYNXIEs', 0, 0, NULL, NULL, 'djyliannsampson5@gmail.com', '7646748908', 'brTbCeLqYWRNHn', 1, NULL, '$2y$12$he7m0NxiVdJnDpjmJPFIgedVE4haOU4FU06d6cRT398CH3O636MOe', 1, 0, NULL, 0, NULL, '2025-06-18 07:27:33', '2025-06-18 07:27:33'),
-(162, 'WEB-250619222012', 'RHKmCVzTU', 0, 0, NULL, NULL, 'chaseervani@gmail.com', '8849091941', 'zEDAuUTMRFLfvzj', 1, NULL, '$2y$12$kF70oIa4PODSv8fHN2Cerurr4JoWn502Jf9AxMPZnU7fTSqWlcybu', 1, 0, NULL, 0, NULL, '2025-06-19 15:20:12', '2025-06-19 15:20:12'),
-(163, 'WEB-250620003624', 'bpdFJloevL', 0, 0, NULL, NULL, 'aburkerh89@gmail.com', '8080255764', 'yToFaAfPxiwMtvi', 1, NULL, '$2y$12$E0Bsst/x0wYANLYfmnUHmu/mBgvDmikU1Rtyj3Kp4/3Vd8B3k4r5.', 1, 0, NULL, 0, NULL, '2025-06-19 17:36:24', '2025-06-19 17:36:24'),
-(164, 'WEB-250620010549', 'lUXYRzViZQg', 0, 0, NULL, NULL, 'elizafpp45@gmail.com', '9432193227', 'dZBwfxJuNSO', 1, NULL, '$2y$12$KRZ10vJcpVA/pj.kS6yQlO338TaocBZG/GliOnKTjljRnEOHRvh0m', 1, 0, NULL, 0, NULL, '2025-06-19 18:05:49', '2025-06-19 18:05:49'),
-(165, 'WEB-250620213836', 'SsBLiPbeKLsCY', 0, 0, NULL, NULL, 'kyinbn1984@gmail.com', '4029702593', 'xfuSRZcPWmOY', 1, NULL, '$2y$12$KonanSBHUGUuhhLmrDzrJuxDIysQ/EDY6bFUpWmwDXwliWUqk7t06', 1, 0, NULL, 0, NULL, '2025-06-20 14:38:36', '2025-06-20 14:38:36'),
-(166, 'WEB-250620232231', 'eWvcTokkFODwIA', 0, 0, NULL, NULL, 'sochybenscent1976@yahoo.com', '4620003809', 'tKPQyjYVrEDzj', 1, NULL, '$2y$12$ALl4YuATtcrSPuLtQE6Y3eAW/tgMa2eXqVk1sIJEW2Mdcv4PzX41u', 1, 0, NULL, 0, NULL, '2025-06-20 16:22:31', '2025-06-20 16:22:31'),
-(167, 'WEB-250621091934', 'HmCqWPuvyZTUNn', 0, 0, NULL, NULL, 'bsondrag34@gmail.com', '2155280961', 'UQTIYLiJXdBL', 1, NULL, '$2y$12$FBtapNZGknOUm7QDX6weF.OyQL2Rm2IDS3Fl3V3Xdw7Gdq4uGnr4S', 1, 0, NULL, 0, NULL, '2025-06-21 02:19:35', '2025-06-21 02:19:35'),
-(168, 'WEB-250621162311', 'AKGlSnotfjFWYLF', 0, 0, NULL, NULL, 'larsonbrandayasj49@gmail.com', '3945121031', 'ufudAVTVnSqXIQZ', 1, NULL, '$2y$12$xqLhYkfRuAAWbd.W9T03X.zQWw2yQr5LbJisG/kjSd2rllPiNSQqi', 1, 0, NULL, 0, NULL, '2025-06-21 09:23:12', '2025-06-21 09:23:12'),
-(169, 'WEB-250621171831', 'lqcVSUQNXU', 0, 0, NULL, NULL, 'mikparbi@gmail.com', '4715827709', 'SItBNXsTTNavMkw', 1, NULL, '$2y$12$rFjqYIg6AmGf9BtztaG5vehtulRd/v7zzW10.F/rAwxk7ui5gQmjq', 1, 0, NULL, 0, NULL, '2025-06-21 10:18:31', '2025-06-21 10:18:31'),
-(170, 'WEB-250622201803', 'NTVKXnKARQFuyqd', 0, 0, NULL, NULL, 'estemw1@gmail.com', '8130641378', 'TPmJNvFWjJp', 1, NULL, '$2y$12$VVfUH0LB8YeX08VhAd2HrOgacinqH01f/SLwffV7qltyDTRjd1tpC', 1, 0, NULL, 0, NULL, '2025-06-22 13:18:03', '2025-06-22 13:18:03'),
-(171, 'WEB-250623011652', 'DkbZmvSFl', 0, 0, NULL, NULL, 'aziyaschmitth1984@gmail.com', '3218029794', 'KxMUTEwshpxvJhI', 1, NULL, '$2y$12$NwVK2d06ucxD66NWa1E.2Oh6YWa9uYZiCC7GoB93VTxrsVXI2AKfy', 1, 0, NULL, 0, NULL, '2025-06-22 18:16:53', '2025-06-22 18:16:53'),
-(172, 'WEB-250623044657', 'FRWWoMTDVLROp', 0, 0, NULL, NULL, 'bazillmw@gmail.com', '3758005518', 'QrhxuhvqbZmZ', 1, NULL, '$2y$12$A92I5KtbznokNfmyBHzLfeSq.P.gGIHSxmjwQ89iYt1hGnZoVj3Pe', 1, 0, NULL, 0, NULL, '2025-06-22 21:46:57', '2025-06-22 21:46:57'),
-(173, 'WEB-250623111059', 'nmDigFlut', 0, 0, NULL, NULL, 'spearsdikkioe13@gmail.com', '6483253529', 'hdbYMftPTDNX', 1, NULL, '$2y$12$nBGtLW4Wbb/MyIULCBzjIu5kuHA6kapQi5CBwdWMZt5/Pdbci/.Pu', 1, 0, NULL, 0, NULL, '2025-06-23 04:11:00', '2025-06-23 04:11:00'),
-(174, 'WEB-250623210639', 'lnAZjCuJ', 0, 0, NULL, NULL, 'wubaikk7@gmail.com', '2664692212', 'UJvtmtqgzMOADv', 1, NULL, '$2y$12$m4AWsNkASVZ4Ctg5VZNvnuE6/dDMlR0CT5fi0NQjh7ObZZT3ANv2.', 1, 0, NULL, 0, NULL, '2025-06-23 14:06:40', '2025-06-23 14:06:40'),
-(175, 'WEB-250623212434', 'RXqAFkBgwI', 0, 0, NULL, NULL, 'kilklinegu@gmail.com', '5368378701', 'VDmJXttMzqrqDf', 1, NULL, '$2y$12$rwF4HQVS5WL2UH9nllo7BuAVRbS.Bomxxp3Pb9jllnVYLnWSu5UFu', 1, 0, NULL, 0, NULL, '2025-06-23 14:24:34', '2025-06-23 14:24:34'),
-(176, 'WEB-250625141240', 'LtnrXYiJBasl', 0, 0, NULL, NULL, 'lorrinmullina48@gmail.com', '8713961681', 'ElufqpngEbM', 1, NULL, '$2y$12$KVYU3dDNn0JrqaG62gJevOVHAnjoORsWNBYOdPKsSSJ5/Rav6ceFW', 1, 0, NULL, 0, NULL, '2025-06-25 07:12:41', '2025-06-25 07:12:41'),
-(177, 'WEB-250626073410', 'utHESMlareLR', 0, 0, NULL, NULL, 'ganglonteavi1978@yahoo.com', '9509864642', 'VfxTuQowANxlqA', 1, NULL, '$2y$12$eoCNK.z9peAfq4wI/ykkMu4BjatcU8/Re6ZwEK8PRatF52HmAc2xq', 1, 0, NULL, 0, NULL, '2025-06-26 00:34:10', '2025-06-26 00:34:10'),
-(178, 'WEB-250626134440', 'DfFsQlSPtVxbFx', 0, 0, NULL, NULL, 'ahobbsu22@gmail.com', '3066405451', 'QLhAawTExHAZ', 1, NULL, '$2y$12$yh4eGwE0x5Dhg9U.DIzBKuomQwA4NOejrQ/5Ve9KBSsAbdmSE0vxO', 1, 0, NULL, 0, NULL, '2025-06-26 06:44:40', '2025-06-26 06:44:40'),
-(179, 'WEB-250627143353', 'aVXSOAlR', 0, 0, NULL, NULL, 'shakyilanwa@gmail.com', '5343836669', 'tCfVCJGC', 1, NULL, '$2y$12$QM/FrI.pCW.ISMzlHB36pO1ynToUZWD78EKweu0.rPqhXLxzmo3yi', 1, 0, NULL, 0, NULL, '2025-06-27 07:33:53', '2025-06-27 07:33:53'),
-(180, 'WEB-250627214258', 'hmMGYyIzJCxXH', 0, 0, NULL, NULL, 'mehumuri944@gmail.com', '9952317698', 'jkHieZMAaK', 1, NULL, '$2y$12$rQ/M19Ug8Kk3zTdG1ccutuHqhZ10qscADwPxndJ3/tobjMV5gXS32', 1, 0, NULL, 0, NULL, '2025-06-27 14:42:59', '2025-06-27 14:42:59'),
-(181, 'WEB-250628043527', 'OzDqYWGpKOsX', 0, 0, NULL, NULL, 'yidaracexemo49@gmail.com', '3168816407', 'cAChvjtiSoifXk', 1, NULL, '$2y$12$fZDIWMiGneP0S5hJhDKCJOLkjFeTEXLPHIyigJDWi8W.Kc6vlw/g6', 1, 0, NULL, 0, NULL, '2025-06-27 21:35:27', '2025-06-27 21:35:27'),
-(182, 'WEB-250628110907', 'njpluGtDZSLQ', 0, 0, NULL, NULL, 'etabafuqaki31@gmail.com', '4984603647', 'zpKtCZvxSNoz', 1, NULL, '$2y$12$/WgVDzMwX.NZeINRu5IjP.EPTnrNW6hKHFNLOHIB4oExnMqy28Azi', 1, 0, NULL, 0, NULL, '2025-06-28 04:09:07', '2025-06-28 04:09:07'),
-(183, 'WEB-250628120518', 'RbjXQmYTFcSgax', 0, 0, NULL, NULL, 'sogewegitej631@gmail.com', '7372949177', 'ZVksZsIRtndkfIL', 1, NULL, '$2y$12$FNIXXtotxamZwup7X2G3N.9d7bBwKI0l5E06wQuDcmZ9B74HiIUAG', 1, 0, NULL, 0, NULL, '2025-06-28 05:05:18', '2025-06-28 05:05:18'),
-(184, 'WEB-250628211024', 'XoimhvyEDcYMQ', 0, 0, NULL, NULL, 'akuruhequva05@gmail.com', '9512153231', 'zuYopqDHofodW', 1, NULL, '$2y$12$WdBd8eoAYeVdWb8fK5iEOeKNR4tyTrerXnN1xUDlygDAHnBDJex5K', 1, 0, NULL, 0, NULL, '2025-06-28 14:10:24', '2025-06-28 14:10:24'),
-(185, 'WEB-250629224345', 'qQDNIESNlPLrgUy', 0, 0, NULL, NULL, 'levymellonixs7@gmail.com', '5593630128', 'XiwrEpsR', 1, NULL, '$2y$12$WtqxqJLsImXICwpsql5FM.YboCZbBUCQZicPxux0lPvw30x/Yaxku', 1, 0, NULL, 0, NULL, '2025-06-29 15:43:46', '2025-06-29 15:43:46'),
-(186, 'WEB-250629233428', 'VGHLpqZlUMMY', 0, 0, NULL, NULL, 'emildredcd8@gmail.com', '7386284617', 'oEXTMWWmO', 1, NULL, '$2y$12$6fji6glGB.WrD8qNS9lwAOBmVsD8KXSceQTAqAtQJHUODB00874B2', 1, 0, NULL, 0, NULL, '2025-06-29 16:34:28', '2025-06-29 16:34:28'),
-(187, 'WEB-250630094938', 'FsLSobyCRwE', 0, 0, NULL, NULL, 'stewartdencf34@gmail.com', '6399093270', 'OSXEEGhkqzRXExr', 1, NULL, '$2y$12$Ww.1r0v07LS/RBziTwg0YOtm1mNPlykOwxowM2H6wEiy7xCbM1Tzu', 1, 0, NULL, 0, NULL, '2025-06-30 02:49:38', '2025-06-30 02:49:38'),
-(188, 'WEB-250701021833', 'GjRhcOgVNT', 0, 0, NULL, NULL, 'abottpor2@gmail.com', '2316665111', 'jvPDDOXOShX', 1, NULL, '$2y$12$TV4MV0paJob6NlrdssdnZOe/aj/mKSqbY2zr2rD7JDogOKnPGt9Se', 1, 0, NULL, 0, NULL, '2025-06-30 19:18:34', '2025-06-30 19:18:34'),
-(189, 'WEB-250701192322', 'GfmZoBdUI', 0, 0, NULL, NULL, 'rhondareyes777949@yahoo.com', '2103021553', 'vwLrOEBGGKMUVlR', 1, NULL, '$2y$12$HE1x.u.htDsg9MCzvbL8oOduirpUEbW6SNca7TijNJn/IP3kZ6s/e', 1, 0, NULL, 0, NULL, '2025-07-01 12:23:22', '2025-07-01 12:23:22'),
-(190, 'WEB-250702160824', 'pzxEzqGTvg', 0, 0, NULL, NULL, 'djeidabuckqa@gmail.com', '6061614412', 'dOakOcILnRUzxiV', 1, NULL, '$2y$12$0vc4tTViqg19nGuB72Q42eSf89/60jhLCVlr1UbOUnoeYZZmWWl5K', 1, 0, NULL, 0, NULL, '2025-07-02 09:08:25', '2025-07-02 09:08:25'),
-(191, 'WEB-250702180350', 'yKGCPOQSrivi', 0, 0, NULL, NULL, 'craneabott77@gmail.com', '5478689893', 'JLwHyoNpjY', 1, NULL, '$2y$12$E5lunA292WV/w/y/3GY9..fVaWqllsF078EwLO6SiMnH8rGwC7EJO', 1, 0, NULL, 0, NULL, '2025-07-02 11:03:51', '2025-07-02 11:03:51'),
-(192, 'WEB-250702232511', 'qUDRnEXiLrLMn', 0, 0, NULL, NULL, 'skinnersedrikwx12@gmail.com', '3519697559', 'EBdjvqTvsY', 1, NULL, '$2y$12$T1RX9moJpu8JtO4BRpF9zeiaw0RgYSlyzzD50MjOyeP/1I8SoMBxS', 1, 0, NULL, 0, NULL, '2025-07-02 16:25:12', '2025-07-02 16:25:12'),
-(193, 'WEB-250703051843', 'jctZLRapmYqpg', 0, 0, NULL, NULL, 'fergusonannie754173@yahoo.com', '9382283190', 'BVwpDXELkTvo', 1, NULL, '$2y$12$IHabIt2.TwqbrkWwasRjsune6WjwEh8aSisttSrC4CNiIvwgP4wO6', 1, 0, NULL, 0, NULL, '2025-07-02 22:18:43', '2025-07-02 22:18:43'),
-(194, 'WEB-250703080623', 'FUlJaeSCXSLm', 0, 0, NULL, NULL, 'gibbonsdavione946729@yahoo.com', '8590174802', 'veIeCfSNBb', 1, NULL, '$2y$12$3LcMPJ2ysz6oqGkFae0Uku9vJbf9vx6Xwn7f6Hv.KorMIPrVzNth.', 1, 0, NULL, 0, NULL, '2025-07-03 01:06:23', '2025-07-03 01:06:23'),
-(195, 'WEB-250703115438', 'KkHIEeuwYemC', 0, 0, NULL, NULL, 'gordonmeior34@gmail.com', '7237801721', 'HJFOTTxazJB', 1, NULL, '$2y$12$DbBD3kCabfScemBT5V5fLuSApOAuLGvj.d9AYnROy6pjV.xSoSj36', 1, 0, NULL, 0, NULL, '2025-07-03 04:54:38', '2025-07-03 04:54:38');
-INSERT INTO `agents` (`id`, `code`, `name`, `level_id`, `commission`, `image`, `email_verified_at`, `email`, `phone`, `address`, `province_id`, `notes`, `password`, `isactive`, `isstaff`, `remember_token`, `parent_id`, `last_login`, `created_at`, `updated_at`) VALUES
-(196, 'WEB-250703150744', 'njsLTsUuPq', 0, 0, NULL, NULL, 'horatiyamcgeei65@gmail.com', '4277752601', 'ZDITJHFEUMo', 1, NULL, '$2y$12$2QrR4mdmYwTj/KG3XQSaZuxjdvf6.3zDw./tkuOEuG73o4PhXPgaG', 1, 0, NULL, 0, NULL, '2025-07-03 08:07:45', '2025-07-03 08:07:45'),
-(197, 'WEB-250703175347', 'DHcISpixY', 0, 0, NULL, NULL, 'ywileyp19@gmail.com', '5607749442', 'hkGUQPIRWgJZEDl', 1, NULL, '$2y$12$5wzFDrOjqPDecexxk0TChOCdzx0Dom3k2A93ZMb3CvHUNzFFWMv3S', 1, 0, NULL, 0, NULL, '2025-07-03 10:53:48', '2025-07-03 10:53:48'),
-(198, 'WEB-250704002042', 'KSGjHAZPPfmVj', 0, 0, NULL, NULL, 'roddicn9@gmail.com', '4054715316', 'MQEVEUVgxr', 1, NULL, '$2y$12$/99zTOZmfKtcDlIBAqOSj.a6aHYuSTbKyuZTyaDiOZYP75NCE7mAy', 1, 0, NULL, 0, NULL, '2025-07-03 17:20:43', '2025-07-03 17:20:43'),
-(199, 'WEB-250704102138', 'VnCiANvhotRY', 0, 0, NULL, NULL, 'malloychuck985547@yahoo.com', '3256345513', 'KgPIrBinHUbbEi', 1, NULL, '$2y$12$6shSPkrql3sDdQ9iMMin9OSwDqEEoIQM07zkg/MGHBX51CgLspokC', 1, 0, NULL, 0, NULL, '2025-07-04 03:21:39', '2025-07-04 03:21:39'),
-(200, 'WEB-250705011023', 'GzBChqlyEfHjlW', 0, 0, NULL, NULL, 'ecimahelivas50@gmail.com', '6336161366', 'cGzxMUIylcIhlr', 1, NULL, '$2y$12$LXupEAi2QyMIA.Cha6d.Y.OJEML1r2Q6ikzsWDnCfThdUHzRQ/RKO', 1, 0, NULL, 0, NULL, '2025-07-04 18:10:24', '2025-07-04 18:10:24'),
-(201, 'WEB-250705145013', 'nZpevBdnGUm', 0, 0, NULL, NULL, 'rifajus474@gmail.com', '4771159796', 'kKTmekCBKkQrO', 1, NULL, '$2y$12$b.2UFPWd/f8Y98LUpWcUk.X/EQOnlkRQjdXwZo40pkyf4P.cKtq7m', 1, 0, NULL, 0, NULL, '2025-07-05 07:50:13', '2025-07-05 07:50:13'),
-(202, 'WEB-250706032255', 'cwOmmNBzkS', 0, 0, NULL, NULL, 'weaverreksanaq38@gmail.com', '4129307474', 'JqgViGCrUETW', 1, NULL, '$2y$12$ZLKGZTSOLgmhv5FrnGDPdeiEeYArKEW8esSb5ZAqOPat/FkKftaPK', 1, 0, NULL, 0, NULL, '2025-07-05 20:22:56', '2025-07-05 20:22:56'),
-(203, 'WEB-250706082754', 'TpKdMjzdHHC', 0, 0, NULL, NULL, 'kingvestlr11@gmail.com', '7507165578', 'plEsZVTfyEZ', 1, NULL, '$2y$12$NcNBQNCsBfDgeSrnjt1pNu8HGeJ2BC7wyciGsg3LViUal0YiQFn2y', 1, 0, NULL, 0, NULL, '2025-07-06 01:27:55', '2025-07-06 01:27:55'),
-(204, 'WEB-250706102543', 'QTLfiNZjOfu', 0, 0, NULL, NULL, 'oqixokajek28@gmail.com', '6479350947', 'zBAOQGuIB', 1, NULL, '$2y$12$C5lMLZDijWusP73b.t5z5OCaJ6es1f.W5bFaCsPF/RpHgvIssPKta', 1, 0, NULL, 0, NULL, '2025-07-06 03:25:44', '2025-07-06 03:25:44'),
-(205, 'WEB-250706104620', 'kVdQQhLk', 0, 0, NULL, NULL, 'peqobaruvak66@gmail.com', '2066729807', 'MyemkjVWf', 1, NULL, '$2y$12$JbSOCh0EJvJh6mpErJiCmu3d4hW9fZjItniGl6syAlevguiaMoIwi', 1, 0, NULL, 0, NULL, '2025-07-06 03:46:20', '2025-07-06 03:46:20'),
-(206, 'WEB-250706112416', 'llrzkHKvQeRAMG', 0, 0, NULL, NULL, 'xatohumo79@gmail.com', '5050711139', 'lZUzhULq', 1, NULL, '$2y$12$ietjjfUfhYXK1fl/HK0k8e6FKdKyIBmF2U0fKJRauqxFL7keNIPaa', 1, 0, NULL, 0, NULL, '2025-07-06 04:24:16', '2025-07-06 04:24:16'),
-(207, 'WEB-250706142911', 'nJuEBAtPfNcoF', 0, 0, NULL, NULL, 'ozufepateza486@gmail.com', '5371850641', 'IXfSdzwN', 1, NULL, '$2y$12$DvJMkqdE6c4PjIS4nHK1teEwbHRP2cgp2MJ1I44fbuzwI0k5Bzzea', 1, 0, NULL, 0, NULL, '2025-07-06 07:29:11', '2025-07-06 07:29:11'),
-(208, 'WEB-250707104517', 'kzWIeWQuzDXx', 0, 0, NULL, NULL, 'olliduartef41@gmail.com', '5690229752', 'MvbHCZWc', 1, NULL, '$2y$12$I4jEGn9drBSmEZvsQ2KYZ.UI99l6hntJwMOKMGjkE9TVT2CEjCT36', 1, 0, NULL, 0, NULL, '2025-07-07 03:45:17', '2025-07-07 03:45:17'),
-(209, 'WEB-250707165038', 'KlRZpwNNnELYaV', 0, 0, NULL, NULL, 'issachris272189@yahoo.com', '2553975293', 'LWiKJUGdRpL', 1, NULL, '$2y$12$FM7x1Ajo56l/Md8G8hFctunC/RqVdNSSHq5CwF0mpyjV15BIbsOtK', 1, 0, NULL, 0, NULL, '2025-07-07 09:50:39', '2025-07-07 09:50:39'),
-(210, 'WEB-250708015358', 'ndwdiuHxFAuDO', 0, 0, NULL, NULL, 'racchenm@gmail.com', '9347810560', 'GTIBlDRHAuHh', 1, NULL, '$2y$12$PpXTL9P7x05vDe37WbqVPef/dDWj.npoenOHUr82O3Pfl8ORcWMvq', 1, 0, NULL, 0, NULL, '2025-07-07 18:53:59', '2025-07-07 18:53:59'),
-(211, 'WEB-250710083535', 'BMjGWOmni', 0, 0, NULL, NULL, 'curulinos38@gmail.com', '5046184710', 'OtHdZLhBPgzMW', 1, NULL, '$2y$12$jwSQYH3RLBfUP/2q1MJJseRnRvQgz6VhwW52x803AVu5PDqXOeltC', 1, 0, NULL, 0, NULL, '2025-07-10 01:35:36', '2025-07-10 01:35:36'),
-(212, 'WEB-250710163109', 'wHiSfmnkwOEJs', 0, 0, NULL, NULL, 'hveronikagh5@gmail.com', '8224150027', 'dZQEjpqIRJhso', 1, NULL, '$2y$12$wPwdE2Mv9WAYhK9/KbQNd.DQclva2H6QB/lXNiEE2ZoYhF0UcjdpS', 1, 0, NULL, 0, NULL, '2025-07-10 09:31:09', '2025-07-10 09:31:09'),
-(213, 'WEB-250711023956', 'gbmuMJnL', 0, 0, NULL, NULL, 'klemmimru97@gmail.com', '6241589186', 'eEGRjWxvu', 1, NULL, '$2y$12$2WLvAfaraSQgfwArByRM8uo4OalapKVIsHhY6AHiPYVEqK.lU5Fki', 1, 0, NULL, 0, NULL, '2025-07-10 19:39:56', '2025-07-10 19:39:56'),
-(214, 'WEB-250711035259', 'yXpIMBepmMGw', 0, 0, NULL, NULL, 'canininow756@gmail.com', '5045703689', 'HKJSQRKHjQUUQuU', 1, NULL, '$2y$12$OFmsmTNIBl1lA/tQwwG.PuxXq4uWoNPcFh5/mUW2daLzPXPhJZ8lO', 1, 0, NULL, 0, NULL, '2025-07-10 20:52:59', '2025-07-10 20:52:59'),
-(215, 'WEB-250711141224', 'ADHiSxHvDYTf', 0, 0, NULL, NULL, 'xotaxegevujo52@gmail.com', '5139894161', 'GqqwXOvxBKvMCD', 1, NULL, '$2y$12$PJG.HtsXCeJ79mzaINkXZu1.u3EygL.0yMHDhz0ZBCTs8DGByOxkm', 1, 0, NULL, 0, NULL, '2025-07-11 07:12:24', '2025-07-11 07:12:24'),
-(216, 'WEB-250712215710', 'tmkrNCaUgtujl', 0, 0, NULL, NULL, 'abrockeu@gmail.com', '6447967592', 'AXUxxbIAkYmibq', 1, NULL, '$2y$12$70kKxhhT6RrAlyo8QFqP6.YYfIiS/Vw0GYsP/lIZCuHSoN2EPSAUq', 1, 0, NULL, 0, NULL, '2025-07-12 14:57:11', '2025-07-12 14:57:11'),
-(217, 'WEB-250712234733', 'XZFGYXzbALa', 0, 0, NULL, NULL, 'akleinw32@gmail.com', '9662823616', 'tmMemnQoTakYrma', 1, NULL, '$2y$12$sA.b.fzmcR7OXJ.OpmfvcOSsxZNePXKEcWuUE1ZQcrwKIDQez3SVC', 1, 0, NULL, 0, NULL, '2025-07-12 16:47:33', '2025-07-12 16:47:33'),
-(218, 'WEB-250713042756', 'BnGzWHaJ', 0, 0, NULL, NULL, 'darilcharlesv1992@gmail.com', '7182919340', 'GqoyubnN', 1, NULL, '$2y$12$7O.YJC8.V6dL720UiSLB7OAUj2.m2zzw7QmdghfTlpAF/6PYcjMIe', 1, 0, NULL, 0, NULL, '2025-07-12 21:27:56', '2025-07-12 21:27:56'),
-(219, 'WEB-250713094518', 'kPcnCVjmeqp', 0, 0, NULL, NULL, 'riganalexanderf@gmail.com', '9433923177', 'knJXBrUKZwBhi', 1, NULL, '$2y$12$tskmI/lKL10z0vKi7Jbr2uC924trP..i2jDwN3hN9948ZkbLf7noi', 1, 0, NULL, 0, NULL, '2025-07-13 02:45:19', '2025-07-13 02:45:19'),
-(220, 'WEB-250714075047', 'bOFwPDTsUgAsQ', 0, 0, NULL, NULL, 'honoramdn@gmail.com', '2408553077', 'pDPYytEngAr', 1, NULL, '$2y$12$OXvYtWItENBqLEtzRc4IbeALKHHXFpdX7YbRtZPOdLKp0AwFUP3JO', 1, 0, NULL, 0, NULL, '2025-07-14 00:50:48', '2025-07-14 00:50:48'),
-(221, 'WEB-250715035347', 'pMSfKPAXp', 0, 0, NULL, NULL, 'bessisii2002@gmail.com', '6466288909', 'oeCHlyIhuaXFgp', 1, NULL, '$2y$12$24IF93L9rd4WY2MrfJceqOFOOcFP.tsu6p6rzhIJ7cdf63ey7AVzm', 1, 0, NULL, 0, NULL, '2025-07-14 20:53:47', '2025-07-14 20:53:47'),
-(222, 'WEB-250716052024', 'tzzwAmIY', 0, 0, NULL, NULL, 'kareramos71@gmail.com', '8637360661', 'OeAwiAEgIhu', 1, NULL, '$2y$12$udqRRD.txxX/H5GeTWLo5.7L3BrEj6KhjA4Ynx.tGYX9CqSU2iYBy', 1, 0, NULL, 0, NULL, '2025-07-15 22:20:24', '2025-07-15 22:20:24'),
-(223, 'WEB-250716145013', 'xghXfpIefXPheer', 0, 0, NULL, NULL, 'upesagaqi19@gmail.com', '4342340151', 'AnQaOrwlUiez', 1, NULL, '$2y$12$NzHVj1.md6zFF.V.pPEVNO5FRbMV8L4bp10d1Nb5or792eOmWRm9K', 1, 0, NULL, 0, NULL, '2025-07-16 07:50:13', '2025-07-16 07:50:13'),
-(224, 'WEB-250716145620', 'ovKFcHFAqpFzoYb', 0, 0, NULL, NULL, 'okuviruz833@gmail.com', '9995035030', 'fFfcBQzkO', 1, NULL, '$2y$12$EcMcGQxhQ...5U.4kAJtouds32w7lI/HMtZJ1O0K8kCeMy2TWobTa', 1, 0, NULL, 0, NULL, '2025-07-16 07:56:20', '2025-07-16 07:56:20'),
-(225, 'WEB-250717012343', 'fTrqGVsVpDYnQra', 0, 0, NULL, NULL, 'walternilym5@gmail.com', '6799354114', 'mKooPzNrS', 1, NULL, '$2y$12$.xR8RzEARwj3VHYnpaL0v.or.I/2Uw.JwzdNh3IpcKXSoKpUYSotS', 1, 0, NULL, 0, NULL, '2025-07-16 18:23:44', '2025-07-16 18:23:44'),
-(226, 'WEB-250717075131', 'WyYEnRhLdX', 0, 0, NULL, NULL, 'epalovofo53@gmail.com', '4289692674', 'OCsRHYYLFW', 1, NULL, '$2y$12$/X21rRrAzzdsNZZg/KSupelJIi.56AQV7aNh0P0DcMRxSrxEytAoK', 1, 0, NULL, 0, NULL, '2025-07-17 00:51:32', '2025-07-17 00:51:32'),
-(227, 'WEB-250717175201', 'KkXvnHeQwNagEKI', 0, 0, NULL, NULL, 'djaklincci1988@gmail.com', '8832060789', 'eHZKFaOpPQLQ', 1, NULL, '$2y$12$HC0NPeZBnNxM7X3UQnmRRO1KOjfsRW8vAaB5pC4yD/QA4wgJP.fzm', 1, 0, NULL, 0, NULL, '2025-07-17 10:52:01', '2025-07-17 10:52:01'),
-(228, 'WEB-250719030702', 'EDGMsbrEJv', 0, 0, NULL, NULL, 'sheinhk4@gmail.com', '2039011148', 'mssQFTyED', 1, NULL, '$2y$12$jAFos/VoOfy1GgPoHT7K3uzFRrvfDt3cB923NYSW32RCoGItFVqhq', 1, 0, NULL, 0, NULL, '2025-07-18 20:07:03', '2025-07-18 20:07:03'),
-(229, 'WEB-250721084435', 'dTPbREvzAM', 0, 0, NULL, NULL, 'wowuzim807@gmail.com', '2119683532', 'bwDdnsEz', 1, NULL, '$2y$12$Zh7cpc0kAmW/9NT6hyxm4eIy3YBGKysVKKZsnfdXnnvxuvnrDPn1i', 1, 0, NULL, 0, NULL, '2025-07-21 01:44:35', '2025-07-21 01:44:35'),
-(230, 'WEB-250722061313', 'uLTsixTImgPO', 0, 0, NULL, NULL, 'verdjilprestonq43@gmail.com', '6602985080', 'uArDZGaXyoLWOwK', 1, NULL, '$2y$12$ecUXvXud34EMQCw9jKuZieWT8Rnss0OnIX8knWNzCrMwRFLCWdgP.', 1, 0, NULL, 0, NULL, '2025-07-21 23:13:13', '2025-07-21 23:13:13'),
-(231, 'WEB-250722143203', 'GMPEUbVtH', 0, 0, NULL, NULL, 'shanejacobsen393127@yahoo.com', '7268764845', 'RehtMeWgojGLO', 1, NULL, '$2y$12$IzspK4VHPxNRyYh8yTMtTOPw0SkucAMGFYYGAwuJ3H5P5C4CTmzEO', 1, 0, NULL, 0, NULL, '2025-07-22 07:32:04', '2025-07-22 07:32:04'),
-(232, 'WEB-250723135609', 'fgFWxeNGyb', 0, 0, NULL, NULL, 'nonicasenp1@gmail.com', '2146114426', 'lscliyxOlNef', 1, NULL, '$2y$12$LaY3u8v49UYMG.XBjvHb2OpXpWAmet/pCWCBTDBgcvg.mrzpz/d0C', 1, 0, NULL, 0, NULL, '2025-07-23 06:56:10', '2025-07-23 06:56:10'),
-(233, 'WEB-250724021649', 'LMXAtQlthwcZ', 0, 0, NULL, NULL, 'kgalvansm1994@gmail.com', '9777371077', 'kWZcBNAiBmwyGz', 1, NULL, '$2y$12$/EHrA2CeZeennlV4qLSGe.6JBFB9gPA9i6rEd6Zk43KZ7OLaHQ8Ly', 1, 0, NULL, 0, NULL, '2025-07-23 19:16:49', '2025-07-23 19:16:49'),
-(234, 'WEB-250724054730', 'jVyeZRXUvFWZQ', 0, 0, NULL, NULL, 'elichasevr24@gmail.com', '5042396755', 'oclrORBJECMPuGP', 1, NULL, '$2y$12$nOXqapCbrFE2yp4emd8iTena2DN1fmjdQAchBcolEramtCOYvsHze', 1, 0, NULL, 0, NULL, '2025-07-23 22:47:31', '2025-07-23 22:47:31'),
-(235, 'WEB-250726085031', 'YjZnliQVtTFctz', 0, 0, NULL, NULL, 'hicorir925@gmail.com', '5039335769', 'oODhzegeilsfwLt', 1, NULL, '$2y$12$ffgvKTc9QxGSSLAM1bhrN.zwWHx9NZ8LddyQc6Bif.AY6YxU2Hryy', 1, 0, NULL, 0, NULL, '2025-07-26 01:50:32', '2025-07-26 01:50:32'),
-(236, 'WEB-250726105353', 'hPCMvmTgs', 0, 0, NULL, NULL, 'enuluqevad176@gmail.com', '2594096447', 'GKtBHLmBjK', 1, NULL, '$2y$12$9t2BW.u7Swekktzrxy55nuXaNnw7SX5qhs2sTZQMowDSMhPuUV.7.', 1, 0, NULL, 0, NULL, '2025-07-26 03:53:53', '2025-07-26 03:53:53'),
-(237, 'WEB-250726201133', 'OeAOvFvxiPt', 0, 0, NULL, NULL, 'ufaranoleso704@gmail.com', '3338356258', 'ClufYufqgH', 1, NULL, '$2y$12$M78lqX5/iYCJzNA9R.7j/OhvtNhCiQtnsH6I0h81NOFjmXvtdHo6S', 1, 0, NULL, 0, NULL, '2025-07-26 13:11:34', '2025-07-26 13:11:34'),
-(238, 'WEB-250726230711', 'WzSaqmvWgqapn', 0, 0, NULL, NULL, 'siscotim921878@yahoo.com', '9220406795', 'tsFjjFZTNSkMZg', 1, NULL, '$2y$12$4YHHruxKaTxx8LMB9nGUtuvbRhm.4yhGTzJ6B/mnB3NceobPou1di', 1, 0, NULL, 0, NULL, '2025-07-26 16:07:12', '2025-07-26 16:07:12'),
-(239, 'WEB-250727034702', 'kBOABayWgE', 0, 0, NULL, NULL, 'idumunoyogah40@gmail.com', '6329510498', 'jRDlIIESOD', 1, NULL, '$2y$12$Pc3tXxVM0fJZCmZyspDWu.1EyK1cdBveiqs9Lc1r1uz61JtvJPEfu', 1, 0, NULL, 0, NULL, '2025-07-26 20:47:02', '2025-07-26 20:47:02'),
-(240, 'WEB-250727045341', 'FmzPbdfaM', 0, 0, NULL, NULL, 'cipozudisav602@gmail.com', '7852788187', 'KtfdLQksksAvTLo', 1, NULL, '$2y$12$mYBjSeDcfF0v92Iyq9Q2EOaNTbzB3So3mdef478qGR3yuT8pb9Lja', 1, 0, NULL, 0, NULL, '2025-07-26 21:53:42', '2025-07-26 21:53:42'),
-(241, 'WEB-250728014840', 'iOLoiWpvXBZV', 0, 0, NULL, NULL, 'linseilqt75@gmail.com', '2494135681', 'tYnkZpqMeFFp', 1, NULL, '$2y$12$R0HKk4J9k4xr0lHrzgGTGuYKLarYduOHj/C8p2eOd1jsbloNyxVDW', 1, 0, NULL, 0, NULL, '2025-07-27 18:48:40', '2025-07-27 18:48:40'),
-(242, 'WEB-250728210205', 'zAsRaIbZbmRYC', 0, 0, NULL, NULL, 'danielseldven@gmail.com', '4212284127', 'cKPFGDrBMUa', 1, NULL, '$2y$12$X9KbQzNEYn9y8kvSX.CIW.a4jqbUoxF3jQ1B5K9jKbKkt3Yph3IuW', 1, 0, NULL, 0, NULL, '2025-07-28 14:02:06', '2025-07-28 14:02:06');
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `agent_commission`
@@ -422,15 +151,6 @@ CREATE TABLE `banner_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `banner_type`
---
-
-INSERT INTO `banner_type` (`id`, `title`, `group`, `type`, `language_id`, `priority`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'Banner', 'trangchu', 2, 2, 1, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `cache`
 --
 
@@ -439,86 +159,6 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `cache`
---
-
-INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('1|80.64.30.32', 'i:1;', 1739882031),
-('1|80.64.30.32:timer', 'i:1739882031;', 1739882031),
-('123456|92.255.57.103', 'i:1;', 1739883811),
-('123456|92.255.57.103:timer', 'i:1739883811;', 1739883811),
-('admin@quadacsan.com|80.64.30.32', 'i:1;', 1739884932),
-('admin@quadacsan.com|80.64.30.32:timer', 'i:1739884932;', 1739884932),
-('admin@quadacsan.com|92.255.57.103', 'i:1;', 1739884388),
-('admin@quadacsan.com|92.255.57.103:timer', 'i:1739884388;', 1739884388),
-('admin|45.135.232.10', 'i:1;', 1748382478),
-('admin|45.135.232.10:timer', 'i:1748382478;', 1748382478),
-('admin|80.64.30.32', 'i:1;', 1743139219),
-('admin|80.64.30.32:timer', 'i:1743139219;', 1743139219),
-('admin|92.255.57.103', 'i:1;', 1739885253),
-('admin|92.255.57.103:timer', 'i:1739885253;', 1739885253),
-('administrator|80.64.30.32', 'i:1;', 1743908006),
-('administrator|80.64.30.32:timer', 'i:1743908006;', 1743908006),
-('adminstrator|14.186.17.91', 'i:3;', 1737173941),
-('adminstrator|14.186.17.91:timer', 'i:1737173941;', 1737173941),
-('demo|80.64.30.32', 'i:1;', 1739881650),
-('demo|80.64.30.32:timer', 'i:1739881650;', 1739881650),
-('editor|80.64.30.32', 'i:1;', 1739881153),
-('editor|80.64.30.32:timer', 'i:1739881153;', 1739881153),
-('jq1|80.64.30.32', 'i:1;', 1739882021),
-('jq1|80.64.30.32:timer', 'i:1739882021;', 1739882021),
-('jq123456|92.255.57.103', 'i:1;', 1739883802),
-('jq123456|92.255.57.103:timer', 'i:1739883802;', 1739883802),
-('jqadmin@quadacsan.com|80.64.30.32', 'i:1;', 1739884923),
-('jqadmin@quadacsan.com|80.64.30.32:timer', 'i:1739884923;', 1739884923),
-('jqadmin@quadacsan.com|92.255.57.103', 'i:1;', 1739884379),
-('jqadmin@quadacsan.com|92.255.57.103:timer', 'i:1739884379;', 1739884379),
-('jqadmin|45.135.232.10', 'i:1;', 1748382470),
-('jqadmin|45.135.232.10:timer', 'i:1748382470;', 1748382470),
-('jqadmin|80.64.30.32', 'i:1;', 1743139210),
-('jqadmin|80.64.30.32:timer', 'i:1743139210;', 1743139210),
-('jqadmin|92.255.57.103', 'i:1;', 1739885244),
-('jqadmin|92.255.57.103:timer', 'i:1739885244;', 1739885244),
-('jqadministrator|80.64.30.32', 'i:1;', 1743907998),
-('jqadministrator|80.64.30.32:timer', 'i:1743907998;', 1743907998),
-('jqdemo|80.64.30.32', 'i:1;', 1739881642),
-('jqdemo|80.64.30.32:timer', 'i:1739881642;', 1739881642),
-('jqeditor|80.64.30.32', 'i:1;', 1739881145),
-('jqeditor|80.64.30.32:timer', 'i:1739881145;', 1739881145),
-('jqmanager|80.64.30.32', 'i:1;', 1739881580),
-('jqmanager|80.64.30.32:timer', 'i:1739881580;', 1739881580),
-('jqquadacsan|80.64.30.32', 'i:1;', 1739881886),
-('jqquadacsan|80.64.30.32:timer', 'i:1739881886;', 1739881886),
-('jqquadacsan|92.255.57.103', 'i:1;', 1739884792),
-('jqquadacsan|92.255.57.103:timer', 'i:1739884792;', 1739884792),
-('jqsupport|80.64.30.32', 'i:1;', 1739881764),
-('jqsupport|80.64.30.32:timer', 'i:1739881764;', 1739881764),
-('jqtest|80.64.30.32', 'i:1;', 1739881519),
-('jqtest|80.64.30.32:timer', 'i:1739881519;', 1739881519),
-('jqtesting|80.64.30.32', 'i:1;', 1739881703),
-('jqtesting|80.64.30.32:timer', 'i:1739881703;', 1739881703),
-('jqwebmaster|80.64.30.32', 'i:1;', 1743867549),
-('jqwebmaster|80.64.30.32:timer', 'i:1743867549;', 1743867549),
-('manager|80.64.30.32', 'i:1;', 1739881589),
-('manager|80.64.30.32:timer', 'i:1739881589;', 1739881589),
-('pa-675837|123.21.115.105', 'i:1;', 1736818244),
-('pa-675837|123.21.115.105:timer', 'i:1736818244;', 1736818244),
-('quadacsan.com|123.21.115.105', 'i:1;', 1736818280),
-('quadacsan.com|123.21.115.105:timer', 'i:1736818280;', 1736818280),
-('quadacsan|80.64.30.32', 'i:1;', 1739881894),
-('quadacsan|80.64.30.32:timer', 'i:1739881894;', 1739881894),
-('quadacsan|92.255.57.103', 'i:1;', 1739884800),
-('quadacsan|92.255.57.103:timer', 'i:1739884800;', 1739884800),
-('support|80.64.30.32', 'i:1;', 1739881773),
-('support|80.64.30.32:timer', 'i:1739881773;', 1739881773),
-('test|80.64.30.32', 'i:1;', 1739881529),
-('test|80.64.30.32:timer', 'i:1739881529;', 1739881529),
-('testing|80.64.30.32', 'i:1;', 1739881712),
-('testing|80.64.30.32:timer', 'i:1739881712;', 1739881712),
-('webmaster|80.64.30.32', 'i:1;', 1743867558),
-('webmaster|80.64.30.32:timer', 'i:1743867558;', 1743867558);
 
 -- --------------------------------------------------------
 
@@ -601,14 +241,6 @@ CREATE TABLE `jobs` (
   `created_at` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `jobs`
---
-
-INSERT INTO `jobs` (`id`, `queue`, `payload`, `attempts`, `reserved_at`, `available_at`, `created_at`) VALUES
-(1, 'default', '{\"uuid\":\"53c47de1-bcf7-4866-9748-56834af5f818\",\"displayName\":\"App\\\\Mail\\\\MailOrder\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"maxExceptions\":null,\"failOnTimeout\":false,\"backoff\":null,\"timeout\":null,\"retryUntil\":null,\"data\":{\"commandName\":\"Illuminate\\\\Mail\\\\SendQueuedMailable\",\"command\":\"O:34:\\\"Illuminate\\\\Mail\\\\SendQueuedMailable\\\":15:{s:8:\\\"mailable\\\";O:18:\\\"App\\\\Mail\\\\MailOrder\\\":3:{s:4:\\\"data\\\";O:29:\\\"Illuminate\\\\Support\\\\Collection\\\":2:{s:8:\\\"\\u0000*\\u0000items\\\";a:8:{s:4:\\\"info\\\";a:13:{s:6:\\\"_token\\\";s:40:\\\"RZnda0Jct7W5fJ9e028qNwsm4Srra106alii4nR9\\\";s:10:\\\"pricetotal\\\";s:6:\\\"548000\\\";s:3:\\\"fee\\\";s:1:\\\"0\\\";s:8:\\\"discount\\\";s:1:\\\"0\\\";s:12:\\\"transportfee\\\";s:1:\\\"2\\\";s:7:\\\"voucher\\\";s:3:\\\"aaa\\\";s:6:\\\"taxvat\\\";s:1:\\\"0\\\";s:12:\\\"deliverydate\\\";s:10:\\\"23\\/01\\/2025\\\";s:8:\\\"fullname\\\";s:30:\\\"Test - Nguyễn Thị Kim Loan\\\";s:7:\\\"address\\\";s:15:\\\"103 Pasteur, Q1\\\";s:5:\\\"phone\\\";s:10:\\\"0948844889\\\";s:5:\\\"email\\\";s:16:\\\"ntkl77@gmail.com\\\";s:5:\\\"notes\\\";s:8:\\\"Test web\\\";}s:4:\\\"cart\\\";O:23:\\\"App\\\\Models\\\\ProductOrder\\\":30:{s:13:\\\"\\u0000*\\u0000connection\\\";s:5:\\\"mysql\\\";s:8:\\\"\\u0000*\\u0000table\\\";s:13:\\\"product_order\\\";s:13:\\\"\\u0000*\\u0000primaryKey\\\";s:2:\\\"id\\\";s:10:\\\"\\u0000*\\u0000keyType\\\";s:3:\\\"int\\\";s:12:\\\"incrementing\\\";b:1;s:7:\\\"\\u0000*\\u0000with\\\";a:0:{}s:12:\\\"\\u0000*\\u0000withCount\\\";a:0:{}s:19:\\\"preventsLazyLoading\\\";b:0;s:10:\\\"\\u0000*\\u0000perPage\\\";i:15;s:6:\\\"exists\\\";b:1;s:18:\\\"wasRecentlyCreated\\\";b:1;s:28:\\\"\\u0000*\\u0000escapeWhenCastingToString\\\";b:0;s:13:\\\"\\u0000*\\u0000attributes\\\";a:21:{s:8:\\\"fullname\\\";s:30:\\\"Test - Nguyễn Thị Kim Loan\\\";s:5:\\\"phone\\\";s:10:\\\"0948844889\\\";s:7:\\\"company\\\";N;s:7:\\\"address\\\";s:15:\\\"103 Pasteur, Q1\\\";s:14:\\\"sendingaddress\\\";s:15:\\\"103 Pasteur, Q1\\\";s:15:\\\"transportfee_id\\\";s:1:\\\"2\\\";s:12:\\\"transportfee\\\";i:0;s:12:\\\"deliverydate\\\";s:10:\\\"2025-01-23\\\";s:5:\\\"email\\\";s:16:\\\"ntkl77@gmail.com\\\";s:7:\\\"content\\\";s:8:\\\"Test web\\\";s:6:\\\"inv_id\\\";i:3;s:7:\\\"invcode\\\";s:5:\\\"Q0003\\\";s:8:\\\"inv_code\\\";O:35:\\\"Ramsey\\\\Uuid\\\\Lazy\\\\LazyUuidFromString\\\":1:{s:6:\\\"string\\\";s:36:\\\"a3efb3fe-8c2d-4e52-8763-8910139a336f\\\";}s:8:\\\"isactive\\\";i:1;s:7:\\\"ischeck\\\";i:1;s:10:\\\"updated_at\\\";s:19:\\\"2025-01-23 15:32:45\\\";s:10:\\\"created_at\\\";s:19:\\\"2025-01-23 15:32:45\\\";s:2:\\\"id\\\";i:3;s:11:\\\"totalamount\\\";i:0;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";i:0;}s:11:\\\"\\u0000*\\u0000original\\\";a:21:{s:8:\\\"fullname\\\";s:30:\\\"Test - Nguyễn Thị Kim Loan\\\";s:5:\\\"phone\\\";s:10:\\\"0948844889\\\";s:7:\\\"company\\\";N;s:7:\\\"address\\\";s:15:\\\"103 Pasteur, Q1\\\";s:14:\\\"sendingaddress\\\";s:15:\\\"103 Pasteur, Q1\\\";s:15:\\\"transportfee_id\\\";s:1:\\\"2\\\";s:12:\\\"transportfee\\\";i:0;s:12:\\\"deliverydate\\\";s:10:\\\"2025-01-23\\\";s:5:\\\"email\\\";s:16:\\\"ntkl77@gmail.com\\\";s:7:\\\"content\\\";s:8:\\\"Test web\\\";s:6:\\\"inv_id\\\";i:3;s:7:\\\"invcode\\\";s:5:\\\"Q0003\\\";s:8:\\\"inv_code\\\";r:45;s:8:\\\"isactive\\\";i:1;s:7:\\\"ischeck\\\";i:1;s:10:\\\"updated_at\\\";s:19:\\\"2025-01-23 15:32:45\\\";s:10:\\\"created_at\\\";s:19:\\\"2025-01-23 15:32:45\\\";s:2:\\\"id\\\";i:3;s:11:\\\"totalamount\\\";i:0;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";i:0;}s:10:\\\"\\u0000*\\u0000changes\\\";a:3:{s:11:\\\"totalamount\\\";i:0;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";i:0;}s:8:\\\"\\u0000*\\u0000casts\\\";a:0:{}s:17:\\\"\\u0000*\\u0000classCastCache\\\";a:0:{}s:21:\\\"\\u0000*\\u0000attributeCastCache\\\";a:0:{}s:13:\\\"\\u0000*\\u0000dateFormat\\\";N;s:10:\\\"\\u0000*\\u0000appends\\\";a:0:{}s:19:\\\"\\u0000*\\u0000dispatchesEvents\\\";a:0:{}s:14:\\\"\\u0000*\\u0000observables\\\";a:0:{}s:12:\\\"\\u0000*\\u0000relations\\\";a:0:{}s:10:\\\"\\u0000*\\u0000touches\\\";a:0:{}s:10:\\\"timestamps\\\";b:1;s:13:\\\"usesUniqueIds\\\";b:0;s:9:\\\"\\u0000*\\u0000hidden\\\";a:0:{}s:10:\\\"\\u0000*\\u0000visible\\\";a:0:{}s:11:\\\"\\u0000*\\u0000fillable\\\";a:36:{i:0;s:2:\\\"id\\\";i:1;s:6:\\\"inc_id\\\";i:2;s:7:\\\"invcode\\\";i:3;s:8:\\\"inv_code\\\";i:4;s:7:\\\"user_id\\\";i:5;s:8:\\\"agent_id\\\";i:6;s:8:\\\"fullname\\\";i:7;s:7:\\\"address\\\";i:8;s:14:\\\"sendingaddress\\\";i:9;s:7:\\\"company\\\";i:10;s:5:\\\"email\\\";i:11;s:5:\\\"phone\\\";i:12;s:7:\\\"content\\\";i:13;s:9:\\\"totalcost\\\";i:14;s:11:\\\"totalamount\\\";i:15;s:8:\\\"discount\\\";i:16;s:7:\\\"balance\\\";i:17;s:3:\\\"COD\\\";i:18;s:15:\\\"transportfee_id\\\";i:19;s:12:\\\"transportfee\\\";i:20;s:6:\\\"taxvat\\\";i:21;s:7:\\\"voucher\\\";i:22;s:3:\\\"npp\\\";i:23;s:5:\\\"daily\\\";i:24;s:3:\\\"ctv\\\";i:25;s:14:\\\"commission_npp\\\";i:26;s:16:\\\"commission_daily\\\";i:27;s:14:\\\"commission_ctv\\\";i:28;s:8:\\\"isactive\\\";i:29;s:7:\\\"ischeck\\\";i:30;s:10:\\\"isdelivery\\\";i:31;s:12:\\\"deliverydate\\\";i:32;s:9:\\\"ispayment\\\";i:33;s:11:\\\"paymentdate\\\";i:34;s:10:\\\"created_at\\\";i:35;s:10:\\\"updated_at\\\";}s:10:\\\"\\u0000*\\u0000guarded\\\";a:1:{i:0;s:1:\\\"*\\\";}}s:9:\\\"pricetype\\\";s:5:\\\"price\\\";s:7:\\\"invcode\\\";s:5:\\\"Q0003\\\";s:12:\\\"transportfee\\\";i:0;s:8:\\\"discount\\\";i:0;s:5:\\\"total\\\";i:0;s:6:\\\"taxvat\\\";i:0;}s:28:\\\"\\u0000*\\u0000escapeWhenCastingToString\\\";b:0;}s:7:\\\"invcode\\\";s:5:\\\"Q0003\\\";s:6:\\\"mailer\\\";s:4:\\\"smtp\\\";}s:5:\\\"tries\\\";N;s:7:\\\"timeout\\\";N;s:13:\\\"maxExceptions\\\";N;s:17:\\\"shouldBeEncrypted\\\";b:0;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:5:\\\"delay\\\";N;s:11:\\\"afterCommit\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:19:\\\"chainCatchCallbacks\\\";N;s:3:\\\"job\\\";N;}\"}}', 0, NULL, 1737621165, 1737621165),
-(2, 'default', '{\"uuid\":\"5af6362c-1cdf-4b63-b074-5fdd1078cb62\",\"displayName\":\"App\\\\Mail\\\\MailOrder\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"maxExceptions\":null,\"failOnTimeout\":false,\"backoff\":null,\"timeout\":null,\"retryUntil\":null,\"data\":{\"commandName\":\"Illuminate\\\\Mail\\\\SendQueuedMailable\",\"command\":\"O:34:\\\"Illuminate\\\\Mail\\\\SendQueuedMailable\\\":15:{s:8:\\\"mailable\\\";O:18:\\\"App\\\\Mail\\\\MailOrder\\\":3:{s:4:\\\"data\\\";O:29:\\\"Illuminate\\\\Support\\\\Collection\\\":2:{s:8:\\\"\\u0000*\\u0000items\\\";a:8:{s:4:\\\"info\\\";a:13:{s:6:\\\"_token\\\";s:40:\\\"TL4TeAGOr4QmkDrwrnR1hy75sPSlsk0xhEYN4UCe\\\";s:10:\\\"pricetotal\\\";s:6:\\\"274000\\\";s:3:\\\"fee\\\";s:5:\\\"25000\\\";s:8:\\\"discount\\\";s:1:\\\"0\\\";s:12:\\\"transportfee\\\";s:1:\\\"1\\\";s:7:\\\"voucher\\\";N;s:6:\\\"taxvat\\\";s:1:\\\"1\\\";s:12:\\\"deliverydate\\\";s:10:\\\"03\\/02\\/2025\\\";s:8:\\\"fullname\\\";s:7:\\\"Thắng\\\";s:7:\\\"address\\\";s:12:\\\"Thủ Đức\\\";s:5:\\\"phone\\\";s:10:\\\"0945685221\\\";s:5:\\\"email\\\";N;s:5:\\\"notes\\\";N;}s:4:\\\"cart\\\";O:23:\\\"App\\\\Models\\\\ProductOrder\\\":30:{s:13:\\\"\\u0000*\\u0000connection\\\";s:5:\\\"mysql\\\";s:8:\\\"\\u0000*\\u0000table\\\";s:13:\\\"product_order\\\";s:13:\\\"\\u0000*\\u0000primaryKey\\\";s:2:\\\"id\\\";s:10:\\\"\\u0000*\\u0000keyType\\\";s:3:\\\"int\\\";s:12:\\\"incrementing\\\";b:1;s:7:\\\"\\u0000*\\u0000with\\\";a:0:{}s:12:\\\"\\u0000*\\u0000withCount\\\";a:0:{}s:19:\\\"preventsLazyLoading\\\";b:0;s:10:\\\"\\u0000*\\u0000perPage\\\";i:15;s:6:\\\"exists\\\";b:1;s:18:\\\"wasRecentlyCreated\\\";b:1;s:28:\\\"\\u0000*\\u0000escapeWhenCastingToString\\\";b:0;s:13:\\\"\\u0000*\\u0000attributes\\\";a:21:{s:8:\\\"fullname\\\";s:7:\\\"Thắng\\\";s:5:\\\"phone\\\";s:10:\\\"0945685221\\\";s:7:\\\"company\\\";N;s:7:\\\"address\\\";s:12:\\\"Thủ Đức\\\";s:14:\\\"sendingaddress\\\";s:12:\\\"Thủ Đức\\\";s:15:\\\"transportfee_id\\\";s:1:\\\"1\\\";s:12:\\\"transportfee\\\";i:25000;s:12:\\\"deliverydate\\\";s:10:\\\"2025-02-03\\\";s:5:\\\"email\\\";N;s:7:\\\"content\\\";N;s:6:\\\"inv_id\\\";i:1;s:7:\\\"invcode\\\";s:5:\\\"Q0001\\\";s:8:\\\"inv_code\\\";O:35:\\\"Ramsey\\\\Uuid\\\\Lazy\\\\LazyUuidFromString\\\":1:{s:6:\\\"string\\\";s:36:\\\"435b8e5f-a4f9-41a5-a699-229509a0e43d\\\";}s:8:\\\"isactive\\\";i:1;s:7:\\\"ischeck\\\";i:1;s:10:\\\"updated_at\\\";s:19:\\\"2025-02-03 09:58:02\\\";s:10:\\\"created_at\\\";s:19:\\\"2025-02-03 09:58:02\\\";s:2:\\\"id\\\";i:1;s:11:\\\"totalamount\\\";i:274000;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";d:27400;}s:11:\\\"\\u0000*\\u0000original\\\";a:21:{s:8:\\\"fullname\\\";s:7:\\\"Thắng\\\";s:5:\\\"phone\\\";s:10:\\\"0945685221\\\";s:7:\\\"company\\\";N;s:7:\\\"address\\\";s:12:\\\"Thủ Đức\\\";s:14:\\\"sendingaddress\\\";s:12:\\\"Thủ Đức\\\";s:15:\\\"transportfee_id\\\";s:1:\\\"1\\\";s:12:\\\"transportfee\\\";i:25000;s:12:\\\"deliverydate\\\";s:10:\\\"2025-02-03\\\";s:5:\\\"email\\\";N;s:7:\\\"content\\\";N;s:6:\\\"inv_id\\\";i:1;s:7:\\\"invcode\\\";s:5:\\\"Q0001\\\";s:8:\\\"inv_code\\\";r:45;s:8:\\\"isactive\\\";i:1;s:7:\\\"ischeck\\\";i:1;s:10:\\\"updated_at\\\";s:19:\\\"2025-02-03 09:58:02\\\";s:10:\\\"created_at\\\";s:19:\\\"2025-02-03 09:58:02\\\";s:2:\\\"id\\\";i:1;s:11:\\\"totalamount\\\";i:274000;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";d:27400;}s:10:\\\"\\u0000*\\u0000changes\\\";a:3:{s:11:\\\"totalamount\\\";i:274000;s:9:\\\"totalcost\\\";i:0;s:6:\\\"taxvat\\\";d:27400;}s:8:\\\"\\u0000*\\u0000casts\\\";a:0:{}s:17:\\\"\\u0000*\\u0000classCastCache\\\";a:0:{}s:21:\\\"\\u0000*\\u0000attributeCastCache\\\";a:0:{}s:13:\\\"\\u0000*\\u0000dateFormat\\\";N;s:10:\\\"\\u0000*\\u0000appends\\\";a:0:{}s:19:\\\"\\u0000*\\u0000dispatchesEvents\\\";a:0:{}s:14:\\\"\\u0000*\\u0000observables\\\";a:0:{}s:12:\\\"\\u0000*\\u0000relations\\\";a:0:{}s:10:\\\"\\u0000*\\u0000touches\\\";a:0:{}s:10:\\\"timestamps\\\";b:1;s:13:\\\"usesUniqueIds\\\";b:0;s:9:\\\"\\u0000*\\u0000hidden\\\";a:0:{}s:10:\\\"\\u0000*\\u0000visible\\\";a:0:{}s:11:\\\"\\u0000*\\u0000fillable\\\";a:36:{i:0;s:2:\\\"id\\\";i:1;s:6:\\\"inc_id\\\";i:2;s:7:\\\"invcode\\\";i:3;s:8:\\\"inv_code\\\";i:4;s:7:\\\"user_id\\\";i:5;s:8:\\\"agent_id\\\";i:6;s:8:\\\"fullname\\\";i:7;s:7:\\\"address\\\";i:8;s:14:\\\"sendingaddress\\\";i:9;s:7:\\\"company\\\";i:10;s:5:\\\"email\\\";i:11;s:5:\\\"phone\\\";i:12;s:7:\\\"content\\\";i:13;s:9:\\\"totalcost\\\";i:14;s:11:\\\"totalamount\\\";i:15;s:8:\\\"discount\\\";i:16;s:7:\\\"balance\\\";i:17;s:3:\\\"COD\\\";i:18;s:15:\\\"transportfee_id\\\";i:19;s:12:\\\"transportfee\\\";i:20;s:6:\\\"taxvat\\\";i:21;s:7:\\\"voucher\\\";i:22;s:3:\\\"npp\\\";i:23;s:5:\\\"daily\\\";i:24;s:3:\\\"ctv\\\";i:25;s:14:\\\"commission_npp\\\";i:26;s:16:\\\"commission_daily\\\";i:27;s:14:\\\"commission_ctv\\\";i:28;s:8:\\\"isactive\\\";i:29;s:7:\\\"ischeck\\\";i:30;s:10:\\\"isdelivery\\\";i:31;s:12:\\\"deliverydate\\\";i:32;s:9:\\\"ispayment\\\";i:33;s:11:\\\"paymentdate\\\";i:34;s:10:\\\"created_at\\\";i:35;s:10:\\\"updated_at\\\";}s:10:\\\"\\u0000*\\u0000guarded\\\";a:1:{i:0;s:1:\\\"*\\\";}}s:9:\\\"pricetype\\\";s:5:\\\"price\\\";s:7:\\\"invcode\\\";s:5:\\\"Q0001\\\";s:12:\\\"transportfee\\\";i:25000;s:8:\\\"discount\\\";i:0;s:5:\\\"total\\\";i:274000;s:6:\\\"taxvat\\\";d:27400;}s:28:\\\"\\u0000*\\u0000escapeWhenCastingToString\\\";b:0;}s:7:\\\"invcode\\\";s:5:\\\"Q0001\\\";s:6:\\\"mailer\\\";s:4:\\\"smtp\\\";}s:5:\\\"tries\\\";N;s:7:\\\"timeout\\\";N;s:13:\\\"maxExceptions\\\";N;s:17:\\\"shouldBeEncrypted\\\";b:0;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:5:\\\"delay\\\";N;s:11:\\\"afterCommit\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:19:\\\"chainCatchCallbacks\\\";N;s:3:\\\"job\\\";N;}\"}}', 0, NULL, 1738551484, 1738551484);
-
 -- --------------------------------------------------------
 
 --
@@ -649,15 +281,6 @@ CREATE TABLE `meta_header` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `meta_header`
---
-
-INSERT INTO `meta_header` (`id`, `title`, `route_name`, `keyword`, `meta_description`, `script`, `image`, `language_id`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'QUÀ ĐẶC SẢN VÙNG MIỀN VIỆT NAM - Đặc sản vùng miền ngon', 'trangchu', 'Chúng tôi tự hào mang đến cho bạn những sản phẩm đặc sản nổi tiếng từ khắp các vùng miền của Việt Nam, các đặc sản đều được tuyển chọn từ các thương hiệu nổi tiếng, tươi ngon và đậm đà hương vị.', 'Chuyên cung cấp những món ngon đậm đà hương vị Quê Nhà', NULL, 'quadacsan-logo_2.png', 2, 1, '2022-06-27 21:11:12', '2025-01-06 08:54:43');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `migrations`
 --
 
@@ -695,19 +318,6 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `news`
---
-
-INSERT INTO `news` (`id`, `cat_id`, `title`, `author`, `brief`, `content`, `tag`, `keyword`, `meta_description`, `image`, `re_name`, `ishot`, `isdefault`, `priority`, `isactive`, `created_at`, `updated_at`, `activedate`) VALUES
-(1, 1, 'Việt Nam là một trong 20 nền ẩm thực ngon nhất thế giới', NULL, NULL, '<p>Theo chuyên trang ẩm thực TasteAtlas, ẩm thực Việt Nam đứng thứ 19 trong bảng xếp hạng 100 nền ẩm thực ngon nhất thế giới năm 2024.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Gỏi cuốn\" src=\"/storage/photos/shares/tin-am-thuc/goi-cuon.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Gỏi cuốn - Ảnh: TasteAtlas</p>\r\n\r\n<p style=\"text-align: justify;\">Top 100 nền ẩm thực ngon nhất thế giới do TasteAtlas công bố, dựa trên 477.287 đánh giá hợp lệ cho 15.478 món ăn trong cơ sở dữ liệu của chuyên trang này.<br />\r\nVới đánh giá 4,34/5 sao do các chuyên gia ẩm thực, đầu bếp và khách quốc tế đánh giá, ẩm thực Việt Nam đứng vị trí 19 trong top này.</p>\r\n\r\n<p style=\"text-align: justify;\">Theo TasteAtlas, các món ăn phổ biến ở Việt Nam có thể kể ra như phở, bánh mì, bánh xèo, bún bò Huế, gỏi cuốn, bún bò Nam Bộ, cơm tấm, chả giò, bún chả, bánh cuốn, mì Quảng...<br />\r\nCòn có bún thịt nướng, cà ri gà, cơm chiên, bánh rán, bánh trôi, bún riêu, bún đậu mắm tôm, bò nướng lá lốt, bún mắm…</p>\r\n\r\n<p style=\"text-align: justify;\">TasteAtlas cũng nhắc đến cơm cháy, cơm lam, bánh chưng, bánh tét, bánh da lợn, bánh bèo, xôi, bò bía, bánh khoái, nem chua, bánh giò, bánh bột lọc, bánh chuối…<br />\r\nThậm chí có cả tiết canh - món khiến không ít người nước ngoài e ngại.</p>\r\n\r\n<p style=\"text-align: justify;\">Chuyên trang này cũng liệt kê một số sản vật địa phương nổi tiếng ở Việt Nam như cua Năm Căn, nước mắm Phan Thiết, sầu riêng Cái Mơn, ốc lể Hội An, xoài Hòa Lộc, ớt Phú Quốc...<br />\r\nCó cả gạo Nàng Thơm chợ Đào, dừa Bến Tre, lợn cắp nách Sa Pa, thanh long Bình Thuận, gà đen Sa Pa, quế Việt Nam, rượu nếp cẩm, rượu sim Phú Quốc, rượu táo mèo…</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Top 20 nền ẩm thực ngon nhất thế giới\" src=\"/storage/photos/shares/tin-am-thuc/top20-tasteatlas.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Top 20 nền ẩm thực ngon nhất thế giới - Đồ họa: TTXVN</p>\r\n\r\n<p><br />\r\nDẫn đầu bảng xếp hạng 100 nền ẩm thực ngon nhất là ẩm thực Hy Lạp. Trong top 10 còn có ẩm thực của các nước Ý, Mexico, Tây Ban Nha, Bồ Đào Nha, Thổ Nhĩ Kỳ, Indonesia, Pháp, Nhật Bản, Trung Quốc.<br />\r\nTrong khu vực Đông Nam Á, ngoài ẩm thực Việt Nam và ẩm thực Indonesia còn có ẩm thực các nước Thái Lan, Philippines, Malaysia, Singapore, Lào cũng nằm trong Top 100 nền ẩm thực ngon nhất thế giới.<br />\r\nMột số món ăn phổ biến của ẩm thực Việt Nam:</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Bún riêu\" src=\"/storage/photos/shares/tin-am-thuc/bun-rieu.jpg\" /><br />\r\n<span style=\"font-size:11pt\"><span style=\"background:white\"><span style=\"line-height:126%\"><span style=\"font-family:&quot;Arial&quot;,sans-serif\"><span lang=\"vi\" style=\"font-size:12.0pt\"><span style=\"background:white\"><span style=\"line-height:126%\"><span style=\"font-family:Roboto\"><span style=\"color:#8f8f8f\">Bún riêu - Ảnh: TasteAtlas</span></span></span></span></span></span></span></span></span></p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Bánh giò - Ảnh: TasteAtlas\" src=\"/storage/photos/shares/tin-am-thuc/banh-gio.jpg\" /><br />\r\nBánh giò - Ảnh: TasteAtlas</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mì Quảng\" src=\"/storage/photos/shares/tin-am-thuc/mi-quang.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Mì Quảng - Ảnh: TasteAtlas</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Xôi\" src=\"/storage/photos/shares/tin-am-thuc/xoi.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Xôi - Ảnh: TasteAtlas</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Phở\" src=\"/storage/photos/shares/tin-am-thuc/pho.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Phở - Ảnh: TasteAtlas</p>\r\n\r\n<p style=\"text-align: justify;\">Nguồn bài viết: Báo Tuổi trẻ</p>', 'Ẩm thực Việt Nam', 'Ẩm thực Việt Nam', NULL, 'am-thuc-viet-nam-thuoc-top-20-ngon-nhat-the-gioi_3.jpg', 'viet-nam-la-mot-trong-20-nen-am-thuc-ngon-nhat-the-gioi', 0, 1, 1, 1, '2025-01-22 03:30:46', '2024-12-31 03:30:00', NULL),
-(2, 1, 'Nước mắm, mắm nêm Việt lọt top 100 loại nước chấm ngon nhất thế giới', NULL, NULL, '<p>Chuyên trang ẩm thực Taste Atlas vừa công bố danh sách 100 loại nước chấm ngon nhất thế giới, trong đó Việt Nam ghi danh với hai loại nước chấm vô cùng gần gũi là nước mắm và mắm nêm.</p>\r\n\r\n<p style=\"text-align: center;\">&nbsp;<img alt=\"Nước mắm và mắm nêm Việt Nam lọt danh sách 100 nước chấm ngon nhất thế giới\" src=\"/storage/photos/shares/tin-am-thuc/nuoc-mam-va-mam-nem.png\" /><br />\r\nNước mắm và mắm nêm Việt Nam lọt danh sách 100 nước chấm ngon nhất thế giới</p>\r\n\r\n<p style=\"text-align: justify;\"><strong>Nước mắm</strong><br />\r\nNước mắm đứng hạng 22 với 4.4/5 sao.</p>\r\n\r\n<p style=\"text-align: center;\"><br />\r\n&nbsp;<img alt=\"Nước mắm và mắm nêm Việt Nam lọt danh sách 100 nước chấm ngon nhất thế giới\" src=\"/images/news/nuoc-mam-toi-ot.jpg\" /><br />\r\nNước mắm thường xuất hiện trong các bữa ăn của người Việt - Ảnh: Taste Atlas</p>\r\n\r\n<p><br />\r\nNước mắm vừa là nước chấm của những món ăn truyền thống, vừa là gia vị cho các món ăn hiện đại.</p>\r\n\r\n<p>Người ăn dễ dàng bắt gặp nước mắm trong những bữa cơm nhà nấu, lẫn các khu ẩm thực đường phố ngày nay.</p>\r\n\r\n<p>Tại Việt Nam, nước mắm được chia làm hai loại là nước mắm mặn và nước mắm ngọt.</p>\r\n\r\n<p>Nước mắm góp mặt trong hầu hết các bữa ăn gia đình, tiệc tùng, quán ăn ven đường...</p>\r\n\r\n<p>Để làm ra một chén nước mắm ngọt \"đúng bài\" cần chuẩn bị các nguyên liệu như nước mắm, đường, nước cốt chanh hoặc giấm, tỏi, ớt và nước lọc, sau đó cân chỉnh để pha chúng với nhau.</p>\r\n\r\n<p>Tuy dùng những nguyên liệu giống nhau, nhưng hương vị nước mắm mỗi nhà đều mang một nét đặc trưng riêng. Điều đó phụ thuộc vào cách pha, khẩu vị của người làm.<br />\r\nQua việc \"ghép đôi\" nước chấm với những món ăn từ xưa nay, nước mắm ngọt ở Việt Nam thường ăn chung với cơm tấm, chả giò, bánh xèo...</p>\r\n\r\n<p>Trong khi đó, nước mắm mặn thường ăn kèm các món như lẩu, đồ ăn hấp, đồ ăn luộc...</p>\r\n\r\n<p><strong>Mắm nêm</strong><br />\r\nMắm nêm đứng hạng 96 với 3.9/5 sao.</p>\r\n\r\n<p style=\"text-align: center;\">&nbsp;<img alt=\"Mắm nêm có sự điều chỉnh cho phù hợp khẩu vị của thực khách từng vùng miền\" src=\"/storage/photos/shares/tin-am-thuc/mam-nem.jpg\" /><br />\r\nMắm nêm có sự điều chỉnh cho phù hợp khẩu vị của thực khách từng vùng miền</p>\r\n\r\n<p style=\"text-align: justify;\">Đây cũng là một loại nước chấm truyền thống của người Việt. So với nước mắm, mắm nêm có độ \"bao phủ\" ít hơn trong những bữa ăn.<br />\r\nTrước đây mắm nêm thường được ăn nhiều ở các tỉnh miền Trung. Tuy nhiên ngày nay, món ăn các vùng miền dần trải đều khắp cả nước, vì thế mắm nêm cũng gần gũi hơn với cả ba miền.<br />\r\nMuốn cho ra một hũ mắm nêm dân dã, người pha chế thường chuẩn bị các nguyên liệu như thơm, gừng, sả, riềng, tỏi, ớt... Các thành phần này giúp làm dịu đi sự đậm mùi của mắm.</p>\r\n\r\n<p>Để pha chế, người làm sẽ cho mắm nêm nguyên chất cùng các nguyên liệu vào nồi, sau đó quậy đều lên. Việc quậy kỹ lưỡng quyết định phần lớn đến hương vị của mắm nêm.</p>\r\n\r\n<p style=\"text-align: center;\"><br />\r\n&nbsp;<img alt=\"Mắm nêm thường xuất hiện trong nhiều bữa ăn của người Việt\" src=\"/storage/photos/shares/tin-am-thuc/bun-dau-mam-tom.jpg\" /><br />\r\nMắm nêm thường xuất hiện trong nhiều bữa ăn của người Việt</p>\r\n\r\n<p style=\"text-align: justify;\"><br />\r\nMắm nêm thường được biết đến với vị mặn gắt.</p>\r\n\r\n<p style=\"text-align: justify;\">Tuy nhiên \"nhập gia tùy tục\", khi món ăn xuất hiện ở các vùng miền khác, được gia giảm cho phù hợp hơn, đặc biệt ở miền Nam, mắm nêm thường có nhiều vị ngọt.<br />\r\nMắm nêm là một loại nước chấm dân dã, cũng vì thế mà thường được dùng chung với những món ăn hết sức giản dị như bún, bánh tráng cuốn, bánh căn…</p>\r\n\r\n<p style=\"text-align: justify;\">Trích nguồn: Báo Tuổi trẻ</p>', NULL, NULL, NULL, 'nuoc-mam-toi-ot.jpg', 'nuoc-mam-mam-nem-viet-lot-top-100-loai-nuoc-cham-ngon-nhat-the-gioi', 0, 1, 2, 1, '2025-01-22 04:18:44', '2025-01-03 04:18:00', NULL),
-(3, 1, 'Các món mắm đặc sản từng vùng miền', NULL, NULL, '<p style=\"text-align: justify;\">Dọc theo chiều dài đất nước, chúng ta có rất nhiều loại đặc sản mắm. Xuất phát từ thói quen dự trữ bảo quản lúc dư thừa, mắm vô tình thành thứ đặc sản hấp dẫn người sành ăn. Hãy cùng Món Ngon Bình Định khám phá loại đặc sản vô cùng đăc biệt và có “ mùi” này nhé</p>\r\n\r\n<p style=\"text-align: justify;\"><strong>1. Mắm tép (Ninh Bình)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Mắm tép đặc sản danh bất hư truyền của miền đất danh kiệt Ninh Bình, nhưng không một ai biết được từ khi nào và ở đâu xuất hiện mắm tép này. Thành phần chính để làm nên mắm tép là những loại tép riu còn tươi, già, thân tròn nhỏ và có màu xanh lam. Điều tiên quyết có thể quyết định mắm đó ngon hay không, trước hết nguyên liệu phải tươi ngon. Để đánh bắt được tép, người ta phải đi từ sáng sớm tinh mơ, khi thời tiết mát mẻ, đánh bắt ở chỗ nào có nhiều rong rẻ, rong trơn thì tép mới ngon và tươi roi rói. Với những người có kinh nghiệm riu tép, hàng năm vào khoảng tháng 11 và tháng 12 âm lịch, khi nước hơi đục một chút thì sẽ có nhiều tép hơn. Mắm tép là một thứ thực phẩm dân dã nên hầu như nhà nào cũng có, tuy nhiên để có thể làm mắm ngon thì phải có đôi bàn tay khéo léo của người làm ra nó. Người làm phải thực hiện một quy trình nghiêm ngặt, cẩn thận từ khâu đãi tép để không còn cát sạn, sơ chế tép, rang thính, ủ mắm... Sau khi qua sơ chế, người ta phải bịt kín để từ một tháng trở lên mới đem nấu chín. Mắm càng để lâu mắm mới ngon ngọt, đậm đà, rất hấp dẫn.</p>\r\n\r\n<p style=\"text-align: center;\"><br />\r\n&nbsp;<img alt=\"Mắm tép đặc sản danh bất hư truyền của miền đất danh kiệt Ninh Bình\" src=\"/storage/photos/shares/tin-am-thuc/mam-tep-ninh-binh.jpg\" /></p>\r\n\r\n<p style=\"text-align: justify;\"><br />\r\n<strong>2. Mắm cáy (Thái Bình, Hải Dương, Hải Phòng) </strong></p>\r\n\r\n<p style=\"text-align: justify;\">Với người dân miền Bắc thì không còn ai xa lạ với mắm cáy nữa. Đây là loại mắm làm từ con cáy – còn gọi là cung càng đỏ, một loại cua sống nhiều vùng nước lợ ở vùng duyên hải, có màu xanh nâu, vị dịu, mùi hơi gắt. Sau khi bắt được cáy người ta đem làm sạch, để ráo, bóc yếm và giã nhuyễn, được trộn muối theo đúng tỷ lệ rồi cho vào chum vại ủ nơi thoáng mát khoảng 7-10 ngày. Tiếp đó, họ đem mắm ra phơi nắng, phơi sương chừng một tuần cho ngấm. Cuối cùng là trộn thêm thính, men rượu để khử mùi hôi và tạo mùi thơm. Trong thời tiết se lạnh của mùa đông miền Bắc, chỉ còn đĩa rau luộc với mắm cáy thôi cũng làm cho chúng ta ăn cơm không biết no. Và mỗi khi xa quê là bồi hồi thèm nhớ</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm cáy Thái Bình, Hải Dương, Hải Phòng\" src=\"/storage/photos/shares/tin-am-thuc/mam-cay-thai-binh-hai-duong.jpg\" /></p>\r\n\r\n<p>&nbsp;<br />\r\n<strong>3. Mắm tôm (Thanh Hóa)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Mắm tôm&nbsp; là một đặc sản nổi tiếng về độ nặng mùi. Mắm tôm nổi tiếng khắp cả nước và cả những người Việt xa quê với món bún đậu mắm tôm, bún riêu cua thì cũng cần phải có chút mắm tôm mới đậm vị, thịt giả cầy…Mắm tôm ngon nhất phải kể đến là mắm tôm Thanh Hóa với màu tím đặc trưng, hương nồng, mịn, không bị lẫn muối hạt và đặc biệt vị rất ngon. Mắm tôm có lẽ là loại mắm khó ăn nhất, có những người chỉ cần nghe mùi thôi đã không muốn cảm được món ăn này, nhưng nếu đã thưởng thức được thì lại rất mê mệt. Không phải làm từ tôm, tép như nhiều nơi khác mà mắm tôm xứ Thanh được làm từ con moi biển đánh bắt ở vùng biển Hậu Lộc. Nghề chế biến mắm tôm có từ lâu đời, xuất hiện vào thế kỷ thứ 12, chính vì vậy người dân nơi đây có kinh nghiệm chọn nguyên liệu và chế biến kỹ từng công đoạn đã tạo ra món mắm đặc trưng riêng.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm tôm Thanh Hóa\" src=\"/images/news/mam-tom-thanh-hoa.jpg\" /><br />\r\n&nbsp;<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>4. Mắm nêm (Đà Nẵng)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Nếu như du khách đã từng nếm món bánh tráng cuốn thịt heo nổi tiếng ở Đà Nẵng thì không thể không có ấn tượng với món mắm nêm ngon tuyệt. Hay mắm cá cơm Bình Định cũng tương tự. Mắm cá cơm ngon nhất phải được làm từ cá cơm than, lúc cá mới được bắt lên ghẹ còn tươi roi rói. Để làm món mắm này, cá được ướp muối, sau đó ủ khoảng 3 tháng rồi múc ra chén, thêm đường, chanh, tỏi băm nhuyễn và ớt nguyên trái dằm vào, trộn đều lên với thính, đường là được.Mắm cá cơm phải cay nhiều ớt mới đúng chất miền Trung, phổ biến được dùng để chấm ăn với rau luộc, cà giòn, bánh tráng thịt heo luộc,...và nhất là mua về làm quà cho mọi người cũng rất là ý nghĩa.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm nêm Đà Nẵng\" src=\"/storage/photos/shares/tin-am-thuc/mam-nem-da-nang.jpg\" /></p>\r\n\r\n<p><br />\r\n<strong>5. Mắm còng (Long An, Bến Tre,Tiền Giang)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Đến với các tỉnh miền Tây Nam Bộ, du khách hãy thử thưởng thức món mắm còng – là một đặc sản nổi tiếng của Long An, Bến Tre, Tiền Giang. Ở mỗi vùng khác nhau thì cách thức làm ra món mắm này cũng có sự khác biệt nhưng nhìn chung những con còng (một loại thuộc họ cua và nhỏ) sau khi được tách yếm, có thể phơi nắng rồi cho vào hũ ủ cùng các loại gia vị trong khoảng 45 ngày. Mắm còng không chỉ được dùng chung với cơm, hay cuốn chấm với thịt luộc, rau sống, bánh tráng, người ta còn dùng mắm còng nguyên chất để tăng vị cho bún riêu để tăng thêm vị ngon.<br />\r\n&nbsp;<br />\r\n<strong>6. Mắm nhum (Bình Định)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Con nhum hay còn gọi là nhím biển được người dân Bình Định đánh bắt để làm nên món mắm nhum nổi tiếng. Nguyên liệu chính để làm nên món mắm này là những con nhum biển. Nhum sau khi được làm sạch người ra sẽ rắc thêm muối rồi cất trong chum, phơi ngoài nắng chừng 20 ngày sẽ chín. Mắm mang màu đỏ rất đặc trưng, hương vị mằn mặn, béo bùi của nhím biển sẽ dễ dàng được du khách cảm nhận chỉ ngay lần nếm thử đầu tiên. Mắm nhum là một trong những đặc sản thú vị của Bình Định, tuy nhiên do độ khó của nguyên liệu cùng cách chế biến, chỉ những người sành ăn hay dân địa phương mới biết tên hay có dịp thưởng thức món ăn này. Chính vì vậy, du khách đừng bỏ lỡ cơ hội thưởng thức mắm nhum khi ghé qua địa danh này nhé.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm nhum Bình Định\" src=\"/storage/photos/shares/tin-am-thuc/mam-nhum-binh-dinh.jpg\" /></p>\r\n\r\n<p style=\"text-align: justify;\"><br />\r\n&nbsp;<br />\r\n<strong>7. Mắm thái (An Giang)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Đến với vùng sông nước miền Tây, du khách hãy ghé thăm An Giang để thưởng thức “vương quốc mắm” ở vùng Châu Đốc. Được mệnh danh như vậy bởi Châu Đốc có một vị trí rất ngư ông đắc lợi – nằm ngay ngã ba sông Hậu, một trong hai nhánh của sông Mekong nổi tiếng với trữ lượng cá trong tự nhiên vô cùng phong phú. Đến đây, du khách sẽ bắt gặp các loại hấp dẫn và đa dạng như mắm cá linh, cá lóc, cá trèn, ba khía, cá sặc... hay nổi tiếng nhất là mắm Thái được bày bán khắp nơi. Mắm thái khác với các loại mắm khác bởi thành phần chính là cá lóc và đu đủ xanh (cả hai đều được xắt nhuyễn, có nhiều giả thuyết cho rằng vì lý do đó mà loại mắm này có tên như thế). Du khách có thể có nhiều cách thưởng thức mắm thái khác nhau, nhưng ngon nhất là ăn kèm với một mâm đầy đủ gồm bún, rau xanh, thịt luộc, bánh tráng. Không những vậy, du khách còn có thể mua về làm quà đặc sản trứ danh.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm thái -An Giang\" src=\"/storage/photos/shares/tin-am-thuc/mam-thai-an-giang.jpg\" /></p>\r\n\r\n<p>&nbsp;<br />\r\n<strong>8. Mắm rươi (Trà Vinh)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Tháng chín ăn rươi, tháng mười ăn nhộng, hay bao giờ cho đến tháng mười, bát cơm thì trắng bát rươi thì đầy. Câu nói dân gian nói về mùa rươi nhiều nhất trong năm. Rươi là loài nhuyễn thể sống ở vùng nước lợ hoặc nước mặn. Rươi thường được dùng để chế biến các món ăn giàu dinh dưỡng như chả rươi, nem rán từ rươi, lẩu rươi, rươi rang muối và đặc biệt là mắm rươi Nếu thực khách đã từng nghe đến món chả rươi ngon tuyệt của miền Bắc thì hãy đến Trà Vinh thưởng thức món mắm rươi hấp dẫn không kém. Rươi sau khi vớt lên sẽ được đem rửa sạch rồi ủ trong lu cùng nước và muối hột, cuối cùng đem phơi nắng khoảng 10-15 ngày. Nước mắm rươi sẽ có màu màu vàng óng của mật ong và có một mùi thơm rất đặc trưng. Với loại mắm này, người ta sẽ vắt thêm chanh, ớt là có thể chấm cùng thịt luộc, rau xanh có mùi hăng nồng hay hương thơm mạnh như cải cúc, lá cần, hành hoa cắt khúc, hay húng để có thể dễ ăn hơn cho một số du khách.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm rươi - Trà Vinh\" src=\"/storage/photos/shares/tin-am-thuc/mam-ruoi-tra-vinh.jpg\" />&nbsp;</p>\r\n\r\n<p style=\"text-align: justify;\"><br />\r\n<strong>9. Mắm ba khía (Cà Mau)</strong></p>\r\n\r\n<p style=\"text-align: justify;\">Mắm ba khía là loại mắm mang màu sắc đặc trưng của vùng đồng bằng sông Cửu Long. Mắm được làm từ con ba khía, một loài thuộc họ cua có càng to, sống tập trung ở vùng nước lợ, mặn, trải từ Cần Thơ đến Sóc Trăng, Cà Mau, nhiều nhất ở U Minh (Cà Mau). Do chúng có ba gạch ở trên lưng nên được đặt tên ba khía, và đặc biệt mỗi năm ba khía chỉ tập trung một lần vào 3 - 4 đêm của tháng 10. Cứ vào mùa nước lên, khi những hang của chúng dưới gốc đước, gốc mắm bị chìm trong nước, ba khía phải leo lên những rễ cây để trú ẩn và giao phối. Để làm mắm ba khía người ta thường chọn con nhỏ, gạch nhiều (gạch son màu đỏ, gạch bùn màu xám), thịt chắc (ngắt càng ra thịt không dính lại ngoe, càng). Ngon nhất là loại đang ôm trứng và không nên chọn con to<br />\r\nBa khía sau khi bắt về sẽ được rửa sạch bùn đất rồi cho vào nồi hoặc lu có chứa sẵn nước muối. Chất lượng của ba khía sau này phụ thuộc độ mặn của nước muối, công đoạn này đòi hỏi nhiều kỹ thuật và kinh nghiệm. Sau đó lấy lá dừa nước phủ lên. Ba khía làm “tới” có thể để cả năm không hư hỏng. Món gỏi ba khía đu đủ cũng rất nổi tiếng. Phần nước muối còn lại trong khạp sau khi bảo quản ba khía có thể dùng nấu nước mắm rất ngon. Về vùng nước nổi nhất định phải thử món mắm đặc sản ba khía này mới cảm nhận được hương vị miền Tây sông nước.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Mắm ba khía - Cà Mau\" src=\"/storage/photos/shares/tin-am-thuc/mam-ba-khia.jpg\" /></p>\r\n\r\n<p style=\"text-align: justify;\">Trích: Món ngon Bình Định</p>', NULL, NULL, NULL, 'mam-tom-thanh-hoa.jpg', 'cac-mon-mam-dac-san-tung-vung-mien', 0, 1, 3, 1, '2025-01-22 07:05:12', '2025-01-22 07:05:12', NULL),
-(4, 1, 'Bánh tét lọt top 100 món ăn từ đậu ngon nhất thế giới', NULL, NULL, '<p>Bánh tét truyền thống của Việt Nam lọt vào danh sách 100 món từ đậu ngon nhất theo chuyên trang ẩm thực Taste Atlas. Thời gian vừa qua, đây còn là món ăn được gửi đến cho người dân vùng bão lũ.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Bánh Tét\" src=\"/storage/photos/shares/tin-am-thuc/banh-tet.jpg\" /><br />\r\nBánh tét Việt Nam lọt danh sách 100 món ăn từ đậu ngon nhất thế giới - Ảnh: Chụp lại từ YOUTUBE</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Trong danh sách 100 món ăn từ đậu ngon nhất do chuyên trang Taste Atlas cập nhật ngày 17-9, bánh tét đứng hạng 47 với 4.1/5 sao.</p>\r\n\r\n<p><br />\r\n<strong>Bánh tét truyền thống</strong></p>\r\n\r\n<p>Bánh tét là một món ăn truyền thống của Việt Nam, thường góp mặt trong các dịp lễ đặc biệt như Tết, đám giỗ...</p>\r\n\r\n<p style=\"text-align: center;\"><br />\r\n<img alt=\"Bánh Tét\" src=\"/images/news/banh-tet-truyen-thong.jpg\" /><br />\r\nBánh tét thường xuất hiện trong các dịp đặc biệt - Ảnh: Chụp lại từ YOUTUBE</p>\r\n\r\n<p><br />\r\nTrước khi cho vào nồi hấp, các đòn bánh tét trải qua nhiều công đoạn đòi hỏi sự tỉ mỉ, khéo léo của bàn tay các bà, các mẹ.<br />\r\nNgười nấu cần chuẩn bị những nguyên liệu như nếp, đậu xanh, thịt ba chỉ, muối, tiêu xay... Đồng thời, lá chuối và lạt tre để gói cũng cần được vệ sinh sạch sẽ.<br />\r\nTheo Taste Atlas, việc sử dụng lá chuối khi gói bánh làm dậy lên hương thơm độc đáo của nếp.<br />\r\nCông đoạn đầu tiên là rửa sạch gạo nếp và ngâm ít nhất 8 tiếng, để gạo nở ra và mềm hơn.<br />\r\nĐậu xanh cũng được chuẩn bị tương tự, là rửa sạch, đãi vỏ và ngâm trong 4 tiếng.<br />\r\nSau khi ngâm, người làm bánh cần vớt nguyên liệu ra và để ráo nước.<br />\r\nVề thịt, người nấu sẽ cắt để thịt trở nên vừa vặn khi gói vào bánh tét, sau đó là nêm nếm cho phù hợp khẩu vị của mình, cuối cùng là bắt tay vào gói bánh.<br />\r\nĐây là một trong những thao tác đòi hỏi sự tỉ mỉ cao, quyết định chiếc bánh tét làm ra có khả năng lôi kéo thị giác của người ăn hay không.<br />\r\nNgười làm bánh trải lá chuối lên một mặt phẳng, phủ lên đó một lớp gạo nếp mỏng. Một lớp đậu xanh sẽ được dàn đều trên bề mặt của gạo và thịt ba chỉ được đặt ở giữa.<br />\r\nKhi gói, người làm cần cuộn, gấp mép lá chuối thật chắc để đảm bảo bánh có hình dạng đẹp mắt, không bị bung ra. Bánh tét thường được gói theo chiều dọc và chiều ngang.</p>\r\n\r\n<p><br />\r\n<strong>Gắn kết người Việt</strong><br />\r\nTừ xưa, hình ảnh đòn bánh tét thường gắn liền với các câu chuyện cổ tích, dân gian hay những ngày hội truyền thống.<br />\r\n&nbsp;</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Người dân chung tay gói bánh tét tặng đồng bào miền Bắc\" src=\"/storage/photos/shares/tin-am-thuc/nguoi-dan-chung-tay-goi-banh-tet-tang-dong-bao-mien-bac.jpg\" /></p>\r\n\r\n<p style=\"text-align: center;\">Người dân chung tay gói bánh tét tặng đồng bào miền Bắc</p>\r\n\r\n<p style=\"text-align: justify;\"><br />\r\nGần gũi hơn là vào ngày Tết, bánh tét là sự gắn kết của các thành viên trong gia đình, mỗi người góp tay một chút để làm bánh hoặc đó là thức ăn khi nhâm nhi trà và trò chuyện.<br />\r\nGần đây, những đòn bánh tét lại tôn lên tinh thần dân tộc của người Việt trong mùa bão lũ.<br />\r\nHình ảnh những người phụ nữ miền Nam, miền Trung quây quần bên nhau gói bánh để gửi tặng bà con trong vùng nước ngập miền Bắc khiến nhiều người cảm động.<br />\r\nNhững chiếc bánh được gửi đi sau nhiều ngày vẫn giữ nguyên được hương vị. Bí quyết là do tất cả bánh tét khi làm xong đều được cho vào nồi hấp suốt 12 tiếng, nhờ đó sau nhiều ngày bánh không bị hư.<br />\r\nViệc lựa chọn món bánh tét để gửi tặng vào lúc cả nước cần sự chung tay giúp đỡ phần nào cũng thể hiện tính truyền thống dân tộc đã gắn liền với món ăn.</p>\r\n\r\n<p>Trích: Báo Tuổi trẻ</p>', NULL, NULL, NULL, 'banh-tet-truyen-thong.jpg', 'banh-tet-lot-top-100-mon-an-tu-dau-ngon-nhat-the-gioi', 0, 1, 4, 1, '2025-01-22 07:29:39', '2025-01-22 07:29:39', NULL),
-(5, 1, 'Kẹo dừa Bến Tre trong top 70 loại bánh kẹo ngon nhất thế giới', NULL, NULL, '<p>Trong 70 món bánh kẹo ngon nhất thế giới do chuyên trang ẩm thực Taste Atlas công bố, kẹo dừa Bến Tre được chấm 3.5/5 sao, xếp hạng 26 trong toàn danh sách.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Dừa để làm kẹo phải là dừa vừa khô để đảm bảo cho hương vị thơm, béo nhất - Ảnh: Chụp lại từ YOUTUBE\" src=\"/images/news/keo-dua-ben-tre.jpg\" /><br />\r\nKẹo dừa được kết hợp với nhiều hương vị khác để trở nên đa dạng - Ảnh: Taste Atlas</p>\r\n\r\n<p><br />\r\nKẹo dừa từ cốt dừa béo thơm, mạch nha bằng nếp tốt<br />\r\nKẹo dừa là một món đặc sản hiện lên trong tiềm thức của người Việt Nam khi nhắc về tỉnh Bến Tre. Loại kẹo này vừa mang yếu tố truyền thống, văn hóa, vừa là mặt hàng phục vụ cho mục đích du lịch trong khu vực.<br />\r\nKẹo dừa có nguồn gốc tại huyện Mỏ Cày, tỉnh Bến Tre. Ban đầu bà con vùng này gọi đây là kẹo Mỏ Cày. Theo thời gian, nhiều người điều chỉnh cách chế biến và cho ra đời hương vị như ngày nay.<br />\r\nKẹo dừa rất mềm và dai. Trong từng hương vị của kẹo cũng bộc lộ rõ thói quen ăn uống đặc trưng của người miền Tây, đó là vị ngọt sắc và thơm mùi dừa. Khi ăn, kẹo sẽ tan dần trong miệng.<br />\r\nLoại đặc sản này đòi hỏi người ăn phải kiên trì để cảm nhận vị của dừa hòa trong cái ngọt và hương thơm dịu, nhẹ nhưng tạo ấn tượng khó tả.<br />\r\nĐể làm nên những viên kẹo này, người nghệ nhân cần chuẩn bị các nguyên liệu gồm đường, đường mạch nha, nước cốt dừa. Món ăn đòi hỏi người làm phải tỉ mỉ trong từng công đoạn.<br />\r\nĐường mạch nha được làm từ ngũ cốc, hạt lúa mì, gạo nếp… Vì thế, người thợ phải lựa loại nếp tốt, hạt to.<br />\r\nNgoài ra, bà con nơi đây còn chú ý chọn những trái dừa khô vừa chín, được hái từ trên cây xuống và có màu rám vàng. Đặc điểm của những trái này là nước còn rất ít, cơm dừa dày.</p>\r\n\r\n<p style=\"text-align: center;\"><img alt=\"Dừa để làm kẹo phải là dừa vừa khô để đảm bảo cho hương vị thơm, béo nhất - Ảnh: Chụp lại từ YOUTUBE\" src=\"/storage/photos/shares/tin-am-thuc/dua-kho-ben-tre.jpg\" /><br />\r\nDừa để làm kẹo phải là dừa vừa khô để đảm bảo cho hương vị thơm, béo nhất - Ảnh: Chụp lại từ YOUTUBE</p>\r\n\r\n<p><br />\r\nKhi ấy, dừa sẽ bộc lộ rõ hương vị đặc trưng, dùng làm nước cốt sẽ cho ra vị ngọt thanh hơn.<br />\r\nKhi các nguyên liệu đã sẵn sàng, người thợ sẽ cho tất cả vào một chảo lớn và khuấy liên tục. Công đoạn khuấy trông có vẻ đơn giản nhưng lại đòi hỏi sự công phu, điêu luyện.<br />\r\nLửa nhỏ khiến hỗn hợp bị lỏng, lửa lớn dễ khiến kẹo bị đặc. Vì thế, người thợ phải khuấy đều tay trong lúc sên. Tuy nhiên về sau máy móc đã trở thành công cụ chính làm việc này.<br />\r\nKhi hỗn hợp trở nên sền sệt và chuyển sang màu nâu caramel, những nghệ nhân bắt đầu đổ kẹo vào khuôn, cho thêm các thành phần khác như đậu phộng, lớp kẹo lá dứa, kẹo sầu riêng… Cuối cùng là cắt thành những viên kẹo.<br />\r\nTrở thành hình ảnh văn hóa của bà con miền Tây sông nước, kẹo dừa thường xuất hiện trên những bàn trà và những câu chuyện đời thường.<br />\r\nĐến ngày nay, không ít du khách cả trong lẫn ngoài nước đến đây để tìm hiểu nếp sống của người địa phương, trong đó chắc chắn phải kể đến việc ăn kẹo dừa.<br />\r\nTrích nguồn: Báo Tuổi trẻ</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, NULL, 'keo-dua-ben-tre.jpg', 'keo-dua-ben-tre-trong-top-70-loai-banh-keo-ngon-nhat-the-gioi', 0, 1, 5, 1, '2025-01-22 07:42:00', '2025-01-22 07:42:00', NULL);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `news_cat`
 --
 
@@ -723,15 +333,6 @@ CREATE TABLE `news_cat` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `news_cat`
---
-
-INSERT INTO `news_cat` (`id`, `title`, `brief`, `image`, `re_name`, `language_id`, `priority`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'Tin ẩm thực', NULL, '', 'tin-am-thuc', 2, 1, 1, NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `order_detail`
@@ -772,15 +373,6 @@ CREATE TABLE `order_request` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `order_request`
---
-
-INSERT INTO `order_request` (`orderid`, `name`, `address`, `content`, `trackid`, `subtrackid`, `email`, `phone`, `procode`, `qty`, `status`, `priority`, `updated_at`, `created_at`) VALUES
-('1', 'order_1', 'Thủ Đức', NULL, NULL, NULL, '123@gmail.com', NULL, '1', 0, NULL, 1, NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `password_reset_tokens`
@@ -877,8 +469,7 @@ INSERT INTO `product_cat` (`id`, `title`, `re_name`, `image`, `brief`, `content`
 (1, 'Miền Bắc', 'mien-bac', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 0, 1, 1),
 (2, 'Miền Trung', 'mien-trung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 0, 1, 2),
 (3, 'Miền Nam', 'mien-nam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 0, 1, 3),
-(4, 'Nước Ngoài', 'nuoc-ngoai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 0, 1, 5),
-(5, 'Xuân Hương Food', 'xuan-huong-food', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 1, 1, 4);
+(4, 'Nước Ngoài', 'nuoc-ngoai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 0, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -1042,14 +633,6 @@ CREATE TABLE `product_imexport_history` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `product_imexport_history`
---
-
-INSERT INTO `product_imexport_history` (`id`, `imexport_id`, `order_id`, `product_id`, `imexport`, `amount`, `price`, `user_id`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 81, -1, 2, 137000, 1, 'Xuất hàng', '2025-02-03 03:00:45', '2025-02-03 03:00:45');
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `product_order`
@@ -1092,19 +675,6 @@ CREATE TABLE `product_order` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `product_order`
---
-
-INSERT INTO `product_order` (`id`, `inv_id`, `invcode`, `inv_code`, `fullname`, `address`, `sendingaddress`, `company`, `email`, `phone`, `content`, `totalcost`, `totalamount`, `discount`, `subtotal`, `payment_at`, `transportfee`, `taxvat`, `user_id`, `agent_id`, `voucher`, `npp`, `daily`, `ctv`, `commission_npp`, `commission_daily`, `estimated_delivery`, `status`, `shipped_at`, `out_for_delivery_at`, `deliverydate`, `payment_status`, `payment_method`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Q0001', '123', 'Thắng', 'Thủ Đức', 'Thủ Đức', NULL, NULL, '0945685221', NULL, 0, 274000, NULL, 0, '2025-08-21 09:51:34', 25000, 27400, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '2025-08-12 10:10:52', '2025-08-12 10:10:52', '2025-02-10 00:00:00', '0', '', '2025-02-03 02:58:02', '2025-02-03 03:00:45'),
-(2, 597, 'ORD1756', 'ORD175600694024177EKA', 'a abc', '12', '12', NULL, 'a@gmail.com', '12', NULL, 8856000, 88560, 0, 82000, '2025-08-24 03:42:20', 0, 6560, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-08-31', 'Mới', '1970-01-01 00:00:00', '1970-01-01 00:00:00', NULL, '1', 'Credit Card', '2025-08-23 20:42:20', '2025-08-23 20:42:20'),
-(3, 27, 'ORD1756', 'ORD17560166009142DLUB', 'a abc', '123', '123', NULL, 'a@gmail.com', '123', NULL, 8856000, 88560, 0, 82000, '2025-08-24 06:23:20', 0, 6560, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-08-31', 'Mới', '1970-01-01 00:00:00', '1970-01-01 00:00:00', NULL, '1', 'Credit Card', '2025-08-23 23:23:20', '2025-08-23 23:23:20'),
-(4, 473, 'ORD1756', 'ORD1756017067000HT2MP', 'a a', '123', '123', NULL, 'a@gmail.com', '123', NULL, 8856000, 88560, 0, 82000, '2025-08-24 06:31:07', 0, 6560, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-08-31', 'Mới', '1970-01-01 00:00:00', '1970-01-01 00:00:00', NULL, '1', 'Credit Card', '2025-08-23 23:31:07', '2025-08-23 23:31:07'),
-(5, 814, 'ORD1756', 'ORD1756017400185UUPGD', 'a a', '123', '123', NULL, 'a@gmail.com', '123', NULL, 8856000, 88560, 0, 82000, '2025-08-24 06:36:40', 0, 6560, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-08-31', 'Chờ thanh toán', '1970-01-01 00:00:00', '1970-01-01 00:00:00', NULL, '0', 'Cash on Delivery', '2025-08-23 23:36:40', '2025-08-23 23:36:40');
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `product_orderdetail`
@@ -1152,19 +722,6 @@ CREATE TABLE `product_order_history` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `product_order_history`
---
-
-INSERT INTO `product_order_history` (`id`, `order_id`, `amount`, `user_id`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 1, 'Cập nhật đơn hàng ', '2025-02-03 03:00:45', '2025-02-03 03:00:45'),
-(2, 2, 88560, 1, 'Đơn hàng mới được tạo', '2025-08-23 20:42:20', '2025-08-23 20:42:20'),
-(3, 3, 88560, 8, 'Đơn hàng mới được tạo', '2025-08-23 23:23:20', '2025-08-23 23:23:20'),
-(4, 4, 88560, 8, 'Đơn hàng mới được tạo', '2025-08-23 23:31:07', '2025-08-23 23:31:07'),
-(5, 5, 88560, 8, 'Đơn hàng mới được tạo', '2025-08-23 23:36:40', '2025-08-23 23:36:40');
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `product_order_return`
@@ -1820,44 +1377,6 @@ CREATE TABLE `route_language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `route_language`
---
-
-INSERT INTO `route_language` (`id`, `route_name`, `title`, `parent_id`, `controlleract`, `url`, `middleware`, `method`, `language_id`, `created_at`, `updated_at`) VALUES
-(1, 'trangchu', 'Trang chủ', 0, 'HomeController@index', NULL, NULL, 'get', 2, '2022-06-27 07:41:31', '2022-06-27 07:41:31'),
-(2, 'sanpham', 'Sản phẩm', 0, 'ProductController@index', 'sim/{name?}', NULL, 'get', 2, '2022-06-27 07:41:31', '2022-07-23 13:28:08'),
-(3, 'maillienhe', 'Mail liên hệ', -1, 'ContactController@sendmail', 'mail-lien-he', 'mail', 'post', 2, '2022-06-27 07:41:31', '2022-06-27 07:41:31'),
-(4, 'tintuc', 'Tin tức', 0, 'NewsController@index', 'thong-tin/{name?}', NULL, 'get', 2, '2022-06-27 07:41:31', '2024-10-30 08:36:16'),
-(5, 'tinct', 'Tin tức', 7, 'NewsController@detail', 'tin-chi-tiet/{name?}', NULL, 'get', 2, '2022-06-27 07:41:31', '2022-06-27 07:41:31'),
-(6, 'timkiem', 'Tìm kiếm', 0, 'SearchController@index', 'tim-kiem', NULL, 'any', 2, '2022-06-27 07:41:31', '2022-06-27 07:41:31'),
-(7, 'lienhe', 'Liên hệ', 0, 'StaticPageController@index', 'lien-he', NULL, 'get', 2, '2022-06-27 07:41:31', '2022-07-23 13:24:12'),
-(9, 'tags', 'Tags', 0, 'TagsController@index', 'tags/{name?}', NULL, 'get', 2, '2022-07-25 10:19:51', '2022-07-25 10:23:17'),
-(10, 'additem', 'Thêm vào giỏ hàng', 2, 'ShoppingCartController@ajaxadditem', 'additem/{id?}', NULL, 'get', 2, '2022-07-29 07:44:14', '2022-07-29 07:47:51'),
-(11, 'delitem', 'Xóa khỏi giỏ hàng', 2, 'ShoppingCartController@deleteitem', 'delete-item/{rid?}', NULL, 'get', 2, '2022-07-29 07:46:13', '2022-07-29 07:46:13'),
-(12, 'delcart', 'Xóa giỏ hàng', 2, 'ShoppingCartController@deletecart', 'delete-cart', NULL, 'get', 2, '2022-07-29 07:46:54', '2022-07-29 07:46:54'),
-(13, 'updateitem', 'Cập nhật giỏ hàng', 2, 'ShoppingCartController@updateitem', 'update-item/{rid?}', NULL, 'get', 2, '2022-07-29 07:47:33', '2022-07-29 07:47:33'),
-(14, 'vieworder', 'Xem đơn hàng', 2, 'ShoppingCartController@vieworder', 'vieworder/{name?}', NULL, 'get', 2, '2022-07-29 07:48:26', '2022-07-29 07:48:26'),
-(15, 'shoppingcart', 'Giỏ hàng', 2, 'ShoppingCartController@index', 'shoppingcart', NULL, 'get', 2, '2022-07-29 07:48:50', '2022-07-29 07:48:50'),
-(16, 'sendorder', 'Đặt hàng', 2, 'ShoppingCartController@sendorder', 'sendorder', 'mail', 'get', 2, '2022-07-29 07:49:16', '2023-01-14 08:56:11'),
-(17, 'ajaxcheckcode', 'Check mã giảm giá', 2, 'ShoppingCartController@ajaxcheckcode', 'ajaxcheckcode/{code?}', NULL, 'get', 2, '2022-08-12 11:15:52', '2022-08-12 11:15:52'),
-(18, 'timkiem', 'Search', -1, 'SearchController@index', 'tim-kiem', NULL, 'any', 2, '2022-08-23 14:36:15', '2022-08-23 14:40:22'),
-(19, 'minicart', 'Minicart', 2, 'ShoppingCartController@ajaxminicart', 'minicart', NULL, 'get', 2, '2022-09-28 13:38:37', '2022-09-28 13:38:37'),
-(20, 'maildangkydaily', 'Mail đăng ký đối tác', -1, 'ContactController@agentregister', 'dang-ky-doi-tac', 'mail', 'post', 2, '2022-10-07 22:37:28', '2022-10-07 23:15:51'),
-(21, 'sendmaildebt', 'Thư đòi nợ', -1, 'ContactController@sendmaildebt', 'sendmaildebt/{id?}', 'mail', 'get', 2, '2022-10-12 05:07:47', '2022-10-12 05:07:47'),
-(22, 'minisearch', 'Search', -1, 'SearchController@ajaxminisearch', 'minisearch/{name?}', NULL, 'any', 2, '2022-10-27 01:36:15', '2022-10-27 01:36:15'),
-(23, 'taiunc', 'Tải UNC', -1, 'ShoppingCartController@orderpayment', 'taiunc', NULL, 'post', 2, '2023-04-22 08:16:13', '2023-04-22 08:17:26'),
-(24, 'esimauto', 'Xuất Esim tự động', 2, 'EsimController@index', 'esimauto/{name?}/{code?}', NULL, 'get', 2, '2024-11-09 09:36:31', '2024-12-11 13:07:32'),
-(25, 'esimcart', 'Đặt hàng Esim tự động', 2, 'EsimController@esimcart', 'esimcart', NULL, 'any', 2, '2024-12-11 11:50:30', '2024-12-11 13:07:21'),
-(26, 'sendesimorder', 'Đặt hàng esim', 2, 'EsimController@sendorder', 'sendesimorder', 'mail', 'post', 2, '2024-12-11 13:06:17', '2024-12-14 04:54:14'),
-(27, 'webhook', 'Webhook', 2, 'EsimController@webhook', 'webhook', 'mail', 'post', 2, '2024-12-12 02:56:52', '2024-12-14 04:54:42'),
-(28, 'vieworderesim', 'Xem đơn hàng Esim', 2, 'EsimController@vieworder', 'vieworderesim/{name?}', NULL, 'get', 2, '2024-12-14 04:39:02', '2024-12-14 04:39:02'),
-(29, 'webhookpayos', 'Thanh toán Payos', 2, 'EsimController@webhookpayos', 'webhookpayos', 'mail', 'post', 2, '2024-12-16 04:03:13', '2024-12-16 04:03:13'),
-(30, 'sendpayment', 'Kết nối Thanh toán Payos', 2, 'EsimController@sendpayment', 'sendpayment', NULL, 'any', 2, '2024-12-20 07:34:14', '2024-12-28 01:48:36'),
-(31, 'resultpayment', 'Kết quả thanh toán Payos', 2, 'EsimController@resultpayment', 'resultpayment', NULL, 'any', 2, '2024-12-20 07:35:22', '2024-12-27 19:01:01');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `sessions`
 --
 
@@ -1869,68 +1388,6 @@ CREATE TABLE `sessions` (
   `payload` longtext NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0zNA4zpxUPLt14iEFnsUGY4pteDY02jBBJtXXprf', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaUFFbWcweGFnZzZhV0t4Z0R5SFgzdVZ3ODloZEdlNGRIdnlnUGtPcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753756939),
-('1N4chSSz883MkgHzT3UKnEFdetDKnBCllOrQAU7q', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiRHVvQjBXbzZ0QUtPSmc5YVptVmFHWWVDd2xHTjA1cjNtU0hid01odyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756722),
-('26lqX1DW4ktgoMxwqsgzZEifzDnkLN8TDYWiDHRh', NULL, '57.141.4.4', 'meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWGVSV2Y5RkEweklhcEpHcDJUcU5pUlJpR3YzODhPa2RYWHl3enljdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Nzc6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9tYW0tdGVwLXR1b2ktbXVvaS14b2ktdGhvbS1uZ29uLWxvYWktZGFjLWJpZXQtYmluaC1kaW5oIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753750103),
-('2sKncUmiaYABfw6S9QWJV4tKnaViI99PB1WYNm07', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiTDE5V0JSVTJSdVp1emp2QkEyUEUxWWdvQVliWHVNTUh1T3hROVdrSSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756723),
-('2SQjHWd1U5Pw3ldiyme73L8VJnl45CnzczmpS48E', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoib3E5b01HRFNaWWZna0ZFNlA3RDdSNjJZNXFCTjJOT0dPeEtMQmdHWCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756938),
-('3sjmHdCfl8x9F0cf4RGxf3uqLTninPm9B6QaKDIO', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoicnlibmtVSHFkRGRtVWlkbXUxZGY5QUx4eW40REN4TWdHdWlLT09PSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756720),
-('4DH8704OvwYSS3MZKeywsnViNxHPSXuXJL9KQ21k', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoidzRTVE9zdnFNUTZkbUNmTHRJUXl3blB6NTV4VHozMXhXaVJlVm5uciI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756727),
-('5S3IBe6YMZOxnUbeYc8Os4viq66L3v9LJhnUkAfp', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiUVZzN0V0MGNvaFIzTEhUdUtmbnVlb1J4bDVFdlpYb1R5ZlowZzFrVSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756719),
-('66kKHZ5mtsIgXJEJKeS1vJJn1BWyNrUsmDiWcwey', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoidGRqNXVGSFdGUmxvbVhtZjJ0cGlGams4SEpPcjhJR1ZZaEtCVkl1YiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756720),
-('6dEQjPC0CJ3jlegWAUJYcltwm7anGE4qlVDUo6Kn', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiekY3TUZPVFhoNW9KY0I2b3BVNUlxUXk1RmRxcVlDenVIZThhRzFYNyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756724),
-('8RXzXTsygpWxf0GY44xK1v4jyjdk6itn0LT6SwG1', NULL, '196.251.70.223', 'Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A5362a Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQno5SmZtTVpsTFB1T1FXaWlXS25oUm1jSEdHMWxKR0gxTGN0MDNJZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vbWFpbC5xdWFkYWNzYW4uY29tLy5lbnYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753751635),
-('9AdwWnda5PolgsWnQGg36eM0VGJrzlRAH5VdtZR1', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiQXd1VWtYNjVWTjE1T1dubzR6blp3SVRTd3hDTzBpTEpWR2ZrblhtbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756726),
-('Aj7jFtFF0pDiEYnpz5rQeld6ZbSpe5PX6yn9whes', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieHdDVkN4VjBVeGRCNlNJSEp6VlcwejBKZGZ6RkVxc01TQm5VR0ExeiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753756479),
-('ar0lOvftYvvYm6OLcVOucLX7LWY6PMLmEZi1iSc4', NULL, '136.144.19.93', 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNDlXSHQwOXlMUzV3VmRwd25IODNOSUw4Z0JJNFE0T3FzSUZnZUE2NiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751991),
-('azki5Is8K0tQpBheRGV08fcIsLCcPK2WO0k41geW', NULL, '85.208.96.207', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicE5sQ1Z5RkVhaDNMbjQwOTNOZGc3NmdLcnE1ZG5HWXNPU2s4SThiSCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9ydW9pLXR1b2kiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753750944),
-('BBGi8jl3Stas9Hhr23EhhA0u3pBgMg06S6fZzcVf', NULL, '185.191.171.5', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoib3l1ekNwdnVOQmNONXI0UUhJemIycHR5QXQ0QUJUTFY2TUNQeFQzQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753755751),
-('cuItf13Lph0VcHElAnpZ59IuzJf5GTDeYsazHE1V', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWEJ4bU4xZ0pZYXNIOGJwdmk2aUd5YlgwNTJFYkJ1SzZxd1NYd3hEcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756478),
-('fodDrapRfTzymFKC4A1c1gMS2TC3Wlz3mXqpCi4Q', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiejhDMmRwV0lwb2p5a2RzN0xKazNzYm50OEFaQXpwRHl0S21MaWtGTSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756718),
-('Gsuykr2tBlDB8PTHqndLaaQSM3ilfGwtjCbll9Y7', NULL, '136.144.19.244', 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZEV3SHZKYXBOajZnaEVPTW5XZUFxaWR1cEt6Vk83SEt5WDBtM0tYSyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751972),
-('Gu8GQk4fwpTutnUIA4YBGFPZWy5kUG7vw8uR7uVv', NULL, '85.208.96.201', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoic2ZyUzl3QVdjMWViRDZSdEV1MzN2cFZEclVZZFJVQ1JUSVlNSkxtdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDQ6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9jaGEtcXVlLW51b25nLW5hbS1kaW5oIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753758066),
-('h1td9eOXIwjUvms0lrQP1L3sCX7069Rt7aWupnOX', NULL, '17.241.227.173', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRHFTeUV3cHVUdE9oYXVGYzg2VFlPNU1YME02dDRGRHZrSUx6UERJYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753752173),
-('hdJFmM7KgIpuhlb9i46UuPZOMxvAccGtb6c3Ahg4', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVzY3Zzk5TUs4MEY0U2JOYVBISHhDNkhxYjMxcmcxWFByV0tJd2FoVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756475),
-('Hi7TV93wj5aU4G92sFp4m1Z022sn9LsEYkvvCVvX', NULL, '185.191.171.18', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaWZUQ0lUNElCdVVJY2ptMVd1MlJJMFRpWUVYZEtiOUtoSlZhcEh2WSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6OTQ6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9rZW8tZHVhLXRoYXAtY2FtLXR1eWV0LXBodW5nLWJlbi10cmVrZW8tZHVhLXRoYXAtY2FtLXR1eWV0LXBodW5nLWJlbi10cmUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753755755),
-('IC4LqBgqZhYjJMNdfC7ct43iIIOACYglmvuVe5Pi', NULL, '123.21.35.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:141.0) Gecko/20100101 Firefox/141.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidzQzVVJHSUdCWmxZdU9TRnd0R3NKV3FHcno2SkN5cm1BMmM3dDlNcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753758069),
-('Ih9D2SCx6CUQI5ggAOXGEWMwZWUCsuwgqdZ3auPE', NULL, '203.33.203.148', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiN1VxVlBwZ3NJT3dwRWNNZWZaaWVPQWI0aUZRdUFZUkVJYWdXWlY5TSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ6Imh0dHA6Ly93d3cucXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753751495),
-('IztjKTItA4sjJZc3S4lJL7unJojTbm7bQwsUu2D1', NULL, '85.208.96.194', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVkJycUE2Y0NWdHFjenhuMEcxQXVBSlRvcVNaVDRLSTIwNGJoVkxKSSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9yb2JvdHMudHh0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753750940),
-('jv019EkN2h3vYW4mDVW6Dnq1aLMPpakHecKPWAZl', NULL, '136.144.19.112', 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVk91cTI2bW9qNHBaTElpODg0UW8zTkNGeE1IbkxSWjVackhtZXNEUCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751876),
-('JVLy3PFeXXJqHpYzIpJ68cDrdl2agGbhDBPcOHP2', NULL, '104.234.19.3', 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSFVVeUFwV3o4REdDNE9WR3duTHNva3hoQ2lvMmcyeDBhUm5Ud0xZaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751892),
-('kfhgbiELtTviVnJ0Q2mKd2hV6MeqmOnHGDgrbkmJ', NULL, '20.25.151.233', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidk5xS2FFWFdydWxiYmRyY1BvMlNWWnIwSkdzV2t6amVmU1ZHdnpaTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9ydW91LWRlLW5lcC1raW0tc29uLW5pbmgtYmluaCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753756477),
-('KjTJ88m41TtzDp7AZRVpPszu89xcTAHyHNMUA2p0', NULL, '17.241.227.51', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNFZiM2xJdkFkMzI0M0dwV2xESnM2a0lUSVkyYnBPV0NQdEZPakY2SCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756828),
-('kz2Np0ynr8E7Wts8zuxdLClHW7AmLRfglsgfHMf1', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiZG1EYkcwQndiTE83bFplMGZpM01BN0d2M1ZWWG1QdmZSaENLUXp6VyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756721),
-('lRSMeft1Qn8qyYtYJrD9LaSZx3ji1BEkTiOS2czX', NULL, '51.222.253.16', 'Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMkVuV1hPaVVvVGk3Ujg1ck5Fb3BQRGdJTU1GTEZaUkZOVEFBMzZkSCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjE6Imh0dHBzOi8vd3d3LnF1YWRhY3Nhbi5jb20vZHVvbmctdGhvLW1hdC1taWEtbmdoaWEtZGFuLW5naGUtYW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753750472),
-('lvcuFwQVRlBlMhyOfsldXP2n9THVzY7gAXHfpkGI', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiclJsZFQ2STR3bTY1dUxYQmc4eTNXa2Q2RUloS3BzM3JTbk9FMG5iQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756726),
-('mhL2dkyWXZziSNHW9lEnK89pmM6Xnhd6zu2Zy51m', NULL, '196.251.70.223', 'Mozilla/5.0 (OS/2; Warp 4.5; rv:24.0) Gecko/20100101 Firefox/24.0 SeaMonkey/2.21', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZG1Ia3BNekljTzJSVmhBc0gyZEU5OFNxbDhOM3lPTlE0SnMxelM5WSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS8uZW52Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753752547),
-('N9Gqb4KDk1l1NTLWSoGcjXYkI66BGruHSxnOliCD', NULL, '43.135.138.128', 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUDRyMmlRSElsangyQm9JbHVRVUFrMG9qSlZWb3NhVk1zRzhncXV6SiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ6Imh0dHA6Ly93d3cucXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753757371),
-('nCxmCFRwVfRrK1SKSXTkC7iUhQvEdZU6XrBd6BWh', NULL, '185.191.171.1', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMWdUU0piTHVGTVVpWHQ2dDRxUmM4RElSN2VOeWFSU2N6OEdCRVFKbyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9tYW0tY2F5LWtpbS1zb24tbmluaC1iaW5oIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751656),
-('nhz5qXSWw7cUDXQ5dsYbWRMj5bJLXFED2dkdVrcA', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiaFUwMHNGUHhza1E0RFZKWmdmVWs4WEhaakYwNFhSRVJoajBmYXJSSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756725),
-('qmFncaJccRMAsQz2PCAA9rt7AqzNGpK9HOlVDurq', NULL, '17.241.227.51', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUnY1S2lSTVlRVUloZ0szeERxNGY2d2Z1SnBySUhRNDJoY2hsdm1PUSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9xdWFkYWNzYW4uY29tL3JvYm90cy50eHQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753756827),
-('rr1fuA1TJOunigkuIpVy7OtfGosfoZTi78qxKcWH', NULL, '17.241.227.173', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15 (Applebot/0.1; +http://www.apple.com/go/applebot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibDl5TzRldDNpYnlyU2FUZ0ViZmdHT2IyRU5ienhwYURHTG10REhJaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753752174),
-('svK3TCWldBRVBTKk6cIrkMIuUG7CD5LhTzmR9zwZ', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiUXJLaEdwQUk3ZXdzcFN5REphNFdsQ2QxUmZsUnYzYkRHZXFsdnh2MiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756727),
-('t9iyIbPGz0WkhJiAu464t0ZIYVQed7Uc42tDDl72', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiNHNnMHBCbmtGQnZZMWJ6cmo5WXdGVThPMXJMSHRZdm9ha0p3TTFqSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756719),
-('tx87WdRIZK7vS48wG7GubqjWbXbBoajqB89PJulE', NULL, '20.171.207.121', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaEU5bEt2VVZWak1JQWloUE5NclRyVk5xQmhPTzlsMUJrUExhN011RiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9taW5pc2VhcmNoIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756944),
-('uilZBa8eNtBkHwGhfeWOkealw5VaF4Bafbzexc1v', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiSExYamtTYmJ2a1BNcU50eEpud2JzMTlRVjlkdExnY3NuOUNJQzNaUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756728),
-('VgQLU65swCrGtUtvHOKNd5S16XrDpboJv3EbFpKL', NULL, '51.222.253.8', 'Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTkd6QUZ3VTRCd0p5NGpnZVFhWld2UUI1eGlscXRHam8yTXIzamZPWCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHBzOi8vd3d3LnF1YWRhY3Nhbi5jb20vZ2lvLWJlLWJhcC1uYW0tZGFuLW5naGUtYW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1753754866),
-('vIVUjR0LGeFpZlgPoMEe8fAB43AVpZlJqZuOFOWX', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiVTRNRDhoYk1BN0c2RmtTY3dvYkVuOFVmRHp1bVRud3lpbWliUzdmZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756722),
-('VxNGduss8eZrBb31ZwpTswpZoUPbYcfmYw821yg1', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoidnJVemFjNGFmdmRaa1pFTmNQeUZ5OWR4cXQ2b2pZbTByNXlSb2YyNCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756723),
-('WDBvaOvHjun0YhhvGPZ8oUxkzbITuIjqm6JFcVSH', NULL, '20.97.189.101', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRmVHSmFHOVJ5ejFudVJkN1MzQ0ZOWG9NMDdVWVZuOHh4Vzd0RVZBQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbS9ydW91LWRlLW5lcC1raW0tc29uLW5pbmgtYmluaCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753754283),
-('wh9GOiF3Mdb1gBVEApU99lA6QgQfn1Qm1HKuAAFD', NULL, '85.208.96.200', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiV1Q5ZUlETm9IY3JpN3ZpOExkRmprMzFrQ2JyZ0dVdnprQWticXJKMSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753755753),
-('wlasfXp9D2ZDlC6kqmf3dKopbWGPnbc1fuBH4JCm', NULL, '185.191.171.9', 'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaFduWjVOV20wenE3aGR1NlFYSGpiTDB4eWh1bE9ZSVcwZTVKeHR5dyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753750942),
-('WUtuc84Xn3oBwntJjwmRX7E4HScpYWEJ3Uv3wrz4', NULL, '196.251.70.223', 'Mozilla/5.0 (iPod; U; CPU iPhone OS 2_2_1 like Mac OS X; en-us) AppleWebKit/525.18.1 (KHTML, like Gecko) Version/3.1.1 Mobile/5H11a Safari/525.20', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieHZ4VVdEd3hjY05XMXQ2VHpkclR5SkQwWnJtNWZkRDRoUkoxQnU4MiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9tYWlsLnF1YWRhY3Nhbi5jb20vLmVudiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753751599),
-('WVuhK47cKIoapdl0wM6zUtB0WhpZ1aV6nwZyoPY6', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiTDRMZkNlcGRLRThWSWZHSmlLSkNKVG4zbjVaV0lGZUU1V0gxeXlJZiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756721),
-('xl7zanXbHvAgQYvi94HQuUrMzrRBEwvfreZn3sDt', NULL, '34.74.78.170', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiQVNiT2lUUEVHVkFDQ3hWbUhLNnRMWGVFa0MzcU9sYTNJTzZWMkxXRiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753756725),
-('xZ0jdh2T4GH9vbW7xKpxZ0qwZ1PnC6aT43eRmLFO', NULL, '136.144.19.250', 'Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.3112.107 Moblie Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidFdyWjNraDRQV1FYTVg2Q3RxSzBKSmNmRUY2VUk0b29LWW80NFZSdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9xdWFkYWNzYW4uY29tIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1753751920),
-('zfVydWhXGFMcq3lXyp3vbRPnFmzSSwX6Hk610W5F', NULL, '4.227.36.42', 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVllvaDlEekpBcjJuY0tHUnpLcThIaUdxaTMxaWc3TURTRnFSNDZXQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vcXVhZGFjc2FuLmNvbSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1753756476);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `shoppingcart`
@@ -2011,16 +1468,6 @@ CREATE TABLE `tbl_banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_banner`
---
-
-INSERT INTO `tbl_banner` (`id`, `title`, `pagecode`, `youtube`, `url`, `brief`, `image`, `cat_id`, `popup`, `language_id`, `priority`, `isactive`, `created_at`, `updated_at`) VALUES
-(2, 'Xuân Hương Food', NULL, NULL, NULL, NULL, 'banner2_1.jpg', 1, 0, 2, 2, 1, NULL, NULL),
-(4, 'Quà đặc sản', NULL, NULL, NULL, NULL, 'banner1_1.jpg', 1, 0, 2, 3, 1, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `tbl_companyinfo`
 --
 
@@ -2039,26 +1486,6 @@ CREATE TABLE `tbl_companyinfo` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_companyinfo`
---
-
-INSERT INTO `tbl_companyinfo` (`id`, `title`, `code`, `link`, `content`, `image`, `font_icon`, `language_id`, `priority`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'Map', 'map', 'https://maps.app.goo.gl/zbAfDhw8WGPKupaTA', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.626607876963!2d106.7536265!3d10.839860299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527b78407ceb5%3A0xc0c1fa7a41259357!2zNjkgxJDGsOG7nW5nIFPhu5EgNSwgVHLGsOG7nW5nIFRo4buNLCBUaOG7pyDEkOG7qWMsIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1sen!2s!4v1736758405682!5m2!1sen!2s\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', NULL, NULL, 2, 1, 1, NULL, NULL),
-(2, 'Địa chỉ', 'address', 'https://maps.app.goo.gl/zbAfDhw8WGPKupaTA', '69 Đường Số 5, Khu Phố 10, Phường Trường Thọ, TP. Thủ Đức, TP. HCM', NULL, NULL, 2, 2, 1, NULL, NULL),
-(3, 'Email', 'email', 'mailto:quadacsan.com@gmail.com', 'quadacsan.com@gmail.com', NULL, NULL, 2, 3, 1, NULL, NULL),
-(4, 'Website', 'website', 'https://quadacsan.com', 'quadacsan.com', NULL, NULL, 2, 4, 1, NULL, NULL),
-(5, 'Điện thoại', 'phone', 'tel:0845168768', '(+84) 845 168 768', NULL, NULL, 2, 5, 1, NULL, NULL),
-(6, 'MST', 'mst', NULL, NULL, NULL, NULL, 2, 6, 0, NULL, NULL),
-(7, 'QUÀ ĐẶC SẢN', 'companyname', NULL, 'QUÀ ĐẶC SẢN', NULL, NULL, 2, 7, 1, NULL, NULL),
-(8, 'Hotline', 'hotline', 'tel:0845168768', 'Tư vấn ngay: 0845 168 768', NULL, NULL, 2, 8, 1, NULL, NULL),
-(9, 'Zalo', 'zalo', '0845168768', '0845168768', NULL, NULL, 2, 9, 1, NULL, NULL),
-(10, 'Facebook', 'facebook', 'https://www.facebook.com/profile.php?id=61571829891242', NULL, NULL, NULL, 2, 10, 1, NULL, NULL),
-(11, 'Thông tin tài khoản', 'bank', NULL, 'Thông tin chuyển khoản:<br>\r\nChủ Tài khoản:  <br>\r\nSố tài khoản:  <br>\r\nNgân hàng:  <br>', NULL, NULL, 2, 11, 1, NULL, NULL),
-(12, 'Pinterest', 'pinterest', NULL, NULL, '', NULL, 2, 12, 1, NULL, NULL),
-(13, 'Twitter', 'twitter', NULL, NULL, '', NULL, 2, 13, 1, NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `tbl_function`
@@ -2081,83 +1508,6 @@ CREATE TABLE `tbl_function` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_function`
---
-
-INSERT INTO `tbl_function` (`id`, `icon`, `controlleract`, `url`, `method`, `title_en`, `title_vn`, `description`, `function_tab`, `route_name`, `can_grant`, `isshow`, `parent_id`, `created_at`, `updated_at`) VALUES
-(1, 'user-icon.png', NULL, NULL, '', 'System', 'Hệ thống', NULL, 'root', NULL, 0, 1, 0, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(2, 'tintuc_items.png', NULL, NULL, NULL, NULL, 'Tin tức', NULL, 'root', NULL, 0, 1, 0, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(3, 'product.png', NULL, NULL, NULL, NULL, 'Sản phẩm', NULL, 'root', NULL, 0, 1, 0, '2022-07-08 03:00:00', '2022-07-08 03:00:00'),
-(4, 'account-icon.png', NULL, NULL, NULL, NULL, 'Quản lý bán hàng', NULL, 'root', NULL, 0, 1, 0, NULL, NULL),
-(5, 'report-icon.png', NULL, NULL, NULL, NULL, 'Báo cáo', NULL, NULL, NULL, 0, 0, 0, NULL, NULL),
-(10, 'tienich_items.png', NULL, NULL, NULL, NULL, 'Tiện ích', NULL, 'root', NULL, 1, 1, 0, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(11, 'tonghop_items.png', NULL, NULL, '', 'Tổng hợp', 'Tổng hợp', NULL, 'root', NULL, 0, 1, 0, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(101, NULL, 'UserpermissionController@index', 'userpermission', 'any', 'User Permission', 'Phân quyền', NULL, 'user-permission', 'admin.permission.index', 1, 1, 1, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(102, NULL, 'UsermanagerController@index', 'userlist', 'any', 'User List', 'Danh sách người dùng', NULL, 'user-list', 'admin.usermanager.index', 1, 1, 1, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(103, NULL, 'MailManagerController@index', 'mailmanager', 'any', 'Mail Manager', 'Quản lý mail', NULL, 'mail-manager', 'admin.mailmanager.index', 1, 1, 1, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(104, NULL, 'PaggingController@index', 'pagging', 'any', 'pagging', 'Phân trang', NULL, 'pagging', 'admin.pagging.index', 1, 1, 1, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(105, NULL, 'ChangePassWordController@showchangepass', 'changepass', 'get', 'Change Password', 'Đổi mật khẩu', NULL, 'change-pass', 'admin.showchangepass', 1, 1, 1, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(201, NULL, 'NewsTypeController@index', 'catnews', 'any', NULL, 'Loại tin tức', NULL, 'news', 'admin.news.index', 1, 1, 2, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(202, NULL, 'NewsController@index', 'news', 'any', NULL, 'Tin tức', NULL, 'news', 'admin.news.detail', 1, 1, 2, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(301, NULL, 'ProductCatController@index', 'category', 'any', NULL, 'Loại sản phẩm', NULL, 'product', 'admin.product.category', 1, 1, 3, NULL, NULL),
-(302, NULL, 'ProductController@index', 'product', 'any', NULL, 'Thông tin sản phẩm', NULL, 'product', 'admin.product.product', 1, 1, 3, NULL, NULL),
-(303, '', 'ProductPhotoController@index', 'productphoto/{id?}', 'any', NULL, 'Hình sản phẩm', NULL, 'product', 'admin.product.photo', 0, 0, 3, NULL, NULL),
-(304, '', 'ProductDetailController@index', 'productdetail/{id?}', 'any', NULL, 'Sản phẩm chi tiết', NULL, 'PRODUCT', 'admin.product.detail', 0, 0, 3, NULL, NULL),
-(401, NULL, 'ProductOrderController@index', 'orderlist', 'any', NULL, 'Đơn hàng', NULL, 'ORDER', 'admin.product.orderlist', 1, 1, 4, NULL, NULL),
-(402, NULL, 'CheckOrderController@delivery', 'delivery', 'any', NULL, 'Kiểm tra giao hàng', NULL, 'ORDER', 'admin.product.delivery', 1, 1, 4, NULL, NULL),
-(404, NULL, 'ProductImExportController@import', 'import', 'any', NULL, 'Nhập hàng', 'Nhập hàng', 'PRODUCT', 'admin.product.import', 0, 0, 4, NULL, NULL),
-(405, NULL, 'AgentController@index', 'agentlist', 'any', NULL, 'Danh sách đối tác', NULL, 'AGENT', 'admin.agentlist.index', 0, 0, 4, NULL, NULL),
-(406, NULL, 'ProductOrderController@ajaxsearchagent', 'searchagent/{name?}', 'get', NULL, 'Ajax tìm đối tác', NULL, 'ORDER', 'admin.product.searchagent', 0, 0, 4, NULL, NULL),
-(407, NULL, 'ProductOrderController@getorderdetail', 'getorderdetail/{id?}', 'get', NULL, 'Ajax get order', NULL, 'ORDER', 'admin.product.getorderdetail', 0, 0, 4, NULL, NULL),
-(408, NULL, 'ProductOrderController@exportproduct', 'exportproduct', 'post', NULL, 'Xuất hàng', NULL, 'ORDER', 'admin.product.exportproduct', 0, 0, 4, NULL, NULL),
-(410, NULL, 'ProductOrderController@getdeleteorder', 'getdeleteorder/{id?}', 'get', NULL, 'Lấy hàng trả', NULL, 'ORDER', 'admin.product.getdeleteorder', 0, 0, 4, NULL, NULL),
-(415, '', 'ShipperController@index', 'shipper', 'any', NULL, 'Nhân viên giao hàng', NULL, 'ORDER', 'admin.product.shipper', 1, 1, 4, NULL, NULL),
-(420, NULL, 'AgentLevelController@index', 'agentlevel', 'any', NULL, 'Loại đối tác', NULL, 'AGENT', 'admin.agentlevel.index', 0, 0, 4, NULL, NULL),
-(421, '', 'ProductOrderStatusController@index', 'productorderstatus', 'any', NULL, 'Trạng thái đơn hàng', NULL, 'PRODUCT', 'admin.productorderstatus.index', 1, 1, 4, NULL, NULL),
-(422, NULL, 'TransportFeeController@index', 'transportfee', 'any', NULL, 'Phí vận chuyển', NULL, 'product', 'admin.transportfee.index', 1, 1, 3, NULL, NULL),
-(1001, NULL, 'ContactMailController@index', 'contact-mail', 'any', 'Contact mail list', 'Danh sách mail liên hệ', NULL, 'contact-mail', 'admin.contactmail.index', 1, 1, 10, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1002, NULL, 'ConfigMailSMTPController@index', 'config-mailsmtp', 'any', 'Config mail smtp', 'Cấu hình mail smtp', NULL, 'config-mailsmtp', 'admin.configmailsmtp.index', 1, 1, 10, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1101, NULL, 'AboutusController@index', 'about-us', 'any', 'About us', 'Giới thiệu', NULL, 'aboutus', 'admin.aboutus.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1102, NULL, 'BannerTypeController@index', 'banner-type/{str?}', 'any', 'Banner', 'Banner', NULL, 'banner', 'admin.banner.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1103, NULL, 'BannerController@index', 'banner/{id?}', 'any', 'Banner', 'Banner', NULL, 'banner', 'admin.banner.detail', 0, 0, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1104, NULL, 'MetaHeaderController@index', 'metaheader', 'any', 'Meta Tag', 'Meta Tag', NULL, 'meta-tag', 'admin.metaheader.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1105, NULL, 'CompanyInfoController@index', 'companyinfo', 'any', 'Company Information', 'Thông tin công ty', NULL, 'company-info', 'admin.companyinfo.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1106, NULL, 'StaticPageController@index', 'staticpage', 'any', 'Static page', 'Quản lý trang tĩnh', NULL, 'trang-tinh', 'admin.staticpage.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1107, NULL, 'StaticPageController@download', 'staticpagedownload/{id?}', 'get', 'download', 'download', NULL, 'download', 'admin.staticpage.download', 0, 0, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1108, NULL, 'AdvertisementController@index', 'advertisement', 'any', 'Advertisement', 'Quảng cáo', NULL, 'advertisement', 'admin.advertisement.index', 1, 1, 11, '2022-06-26 17:41:31', '2022-06-26 17:41:31'),
-(1109, '', 'ReviewsController@index', 'reviews', 'any', NULL, 'Chia sẻ của khách hàng', NULL, 'reviews', 'admin.reviews.index', 1, 1, 11, NULL, NULL),
-(1112, NULL, 'CheckOrderController@delivered', 'delivered', 'any', NULL, 'Đơn hàng đã giao', NULL, 'ORDER', 'admin.product.delivered', 1, 1, 5, NULL, NULL),
-(1113, NULL, 'AgentCommissionController@index', 'agentcommission', 'any', NULL, 'Thanh toán chiết khấu', NULL, 'AGENT', 'admin.agent.agentcommission', 1, 1, 5, NULL, NULL),
-(1114, NULL, NULL, NULL, NULL, NULL, 'Tồn kho', NULL, NULL, NULL, 0, 0, 5, NULL, NULL),
-(1115, NULL, 'CheckOrderController@debt', 'debt', 'any', NULL, 'Công nợ', NULL, 'ORDER', 'admin.product.debt', 1, 1, 5, NULL, NULL),
-(1116, NULL, 'CheckOrderController@sales', 'sales', 'any', NULL, 'Doanh thu', NULL, 'ORDER', 'admin.product.sales', 1, 1, 5, NULL, NULL),
-(1117, '', 'ProductImExportController@export', 'export', 'get', NULL, 'Xuất hàng', NULL, 'ORDER', 'admin.product.export', 1, 1, 5, NULL, NULL),
-(1118, '', 'ProductImExportController@tonkho', 'tonkho', 'any', NULL, 'Tồn kho', NULL, 'ORDER', 'admin.product.tonkho', 1, 1, 5, NULL, NULL),
-(1119, NULL, 'CheckOrderController@profit', 'profit', 'any', NULL, 'Lợi nhuận', NULL, 'ORDER', 'admin.product.profit', 1, 1, 5, NULL, NULL),
-(1120, NULL, 'CheckOrderController@feeship', 'feeship', 'any', NULL, 'Thu phí ship', NULL, NULL, 'admin.product.feeship', 0, 0, 4, NULL, NULL),
-(1121, NULL, 'CheckOrderController@hasUNC', 'unc', 'get', NULL, 'UNC', NULL, 'ORDER', 'admin.product.unc', 0, 0, 4, NULL, NULL),
-(1122, NULL, 'CheckOrderController@hasReturn', 'trahang', 'get', NULL, 'Danh sách yêu cầu trả hàng', NULL, 'ORDER', 'admin.product.productreturn', 0, 0, 4, NULL, NULL),
-(1123, NULL, 'ProductOrderController@huytrahang', 'huytrahang', 'any', NULL, 'Phục hồi thao tác trả hàng', NULL, 'ORDER', 'admin.product.huytrahang', 0, 0, 4, NULL, NULL),
-(1124, '', 'CheckOrderController@debtexcel', 'xuatcongno', 'get', NULL, 'Xuất excel công nợ', NULL, 'ORDER', 'admin.product.xuatcongno', 1, 0, 5, NULL, NULL),
-(1125, '', 'ProductOrderController@gethistory', 'gethistory/{id?}', 'any', NULL, 'Ajax lấy lịch sử đơn hàng', NULL, 'ORDER', 'admin.product.gethistory', 0, 0, 4, NULL, NULL),
-(1126, '', 'CheckOrderController@salesexcel', 'xuatdoanhthu', 'get', NULL, 'Xuất excel doanh thu', NULL, 'ORDER', 'admin.product.xuatdoanhthu', 1, 0, 5, NULL, NULL),
-(1127, '', 'CheckOrderController@salesdetailexcel', 'xuatdoanhthuchitiet', 'get', NULL, 'Xuất excel doanh thu chi tiết', NULL, 'ORDER', 'admin.product.xuatdoanhthuchitiet', 1, 0, 5, NULL, NULL),
-(1128, 'staff-sales-1.png', NULL, NULL, NULL, NULL, 'Nhân viên kinh doanh', NULL, 'STAFF', NULL, 0, 0, 0, NULL, NULL),
-(1129, '', 'StaffOrderController@sales', 'staffsales', 'any', NULL, 'Doanh thu', NULL, 'STAFF', 'admin.staff.sales', 1, 1, 1128, NULL, NULL),
-(1130, '', 'StaffOrderController@staffsalesexcel', 'xuatdoanhthunv', 'get', NULL, 'Xuất excel doanh thu nhân viên', NULL, 'STAFF', 'admin.staff.xuatdoanhthunv', 1, 0, 1128, NULL, NULL),
-(1131, '', 'StaffOrderController@staffdetailexcel', 'xuatdoanhthunvchitiet', 'get', NULL, 'Xuất doanh thu nhân viên chi tiết', NULL, 'STAFF', 'admin.staff.xuatdoanhthunvchitiet', 1, 0, 1128, NULL, NULL),
-(1132, '', 'ProductImExportController@tonkhoexcel', 'xuattonkho', 'get', NULL, 'Xuất excel tồn kho', NULL, 'REPORT', 'admin.product.xuattonkho', 1, 0, 5, NULL, NULL),
-(1133, NULL, 'ProvinceController@index', 'province', 'any', NULL, 'Kho', NULL, 'PROVINCE', 'admin.province.index', 1, 0, 1, NULL, NULL),
-(1134, NULL, 'ProductCapacityController@index', 'procapacity', 'any', NULL, 'Trọng lượng', NULL, 'PRODUCT', 'admin.product.procapacity', 1, 1, 3, NULL, NULL),
-(1135, NULL, 'ProductDatePackageController@index', 'prodatepackage', 'any', NULL, 'Phân loại', NULL, 'PRODUCT', 'admin.product.prodatepackage', 1, 1, 3, NULL, NULL),
-(1136, NULL, 'ProductOrderController@deleteproductorder', 'deleteproductorder', 'post', NULL, 'Trả hàng', NULL, 'ORDER', 'admin.product.deleteproductorder', 0, 0, 4, NULL, NULL),
-(1137, NULL, 'ProductUpdatePriceController@index', 'updateprice', 'any', NULL, 'Chỉnh giá đồng loạt', NULL, 'PRODUCT', 'admin.product.updateprice', 1, 0, 3, NULL, NULL),
-(1138, '', 'ProductImExportController@soluongbanhangexcel', 'xuatsoluongbanhang', 'get', NULL, 'Xuất excel số lượng bán hàng', NULL, 'REPORT', 'admin.product.xuatsoluongbanhang', 1, 0, 5, NULL, NULL),
-(1139, '', 'ProductImExportController@soluongbanhang', 'soluongbanhang', 'any', NULL, 'Số lượng bán hàng', NULL, 'REPORT', 'admin.product.soluongbanhang', 1, 1, 5, NULL, NULL);
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `tbl_language`
@@ -2244,16 +1594,6 @@ CREATE TABLE `tbl_province` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_province`
---
-
-INSERT INTO `tbl_province` (`id`, `title`, `content`, `image`, `priority`) VALUES
-(1, 'HCM', '<p>Thông tin chuyển khoản:<br />\r\nChủ Tài khoản: HAU VI TU<br />\r\nSố tài khoản: 619876<br />\r\nNgân hàng: ACB</p>', 'acb-hau-vi-tu.jpg', 1),
-(2, 'Hà Nội', '<p>Thông tin chuyển khoản:<br />\r\nChủ Tài khoản: HAU VI TU<br />\r\nSố tài khoản: 19023699247015<br />\r\nNgân hàng: TECHCOMBANK</p>', 'logo.png', 2);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `tbl_reviews`
 --
 
@@ -2310,21 +1650,6 @@ CREATE TABLE `tbl_staticpage` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_staticpage`
---
-
-INSERT INTO `tbl_staticpage` (`id`, `title`, `map`, `pagecode`, `brief`, `content`, `image`, `htmlfile`, `keyword`, `meta_description`, `language_id`, `priority`, `isdefault`, `isactive`, `created_at`, `updated_at`) VALUES
-(1, 'VỀ CHÚNG TÔI', NULL, 'gioithieu', NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 0, 1, '2022-07-24 03:01:57', '2025-01-13 16:18:10'),
-(2, 'Chính sách bảo mật', NULL, 'chinh-sach-bao-mat-thong-tin-khach-hang', NULL, NULL, '', NULL, NULL, NULL, 2, 5, 0, 1, '2022-07-24 07:19:02', '2025-01-13 16:18:31'),
-(3, 'Chính sách mua hàng', NULL, 'chinh-sach-mua-hang', NULL, NULL, NULL, NULL, NULL, NULL, 2, 4, 0, 1, '2022-07-24 07:19:37', '2025-01-13 16:18:46'),
-(4, 'Phương thức thanh toán', NULL, 'phuong-thuc-thanh-toan', NULL, NULL, NULL, NULL, NULL, NULL, 2, 2, 0, 1, '2023-09-27 10:27:21', '2025-01-13 16:19:02'),
-(5, 'Hướng dẫn đặt hàng', NULL, 'huong-dan-dat-hang', NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 0, 1, '2023-09-27 10:28:21', '2025-01-13 16:20:42'),
-(6, 'Phương thức giao hàng', NULL, 'phuong-thuc-giao-hang', NULL, NULL, NULL, NULL, NULL, NULL, 2, 3, 0, 1, '2023-09-27 10:33:56', '2025-01-13 16:19:13'),
-(7, 'Đăng ký tài khoản thành công', NULL, 'thanhcong', NULL, '<div class=\"offset-md-2 col-lg-8\">\r\n<p>Chúc mừng bạn đã đăng ký tài khoản thành công!</p>\r\n\r\n<p>Bạn đã gia nhập Quà Đặc Sản và có thể bắt đầu những món ngon từ các vùng miền. Bây giờ, bạn có thể dễ dàng theo dõi lịch sử mua hàng, nhận những ưu đãi đặc biệt và các khuyến mãi độc quyền dành riêng cho thành viên. Hãy khám phá thêm nhiều sản phẩm và dịch vụ hấp dẫn để tối ưu hóa trải nghiệm mua sắm của bạn!</p>\r\n\r\n<p>Chân thành cảm ơn bạn đã tin tưởng và đồng hành cùng chúng tôi.</p>\r\n\r\n<p>Trân trọng!</p>\r\n\r\n<p>QUÀ ĐẶC SẢN</p>\r\n</div>', '', NULL, NULL, NULL, 2, 6, 0, 1, '2025-02-16 15:30:22', '2025-02-16 15:30:22');
-
--- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `tbl_transaction`
@@ -2389,20 +1714,6 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `role` varchar(100) NOT NULL DEFAULT 'customer'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `users`
---
-
-INSERT INTO `users` (`id`, `name`, `username`, `image`, `isadmin`, `email`, `phone`, `address`, `province_id`, `isactive`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'Administrator', 'administrator', 'Sw1zizEJsdJofVCDuP8ZHuQ5gQFHy0OanLjrzf58.jpg', 1, 'tuancsharp@gmail.com', '091810000', '103 pasteur p Bến Nghé Q1 TPHCM', 1, 1, '2022-06-27 07:41:31', '$2y$12$G9BsPlZAfvlAaK5H7FONvOlKVUwbTDjTt9P8yjXkg6mj4Ojs332PO', 'EqMi1jHqKuzltnYZTFEiEdsJLvevYMIfhqmHtAlztVmJzYiWetlgKgMcq8yv', '2022-06-27 07:41:31', '2025-01-14 13:14:39', 'admin'),
-(2, 'Giao hàng', 'shipper', 'shipper.jpg', 0, 'ntkl77@gmail.com', '0908136476', NULL, 1, 1, NULL, '$2y$10$SYf86U0fnTBSGyOAQvesNuZfxGWqaVvzlL8z0K2Qd8bRz2PPj/OAW', NULL, '2023-03-07 10:54:37', '2024-11-10 12:08:25', 'customer'),
-(3, 'Nguyễn Khánh Duy', 'SEO', 'icon-user.jpg', 0, 'duynguyen5589@gmail.com', NULL, NULL, 2, 1, NULL, '$2y$10$fgc4A/Dt0IEpm51k/v5.Q.kPXAeSsKE1QEKV3FAGJmZMa72vroSTm', NULL, '2023-03-14 10:05:28', '2024-12-02 12:31:59', ''),
-(4, 'Admin', 'admin', NULL, 0, 'apttgolf@gmail.com', NULL, NULL, 2, 1, NULL, '$2y$10$3hxZZWAlgo9ZCNWD5Pfx.eiNAAub/JN7cMdzgOAvwcLlW7LTORure', NULL, '2023-04-25 11:52:08', '2024-11-10 12:07:41', 'customer'),
-(5, 'a.Tiến', 'a.Tiến', '', 0, 'chuongtien2020@gmail.com', '0773999770', NULL, 1, 1, NULL, '$2y$10$6U7Tu47vPJL4NkGHwTCvPObTbkS7qxQCagzufiuEmkvn5QKtMCRNm', NULL, '2023-05-13 09:12:32', '2023-05-13 09:12:32', 'customer'),
-(6, 'HIẾU VŨ', 'HIEU HIEU', '', 0, 'vt.hieu1991@gmail.com', '0903882224', NULL, 1, 1, NULL, '$2y$10$3fElEh19elZ4q.IRRMEy/ukfb87B9J88yiiuWm8GlO./M2beWHakG', NULL, '2023-06-21 15:26:15', '2023-06-29 11:25:18', 'customer'),
-(7, 'chị vy', 'vyvu', '', 0, 'nghivu07@yahoo.com.vn', '0906400018', NULL, 1, 1, NULL, '12345', NULL, '2023-11-27 06:26:58', '2023-11-27 06:26:58', 'customer'),
-(8, 'a', 'aa', NULL, 0, 'a@gmail.com', NULL, NULL, 1, 1, NULL, '$2b$10$DuRkcfWvtUOYaLdTI8LIcu9oRTIMSFH3Rc0u.mBPVToUYlxxrethG', '563c0abe2b18b61c3f312300af90d95252ef7c9af22f7f6482512d8727f063a9', '2025-08-23 23:21:49', '2025-08-23 23:22:15', 'customer');
 
 --
 -- Chỉ mục cho các bảng đã đổ
