@@ -80,13 +80,13 @@ export async function GET(
     type Product = {
       id: number | bigint
       title: string
-      image: string
+      image: string | null
     }
 
     // Tạo map để tìm sản phẩm nhanh
     const productMap = new Map<number, Product>(products.map((p: Product) => [Number(p.id), p]))
 
-    // Tạo timeline dựa trên status
+    // Tạo timeline dựa trên status mới
     const getTimelineFromStatus = (status: string) => {
       const timeline = [
         {
@@ -97,29 +97,52 @@ export async function GET(
         }
       ]
 
-      if (status === "Duyệt" || status === "Đang giao" || status === "Đã giao") {
+      // Đang xử lý
+      if (["processing", "shipped", "out_for_delivery", "delivered"].includes(status)) {
         timeline.push({
-          title: "Đơn hàng đã được duyệt",
-          description: "Đơn hàng đang được chuẩn bị",
+          title: "Đang xử lý",
+          description: "Đơn hàng đang được xử lý và chuẩn bị",
           date: order.updated_at,
           completed: true
         })
       }
 
-      if (status === "Đang giao" || status === "Đã giao") {
+      // Đã gửi hàng
+      if (["shipped", "out_for_delivery", "delivered"].includes(status)) {
         timeline.push({
-          title: "Đang giao hàng",
-          description: "Đơn hàng đang được vận chuyển",
-          date: order.shipped_at,
+          title: "Đã gửi hàng",
+          description: "Đơn hàng đã được gửi từ kho",
+          date: order.shipped_at || order.updated_at,
           completed: true
         })
       }
 
-      if (status === "Đã giao") {
+      // Đang giao hàng
+      if (["out_for_delivery", "delivered"].includes(status)) {
         timeline.push({
-          title: "Giao hàng thành công",
+          title: "Đang giao hàng",
+          description: "Đơn hàng đang được vận chuyển đến bạn",
+          date: order.out_for_delivery_at || order.updated_at,
+          completed: true
+        })
+      }
+
+      // Đã giao hàng
+      if (status === "delivered") {
+        timeline.push({
+          title: "Đã giao hàng",
           description: "Đơn hàng đã được giao thành công",
-          date: order.deliverydate,
+          date: order.deliverydate || order.updated_at,
+          completed: true
+        })
+      }
+
+      // Nếu đơn hàng bị hủy
+      if (status === "cancelled") {
+        timeline.push({
+          title: "Đơn hàng đã bị hủy",
+          description: "Đơn hàng đã được hủy",
+          date: order.updated_at,
           completed: true
         })
       }
@@ -136,6 +159,10 @@ export async function GET(
       id: order.inv_code,
       status: order.status,
       date: order.created_at,
+      updated_at: order.updated_at,
+      shipped_at: order.shipped_at,
+      out_for_delivery_at: order.out_for_delivery_at,
+      deliverydate: order.deliverydate,
       total: order.totalamount,
       subtotal: order.subtotal,
       shipping: order.transportfee,
@@ -155,7 +182,7 @@ export async function GET(
         return {
           id: item.product_id,
           name: product ? product.title : `Sản phẩm ${item.product_id}`,
-          image: product ? product.image : "/placeholder.svg",
+          image: product?.image || "/placeholder.svg",
           quantity: item.quantity,
           price: item.price,
           total: item.price * item.quantity

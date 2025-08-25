@@ -21,6 +21,7 @@ export async function GET() {
         price: true,
         cat_id: true,
         capacity_id: true, // Include capacity_id for manual mapping
+		isactive: true,
       },
       orderBy: {
         id: 'asc',
@@ -68,6 +69,7 @@ export async function GET() {
         category: category?.title ?? 'Not defined',
         categorySlug: category?.re_name ?? '',
         capacity: capacity ?? 'Unknown',
+		isactive: product.isactive,
       };
     });
 

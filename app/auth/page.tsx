@@ -29,6 +29,7 @@ export default function AuthPage() {
     confirmPassword: "" 
   })
   const [error, setError] = useState("")
+  const [registerSuccess, setRegisterSuccess] = useState(false)
   const { isAuthenticated, user, logout } = useAuth()
   const { toast } = useToast()
   const router = useRouter()
@@ -102,6 +103,7 @@ useEffect(() => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
+    setRegisterSuccess(false)
 
     if (registerData.password !== registerData.confirmPassword) {
       setError("Mật khẩu xác nhận không khớp")
@@ -125,17 +127,25 @@ useEffect(() => {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.message || "Đăng ký thất bại")
+        throw new Error(data.error || "Đăng ký thất bại")
       }
 
+      // Hiển thị thông báo thành công
+      setRegisterSuccess(true)
+      setError("")
+      
       toast({
-        title: "Tài khoản đã được tạo!",
-        description: "Bạn có thể đăng nhập ngay bây giờ.",
+        title: "🎉 Đăng ký thành công!",
+        description: "Tài khoản của bạn đã được tạo thành công. Bạn có thể đăng nhập ngay bây giờ.",
       })
 
-      // Chuyển về tab đăng nhập
+      // Reset form
       setRegisterData({ name: "", email: "", password: "", confirmPassword: "" })
-      setError("")
+      
+      // Tự động chuyển về tab đăng nhập sau 3 giây
+      setTimeout(() => {
+        setRegisterSuccess(false)
+      }, 5000)
     } catch (error) {
       console.error("Register error:", error)
       setError(error instanceof Error ? error.message : "Đăng ký thất bại")
@@ -322,6 +332,13 @@ useEffect(() => {
               {error && (
                 <Alert variant="destructive" className="mb-4">
                   <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
+              {registerSuccess && (
+                <Alert className="mb-4 border-green-500 bg-green-50 text-green-800">
+                  <AlertDescription>
+                    🎉 Tài khoản của bạn đã được tạo thành công! Bạn có thể đăng nhập ngay bây giờ.
+                  </AlertDescription>
                 </Alert>
               )}
               <form onSubmit={handleRegister} className="space-y-4">

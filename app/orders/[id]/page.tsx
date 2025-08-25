@@ -235,7 +235,12 @@ export default function OrderDetailPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="font-medium">Phương thức:</span>
-                    <span>{order.paymentMethod || "Không xác định"}</span>
+                    <span>
+                      {order.paymentMethod === "Credit Card" ? "Thẻ tín dụng" :
+                       order.paymentMethod === "Cash" ? "Tiền mặt" :
+                       order.paymentMethod === "Bank Transfer" ? "Chuyển khoản ngân hàng" :
+                       order.paymentMethod || "Không xác định"}
+                    </span>
                   </div>
                 </div>
                 <div className="space-y-3">
@@ -298,28 +303,74 @@ export default function OrderDetailPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {order.timeline?.map((step: any, index: number) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      step.completed ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'
-                    }`}>
-                      {step.completed ? (
-                        <CheckCircle className="h-5 w-5" />
-                      ) : (
-                        <span className="text-sm font-medium">{index + 1}</span>
-                      )}
+                {(() => {
+                  // Tạo timeline dựa trên trạng thái hiện tại
+                  const timeline = [
+                    {
+                      title: "Đơn hàng đã được tạo",
+                      description: "Đơn hàng của bạn đã được tiếp nhận",
+                      completed: true,
+                      date: order.date
+                    },
+                    {
+                      title: "Đang xử lý",
+                      description: "Đơn hàng đang được xử lý và chuẩn bị",
+                      completed: ["processing", "shipped", "out_for_delivery", "delivered"].includes(order.status),
+                      date: order.status === "processing" ? order.updated_at : null
+                    },
+                    {
+                      title: "Đã gửi hàng",
+                      description: "Đơn hàng đã được gửi từ kho",
+                      completed: ["shipped", "out_for_delivery", "delivered"].includes(order.status),
+                      date: order.shipped_at || (order.status === "shipped" ? order.updated_at : null)
+                    },
+                    {
+                      title: "Đang giao hàng",
+                      description: "Đơn hàng đang được vận chuyển đến bạn",
+                      completed: ["out_for_delivery", "delivered"].includes(order.status),
+                      date: order.out_for_delivery_at || (order.status === "out_for_delivery" ? order.updated_at : null)
+                    },
+                    {
+                      title: "Đã giao hàng",
+                      description: "Đơn hàng đã được giao thành công",
+                      completed: order.status === "delivered",
+                      date: order.deliverydate || (order.status === "delivered" ? order.updated_at : null)
+                    }
+                  ]
+
+                  // Nếu đơn hàng bị hủy, thêm bước hủy
+                  if (order.status === "cancelled") {
+                    timeline.push({
+                      title: "Đơn hàng đã bị hủy",
+                      description: "Đơn hàng đã được hủy",
+                      completed: true,
+                      date: order.updated_at
+                    })
+                  }
+
+                  return timeline.map((step, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                        step.completed ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-500'
+                      }`}>
+                        {step.completed ? (
+                          <CheckCircle className="h-5 w-5" />
+                        ) : (
+                          <span className="text-sm font-medium">{index + 1}</span>
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium">{step.title}</h4>
+                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                        {step.date && (
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {new Date(step.date).toLocaleDateString('vi-VN')}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium">{step.title}</h4>
-                      <p className="text-sm text-muted-foreground">{step.description}</p>
-                      {step.date && (
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {new Date(step.date).toLocaleDateString('vi-VN')}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))
+                })()}
               </div>
             </CardContent>
           </Card>

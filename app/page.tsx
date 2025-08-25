@@ -1,4 +1,3 @@
-// /app/page.tsx
 "use client"
 
 import { useState, useMemo, useEffect } from "react"
@@ -25,6 +24,7 @@ interface Product {
   re_name?: string
   category?: string
   capacity?: string
+  isactive: boolean
 }
 
 interface Category {
@@ -134,11 +134,26 @@ export default function HomePage() {
   const featuredProducts = useMemo(() => {
     const allHighlights = [...hotProducts, ...newProducts];
     const uniqueProducts = Array.from(new Map(allHighlights.map(item => [item.id, item])).values());
-    return uniqueProducts.slice(0, 3);
+    return uniqueProducts.filter(product => product.isactive).slice(0, 3)
   }, [hotProducts, newProducts]);
 
+  // Kiểm tra ký tự ngoài chữ và số Unicode (bao gồm cả tiếng Việt)
+  // Chuỗi chỉ được gồm các ký tự chữ hoặc số, không được chứa ký tự đặc biệt, khoảng trắng, dấu câu...
+  // Regex Unicode chữ và số: \p{L} là chữ, \p{N} là số
+  // Cờ 'u' là Unicode, '^\p{L}\p{N}' là ký tự không phải chữ và số
+  const hasInvalidChars = (input: string) => {
+    // Nếu có kí tự khác chữ hoặc số thì trả về true
+    // Regex: tìm ký tự không phải chữ (bao gồm các chữ Unicode, ví dụ tiếng Việt) hoặc số
+    return /[^\p{L}\p{N}]/u.test(input)
+  }
+
   const filteredProducts = useMemo(() => {
+    if (hasInvalidChars(searchQuery)) {
+      // Nếu có ký tự đặc biệt không hợp lệ thì không trả về sản phẩm nào
+      return []
+    }
     const productsToFilter = products.filter((product) => {
+      if (!product.isactive) return false   
       if (searchQuery && !product.title.toLowerCase().includes(searchQuery.toLowerCase())) return false
       if (selectedCategory && product.category !== selectedCategory) return false
       if (product.price < priceRange[0] || product.price > priceRange[1]) return false
@@ -172,55 +187,68 @@ export default function HomePage() {
     setPriceRange([minPrice, maxPrice])
   }
 
-  const renderProductCard = (product: Product, buttonWidth: string = "w-[140px]") => (
-    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-      <Link href={`/product/${product.id}`}>
-        <div className="aspect-square relative cursor-pointer">
-          <Image
-          src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
-          alt={product.title}
-          width={400}
-          height={400}
-          quality={100}
-          className="object-cover"
-          />
-        </div>
-      </Link>
-      <CardContent className="p-4">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-          <span>{product.category}</span>
-        </div>
+  const renderProductCard = (product: Product) => {
+    const cartItem = cartState.items.find(item => item.id === product.id)
+
+    return (
+      <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
         <Link href={`/product/${product.id}`}>
-          <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
-            {product.title}
-          </h4>
+          <div className="aspect-square relative cursor-pointer">
+            <Image
+              src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
+              alt={product.title}
+              width={400}
+              height={400}
+              quality={100}
+              className="object-cover"
+            />
+          </div>
         </Link>
-        <div className="flex items-center justify-between">
-          <span className="text-lg font-bold">{formatPrice(product.price)}</span>
-          <Button
-            size="sm"
-            onClick={() => handleAddToCart(product)}
-            className = "w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
-            disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}
-          >
-            {loadingProductIds.includes(product.id) ? (
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-            ) : addedProductIds.includes(product.id) ? (
-              <>
-                <CheckCircle className="h-4 w-4 mr-1" />
-                Đã thêm
-              </>
+        <CardContent className="p-4">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+            <span>{product.category}</span>
+          </div>
+          <Link href={`/product/${product.id}`}>
+            <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
+              {product.title}
+            </h4>
+          </Link>
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-bold">{formatPrice(product.price)}</span>
+
+            {cartItem ? (
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity - 1 } })}
+                  disabled={cartItem.quantity <= 1}
+                >
+                  -
+                </Button>
+                <span>{cartItem.quantity}</span>
+                <Button
+                  size="sm"
+                  onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity + 1 } })}
+                  disabled={cartItem.quantity >= 50} // stock limit
+                >
+                  +
+                </Button>
+              </div>
             ) : (
-              <>
+              <Button
+                size="sm"
+                onClick={() => handleAddToCart(product)}
+                className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
+              >
                 <ShoppingCart className="h-6 w-6" />
                 Thêm vào giỏ
-              </>
+              </Button>
             )}
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
-  )
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
 
   const handleAddToCart = (product: Product) => {
     if (loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)) return
@@ -335,7 +363,6 @@ export default function HomePage() {
 
   const isFiltered = searchQuery || selectedCategory || selectedCapacity || priceRange[0] !== minPrice || priceRange[1] !== maxPrice;
 
-
   return (
     <div className="min-h-screen bg-background">
       {/* Welcome bar */}
@@ -413,7 +440,22 @@ export default function HomePage() {
           </p>
           <div className="max-w-2xl mx-auto relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-            <Input placeholder="Tìm kiếm" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 py-3 text-lg" />
+            <Input
+              placeholder="Tìm kiếm"
+              value={searchQuery}
+              onChange={(e) => {
+                const val = e.target.value
+                setSearchQuery(val)
+                if (hasInvalidChars(val)) {
+                  alert("Không được nhập ký tự đặc biệt hoặc dấu cách trong tìm kiếm")
+                }
+              }}
+              className="pl-10 py-3 text-lg"
+            />
+            {/* Hiển thị cảnh báo dưới input */}
+            {hasInvalidChars(searchQuery) && (
+              <p className="text-red-500 mt-2 text-sm">Không được nhập ký tự đặc biệt hoặc dấu cách trong tìm kiếm</p>
+            )}
           </div>
         </div>
       </section>
