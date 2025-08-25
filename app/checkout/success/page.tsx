@@ -80,7 +80,8 @@ export default function CheckoutSuccessPage() {
               </div>
               <CardTitle className="text-2xl">Đặt hàng thành công!</CardTitle>
               <p className="text-muted-foreground">
-                Cảm ơn bạn đã mua hàng. Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.
+                Cảm ơn bạn đã mua hàng. <br />
+                Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
