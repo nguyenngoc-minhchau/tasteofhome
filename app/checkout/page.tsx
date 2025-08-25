@@ -658,7 +658,7 @@ export default function CheckoutPage() {
 
         {/* Bản quyền */}
         <div className="bg-black text-center text-white py-3 text-xs">
-          © 2025 TasteOfHome. All rights reserved.
+          © 2025 TasteOfHome. Bản quyền thuộc về team 08.
         </div>
       </footer>
     </div>
