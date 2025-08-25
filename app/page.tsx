@@ -117,7 +117,7 @@ export default function HomePage() {
         setHotProducts(highlightsData.hot || [])
         setNewProducts(highlightsData.new || [])
       } catch (err: any) {
-        setError(err.message || "Something went wrong")
+        setError(err.message || "Đang có lỗi xảy ra")
       } finally {
         setIsLoading(false)
       }
@@ -208,12 +208,12 @@ export default function HomePage() {
             ) : addedProductIds.includes(product.id) ? (
               <>
                 <CheckCircle className="h-4 w-4 mr-1" />
-                Added
+                Đã thêm
               </>
             ) : (
               <>
-                <ShoppingCart className="h-4 w-4 mr-1" />
-                Add to Cart
+                <ShoppingCart className="h-6 w-6" />
+                Thêm vào giỏ
               </>
             )}
           </Button>
@@ -256,7 +256,7 @@ export default function HomePage() {
     const displayedProducts = expanded ? productsList : productsList.slice(0, visibleCount)
     if (productsList.length === 0) return null
     return (
-      <section className={`py-12 ${
+      <section className={`py-6 ${
       title === "Hot Products" ? "bg-beige" : "bg-yellowish"}`}>
         <div className="container mx-auto px-4">
           <div className="relative mb-8">
@@ -266,7 +266,7 @@ export default function HomePage() {
                 onClick={() => setExpanded(!expanded)}
                 className="absolute right-0 top-1/2 -translate-y-1/2 text-primary text-base font-semibold hover:underline"
               >
-              {expanded ? "Less" : "More"}
+              {expanded ? "Thu gọn" : "Nhiều hơn"}
             </button>
           )}
         </div>
@@ -338,6 +338,10 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Welcome bar */}
+      <div className="bg-red-700 text-white text-sm text-center py-2">
+        Chào mừng đến Taste Of Home
+      </div>
       {/* Header */}
       <header className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -374,21 +378,17 @@ export default function HomePage() {
               </DropdownMenu>
             ) : (
               <Link href="/auth">
-                <Button variant="ghost">Sign In</Button>
+                <Button variant="ghost">Đăng Nhập</Button>
               </Link>
             )}
 
             <Link href="/orders">
-              <Button variant="ghost">Orders</Button>
+              <Button variant="ghost">Đơn Hàng</Button>
             </Link>
 
             <Link href="/support">
-              <Button variant="ghost">Support</Button>
+              <Button variant="ghost">Hỗ Trợ</Button>
             </Link>
-
-            <Button variant="ghost" size="icon">
-              <Heart className="h-5 w-5" />
-            </Button>
 
             <Link href="/cart" className="relative">
               <Button variant="ghost" size="icon">
@@ -407,13 +407,13 @@ export default function HomePage() {
       {/* Hero Section with Search */}
       <section className="bg-beige py-12">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Discover Premium Artisan Products</h2>
+          <h2 className="text-4xl font-bold mb-4">Khám Phá Các Sản Phẩm Đặc Sản Việt Nam</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Curated selection of organic, artisanal, and specialty items from around the world
+            Tuyển chọn các mặt hàng đặc sản từ khắp các tỉnh thành Việt Nam với giá cả phải chăng
           </p>
           <div className="max-w-2xl mx-auto relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-            <Input placeholder="Search for products, categories, or brands..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 py-3 text-lg" />
+            <Input placeholder="Tìm kiếm" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 py-3 text-lg" />
           </div>
         </div>
       </section>
@@ -423,7 +423,7 @@ export default function HomePage() {
       {!isFiltered && featuredProducts.length > 0 && (
         <section className="py-12 bg-yellowish">
           <div className="container mx-auto px-4">
-            <h3 className="text-3xl font-bold mb-8 text-center text-[#1C352D]">Featured Products</h3>
+            <h3 className="text-3xl font-bold mb-8 text-center text-[#1C352D]">Sản Phẩm Nổi Bật</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {featuredProducts.map((product) => renderProductCard(product))}
             </div>
@@ -434,8 +434,8 @@ export default function HomePage() {
       {/* Dynamic Product Sections (Hot/New) */}
       {!isFiltered && (
         <>
-          {renderProductGroup("Hot Products", hotProducts, hotExpanded, setHotExpanded)}
-          {renderProductGroup("New Products", newProducts, newExpanded, setNewExpanded)}
+          {renderProductGroup("Sản Phẩm Bán Chạy", hotProducts, hotExpanded, setHotExpanded)}
+          {renderProductGroup("Sản Phẩm Mới", newProducts, newExpanded, setNewExpanded)}
         </>
       )}
       
@@ -460,15 +460,15 @@ export default function HomePage() {
               <main className="lg:col-span-3">
                   <div className="flex items-center justify-between mb-6">
                       <h3 className="text-xl font-semibold">
-                          {isFiltered ? "Search Results" : "All Products"} <span className="text-muted-foreground ml-2">({filteredProducts.length} products)</span>
+                          {isFiltered ? "Kết quả tìm kiếm" : "Tất cả sản phẩm"} <span className="text-muted-foreground ml-2">({filteredProducts.length} products)</span>
                       </h3>
                   </div>
 
                   {filteredProducts.length === 0 ? (
                       <div className="text-center py-12">
-                          <p className="text-lg text-muted-foreground mb-4">No products found matching your criteria</p>
+                          <p className="text-lg text-muted-foreground mb-4">Không có sản phẩm phù hợp với bộ lọc</p>
                           <Button onClick={clearAllFilters} variant="outline">
-                              Clear All Filters
+                              Xóa tất cả bộ lọc
                           </Button>
                       </div>
                   ) : (
@@ -482,6 +482,43 @@ export default function HomePage() {
               </main>
           </div>
       </div>
+      {/* Footer */}
+      <footer className="bg-beige text-black mt-12">
+        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm place-items-center items-start">
+          {/* Logo & liên hệ */}
+          <div>
+            <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3" />
+            <p>Địa chỉ: 227 Nguyễn Văn Cừ, phường Chợ Quán, TP.HCM</p>
+            <p>Hotline: 0123 456 789</p>
+            <p>Email: support@tasteofhome.com</p>
+          </div>
+
+          {/* Danh mục chính */}
+          <div>
+            <h3 className="font-semibold mb-2">Danh mục chính</h3>
+            <ul className="space-y-1">
+              <li>Rau củ quả</li>
+              <li>Thịt cá</li>
+              <li>Đặc sản vùng miền</li>
+              <li>Gia vị & Nước chấm</li>
+            </ul>
+          </div>
+
+          {/* Giới thiệu ngắn */}
+          <div>
+            <h3 className="font-semibold mb-2">Về chúng tôi</h3>
+            <p>
+              TasteOfHome mang hương vị quê hương đến từng bữa ăn của bạn. 
+              Cam kết sản phẩm sạch, chất lượng, an toàn và giao hàng tận nơi.
+            </p>
+          </div>
+        </div>
+
+        {/* Bản quyền */}
+        <div className="bg-black text-center text-white py-3 text-xs">
+          © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
+        </div>
+      </footer>
     </div>
   )
 }

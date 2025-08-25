@@ -50,11 +50,11 @@ export function SearchFilters({
   const activeFiltersCount =
     (selectedCategory ? 1 : 0) +
     (selectedCapacity ? 1 : 0) +
-    (priceRange[0] > minPrice || priceRange[10] < maxPrice ? 1 : 0)
+    (priceRange && priceRange[0] > minPrice || priceRange && priceRange[1] < maxPrice ? 1 : 0)
 
   // Guard to ensure priceRange values are valid numbers before calling toLocaleString
-  const fromPrice = typeof priceRange === "number" ? priceRange : minPrice
-  const toPrice = typeof priceRange[10] === "number" ? priceRange[10] : maxPrice
+  const fromPrice = priceRange && typeof priceRange[0] === "number" ? priceRange[0] : minPrice
+  const toPrice = priceRange && typeof priceRange[1] === "number" ? priceRange[1] : maxPrice
 
   return (
     <Card>
@@ -83,7 +83,7 @@ export function SearchFilters({
           <CollapsibleTrigger asChild>
             <Button variant="ghost" className="w-full p-0 h-auto">
               <div className="flex w-full justify-between items-center">
-                <span className="font-medium">Category</span>
+                <span className="font-medium">Phân loại</span>
                 {openSections.category ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </div>
             </Button>
@@ -92,7 +92,7 @@ export function SearchFilters({
             <div className="space-y-2">
               <Label className="flex items-center space-x-2 cursor-pointer">
                 <Checkbox checked={selectedCategory === ""} onCheckedChange={() => onCategoryChange("")} />
-                <span>All Categories</span>
+                <span>Tất cả các phân loại</span>
               </Label>
               {categories.map((category) => (
                 <Label key={category} className="flex items-center space-x-2 cursor-pointer">
@@ -112,7 +112,7 @@ export function SearchFilters({
           <CollapsibleTrigger asChild>
             <Button variant="ghost" className="w-full p-0 h-auto">
               <div className="flex w-full justify-between items-center">
-                <span className="font-medium">Capacity</span>
+                <span className="font-medium">Thuộc tính</span>
                 {openSections.capacity ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </div>
             </Button>
@@ -121,7 +121,7 @@ export function SearchFilters({
             <div className="space-y-2">
               <Label className="flex items-center space-x-2 cursor-pointer">
                 <Checkbox checked={selectedCapacity === ""} onCheckedChange={() => onCapacityChange("")} />
-                <span>All Capacities</span>
+                <span>Tất cả các thuộc tính</span>
               </Label>
               {capacities.map((capacity) => (
                 <Label key={capacity} className="flex items-center space-x-2 cursor-pointer">
@@ -141,7 +141,7 @@ export function SearchFilters({
           <CollapsibleTrigger asChild>
             <Button variant="ghost" className="w-full p-0 h-auto">
               <div className="flex w-full justify-between items-center">
-                <span className="font-medium">Price Range</span>
+                <span className="font-medium">Giá</span>
                 {openSections.price ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
               </div>
             </Button>
@@ -168,7 +168,7 @@ export function SearchFilters({
         {activeFiltersCount > 0 && (
           <div className="pt-4 border-t">
             <p className="text-sm text-muted-foreground">
-              {activeFiltersCount} filter{activeFiltersCount > 1 ? "s" : ""} applied
+              {activeFiltersCount} bộ lọc được áp dụng
             </p>
           </div>
         )}
