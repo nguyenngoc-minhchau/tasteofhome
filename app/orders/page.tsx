@@ -148,9 +148,9 @@ export default function OrderHistoryPage() {
               Quay lại cửa hàng
             </Link>
             <div className="text-center">
-              <h1 className="text-2xl font-bold">Lịch sử đơn hàng</h1>
+              <h1 className="text-2xl font-bold text-center -translate-x-12">Lịch sử đơn hàng</h1>
               {user && (
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground text-center -translate-x-12">
                   Xin chào, {user.name || user.username}
                 </p>
               )}
@@ -305,7 +305,7 @@ export default function OrderHistoryPage() {
 
         {/* Bản quyền */}
         <div className="bg-black text-center text-white py-3 text-xs">
-          © 2025 TasteOfHome. All rights reserved.
+          © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
         </div>
       </footer>
     </div>

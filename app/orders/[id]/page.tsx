@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Link from "next/link"
@@ -149,7 +150,7 @@ export default function OrderDetailPage() {
               <ArrowLeft className="h-5 w-5" />
               Quay lại lịch sử đơn hàng
             </Link>
-            <h1 className="text-2xl font-bold">Chi tiết đơn hàng</h1>
+            <h1 className="text-2xl font-bold text-center -translate-x-20">Chi tiết đơn hàng</h1>
             <Badge className={getStatusStyle(order.status).color}>
               <StatusIcon status={order.status} />
               <span className="ml-2">{order.status}</span>
@@ -332,10 +333,11 @@ export default function OrderDetailPage() {
               <div className="space-y-4">
                 {order.items?.map((item: any, index: number) => (
                   <div key={index} className="flex gap-4 p-4 border rounded-lg">
-                    <img
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.name}
-                      className="w-20 h-20 object-cover rounded-md"
+                     <Image
+                      src={item.image?.startsWith("/") ? item.image : `/${item.image}`}
+                      alt={item.name}          
+                      width={80}
+                      height={80}
                     />
                     <div className="flex-1">
                       <h4 className="font-medium">{item.name}</h4>

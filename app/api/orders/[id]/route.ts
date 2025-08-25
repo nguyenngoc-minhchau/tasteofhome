@@ -57,10 +57,18 @@ export async function GET(
       where: { order_id: order.id }
     })
 
+    // Định nghĩa kiểu cho orderDetails item
+    type OrderDetail = {
+      product_id: number | bigint
+      quantity: number
+      price: number
+      // thêm các trường khác nếu cần
+    }
+
     // Lấy thông tin sản phẩm cho các item trong order
-    const productIds = orderDetails.map(item => item.product_id)
+    const productIds = orderDetails.map((item: OrderDetail) => item.product_id)
     const products = await prisma.product_pro.findMany({
-      where: { id: { in: productIds.map(id => BigInt(id)) } },
+      where: { id: { in: productIds.map((id: number | bigint) => BigInt(id)) } },
       select: {
         id: true,
         title: true,
@@ -68,8 +76,15 @@ export async function GET(
       }
     })
 
+    // Định nghĩa kiểu cho sản phẩm
+    type Product = {
+      id: number | bigint
+      title: string
+      image: string
+    }
+
     // Tạo map để tìm sản phẩm nhanh
-    const productMap = new Map(products.map(p => [Number(p.id), p]))
+    const productMap = new Map<number, Product>(products.map((p: Product) => [Number(p.id), p]))
 
     // Tạo timeline dựa trên status
     const getTimelineFromStatus = (status: string) => {
@@ -135,8 +150,8 @@ export async function GET(
         phone: order.phone,
         address: order.address
       },
-      items: orderDetails.map(item => {
-        const product = productMap.get(item.product_id)
+      items: orderDetails.map((item: OrderDetail) => {
+        const product = productMap.get(Number(item.product_id))
         return {
           id: item.product_id,
           name: product ? product.title : `Sản phẩm ${item.product_id}`,
