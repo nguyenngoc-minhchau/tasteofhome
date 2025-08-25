@@ -137,12 +137,19 @@ export default function HomePage() {
     return uniqueProducts.filter(product => product.isactive).slice(0, 3)
   }, [hotProducts, newProducts]);
 
-  // Kiểm tra ký tự đặc biệt
-  const hasSpecialChars = /[!@#]/.test(searchQuery)
+  // Kiểm tra ký tự ngoài chữ và số Unicode (bao gồm cả tiếng Việt)
+  // Chuỗi chỉ được gồm các ký tự chữ hoặc số, không được chứa ký tự đặc biệt, khoảng trắng, dấu câu...
+  // Regex Unicode chữ và số: \p{L} là chữ, \p{N} là số
+  // Cờ 'u' là Unicode, '^\p{L}\p{N}' là ký tự không phải chữ và số
+  const hasInvalidChars = (input: string) => {
+    // Nếu có kí tự khác chữ hoặc số thì trả về true
+    // Regex: tìm ký tự không phải chữ (bao gồm các chữ Unicode, ví dụ tiếng Việt) hoặc số
+    return /[^\p{L}\p{N}]/u.test(input)
+  }
 
   const filteredProducts = useMemo(() => {
-    if (hasSpecialChars) {
-      // Nếu có ký tự đặc biệt thì không trả về sản phẩm nào
+    if (hasInvalidChars(searchQuery)) {
+      // Nếu có ký tự đặc biệt không hợp lệ thì không trả về sản phẩm nào
       return []
     }
     const productsToFilter = products.filter((product) => {
@@ -439,16 +446,15 @@ export default function HomePage() {
               onChange={(e) => {
                 const val = e.target.value
                 setSearchQuery(val)
-                // Nếu phát hiện ký tự đặc biệt, hiện alert
-                if (/[!@#]/.test(val)) {
-                  alert("Không được nhập ký tự đặc biệt !, @, # trong tìm kiếm")
+                if (hasInvalidChars(val)) {
+                  alert("Không được nhập ký tự đặc biệt hoặc dấu cách trong tìm kiếm")
                 }
               }}
               className="pl-10 py-3 text-lg"
             />
-            {/* Hiển thị cảnh báo dưới input (tuỳ chọn) */}
-            {hasSpecialChars && (
-              <p className="text-red-500 mt-2 text-sm">Không được nhập ký tự đặc biệt !, @, # trong tìm kiếm</p>
+            {/* Hiển thị cảnh báo dưới input */}
+            {hasInvalidChars(searchQuery) && (
+              <p className="text-red-500 mt-2 text-sm">Không được nhập ký tự đặc biệt hoặc dấu cách trong tìm kiếm</p>
             )}
           </div>
         </div>
