@@ -58,11 +58,9 @@ export default function CartPage() {
   if (cartState.items.length === 0) {
     return (
       <div className="min-h-screen bg-background">
-        {/* Welcome bar */}
         <div className="bg-red-700 text-white text-sm text-center py-2">
-        Chào mừng đến Taste Of Home
+          Chào mừng đến Taste Of Home
         </div>
-        {/* Header */}
         <header className="border-b">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
@@ -76,7 +74,6 @@ export default function CartPage() {
           </div>
         </header>
 
-        {/* Empty Cart */}
         <div className="container mx-auto px-4 py-16">
           <div className="text-center max-w-md mx-auto">
             <ShoppingBag className="h-24 w-24 mx-auto text-muted-foreground mb-6" />
@@ -89,42 +86,35 @@ export default function CartPage() {
             </Link>
           </div>
         </div>
-        {/* Footer */}
+
         <footer className="bg-beige text-black mt-12">
-        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm place-items-center items-start">
-          {/* Logo & liên hệ */}
-          <div>
-            <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3" />
-            <p>Địa chỉ: 227 Nguyễn Văn Cừ, phường Chợ Quán, TP.HCM</p>
-            <p>Hotline: 0123 456 789</p>
-            <p>Email: support@tasteofhome.com</p>
+          <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm place-items-center items-start">
+            <div>
+              <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3" />
+              <p>Địa chỉ: 227 Nguyễn Văn Cừ, phường Chợ Quán, TP.HCM</p>
+              <p>Hotline: 0123 456 789</p>
+              <p>Email: support@tasteofhome.com</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Danh mục chính</h3>
+              <ul className="space-y-1">
+                <li>Rau củ quả</li>
+                <li>Thịt cá</li>
+                <li>Đặc sản vùng miền</li>
+                <li>Gia vị & Nước chấm</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Về chúng tôi</h3>
+              <p>
+                TasteOfHome mang hương vị quê hương đến từng bữa ăn của bạn. 
+                Cam kết sản phẩm sạch, chất lượng, an toàn và giao hàng tận nơi.
+              </p>
+            </div>
           </div>
-
-          {/* Danh mục chính */}
-          <div>
-            <h3 className="font-semibold mb-2">Danh mục chính</h3>
-            <ul className="space-y-1">
-              <li>Rau củ quả</li>
-              <li>Thịt cá</li>
-              <li>Đặc sản vùng miền</li>
-              <li>Gia vị & Nước chấm</li>
-            </ul>
+          <div className="bg-black text-center text-white py-3 text-xs">
+            © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
           </div>
-
-          {/* Giới thiệu ngắn */}
-          <div>
-            <h3 className="font-semibold mb-2">Về chúng tôi</h3>
-            <p>
-              TasteOfHome mang hương vị quê hương đến từng bữa ăn của bạn. 
-              Cam kết sản phẩm sạch, chất lượng, an toàn và giao hàng tận nơi.
-            </p>
-          </div>
-        </div>
-
-        {/* Bản quyền */}
-        <div className="bg-black text-center text-white py-3 text-xs">
-          © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
-        </div>
         </footer>
       </div>
     )
@@ -132,11 +122,10 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Welcome bar */}
-        <div className="bg-red-700 text-white text-sm text-center py-2">
+      <div className="bg-red-700 text-white text-sm text-center py-2">
         Chào mừng đến Taste Of Home
-        </div>
-      {/* Header */}
+      </div>
+
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -152,7 +141,6 @@ export default function CartPage() {
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-5 gap-8">
-          {/* Cart Items */}
           <div className="col-span-3 space-y-4">
             <h2 className="text-xl font-semibold mb-4">Sản phẩm trong giỏ hàng</h2>
 
@@ -197,7 +185,22 @@ export default function CartPage() {
                           >
                             <Minus className="h-3 w-3" />
                           </Button>
-                          <span className="w-12 text-center">{item.quantity}</span>
+
+                          <input
+                            type="number"
+                            min={1}
+                            max={item.stock}
+                            value={item.quantity}
+                            onChange={(e) => {
+                              let value = parseInt(e.target.value, 10)
+                              if (isNaN(value)) value = 1
+                              if (value < 1) value = 1
+                              if (value > item.stock) value = item.stock
+                              updateQuantity(item.id, value)
+                            }}
+                            className="w-12 text-center border rounded-md py-1"
+                          />
+
                           <Button
                             variant="outline"
                             size="icon"
@@ -223,7 +226,6 @@ export default function CartPage() {
             ))}
           </div>
 
-          {/* Order Summary */}
           <div className="col-span-2">
             <Card className="sticky top-4">
               <CardHeader>
@@ -300,18 +302,15 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-      {/* Footer */}
+
       <footer className="bg-beige text-black mt-12">
         <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm place-items-center items-start">
-          {/* Logo & liên hệ */}
           <div>
             <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3" />
             <p>Địa chỉ: 227 Nguyễn Văn Cừ, phường Chợ Quán, TP.HCM</p>
             <p>Hotline: 0123 456 789</p>
             <p>Email: support@tasteofhome.com</p>
           </div>
-
-          {/* Danh mục chính */}
           <div>
             <h3 className="font-semibold mb-2">Danh mục chính</h3>
             <ul className="space-y-1">
@@ -321,8 +320,6 @@ export default function CartPage() {
               <li>Gia vị & Nước chấm</li>
             </ul>
           </div>
-
-          {/* Giới thiệu ngắn */}
           <div>
             <h3 className="font-semibold mb-2">Về chúng tôi</h3>
             <p>
@@ -331,8 +328,6 @@ export default function CartPage() {
             </p>
           </div>
         </div>
-
-        {/* Bản quyền */}
         <div className="bg-black text-center text-white py-3 text-xs">
           © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
         </div>
