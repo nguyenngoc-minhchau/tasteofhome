@@ -123,14 +123,6 @@ export default function ProductDetailPage() {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-6">
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" /> Trở về trang chính
-            </Button>
-          </Link>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Ảnh sản phẩm */}
           <div className="aspect-square rounded-2xl overflow-hidden border bg-gray-100">
@@ -159,7 +151,7 @@ export default function ProductDetailPage() {
             )}
 
             <p className="text-muted-foreground mb-6">
-              Dung tích: {product.capacityTitle ? `${product.capacityTitle} ` : ""}{product.capacity ?? ""}
+              <span className="font-semibold">Dung tích:</span> {product.capacity ?? ""}
             </p>
 
             <Button

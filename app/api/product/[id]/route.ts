@@ -107,7 +107,6 @@ export async function GET(
       price: product.price,
       price_discount: product.price_discount,
       capacity: capacityTitle,
-      capacityTitle: capacityTitle,
       datepackage: datepackage?.title ?? null,
       category: category?.title ?? "Not defined",
       categorySlug: category?.re_name ?? "",
