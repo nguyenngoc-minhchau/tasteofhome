@@ -29,7 +29,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
         className="w-[350px] sm:w-[400px] p-6 flex flex-col max-h-screen overflow-y-auto"
       >
         <div className="flex justify-between items-center mb-4">
-          <SheetTitle className="text-lg font-semibold">Your Cart</SheetTitle>
+          <SheetTitle className="text-lg font-semibold">Giỏ Hàng Của Bạn</SheetTitle>
           {/* <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
             <X className="w-5 h-5" />
           </Button> */}
@@ -37,7 +37,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
 
         <div className="space-y-4">
           {cartState.items.length === 0 ? (
-            <p className="text-muted-foreground">Your cart is empty.</p>
+            <p className="text-muted-foreground">Giỏ hàng của bạn trống.</p>
           ) : (
             cartState.items.map((item) => (
               <div
@@ -62,7 +62,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
 
         <div className="mt-auto border-t pt-4">
           <div className="flex justify-between font-medium">
-            <span>Total:</span>
+            <span>Tổng:</span>
             <span>{cartState.total.toLocaleString("vi-VN")} VNĐ</span>
           </div>
           <Button
@@ -72,7 +72,7 @@ export function MiniCart({ openTrigger }: { openTrigger: any }) {
             router.push("/cart")
           }}
         >
-          Go to Cart
+          Xem Giỏ Hàng & Thanh Toán
         </Button>
         </div>
       </SheetContent>
