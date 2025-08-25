@@ -25,6 +25,7 @@ interface Product {
   re_name?: string
   category?: string
   capacity?: string
+  isactive: boolean
 }
 
 interface Category {
@@ -134,11 +135,12 @@ export default function HomePage() {
   const featuredProducts = useMemo(() => {
     const allHighlights = [...hotProducts, ...newProducts];
     const uniqueProducts = Array.from(new Map(allHighlights.map(item => [item.id, item])).values());
-    return uniqueProducts.slice(0, 3);
+    return uniqueProducts.filter(product => product.isactive).slice(0, 3)
   }, [hotProducts, newProducts]);
 
   const filteredProducts = useMemo(() => {
     const productsToFilter = products.filter((product) => {
+	  if (!product.isactive) return false   
       if (searchQuery && !product.title.toLowerCase().includes(searchQuery.toLowerCase())) return false
       if (selectedCategory && product.category !== selectedCategory) return false
       if (product.price < priceRange[0] || product.price > priceRange[1]) return false
@@ -172,55 +174,68 @@ export default function HomePage() {
     setPriceRange([minPrice, maxPrice])
   }
 
-  const renderProductCard = (product: Product, buttonWidth: string = "w-[140px]") => (
-    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-      <Link href={`/product/${product.id}`}>
-        <div className="aspect-square relative cursor-pointer">
-          <Image
-          src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
-          alt={product.title}
-          width={400}
-          height={400}
-          quality={100}
-          className="object-cover"
-          />
-        </div>
-      </Link>
-      <CardContent className="p-4">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-          <span>{product.category}</span>
-        </div>
-        <Link href={`/product/${product.id}`}>
-          <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
-            {product.title}
-          </h4>
-        </Link>
-        <div className="flex items-center justify-between">
-          <span className="text-lg font-bold">{formatPrice(product.price)}</span>
-          <Button
-            size="sm"
-            onClick={() => handleAddToCart(product)}
-            className = "w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
-            disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}
-          >
-            {loadingProductIds.includes(product.id) ? (
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
-            ) : addedProductIds.includes(product.id) ? (
-              <>
-                <CheckCircle className="h-4 w-4 mr-1" />
-                Đã thêm
-              </>
-            ) : (
-              <>
-                <ShoppingCart className="h-6 w-6" />
-                Thêm vào giỏ
-              </>
-            )}
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
-  )
+	const renderProductCard = (product: Product) => {
+	  const cartItem = cartState.items.find(item => item.id === product.id)
+
+	  return (
+		<Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+		  <Link href={`/product/${product.id}`}>
+			<div className="aspect-square relative cursor-pointer">
+			  <Image
+				src={product.image ? (product.image.startsWith("/") ? product.image : `/${product.image}`) : "/placeholder.svg"}
+				alt={product.title}
+				width={400}
+				height={400}
+				quality={100}
+				className="object-cover"
+			  />
+			</div>
+		  </Link>
+		  <CardContent className="p-4">
+			<div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+			  <span>{product.category}</span>
+			</div>
+			<Link href={`/product/${product.id}`}>
+			  <h4 className="font-semibold mb-2 line-clamp-2 hover:text-primary cursor-pointer">
+				{product.title}
+			  </h4>
+			</Link>
+			<div className="flex items-center justify-between">
+			  <span className="text-lg font-bold">{formatPrice(product.price)}</span>
+
+			  {cartItem ? (
+				<div className="flex items-center gap-2">
+				  <Button
+					size="sm"
+					onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity - 1 } })}
+					disabled={cartItem.quantity <= 1}
+				  >
+					-
+				  </Button>
+				  <span>{cartItem.quantity}</span>
+				  <Button
+					size="sm"
+					onClick={() => cartDispatch({ type: "UPDATE_QUANTITY", payload: { id: product.id, quantity: cartItem.quantity + 1 } })}
+					disabled={cartItem.quantity >= 50} // stock limit
+				  >
+					+
+				  </Button>
+				</div>
+			  ) : (
+				<Button
+				  size="sm"
+				  onClick={() => handleAddToCart(product)}
+				  className="w-[120px] justify-center bg-orange text-black hover:bg-orange/80"
+				>
+				  <ShoppingCart className="h-6 w-6" />
+				  Thêm vào giỏ
+				</Button>
+			  )}
+			</div>
+		  </CardContent>
+		</Card>
+	  )
+	}
 
   const handleAddToCart = (product: Product) => {
     if (loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)) return
