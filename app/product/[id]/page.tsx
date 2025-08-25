@@ -105,6 +105,23 @@ export default function ProductDetailPage() {
 
   return (
     <>
+      {/* Welcome Bar */}
+      <div className="bg-red-700 text-white text-center py-2 text-sm">
+        Chào mừng đến Taste of Home
+      </div>
+
+      {/* Header */}
+      <header className="bg-beige text-black">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 font-semibold hover:opacity-80">
+            <ArrowLeft className="h-5 w-5" />
+            Quay lại cửa hàng
+          </Link>
+          <h1 className="text-xl font-bold">Chi tiết sản phẩm</h1>
+          <div className="w-24"></div>
+        </div>
+      </header>
+
       <div className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <Link href="/">
@@ -146,7 +163,7 @@ export default function ProductDetailPage() {
             </p>
 
             <Button
-              className="w-full justify-center"
+              className="w-full bg-orange justify-center text-black hover:bg-orange/80"
               onClick={() => handleAddToCart(product)}
               disabled={loadingProductIds.includes(product.id) || addedProductIds.includes(product.id)}
             >
@@ -246,6 +263,43 @@ export default function ProductDetailPage() {
           </div>
         </div>
       )}
+      {/* Footer */}
+      <footer className="bg-beige text-black mt-12">
+        <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-center md:text-left">
+          {/* Logo & liên hệ */}
+          <div>
+            <img src="/logo.png" alt="TasteOfHome Logo" className="h-12 mb-3 mx-auto md:mx-0" />
+            <p>Địa chỉ: 227 Nguyễn Văn Cừ, phường Chợ Quán, TP.HCM</p>
+            <p>Hotline: 0123 456 789</p>
+            <p>Email: support@tasteofhome.com</p>
+          </div>
+
+          {/* Danh mục chính */}
+          <div>
+            <h3 className="font-semibold mb-2">Danh mục chính</h3>
+            <ul className="space-y-1">
+              <li>Rau củ quả</li>
+              <li>Thịt cá</li>
+              <li>Đặc sản vùng miền</li>
+              <li>Gia vị & Nước chấm</li>
+            </ul>
+          </div>
+
+          {/* Giới thiệu ngắn */}
+          <div>
+            <h3 className="font-semibold mb-2">Về chúng tôi</h3>
+            <p>
+              TasteOfHome mang hương vị quê hương đến từng bữa ăn của bạn. 
+              Cam kết sản phẩm sạch, chất lượng, an toàn và giao hàng tận nơi.
+            </p>
+          </div>
+        </div>
+
+        {/* Bản quyền */}
+        <div className="bg-black text-center text-white py-3 text-xs">
+          © 2025 TasteOfHome. Bản quyền thuộc về nhóm 08.
+        </div>
+      </footer>
     </>
   )
 }
